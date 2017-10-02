@@ -5,21 +5,23 @@ from XmlModule import ConfigModule
 
 class Controller:
     print_reader = None
+    xml_files = None
     xml_reader = None
     view = None
 
     def __init__(self):
         self.view = "view"
+        self.xml_reader = ConfigModule()
+        self.xml_files = self.xml_reader.get_dit_from_files()
 
     def check_text(self):
         # from View
         file_name = filedialog.askopenfile("r")
         text = file_name.read()
-        xml_keys = {"rxbsp": ["MO", "OPCOND", "OPCONDMAP", "OMLSTAT", "RSLSTAT"]}
 
         self.xml_reader = ConfigModule()
 
-        self.print_reader = PrintReader(text, xml_keys)
+        self.print_reader = PrintReader(text, self.xml_files)
         for subject in self.print_reader.subjects:
             self.subject_check(subject)
 
