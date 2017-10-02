@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rxmsp>
+<HEDER>RADIO X-CEIVER ADMINISTRATION</HEDER>
+<ALL_KEYS>MO,OPCOND,OPCONDMAPO,MLSTAT,RSLSTAT</ALL_KEYS>
+<ACTIVE_KEYS> 
+	<BLO>
+		<AP>Object blocked from own supervision permanently.(0000000000000001)</AP>
+		<AT>Object blocked from own supervision temporarily.(0000000000000010)</AT>
+		<AS>Object blocked due to fault suspected.(0000000000000100)</AT>
+		<TG>Object blocked from TG.(0000000000001000)</TG>
+		<TRXC>Object blocked from Transceiver Controller (TRXC).(0000000000010000)</TRXC>
+		<X>Spare.(0000000000100000)</X>
+		<OML>Object blocked from Operations and Maintenance Link (OML).(0000000001000000)</OML>
+		<X>Spare.(0000000010000000)</X>
+		<LMT>Object blocked due to local maintenance activities.(0000000100000000)</LMT>
+		<CF>Object blocked from Central Functions (CF) or Sector Central Functions (SCF).(0000001000000000)</CF>
+		<LOM>Object blocked due to local mode.(0000010000000000)</LOM>
+		<LOOP>Object blocked due to loop test failure.(0000010000000000)</LOOP>
+		<TMODE>CF blocked due to transmission mode incompatibility.(0001000000000000)</TMODE>
+		<PSV>Object blocked due to power savings.(0010000000000000)</PSV>
+		<X>Spare.(0100000000000000)</X>
+		<AIR>Object block from Antenna Integrated Radio (AIR).(1000000000000000)</AIR>
+	</BLO>
+	<BLA>
+		<BNU>Object needs reset and unconditional load or reset and loading are in progress.(0000000001)</BNU>
+		<BNR>Object needs reset and load check or the reset and loading are in progress.(0000000010)</BNR>
+		<BNL>Object needs load check or loading in progress.(0000000100)</BNL>
+		<BNP>Object needs polling or polling in progress.(0000001000)</BNP>
+		<BNT>Object needs testing or testing in progress.(0000010000)</BNT>
+		<BNI>Object needs intermittent test or intermittent test in progress.(0000100000)</BNI>
+		<BNE>Object needs reset or reset in progress.(0001000000)</BNE>
+		<BNS>Object needs to be started.(0010000000)</BNS>
+		<BNM>Object needs to be manually unblocked due to request from the Base Transceiver Station (BTS).(0100000000)</BNM>
+		<BNO>Object needs loop test or loop test in progress.(1000000000)</BNO>
+	</BLA>
+	<LMO_LTS>
+		<X>Spare.(0000000000000001)</X>
+		<X>Spare.(0000000000000010)</X>
+		<X>Spare.(0000000000000100)</X>
+		<X>Spare.(0000000000001000)</X>
+		<X>Spare.(0000000000010000)</X>
+		<CRN>LTS blocked due to creation in progress(0000000000100000)</CRN>
+		<ENA>LTS blocked due to not enabled(0000000001000000)</ENA>
+		<X>Spare.(0000000010000000)</X>
+		<MO>LTS blocked from TS.(0000000100000000)</MO>
+		<LTF>LTS blocked from Logical TF (LTF)(0000001000000000)</LTF>
+		<RSL>LTS blocked from Radio Signaling Link (RSL)(0000010000000000)</RSL>
+		<DEV>LTS blocked from speech or data device(0000010000000000)</DEV>
+		<X>Spare.(0001000000000000)</X>
+		<SYNCB>LTS blocked due to synchronization fault in BTS in speech or data connection(0010000000000000)</SYNCB>
+		<LMCTR>LTS blocked from Logical MCTR (LMCTR)(0100000000000000)</LMCTR>
+		<CHG>Blocked due to change(1000000000000000)</CHG>
+	</LMO_LTS>
+	<LMO_LTF>
+		<X>Spare.(0000000000000001)</X>
+		<X>Spare.(0000000000000010)</X>
+		<X>Spare.(0000000000000100)</X>
+		<X>Spare.(0000000000001000)</X>
+		<X>Spare.(0000000000010000)</X>
+		<CRN>LTF blocked due to creation in progress.(0000000000100000)</CRN>
+		<ENA>LTF blocked due to not enabled.(0000000001000000)</ENA>
+		<X>Spare.(0000000010000000)</X>
+		<MO>LTF blocked from TF.(0000000100000000)</MO>
+		<X>Spare.(0000001000000000)</X>
+		<X>Spare.(0000010000000000)</X>
+		<X>Spare.(0000010000000000)</X>
+		<X>Spare.(0001000000000000)</X>
+		<X>Spare.(0010000000000000)</X>
+		<X>Spare.(0100000000000000)</X>
+		<CHG>Blocked due to change(1000000000000000)</CHG>
+	</LMO_LTF>
+	<LMO_LRX>
+		<X>Spare.(0000000000000001)</X>
+		<X>Spare.(0000000000000010)</X>
+		<X>Spare.(0000000000000100)</X>
+		<X>Spare.(0000000000001000)</X>
+		<X>Spare.(0000000000010000)</X>
+		<CRN>LRX blocked due to creation in progress.(0000000000100000)</CRN>
+		<ENA>LRX blocked due to not enabled.(0000000001000000)</ENA>
+		<X>Spare.(0000000010000000)</X>
+		<MO>LRX blocked from RX.(0000000100000000)</MO>
+		<LTF>LRX blocked from LTF(0000001000000000)</LTF>
+		<X>Spare.(0000010000000000)</X>
+		<X>Spare.(0000010000000000)</X>
+		<X>Spare.(0001000000000000)</X>
+		<X>Spare.(0010000000000000)</X>
+		<LMCTR>LRX blocked from LMCTR(0100000000000000)</LMCTR>
+		<CHG>Blocked due to change(1000000000000000)</CHG>
+	</LMO_LRX>
+	<LMO_LTX>
+		<X>Spare.(0000000000000001)</X>
+		<X>Spare.(0000000000000010)</X>
+		<X>Spare.(0000000000000100)</X>
+		<X>Spare.(0000000000001000)</X>
+		<X>Spare.(0000000000010000)</X>
+		<CRN>LTX blocked due to creation in progress(0000000000100000)</CRN>
+		<ENA>LTX blocked due to not enabled(0000000001000000)</ENA>
+		<X>Spare.(0000000010000000)</X>
+		<MO>LTX blocked from TX.(0000000100000000)</MO>
+		<LTF>LTX blocked from LTF(0000001000000000)</LTF>
+		<X>Spare.(0000010000000000)</X>
+		<X>Spare.(0000010000000000)</X>
+		<X>Spare.(0001000000000000)</X>
+		<X>Spare.(0010000000000000)</X>
+		<LMCTR>LTX blocked from LMCTR(0100000000000000)</LMCTR>
+		<CHG>Blocked due to change(1000000000000000)</CHG>
+	</LMO_LTX>
+	<LMO_LMCTR>
+		<X>Spare.(0000000000000001)</X>
+		<X>Spare.(0000000000000010)</X>
+		<X>Spare.(0000000000000100)</X>
+		<X>Spare.(0000000000001000)</X>
+		<X>Spare.(0000000000010000)</X>
+		<CRN>LMCTR blocked due to creation in progress.(0000000000100000)</CRN>
+		<ENA>LMCTR blocked due to not enabled.(0000000001000000)</ENA>
+		<X>Spare.(0000000010000000)</X>
+		<MO>LMCTR blocked from MCTR.(0000000100000000)</MO>
+		<X>Spare.(0000001000000000)</X>
+		<X>Spare.(0000010000000000)</X>
+		<X>Spare.(0000010000000000)</X>
+		<X>Spare.(0001000000000000)</X>
+		<X>Spare.(0010000000000000)</X>
+		<X>Spare.(0100000000000000)</X>
+		<CHG>Blocked due to change(1000000000000000)</CHG>
+	</LMO_LMCTR>
+</ACTIVE_KEYS>
+<PRINT_KEYS>MO,BLO,BLA,LMO</PRINT_KEYS>
+</rxmsp>
