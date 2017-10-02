@@ -1,9 +1,22 @@
+class KeysObject:
+    name = None
+    value = None
+    text_of_bit = None
+
+    def __init__(self, name=None, text_of_bit=None, value=None):
+        self.name = name
+        self.value = value
+        self.text_of_bit = text_of_bit
+
+
 class ConfigModule(object):
     from re import search
+
     list_of_keys = []
     ist_of_active_keys = []
     header = ''
     list_of_keys_to_print = []
+    dict_bits = {}
 
     # check all files in config directory and return dictionary of keys
     def get_dict_from_files(self):
@@ -30,11 +43,20 @@ class ConfigModule(object):
     def get_dict_with_properties(self, true_config):
         import xml.etree.cElementTree as ET
         dict_type_of_keys = {}
+
         tree = ET.ElementTree(file="config\\" + true_config)
 
         for item in tree.iterfind('.ACTIVE_KEYS/'):
             dict_type_of_keys[item.tag] = (item.attrib).get("type")
+            for bits in item:
+                bit_object = KeysObject(bits.tag, bits.text)
+                # bit_object.name = bits.tag
+                # bit_object.value = bits.text
+                self.dict_bits[item.tag] = bit_object
+
         return dict_type_of_keys
 
-
-
+# object1 = ConfigModule()
+# print(object1.get_dict_from_files())
+# print(object1.get_dict_with_properties('rxcap.xml'))
+# print(object1.dict_bits)
