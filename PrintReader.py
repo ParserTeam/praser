@@ -15,9 +15,9 @@ class PrintReader:
                 self.subjects += [subject]
 
     def get_subject(self, line, configuration_keys):
-        for subject_name, subject_keys in configuration_keys.items():
-            if self._all_keys_in_line(line, subject_keys):
-                return Subject(subject_name, line)
+        for subject_name, subject_values in configuration_keys.items():
+            if self._all_keys_in_line(line, subject_values[0]):
+                return Subject(subject_name, subject_values[1], line)
         return None
 
     @staticmethod
@@ -29,12 +29,16 @@ class PrintReader:
 
 
 class Subject:
+    file_name = None
     name = None
     text = None
+    table = None
 
-    def __init__(self, name, text):
-        self.name = name
+    def __init__(self, file_name, name_key, text):
+        self.file_name = file_name
         self.text = text
+        self.table = Table(self.text)
+        self.name = self.table.get_string_by_column_name(name_key, 0)
 
     def has_key(self, key):
         return key in self.text
@@ -45,21 +49,20 @@ class Subject:
                 return False
 
     def get_subject_in_table(self):
-        return Table(self.name, self.text)
+        return self.table
 
     def __str__(self):
         return "Name:\n" + self.name + "\nSubject:\n" + self.text
 
 
 class Table:
-    name = None
     header_row = []
-    header_index = []
+    header_index = None
     table = [[]]
 
-    def __init__(self, name, text):
+    def __init__(self, text):
         lines = split("\n+", text)
-        self.name = name
+        self.header_index = []
         self.header_row = self._make_header(lines[0], self.header_index)
         self.table = self._make_table(lines[1:], self.header_index)
 
@@ -111,5 +114,9 @@ class Table:
             return row[column_num]
         if read_as.isdigit():
             return int(row[column_num] or "0", int(read_as))
+
+    def get_string_by_column_name(self, name, row_num):
+        column_num = self.header_row.index(name)
+        return self._get_value_from(self.table[row_num], column_num, "str")
 
 

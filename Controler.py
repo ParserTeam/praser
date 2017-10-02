@@ -12,7 +12,7 @@ class Controller:
     def __init__(self):
         self.view = "view"
         self.xml_reader = ConfigModule()
-        self.xml_files = self.xml_reader.get_dit_from_files()
+        self.xml_files = self.xml_reader.get_dict_from_files()
 
     def check_text(self):
         # from View
@@ -20,23 +20,22 @@ class Controller:
         text = file_name.read()
 
         self.xml_reader = ConfigModule()
-
         self.print_reader = PrintReader(text, self.xml_files)
-        print(self.print_reader)
-        #for subject in self.print_reader.subjects:
-        #   self.subject_check(subject)
+        for subject in self.print_reader.subjects:
+            self.subject_check(subject)
 
     def no_subjects(self):
-        return len(self.print_reader.subjects) != 0
+        return len(self.print_reader.subjects) == 0
 
     def subject_check(self, subject):
         table = None
 
         # get active keys for subject.name
-        xml_active_keys = {"OPCONDMAP": "16"}
+        xml_active_keys = self.xml_reader.get_dict_with_properties(subject.file_name)
         table = subject.get_subject_in_table()
+        print(subject.file_name + ": " + subject.name)
         for row in table.table:
-            table.get_values_from_row(row, xml_active_keys)
+            print(table.get_values_from_row(row, xml_active_keys))
 
 
 controller = Controller()
