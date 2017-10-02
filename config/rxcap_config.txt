@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rxcap>
 <HEDER>RADIO X-CEIVER ADMINISTRATION BTS STATUS DATA</HEDER>
-<ALL_KEYS>MO,CASCADABLE,OMLF1,OMLF2,RSLF1,RSLF2,FTXADDR</ALL_KEYS>
-<ACTIVE_KEYS> 
+<ACTIVE_KEYS>
 	<OMLF1>
 		<F1>TRXC function change not supported by the BTS.</F1>
 		<F2>Automatic ciphering capability not supported by the BTS.</F2>

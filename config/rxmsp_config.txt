@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rxmsp>
 <HEDER>RADIO X-CEIVER ADMINISTRATION</HEDER>
-<ALL_KEYS>MO,OPCOND,OPCONDMAPO,MLSTAT,RSLSTAT</ALL_KEYS>
-<ACTIVE_KEYS> 
+<ACTIVE_KEYS>
 	<BLO>
 		<AP>Object blocked from own supervision permanently.(0000000000000001)</AP>
 		<AT>Object blocked from own supervision temporarily.(0000000000000010)</AT>
