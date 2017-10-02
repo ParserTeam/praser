@@ -3,7 +3,7 @@
 <HEDER>RADIO X-CEIVER ADMINISTRATION BTS STATUS DATA</HEDER>
 <KEYS>OMLF1 OMLF2 RSLF1 RSLF2</KEYS>
 <ACTIVE_KEYS>
-	<OMLF1>
+	<OMLF1 type="16">
 		<F1>TRXC function change not supported by the BTS.</F1>
 		<F2>Automatic ciphering capability not supported by the BTS.</F2>
 		<F3>IRC not supported by the BTS.</F3>
@@ -36,10 +36,10 @@
 		<F30>Extended Coverage not supported by the BTS.</F30>
 		<F31>Synchronization Observability not supported by the BTS.</F31>
 	</OMLF1>
-	<OMLF2>
+	<OMLF2 type="16">
 		<F1>Frequency measurements not supported by the BTS.</F1>
 	</OMLF2>
-	<RSLF1>
+	<RSLF1 type="16">
 		<F1>Channel Needed not supported.</F1>
 		<F2>BCCH information phase 2 not supported, Layer 3 (L3) information must be included in Slow Associated Control Channel (SACCH) filling, and immediate assign phase 2 not supported.</F2>
 		<F3>Extended range not supported by the BTS.</F3>
@@ -76,7 +76,7 @@
 		<F35>Extended Coverage not supported by the BTS.</F35>
 		<F36>Extended DRX not supported by the BTS.</F36>
 	</RSLF1>
-	<RSLF2>None</RSLF2>
+	<RSLF2 type="16">None</RSLF2>
 </ACTIVE_KEYS>
 <PRINT_KEYS>MO,OMLF1,OMLF2,RSLF1,RSLF2</PRINT_KEYS>
 </rxcap>

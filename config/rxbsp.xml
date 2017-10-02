@@ -3,7 +3,7 @@
 <HEDER>RADIO X-CEIVER ADMINISTRATION BTS STATUS DATA</HEDER>
 <KEYS>OPCONDMAP</KEYS>
 <ACTIVE_KEYS>
-	<OPCONDMAP>
+	<OPCONDMAP type="16">
 		<F1>MO is degraded or not operational due to internal TRXC fault.</F1>
 		<F2>MO is degraded or not operational due to SW upgrade.</F2>
 		<F3>MO is degraded or not operational due to synchronization problems.</F3>
