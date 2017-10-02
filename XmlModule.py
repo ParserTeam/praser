@@ -1,4 +1,3 @@
-
 class ConfigModule(object):
     import os
     import xml.etree.cElementTree as ET
@@ -10,13 +9,13 @@ class ConfigModule(object):
     list_of_active_keys = []
     header = ''
     list_of_keys_to_print = []
-    #open print_out
+    # open print_out
     file = open("rxbsp.txt", "r")
     print_out = file.read()
     print(print_out)
     file.close()
 
-    #find true config file
+    # find true config file
     for i in list_of_files:
         try:
             i = i.replace("[", "").replace("]", "").replace("'", "")
@@ -30,7 +29,7 @@ class ConfigModule(object):
             check = search(regular, print_out)
             try:
                 if type(check.group()) != "NoneType":
-                       true_config = i
+                    true_config = i
             except AttributeError:
                 print("File with config not found")
 
@@ -40,5 +39,14 @@ class ConfigModule(object):
     print(true_config)
 
     # get list of keys from config file
-    def work_with_xml(self, true_config):
-        pass
+    def work_with_xml(self):
+        import xml.etree.cElementTree as ET
+        tree = ET.ElementTree(file="config\\" + self)
+        print(tree)
+        for item in tree.iterfind('.ACTIVE_KEYS//'):
+            #print('Find: %s' % item.tag)
+            #print(item.items)
+            print(item.tag)
+            print(item.text)
+
+    work_with_xml(true_config)
