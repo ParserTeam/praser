@@ -110,6 +110,6 @@ class Table:
         if read_as == "str":
             return row[column_num]
         if read_as.isdigit():
-            return int(row[column_num] or "0", 16)
+            return int(row[column_num] or "0", int(read_as))
 
 
