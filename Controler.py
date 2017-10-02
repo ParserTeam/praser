@@ -1,5 +1,6 @@
 from tkinter import filedialog
 from PrintReader import PrintReader
+from XmlModule import ConfigModule
 
 
 class Controller:
@@ -15,6 +16,8 @@ class Controller:
         file_name = filedialog.askopenfile("r")
         text = file_name.read()
         xml_keys = {"rxbsp": ["MO", "OPCOND", "OPCONDMAP", "OMLSTAT", "RSLSTAT"]}
+
+        self.xml_reader = ConfigModule()
 
         self.print_reader = PrintReader(text, xml_keys)
         for subject in self.print_reader.subjects:
