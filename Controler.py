@@ -31,7 +31,9 @@ class Controller:
         table = None
 
         # get active keys for subject.name
-        xml_active_keys = self.xml_reader.get_dict_with_properties(subject.file_name)
+        # xml_active_keys = self.xml_reader.get_dict_with_properties(subject.file_name)
+        xml_active_keys = {'OMLF1': {'type': '16', 'size_h': '2'}, 'OMLF2': '16', 'RSLF1': {'type': '16', 'size_h': '3'}, 'RSLF2': '16'}
+        print(xml_active_keys)
         table = subject.get_subject_in_table()
         print(subject.file_name + ": " + subject.name)
         for row in table.table:

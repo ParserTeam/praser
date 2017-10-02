@@ -4,7 +4,7 @@
 <KEYS>OMLF1 OMLF2 RSLF1 RSLF2</KEYS>
 <NAME_KEY>MO</NAME_KEY>
 <ACTIVE_KEYS>
-	<OMLF1 type="16">
+	<OMLF1 type="16" size_h="4">
 		<F1>TRXC function change not supported by the BTS.</F1>
 		<F2>Automatic ciphering capability not supported by the BTS.</F2>
 		<F3>IRC not supported by the BTS.</F3>
