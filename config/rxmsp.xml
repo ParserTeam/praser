@@ -5,7 +5,7 @@
 	<BLO>
 		<AP>Object blocked from own supervision permanently.(0000000000000001)</AP>
 		<AT>Object blocked from own supervision temporarily.(0000000000000010)</AT>
-		<AS>Object blocked due to fault suspected.(0000000000000100)</AT>
+		<AS>Object blocked due to fault suspected.(0000000000000100)</AS>
 		<TG>Object blocked from TG.(0000000000001000)</TG>
 		<TRXC>Object blocked from Transceiver Controller (TRXC).(0000000000010000)</TRXC>
 		<X>Spare.(0000000000100000)</X>
