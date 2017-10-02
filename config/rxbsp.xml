@@ -1,8 +1,7 @@
-
-<Head>
+<?xml version="1.0" encoding="UTF-8"?>
+<rxbsp>
 <HEDER>RADIO X-CEIVER ADMINISTRATION BTS STATUS DATA</HEDER>
-<ALL_KEYS>MO OPCOND OPCONDMAP OMLSTAT RSLSTAT</ALL_KEYS>
-<ACTIVE_KEYS> 
+<ACTIVE_KEYS>
 	<OPCONDMAP>
 		<F1>MO is degraded or not operational due to internal TRXC fault.</F1>
 		<F2>MO is degraded or not operational due to SW upgrade.</F2>
@@ -15,8 +14,8 @@
 		<F9>MO is degraded or not operational due to TX maximum power deviation.</F9>
 	</OPCONDMAP>
 </ACTIVE_KEYS>
-<PRINT_KEYS>MO OPCONDMAP</PRINT_KEYS>
-</Head>
+<PRINT_KEYS>MO,OPCONDMAP</PRINT_KEYS>
+</rxbsp>
 
 
 
