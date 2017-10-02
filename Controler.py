@@ -22,8 +22,9 @@ class Controller:
         self.xml_reader = ConfigModule()
 
         self.print_reader = PrintReader(text, self.xml_files)
-        for subject in self.print_reader.subjects:
-            self.subject_check(subject)
+        print(self.print_reader)
+        #for subject in self.print_reader.subjects:
+        #   self.subject_check(subject)
 
     def no_subjects(self):
         return len(self.print_reader.subjects) != 0
@@ -32,7 +33,7 @@ class Controller:
         table = None
 
         # get active keys for subject.name
-        xml_active_keys = [{"OPCONDMAP": "16"}]
+        xml_active_keys = {"OPCONDMAP": "16"}
         table = subject.get_subject_in_table()
         for row in table.table:
             table.get_values_from_row(row, xml_active_keys)
