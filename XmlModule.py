@@ -12,8 +12,6 @@ class KeysObject:
 
 
 class ConfigModule(object):
-    from re import search
-
     list_of_keys = []
     ist_of_active_keys = []
     header = ''
@@ -53,7 +51,6 @@ class ConfigModule(object):
         for item in tree.iterfind('.ACTIVE_KEYS/'):
             dict_type_of_keys[item.tag] = (item.attrib).get("type")
             for bits in item:
-                #print(bits.tag)
                 bit_object = KeysObject()
                 bit_object.name = bits.tag
                 bit_object.text_of_bit = bits.text
