@@ -63,8 +63,8 @@ class ConfigModule(object):
         return self.dict_bits
 
 
-object1 = ConfigModule()
-print(object1.get_dict_from_files())
+#object1 = ConfigModule()
+#print(object1.get_dict_from_files())
 # print(object1.get_dict_with_properties('rxcap.xml'))
-print(object1.get_name_key_mo('rxcap.xml'))
+#print(object1.get_name_key_mo('rxcap.xml'))
 
