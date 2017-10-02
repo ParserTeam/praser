@@ -25,15 +25,16 @@ class ConfigModule(object):
                 dict_of_keys = {}
                 return dict_of_keys
         return dict_of_keys
-#function that return keys with their types
+
+    # function that return keys with their types
     def get_dict_with_properties(self, true_config):
         import xml.etree.cElementTree as ET
         dict_type_of_keys = {}
         tree = ET.ElementTree(file="config\\" + true_config)
+
         for item in tree.iterfind('.ACTIVE_KEYS/'):
             dict_type_of_keys[item.tag] = (item.attrib).get("type")
-            print(item.attrib)
-            print(item.tag)
         return dict_type_of_keys
+
 
 
