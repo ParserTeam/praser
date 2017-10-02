@@ -18,13 +18,19 @@ class ConfigModule(object):
     def get_dit_from_files(self):
         from os import listdir
         import xml.etree.cElementTree as ET
+        dict_of_keys = {}
         list_of_files = listdir("config")
         for i in list_of_files:
             try:
                 i = i.replace("[", "").replace("]", "").replace("'", "")
+                print(i)
                 tree = ET.ElementTree(file="config\\" + i)
-                list_of_keys = str(tree.findtext('ACTIVE_KEYS')).split(' ')
-                dict_of_keys = {i: list_of_keys}
+                list_of_keys = str(tree.findtext('KEYS')).split(' ')
+                dict_of_keys[i] = list_of_keys
+                #dict_of_keys = {}
+
+                #dict_of_keys = dict_of_keys + dict_of_keys2
+               # print(dict_of_keys)
 
             except FileNotFoundError:
                 print("File with config not found")
@@ -39,3 +45,7 @@ class ConfigModule(object):
             # print(item.items)
             print(item.tag)
             print(item.text)
+
+
+object1 = ConfigModule()
+print(object1.get_dit_from_files())

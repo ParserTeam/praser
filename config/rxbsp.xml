@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rxbsp>
 <HEDER>RADIO X-CEIVER ADMINISTRATION BTS STATUS DATA</HEDER>
+<KEYS>OPCONDMAP</KEYS>
 <ACTIVE_KEYS>
 	<OPCONDMAP>
 		<F1>MO is degraded or not operational due to internal TRXC fault.</F1>
