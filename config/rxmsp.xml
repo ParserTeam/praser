@@ -2,6 +2,7 @@
 <rxmsp>
 <HEDER>RADIO X-CEIVER ADMINISTRATION</HEDER>
 <KEYS>BLO BLA LMO</KEYS>
+<NAME_KEY>MO</NAME_KEY>
 <ACTIVE_KEYS>
 	<BLO type="16">
 		<AP>Object blocked from own supervision permanently.(0000000000000001)</AP>
