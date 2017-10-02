@@ -24,7 +24,7 @@ class Controller:
             self.subject_check(subject)
 
     def no_subjects(self):
-        return self.print_reader.subjects != 0
+        return len(self.print_reader.subjects) != 0
 
     def subject_check(self, subject):
         table = None
@@ -38,9 +38,10 @@ class Controller:
 
 controller = Controller()
 
-
+# on button click
+controller.check_text()
 if controller.no_subjects():
     print("Can't find eny subject to read")
     exit(0)
-
+# end on button click
 
