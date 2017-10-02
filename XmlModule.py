@@ -7,6 +7,8 @@ class KeysObject:
         self.name = name
         self.value = value
         self.text_of_bit = text_of_bit
+    def __str__(self):
+        return (str(self.name)+" "+str(self.value)+" "+str(self.text_of_bit))
 
 
 class ConfigModule(object):
@@ -37,7 +39,6 @@ class ConfigModule(object):
 
                 dict_of_keys[i] = (list_of_keys, name_key_mo)
 
-
             except FileNotFoundError:
                 return {}
         return dict_of_keys
@@ -52,19 +53,31 @@ class ConfigModule(object):
         for item in tree.iterfind('.ACTIVE_KEYS/'):
             dict_type_of_keys[item.tag] = (item.attrib).get("type")
             for bits in item:
-                bit_object = KeysObject(bits.tag, bits.text)
-                # bit_object.name = bits.tag
-                # bit_object.value = bits.text
-                self.dict_bits[item.tag] = bit_object
+                #print(bits.tag)
+                bit_object = KeysObject()
+                bit_object.name = bits.tag
+                bit_object.text_of_bit = bits.text
+                bit_object.value = bits.attrib.get("value")
+
+                if item.tag in self.dict_bits:
+                    self.dict_bits[item.tag] += [bit_object]
+                else:
+                    self.dict_bits[item.tag] = [bit_object]
 
         return dict_type_of_keys
 
-    def get_bits_valye(self):
+    def get_bits_value(self):
         return self.dict_bits
-
 
 #object1 = ConfigModule()
 #print(object1.get_dict_from_files())
-# print(object1.get_dict_with_properties('rxcap.xml'))
+#print(object1.get_dict_with_properties('rxbsp.xml'))
 #print(object1.get_name_key_mo('rxcap.xml'))
-
+#print(object1.get_bits_value())
+#test_dict = object1.get_bits_value()
+#for key, value in test_dict.items():
+#   print(key)
+#   for el in value:
+#      print(el)
+#for i in test_dict.values():
+#    print(i)

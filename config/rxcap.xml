@@ -77,7 +77,9 @@
 		<F35>Extended Coverage not supported by the BTS.</F35>
 		<F36>Extended DRX not supported by the BTS.</F36>
 	</RSLF1>
-	<RSLF2 type="16">None</RSLF2>
+	<RSLF2 type="16">
+		<F1>This bitmap is currently unused.</F1>
+	</RSLF2>
 </ACTIVE_KEYS>
 <PRINT_KEYS>MO,OMLF1,OMLF2,RSLF1,RSLF2</PRINT_KEYS>
 </rxcap>

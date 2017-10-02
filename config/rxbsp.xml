@@ -5,15 +5,15 @@
 <NAME_KEY>MO</NAME_KEY>
 <ACTIVE_KEYS>
 	<OPCONDMAP type="16">
-		<F1>MO is degraded or not operational due to internal TRXC fault.</F1>
-		<F2>MO is degraded or not operational due to SW upgrade.</F2>
-		<F3>MO is degraded or not operational due to synchronization problems.</F3>
-		<F4>MO is degraded or not operational due to frame synchronization problems.</F4>
-		<F5>MO is degraded or not operational due to communication loss detected for CS traffic.</F5>
-		<F6>MO is degraded or not operational due to communication loss detected for PS traffic.</F6>
-		<F7>MO is degraded or not operational due to diversity error.</F7>
-		<F8>MO is degraded or not operational due to RX path imbalance.</F8>
-		<F9>MO is degraded or not operational due to TX maximum power deviation.</F9>
+		<F1 value="1">MO is degraded or not operational due to internal TRXC fault.</F1>
+		<F2 value="2">MO is degraded or not operational due to SW upgrade.</F2>
+		<F3 value="3">MO is degraded or not operational due to synchronization problems.</F3>
+		<F4 value="4">MO is degraded or not operational due to frame synchronization problems.</F4>
+		<F5 value="5">MO is degraded or not operational due to communication loss detected for CS traffic.</F5>
+		<F6 value="6">MO is degraded or not operational due to communication loss detected for PS traffic.</F6>
+		<F7 value="7">MO is degraded or not operational due to diversity error.</F7>
+		<F8 value="8">MO is degraded or not operational due to RX path imbalance.</F8>
+		<F9 value="9">MO is degraded or not operational due to TX maximum power deviation.</F9>
 	</OPCONDMAP>
 </ACTIVE_KEYS>
 <PRINT_KEYS>MO,OPCONDMAP</PRINT_KEYS>
