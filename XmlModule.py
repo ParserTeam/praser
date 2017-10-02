@@ -16,6 +16,7 @@ class ConfigModule(object):
     ist_of_active_keys = []
     header = ''
     list_of_keys_to_print = []
+
     dict_bits = {}
 
     # check all files in config directory and return dictionary of keys
@@ -32,11 +33,13 @@ class ConfigModule(object):
                 tree = ET.ElementTree(file="config\\" + i)
 
                 list_of_keys = str(tree.findtext('KEYS')).split(' ')
-                dict_of_keys[i] = list_of_keys
+                name_key_mo = tree.findtext('NAME_KEY')
+
+                dict_of_keys[i] = (list_of_keys, name_key_mo)
+
 
             except FileNotFoundError:
-                dict_of_keys = {}
-                return dict_of_keys
+                return {}
         return dict_of_keys
 
     # function that return keys with their types
@@ -56,7 +59,12 @@ class ConfigModule(object):
 
         return dict_type_of_keys
 
-# object1 = ConfigModule()
-# print(object1.get_dict_from_files())
+    def get_bits_valye(self):
+        return self.dict_bits
+
+
+#object1 = ConfigModule()
+#print(object1.get_dict_from_files())
 # print(object1.get_dict_with_properties('rxcap.xml'))
-# print(object1.dict_bits)
+#print(object1.get_name_key_mo('rxcap.xml'))
+
