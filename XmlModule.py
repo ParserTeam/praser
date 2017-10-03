@@ -3,6 +3,7 @@ import xml.etree.ElementTree as ET
 
 class ConfigObject:
     name_key = ''
+    name = ''
     value = None
     text_of_bit = None
     header = ''
@@ -11,6 +12,7 @@ class ConfigObject:
     active_key_limiter = ''
     norm_val = ''
     dict_type_of_keys = {}
+    dict_bits = {}
     #
     # def __init__(self, name=None, text_of_bit=None, value=None):
     #     self.name = name
@@ -18,13 +20,13 @@ class ConfigObject:
     #     self.text_of_bit = text_of_bit
 
     def __str__(self):
-        return (str(self.header) + " " + str(self.name_key) + " " + str(self.root_limiter))
+        return (str(self.name_key) + " " + str(self.header) + " " + str(self.root_limiter)+ " " + str(self.active_key_limiter)+ " " + str(self.dict_bits))
     def __repr__(self):
         return self.__str__()
 
 
 class ConfigModule(object):
-    key_tag = ['root','HEDER','NAME_KEY','ACTIVE_KEYS']
+    #key_tag = ['root','HEDER','NAME_KEY','ACTIVE_KEYS']
     list_of_keys = []
     list_of_active_keys = []
     dict_bits = {}
@@ -50,7 +52,7 @@ class ConfigModule(object):
 
     # function that return keys with their types
     def get_list_objects(self, true_config):
-       list_of_objects = []
+       list_of_objects = {}
 #run by list of files
        for i in true_config:
 #create a empty object of file
@@ -60,13 +62,8 @@ class ConfigModule(object):
          file_object.header=tree.find('HEDER').text
          file_object.name_key = tree.find('NAME_KEY').text
          file_object.root_limiter = tree.getroot().attrib.get("limiter")
-         # print(file_object.header)
-         # print(file_object.name_key)
-         # print(file_object.root_limiter)
-         #
-         # # for x in tree.iterfind('root'):
-         # #     file_object.header = x.text
-         # # print(file_object.header)
+         file_object.active_key_limiter = tree.find('ACTIVE_KEYS').attrib.get("limiter")
+
          for item in tree.iterfind('.ACTIVE_KEYS/'):
             file_object.dict_type_of_keys[item.tag] = (item.attrib).get("type")
             for bits in item:
@@ -75,16 +72,16 @@ class ConfigModule(object):
                 bit_object.text_of_bit = bits.text
                 bit_object.value = bits.attrib.get("value")
 
-                if item.tag in self.dict_bits:
-                    self.dict_bits[item.tag] += [bit_object]
+                if item.tag in file_object.dict_bits:
+                    file_object.dict_bits[item.tag] += [bit_object]
                 else:
-                    self.dict_bits[item.tag] = [bit_object]
-         list_of_objects.append(file_object)
+                    file_object.dict_bits[item.tag] = [bit_object]
+         list_of_objects[i] = file_object
 
        return list_of_objects
 
-#object1 = ConfigModule()
-#print(object1.get_list_objects(["rxbsp.xml","rxcap.xml"]))
+object1 = ConfigModule()
+print(object1.get_list_objects(["rrbvp.xml"]))
 # print(object1.get_dict_with_properties('rxbsp.xml'))
 # print(object1.get_name_key_mo('rxcap.xml'))
 # print(object1.get_bits_value())
