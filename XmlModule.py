@@ -18,7 +18,7 @@ class ConfigObject:
     #     self.text_of_bit = text_of_bit
 
     def __str__(self):
-        return (str(self.name) + " " + str(self.value) + " " + str(self.text_of_bit))
+        return (str(self.header) + " " + str(self.name_key) + " " + str(self.root_limiter))
 
 
 class ConfigModule(object):
