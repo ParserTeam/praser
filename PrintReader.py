@@ -19,29 +19,27 @@ class PrintReader:
             if match(pattern, text):
                 self.key_file_pattern[file_name] = pattern
 
-
     def get_config_files_in_text(self):
         return list(self.key_file_pattern.keys())
 
     def make_subjects(self, xml_objects):
+        limiters = [xml_obj.root_limiter for xml_obj in xml_objects.values()]
         subject_texts = findall("|".join(limiters), self.text + "\n\n")
         for sub_text in subject_texts:
-            self.subjects += [self._get_subject_from_text(sub_text)]
-        print(self.subjects)
-
-    def _get_subject_from_text(self, text):
-        for file_name, pattern in self.key_file_pattern.items():
-            if match(pattern, text):
-                return Subject(file_name, text)
+            self.subjects += [Subject(sub_text, xml_objects)]
 
 
 class Subject:
-    file_name = None
+    xml_instance = None
     text = None
+    table = None
 
-    def __init__(self, file_name, text):
-        self.file_name = file_name
+    def __init__(self, text, xml_objects):
         self.text = text
+        self.table = Table(text)
+        for file_name, xml_obj in xml_objects.items():
+            if match(xml_obj.root_limiter, text):
+                self.xml_instance = xml_obj
 
     def has_key(self, key):
         return key in self.text
@@ -52,13 +50,13 @@ class Subject:
                 return False
 
     def get_subject_in_table(self):
-        return Table(self.text)
+        return self.table
 
     def __str__(self):
-        return "Name:\n" + self.file_name + "\nSubject:\n" + self.text
+        return "Name:\n" + self.xml_instance.name_of_CANDY + "\nSubject:\n" + self.text
 
     def __repr__(self):
-        return "Subject: " + self.file_name
+        return "Subject: " + self.xml_instance.name_of_CANDY
 
 
 class Table:
@@ -124,5 +122,6 @@ class Table:
     def get_string_by_column_name(self, name, row_num):
         column_num = self.header_row.index(name)
         return self._get_value_from(self.table[row_num], column_num, "str")
+
 
 
