@@ -1,4 +1,4 @@
-class KeysObject:
+class ConfigObject:
     name = None
     value = None
     text_of_bit = None
@@ -13,7 +13,7 @@ class KeysObject:
 
 class ConfigModule(object):
     list_of_keys = []
-    ist_of_active_keys = []
+    list_of_active_keys = []
     header = ''
     list_of_keys_to_print = []
 
@@ -33,10 +33,7 @@ class ConfigModule(object):
                 tree = ET.ElementTree(file="config\\" + i)
 
                 list_of_keys = str(tree.findtext('KEYS')).split(' ')
-                name_key_mo = tree.findtext('NAME_KEY')
-
-                dict_of_keys[i] = (list_of_keys, name_key_mo)
-
+                dict_of_keys[i] = list_of_keys
             except FileNotFoundError:
                 return {}
         return dict_of_keys
@@ -51,7 +48,7 @@ class ConfigModule(object):
         for item in tree.iterfind('.ACTIVE_KEYS/'):
             dict_type_of_keys[item.tag] = (item.attrib).get("type")
             for bits in item:
-                bit_object = KeysObject()
+                bit_object = ConfigObject()
                 bit_object.name = bits.tag
                 bit_object.text_of_bit = bits.text
                 bit_object.value = bits.attrib.get("value")
@@ -66,8 +63,8 @@ class ConfigModule(object):
     def get_bits_value(self):
         return self.dict_bits
 
-#object1 = ConfigModule()
-#print(object1.get_dict_from_files())
+object1 = ConfigModule()
+print(object1.get_dict_from_files())
 #print(object1.get_dict_with_properties('rxbsp.xml'))
 #print(object1.get_name_key_mo('rxcap.xml'))
 #print(object1.get_bits_value())
