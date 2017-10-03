@@ -4,7 +4,6 @@
 <KEYS>OMLF1 OMLF2 RSLF1</KEYS>
 <NAME_KEY>MO</NAME_KEY>
 <ACTIVE_KEYS limiter="">
-	<!---->
 	<OMLF1 type="16"  start="2,1" end="1,1" norm_val="1">
 		<F1 bit ="1">TRXC function change not supported by the BTS.</F1>
 		<F2 bit ="2">Automatic ciphering capability not supported by the BTS.</F2>
