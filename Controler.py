@@ -12,7 +12,7 @@ class Controller:
     def __init__(self):
         self.view = "view"
         self.xml_reader = ConfigModule()
-        self.xml_files = self.xml_reader.get_dict_from_files()
+        self.xml_files = self.xml_reader.get_keys_from_files()
 
     def check_text(self):
         # from View
@@ -21,8 +21,13 @@ class Controller:
 
         self.xml_reader = ConfigModule()
         self.print_reader = PrintReader(text, self.xml_files)
-        for subject in self.print_reader.subjects:
-            self.subject_check(subject)
+        self.print_reader.make_subjects(["NSEI[\s\S]*?\n{3,}", "MO[\s\S]*?\n{2,}", "MO[\s\S]*?\n{2,}"])
+        list = self.xml_reader.get_list_objects(self.print_reader.xml_files)
+        # print(list)
+        # for key, val in list.items():
+        #     print(key + "$", val)
+        # for subject in self.print_reader.subjects:
+        #     self.subject_check(subject)
 
     def no_subjects(self):
         return len(self.print_reader.subjects) == 0

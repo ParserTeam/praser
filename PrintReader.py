@@ -1,44 +1,52 @@
 
-from re import split
+from re import match, findall, split
 from re import sub
 
 
 class PrintReader:
-    subjects = []
+    subjects = None
+    xml_files = None
+    key_file_patterns = None
+    text = None
 
     def __init__(self, text, configuration_keys):
+        self.subjects = []
+        self.key_file_pattern = dict()
+        pattern = None
+        self.text = text
+        for file_name, keys in configuration_keys.items():
+            pattern = "[\s\S]*" + "[\s\S]*".join(keys) + "[\s\S]*"
+            if match(pattern, text):
+                self.key_file_pattern[file_name] = pattern
 
 
-        for string in text:
-            subject = self.get_subject(string, configuration_keys)
-            if subject:
-                self.subjects += [subject]
+    def get_config_files_in_text(self):
+        return list(self.key_file_pattern.keys())
 
-    def get_subject(self, line, configuration_keys):
-        for subject_name, subject_values in configuration_keys.items():
-            if self._all_keys_in_line(line, subject_values[0]):
-                return Subject(subject_name, subject_values[1], line)
-        return None
+    def make_subjects(self, limiters):
+        pattern = "[\s\S]*" + "|".join(limiters) + "[\s\S]*"
+        subject_texts = findall(pattern, self.text + "\n\n")
+        for sub_text in subject_texts:
+            self.subjects += [self._get_subject_from_text(sub_text)]
+        print(self.subjects)
 
-    @staticmethod
-    def _all_keys_in_line(line, subject_keys):
-        for key in subject_keys:
-            if key not in line:
-                return False
-        return True
+    def _get_subject_from_text(self, text):
+        for file_name, pattern in self.key_file_pattern.items():
+            if match(pattern, text):
+                return Subject(file_name, text)
+
 
 
 class Subject:
     file_name = None
-    name = None
     text = None
     table = None
 
-    def __init__(self, file_name, name_key, text):
+    def __init__(self, file_name, text):
         self.file_name = file_name
         self.text = text
-        self.table = Table(self.text)
-        self.name = self.table.get_string_by_column_name(name_key, 0)
+        # self.table = Table(self.text)
+        # self.name = self.table.get_string_by_column_name(name_key, 0)
 
     def has_key(self, key):
         return key in self.text
@@ -53,6 +61,9 @@ class Subject:
 
     def __str__(self):
         return "Name:\n" + self.name + "\nSubject:\n" + self.text
+
+    def __repr__(self):
+        return "Subject: " + self.name
 
 
 class Table:
