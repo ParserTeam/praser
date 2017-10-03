@@ -1,28 +1,35 @@
+import xml.etree.ElementTree as ET
+
+
 class ConfigObject:
     name = None
     value = None
     text_of_bit = None
+    header = ''
+    list_of_keys_to_print = []
+    limiter = ''
+    active_key_limiter = ''
+    norm_val = ''
+    dict_type_of_keys = {}
+    #
+    # def __init__(self, name=None, text_of_bit=None, value=None):
+    #     self.name = name
+    #     self.value = value
+    #     self.text_of_bit = text_of_bit
 
-    def __init__(self, name=None, text_of_bit=None, value=None):
-        self.name = name
-        self.value = value
-        self.text_of_bit = text_of_bit
     def __str__(self):
-        return (str(self.name)+" "+str(self.value)+" "+str(self.text_of_bit))
+        return (str(self.name) + " " + str(self.value) + " " + str(self.text_of_bit))
 
 
 class ConfigModule(object):
+    key_tag = ['root','HEDER','NAME_KEY','ACTIVE_KEYS']
     list_of_keys = []
     list_of_active_keys = []
-    header = ''
-    list_of_keys_to_print = []
-
     dict_bits = {}
 
-    # check all files in config directory and return dictionary of keys
-    def get_dict_from_files(self):
+    # check all files in config directory and return dictionary of keys and files name
+    def get_keys_from_files(self):
         from os import listdir
-        import xml.etree.cElementTree as ET
 
         dict_of_keys = {}
         list_of_files = listdir("config")
@@ -38,15 +45,29 @@ class ConfigModule(object):
                 return {}
         return dict_of_keys
 
+
     # function that return keys with their types
-    def get_dict_with_properties(self, true_config):
-        import xml.etree.cElementTree as ET
-        dict_type_of_keys = {}
+    def get_list_objects(self, true_config):
+       list_of_objects = []
+#run by list of files
+       for i in true_config:
+#create a empty object of file
+         file_object = ConfigObject()
+#open xml config file
+         tree = ET.ElementTree(file="config\\" + i)
+         root = tree.iterfind('HEDER')
+         # for k  in root:
+         #    print(root.text)
+         # for x in tree.iterfind('root'):
+         #    file_object.header = x.text
+         # print(file_object.header)
 
-        tree = ET.ElementTree(file="config\\" + true_config)
 
-        for item in tree.iterfind('.ACTIVE_KEYS/'):
-            dict_type_of_keys[item.tag] = (item.attrib).get("type")
+
+
+
+         for item in tree.iterfind('.ACTIVE_KEYS/'):
+            file_object.dict_type_of_keys[item.tag] = (item.attrib).get("type")
             for bits in item:
                 bit_object = ConfigObject()
                 bit_object.name = bits.tag
@@ -57,21 +78,19 @@ class ConfigModule(object):
                     self.dict_bits[item.tag] += [bit_object]
                 else:
                     self.dict_bits[item.tag] = [bit_object]
+         list_of_objects.append(file_object)
 
-        return dict_type_of_keys
+       return list_of_objects
 
-    def get_bits_value(self):
-        return self.dict_bits
-
-object1 = ConfigModule()
-print(object1.get_dict_from_files())
-#print(object1.get_dict_with_properties('rxbsp.xml'))
-#print(object1.get_name_key_mo('rxcap.xml'))
-#print(object1.get_bits_value())
-#test_dict = object1.get_bits_value()
-#for key, value in test_dict.items():
+#object1 = ConfigModule()
+#print(object1.get_list_objects(["rxbsp.xml","rxcap.xml"]))
+# print(object1.get_dict_with_properties('rxbsp.xml'))
+# print(object1.get_name_key_mo('rxcap.xml'))
+# print(object1.get_bits_value())
+# test_dict = object1.get_bits_value()
+# for key, value in test_dict.items():
 #   print(key)
 #   for el in value:
 #      print(el)
-#for i in test_dict.values():
+# for i in test_dict.values():
 #    print(i)
