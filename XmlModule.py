@@ -36,12 +36,6 @@ class ConfigObject:
     active_key_limiter = ''
     list_of_object_keys = []
 
-    #
-    # def __init__(self, name=None, text_of_bit=None, value=None):
-    #     self.name = name
-    #     self.value = value
-    #     self.text_of_bit = text_of_bit
-
     def __str__(self):
         return (str(self.name_key) + " " + str(self.header) + " " + str(self.root_limiter) + " " + str(
             self.active_key_limiter) + " " + str(self.list_of_object_keys))
@@ -51,10 +45,8 @@ class ConfigObject:
 
 
 class ConfigModule(object):
-    # key_tag = ['root','HEDER','NAME_KEY','ACTIVE_KEYS']
     list_of_keys = []
     list_of_active_keys = []
-    dict_bits = {}
 
     # check all files in config directory and return dictionary of keys and files name
     def get_keys_from_files(self):
@@ -83,44 +75,49 @@ class ConfigModule(object):
             file_object = ConfigObject()
             # open xml config file
             tree = ET.ElementTree(file="config\\" + i)
+            # get header from config.xml
             file_object.header = tree.find('HEDER').text
+            # get name of key from config.xml
             file_object.name_key = tree.find('NAME_KEY').text
+            # get regular expression from config.xml
             file_object.root_limiter = tree.getroot().attrib.get("limiter")
+            # get regular expression from config.xml
             file_object.active_key_limiter = tree.find('ACTIVE_KEYS').attrib.get("limiter")
+            # get keys which we will printout from config.xml
             file_object.list_of_keys_to_print = tree.find('PRINT_KEYS').text
-
+            # run by xml file
             for item in tree.iterfind('.ACTIVE_KEYS/'):
+                # create object of class KeysObject
                 key_object = KeysObject()
+                # get type of notation
                 key_object.type = (item.attrib).get("type")
+                # get start
                 key_object.start = (item.attrib).get("start")
+                # get end
                 key_object.end = (item.attrib).get("end")
+                # get value of bits
                 key_object.norm_val = (item.attrib).get("norm_val")
+                # run by keys sub tags
                 for bits in item:
+                    # create object of bit
                     bit_object = BitsObject()
+                    # get name of bit
                     bit_object.name = bits.tag
+                    # get description of bit
                     bit_object.text_of_bit = bits.text
+                    # get value of bit
                     bit_object.value = bits.attrib.get("bit")
-
+                    # magic
                     if item.tag in key_object.dict_bits:
                         key_object.dict_bits[item.tag] += [bit_object]
                     else:
                         key_object.dict_bits[item.tag] = [bit_object]
+                # add key object to file = object
                 file_object.list_of_object_keys.append(key_object)
-
+            # add file object to list
             list_of_objects[i] = file_object
-
+        # return list of objects
         return list_of_objects
 
-
-#object1 = ConfigModule()
-#print(object1.get_list_objects(["rxcap.xml"]))
-# print(object1.get_dict_with_properties('rxbsp.xml'))
-# print(object1.get_name_key_mo('rxcap.xml'))
-# print(object1.get_bits_value())
-# test_dict = object1.get_bits_value()
-# for key, value in test_dict.items():
-#   print(key)
-#   for el in value:
-#      print(el)
-# for i in test_dict.values():
-#    print(i)
+# object1 = ConfigModule()
+# print(object1.get_list_objects(["rrscp.xml"]))
