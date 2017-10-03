@@ -2,12 +2,12 @@ import xml.etree.ElementTree as ET
 
 
 class ConfigObject:
-    name = None
+    name_key = ''
     value = None
     text_of_bit = None
     header = ''
     list_of_keys_to_print = []
-    limiter = ''
+    root_limiter = ''
     active_key_limiter = ''
     norm_val = ''
     dict_type_of_keys = {}
@@ -55,17 +55,16 @@ class ConfigModule(object):
          file_object = ConfigObject()
 #open xml config file
          tree = ET.ElementTree(file="config\\" + i)
-         root = tree.iterfind('HEDER')
-         # for k  in root:
-         #    print(root.text)
-         # for x in tree.iterfind('root'):
-         #    file_object.header = x.text
+         file_object.header=tree.find('HEDER').text
+         file_object.name_key = tree.find('NAME_KEY').text
+         file_object.root_limiter = tree.getroot().attrib.get("limiter")
          # print(file_object.header)
-
-
-
-
-
+         # print(file_object.name_key)
+         # print(file_object.root_limiter)
+         #
+         # # for x in tree.iterfind('root'):
+         # #     file_object.header = x.text
+         # # print(file_object.header)
          for item in tree.iterfind('.ACTIVE_KEYS/'):
             file_object.dict_type_of_keys[item.tag] = (item.attrib).get("type")
             for bits in item:
