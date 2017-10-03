@@ -1,18 +1,19 @@
 
-from re import split
+from re import findall
 from re import sub
 
 
 class PrintReader:
     subjects = []
 
-    def __init__(self, text, configuration_keys):
-        text = split("\n{2,}", text)
+    def __init__(self, text, limiter):
+        text = findall(limiter[0] + ".*?" + limiter[1], text)
 
-        for string in text:
-            subject = self.get_subject(string, configuration_keys)
-            if subject:
-                self.subjects += [subject]
+        print(te)
+        # for string in text:
+        #     subject = self.get_subject(string, configuration_keys)
+        #     if subject:
+        #         self.subjects += [subject]
 
     def get_subject(self, line, configuration_keys):
         for subject_name, subject_values in configuration_keys.items():

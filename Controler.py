@@ -40,12 +40,10 @@ class Controller:
             print(table.get_values_from_row(row, xml_active_keys))
 
 
-controller = Controller()
+file_name = filedialog.askopenfile("r")
+text = file_name.read()
+xml_reader = ConfigModule()
+print_reader = PrintReader(text, xml_reader.get_dict_from_files())
 
-# on button click
-controller.check_text()
-if controller.no_subjects():
-    print("Can't find eny subject to read")
-    exit(0)
-# end on button click
+
 

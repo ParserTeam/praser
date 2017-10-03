@@ -4,9 +4,9 @@
 <KEYS>BLO BLA LMO</KEYS>
 <NAME_KEY>MO</NAME_KEY>
 <ACTIVE_KEYS>
-	<BLO type="16">
-		<AP>Object blocked from own supervision permanently.(0000000000000001)</AP>
-		<AT>Object blocked from own supervision temporarily.(0000000000000010)</AT>
+	<BLO type="16" error_val="1">
+		<AP bit="1">Object blocked from own supervision permanently.(0000000000000001)</AP>
+		<AT bit="2">Object blocked from own supervision temporarily.(0000000000000010)</AT>
 		<AS>Object blocked due to fault suspected.(0000000000000100)</AS>
 		<TG>Object blocked from TG.(0000000000001000)</TG>
 		<TRXC>Object blocked from Transceiver Controller (TRXC).(0000000000010000)</TRXC>
