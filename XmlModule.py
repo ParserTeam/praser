@@ -1,11 +1,13 @@
 import xml.etree.ElementTree as ET
 
-
-class ConfigObject:
-    name_key = ''
+class BitsObject:
     name = ''
     value = None
     text_of_bit = None
+
+class ConfigObject:
+    name_key = ''
+
     header = ''
     list_of_keys_to_print = []
     root_limiter = ''
@@ -69,7 +71,7 @@ class ConfigModule(object):
             for item in tree.iterfind('.ACTIVE_KEYS/'):
                 file_object.dict_type_of_keys[item.tag] = (item.attrib).get("type")
                 for bits in item:
-                    bit_object = ConfigObject()
+                    bit_object = BitsObject()
                     bit_object.name = bits.tag
                     bit_object.text_of_bit = bits.text
                     bit_object.value = bits.attrib.get("value")
@@ -83,8 +85,8 @@ class ConfigModule(object):
         return list_of_objects
 
 
-#object1 = ConfigModule()
-#print(object1.get_list_objects(["rxbsp.xml"]))
+object1 = ConfigModule()
+print(object1.get_list_objects(["rxbsp.xml"]))
 # print(object1.get_dict_with_properties('rxbsp.xml'))
 # print(object1.get_name_key_mo('rxcap.xml'))
 # print(object1.get_bits_value())
