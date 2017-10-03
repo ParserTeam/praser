@@ -4,7 +4,7 @@
 <KEYS>BLO BLA LMO</KEYS>
 <NAME_KEY>MO</NAME_KEY>
 <ACTIVE_KEYS>
-	<BLO type="16" error_val="1">
+	<BLO type="16" norm_val="0">
 		<AP bit="1">Object blocked from own supervision permanently.(0000000000000001)</AP>
 		<AT bit="2">Object blocked from own supervision temporarily.(0000000000000010)</AT>
 		<AS>Object blocked due to fault suspected.(0000000000000100)</AS>
