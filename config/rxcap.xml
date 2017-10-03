@@ -1,87 +1,85 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rxcap>
+<rxcap limiter="">
 <HEDER>RADIO X-CEIVER ADMINISTRATION BTS STATUS DATA</HEDER>
-<KEYS>OMLF1 OMLF2 RSLF1 RSLF2</KEYS>
+<KEYS>OMLF1 OMLF2 RSLF1</KEYS>
 <NAME_KEY>MO</NAME_KEY>
-<ACTIVE_KEYS>
-	<OMLF1 type="16" size_h="4">
-		<F1>TRXC function change not supported by the BTS.</F1>
-		<F2>Automatic ciphering capability not supported by the BTS.</F2>
-		<F3>IRC not supported by the BTS.</F3>
-		<F4>Antenna Hopping not supported by the BTS.</F4>
-		<F5>Frame Synchronization using GPS not supported by the BTS.</F5>
-		<F6>4WRD not supported by the BTS.</F6>
-		<F7>Automatic parameter setting in TG synchronization on TG level not supported by the BTS.</F7>
-		<F8>Feature Packet Abis over TDM not supported by the BTS.</F8>
-		<F9>Feature Packet Abis over IP not supported by the BTS.</F9>
-		<F10>FFTAD not supported by the BTS.</F10>
-		<F11>PSU Power Savings not supported by the BTS.</F11>
-		<F12>SC Quality Report II not supported by the BTS.</F12>
-		<F13>Time Slot Power Savings not supported by the BTS.</F13>
-		<F14>Multiple CCCH not supported by the BTS.</F14>
-		<F15>MCTR not supported by the BTS.</F15>
-		<F16>Current supervised TMA not supported by the BTS.</F16>
-		<F17>Antenna interface standards group TMA not supported by the BTS.</F17>
-		<F18>Antenna interface standards group RET not supported by BTS.</F18>
-		<F19>VAMOS not supported by the BTS.</F19>
-		<F20>TS configuration split not supported by the BTS.</F20>
-		<F21>AQPSK with non-zero SCPIR not supported by the BTS.</F21>
-		<F22>MCTR maximum allowed power extension not supported by the BTS.</F22>
-		<F23>BCCH Power Savings not supported by the BTS.</F23>
-		<F24>BTS Soft Synchronization not supported by the BTS.</F24>
-		<F25>Native IP Configuration not supported by the BTS.</F25>
-		<F26>RRUS Cascading not supported by the BTS.</F26>
-		<F27>Reporting of Access Burst Info not supported by the BTS.</F27>
-		<F28>Decimal resolution of configured power not supported by the BTS.</F28>
-		<F29>Node Group Synchronization not supported by the BTS.</F29>
-		<F30>Extended Coverage not supported by the BTS.</F30>
-		<F31>Synchronization Observability not supported by the BTS.</F31>
+<ACTIVE_KEYS limiter="">
+	<!---->
+	<OMLF1 type="16"  start="2,1" end="1,1" norm_val="1">
+		<F1 bit ="1">TRXC function change not supported by the BTS.</F1>
+		<F2 bit ="2">Automatic ciphering capability not supported by the BTS.</F2>
+		<F3 bit ="3">IRC not supported by the BTS.</F3>
+		<F4 bit ="4">Antenna Hopping not supported by the BTS.</F4>
+		<F5 bit ="5">Frame Synchronization using GPS not supported by the BTS.</F5>
+		<F6 bit ="6">4WRD not supported by the BTS.</F6>
+		<F7 bit ="7">Automatic parameter setting in TG synchronization on TG level not supported by the BTS.</F7>
+		<F8 bit ="8">Feature Packet Abis over TDM not supported by the BTS.</F8>
+		<F9 bit ="9">Feature Packet Abis over IP not supported by the BTS.</F9>
+		<F10 bit ="10">FFTAD not supported by the BTS.</F10>
+		<F11 bit ="11">PSU Power Savings not supported by the BTS.</F11>
+		<F12 bit ="12">SC Quality Report II not supported by the BTS.</F12>
+		<F13 bit ="13">Time Slot Power Savings not supported by the BTS.</F13>
+		<F14 bit ="14">Multiple CCCH not supported by the BTS.</F14>
+		<F15 bit ="15">MCTR not supported by the BTS.</F15>
+		<F16 bit ="16">Current supervised TMA not supported by the BTS.</F16>
+		<F17 bit ="17">Antenna interface standards group TMA not supported by the BTS.</F17>
+		<F18 bit ="18">Antenna interface standards group RET not supported by BTS.</F18>
+		<F19 bit ="19">VAMOS not supported by the BTS.</F19>
+		<F20 bit ="20">TS configuration split not supported by the BTS.</F20>
+		<F21 bit ="21">AQPSK with non-zero SCPIR not supported by the BTS.</F21>
+		<F22 bit ="22">MCTR maximum allowed power extension not supported by the BTS.</F22>
+		<F23 bit ="23">BCCH Power Savings not supported by the BTS.</F23>
+		<F24 bit ="24">BTS Soft Synchronization not supported by the BTS.</F24>
+		<F25 bit ="25">Native IP Configuration not supported by the BTS.</F25>
+		<F26 bit ="26">RRUS Cascading not supported by the BTS.</F26>
+		<F27 bit ="27">Reporting of Access Burst Info not supported by the BTS.</F27>
+		<F28 bit ="28">Decimal resolution of configured power not supported by the BTS.</F28>
+		<F29 bit ="29">Node Group Synchronization not supported by the BTS.</F29>
+		<F30 bit ="30">Extended Coverage not supported by the BTS.</F30>
+		<F31 bit ="31">Synchronization Observability not supported by the BTS.</F31>
 	</OMLF1>
-	<OMLF2 type="16">
-		<F1>Frequency measurements not supported by the BTS.</F1>
+	<OMLF2 type="16" start="1,1" end="1,1" norm_val="1">
+		<F1 bit ="1">Frequency measurements not supported by the BTS.</F1>
 	</OMLF2>
-	<RSLF1 type="16">
-		<F1>Channel Needed not supported.</F1>
-		<F2>BCCH information phase 2 not supported, Layer 3 (L3) information must be included in Slow Associated Control Channel (SACCH) filling, and immediate assign phase 2 not supported.</F2>
-		<F3>Extended range not supported by the BTS.</F3>
-		<F4>A5/2 algorithm not supported by the BTS.</F4>
-		<F5>BS power control not supported.</F5>
-		<F6>Multi-band operation not supported.</F6>
-		<F7>Power information not supported by the BTS.</F7>
-		<F8>0A5/1 algorithm not supported by the BTS.</F8>
-		<F9>GPRS not supported by the BTS.</F9>
-		<F10>eMLPP priority not supported by the BTS.</F10>
-		<F11>Extended CBCH not supported by the BTS.</F11>
-		<F12>Main channel reference not supported.</F12>
-		<F13>A5/3 algorithm not supported by the BTS.</F13>
-		<F14>Reporting of BTS Counters not supported by the BTS.</F14>
-		<F15>IS Connection Point (ICP) List in channel activation not supported.</F15>
-		<F16>EMR functionality not supported by the BTS.</F16>
-		<F17>TFO not supported.</F17>
-		<F18>VGCS not supported by the BTS.</F18>
-		<F19>VGCS Enhancements not supported by the BTS.</F19>
-		<F20>FFAD not supported by the BTS.</F20>
-		<F21>Enhanced Handover Success Rate not supported by the BTS.</F21>
-		<F22>Repeated SACCH not supported by the BTS.</F22>
-		<F23>RTTI not supported by the BTS.</F23>
-		<F24>PTA regulation algorithm 1 not supported by the BTS.</F24>
-		<F25>PAN not supported by the BTS.</F25>
-		<F26>Random fill bits not supported by the BTS.</F26>
-		<F27>BS Power 2 not supported by the BTS.</F27>
-		<F28>DRX mode not supported by the BTS.</F28>
-		<F29>0VAMOS enhancements in BSC G12B release not supported by the BTS.</F29>
-		<F30>Packet Data Channel (PDCH) options not supported by the BTS.</F30>
-		<F31>Random SI6 fill bits not supported by the BTS.</F31>
-		<F32>Channel Specific MI not supported.</F32>
-		<F34>A5/4 algorithm not supported by the BTS.</F34>
-		<F35>Extended Coverage not supported by the BTS.</F35>
-		<F36>Extended DRX not supported by the BTS.</F36>
+	<RSLF1 type="16" start="3,1" end="1,1" norm_val="1">
+		<F1 bit ="1">Channel Needed not supported.</F1>
+		<F2 bit ="2">BCCH information phase 2 not supported, Layer 3 (L3) information must be included in Slow Associated Control Channel (SACCH) filling, and immediate assign phase 2 not supported.</F2>
+		<F3 bit ="3">Extended range not supported by the BTS.</F3>
+		<F4 bit ="4">A5/2 algorithm not supported by the BTS.</F4>
+		<F5 bit ="5">BS power control not supported.</F5>
+		<F6 bit ="6">Multi-band operation not supported.</F6>
+		<F7 bit ="7">Power information not supported by the BTS.</F7>
+		<F8 bit ="8">0A5/1 algorithm not supported by the BTS.</F8>
+		<F9 bit ="9">GPRS not supported by the BTS.</F9>
+		<F10 bit ="10">eMLPP priority not supported by the BTS.</F10>
+		<F11 bit ="11">Extended CBCH not supported by the BTS.</F11>
+		<F12 bit ="12">Main channel reference not supported.</F12>
+		<F13 bit ="13">A5/3 algorithm not supported by the BTS.</F13>
+		<F14 bit ="14">Reporting of BTS Counters not supported by the BTS.</F14>
+		<F15 bit ="15">IS Connection Point (ICP) List in channel activation not supported.</F15>
+		<F16 bit ="16">EMR functionality not supported by the BTS.</F16>
+		<F17 bit ="17">TFO not supported.</F17>
+		<F18 bit ="18">VGCS not supported by the BTS.</F18>
+		<F19 bit ="19">VGCS Enhancements not supported by the BTS.</F19>
+		<F20 bit ="20">FFAD not supported by the BTS.</F20>
+		<F21 bit ="21">Enhanced Handover Success Rate not supported by the BTS.</F21>
+		<F22 bit ="22">Repeated SACCH not supported by the BTS.</F22>
+		<F23 bit ="23">RTTI not supported by the BTS.</F23>
+		<F24 bit ="24">PTA regulation algorithm 1 not supported by the BTS.</F24>
+		<F25 bit ="25">PAN not supported by the BTS.</F25>
+		<F26 bit ="26">Random fill bits not supported by the BTS.</F26>
+		<F27 bit ="27">BS Power 2 not supported by the BTS.</F27>
+		<F28 bit ="28">DRX mode not supported by the BTS.</F28>
+		<F29 bit ="29">0VAMOS enhancements in BSC G12B release not supported by the BTS.</F29>
+		<F30 bit ="30">Packet Data Channel (PDCH) options not supported by the BTS.</F30>
+		<F31 bit ="31">Random SI6 fill bits not supported by the BTS.</F31>
+		<F32 bit ="32">Channel Specific MI not supported.</F32>
+		<F34 bit ="34">A5/4 algorithm not supported by the BTS.</F34>
+		<F35 bit ="35">Extended Coverage not supported by the BTS.</F35>
+		<F36 bit ="36">Extended DRX not supported by the BTS.</F36>
 	</RSLF1>
-	<RSLF2 type="16">
-		<F1>This bitmap is currently unused.</F1>
-	</RSLF2>
 </ACTIVE_KEYS>
-<PRINT_KEYS>MO,OMLF1,OMLF2,RSLF1,RSLF2</PRINT_KEYS>
+<PRINT_KEYS>MO OMLF1 OMLF2 RSLF1</PRINT_KEYS>
 </rxcap>
 
 
