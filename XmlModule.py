@@ -68,7 +68,7 @@ class ConfigModule(object):
         return dict_of_keys
 
     # function that return keys with their types
-    def get_list_objects(self, true_config):
+    def get_list_objects(self, true_config=None):
         list_of_objects = {}
         # run by list of files
         for i in true_config:
