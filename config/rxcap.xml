@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<root limiter="MO.*RSLF2[\s\S]*?\n{2,}">
+<root limiter="MO\s.*RSLF2\s[\s\S]*?\n{2,}">
 <HEDER>RADIO X-CEIVER ADMINISTRATION MANAGED OBJECT CAPABILITY INFORMATION</HEDER>
 <KEYS>OMLF1 OMLF2 RSLF1</KEYS>
 <NAME_KEY>MO</NAME_KEY>
