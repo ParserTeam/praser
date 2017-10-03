@@ -21,8 +21,8 @@ class Controller:
 
         self.xml_reader = ConfigModule()
         self.print_reader = PrintReader(text, self.xml_files)
-        self.print_reader.make_subjects(["NSEI[\s\S]*?\n{3,}", "MO[\s\S]*?\n{2,}", "MO[\s\S]*?\n{2,}"])
-        list = self.xml_reader.get_list_objects(self.print_reader.xml_files)
+        xml_objects = self.xml_reader.get_list_objects(self.print_reader.get_config_files_in_text())
+        self.print_reader.make_subjects(xml_objects)
         # print(list)
         # for key, val in list.items():
         #     print(key + "$", val)

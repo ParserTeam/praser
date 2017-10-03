@@ -23,9 +23,8 @@ class PrintReader:
     def get_config_files_in_text(self):
         return list(self.key_file_pattern.keys())
 
-    def make_subjects(self, limiters):
-        pattern = "[\s\S]*" + "|".join(limiters) + "[\s\S]*"
-        subject_texts = findall(pattern, self.text + "\n\n")
+    def make_subjects(self, xml_objects):
+        subject_texts = findall("|".join(limiters), self.text + "\n\n")
         for sub_text in subject_texts:
             self.subjects += [self._get_subject_from_text(sub_text)]
         print(self.subjects)
@@ -36,17 +35,13 @@ class PrintReader:
                 return Subject(file_name, text)
 
 
-
 class Subject:
     file_name = None
     text = None
-    table = None
 
     def __init__(self, file_name, text):
         self.file_name = file_name
         self.text = text
-        # self.table = Table(self.text)
-        # self.name = self.table.get_string_by_column_name(name_key, 0)
 
     def has_key(self, key):
         return key in self.text
@@ -57,13 +52,13 @@ class Subject:
                 return False
 
     def get_subject_in_table(self):
-        return self.table
+        return Table(self.text)
 
     def __str__(self):
-        return "Name:\n" + self.name + "\nSubject:\n" + self.text
+        return "Name:\n" + self.file_name + "\nSubject:\n" + self.text
 
     def __repr__(self):
-        return "Subject: " + self.name
+        return "Subject: " + self.file_name
 
 
 class Table:
