@@ -30,6 +30,7 @@ class BitsObject:
 
 class ConfigObject:
     name_key = ''
+    name_of_CANDY = ''
     header = ''
     list_of_keys_to_print = []
     root_limiter = ''
@@ -76,6 +77,8 @@ class ConfigModule(object):
             # open xml config file
             tree = ET.ElementTree(file="config\\" + i)
             # get header from config.xml
+            file_object.name_of_CANDY = i
+
             file_object.header = tree.find('HEDER').text
             # get name of key from config.xml
             file_object.name_key = tree.find('NAME_KEY').text

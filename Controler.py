@@ -44,13 +44,17 @@ class Controller:
         for row in table.table:
             print(table.get_values_from_row(row, xml_active_keys))
 
+    def checker_bits(self,printout_bits=None,config_bits=None):
+        x=int(str(printout_bits), 2)
+        print(x)
+
 
 controller = Controller()
-
+controller.checker_bits("10001")
 # on button click
-controller.check_text()
-if controller.no_subjects():
-    print("Can't find eny subject to read")
-    exit(0)
+#controller.check_text()
+#if controller.no_subjects():
+ #   print("Can't find eny subject to read")
+#    exit(0)
 # end on button click
 
