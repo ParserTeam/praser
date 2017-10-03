@@ -74,7 +74,7 @@ class ConfigModule(object):
                     bit_object = BitsObject()
                     bit_object.name = bits.tag
                     bit_object.text_of_bit = bits.text
-                    bit_object.value = bits.attrib.get("value")
+                    bit_object.value = bits.attrib.get("bit")
 
                     if item.tag in file_object.dict_bits:
                         file_object.dict_bits[item.tag] += [bit_object]
@@ -85,8 +85,8 @@ class ConfigModule(object):
         return list_of_objects
 
 
-#object1 = ConfigModule()
-#print(object1.get_list_objects(["rxbsp.xml"]))
+object1 = ConfigModule()
+print(object1.get_list_objects(["rxbsp.xml"]))
 # print(object1.get_dict_with_properties('rxbsp.xml'))
 # print(object1.get_name_key_mo('rxcap.xml'))
 # print(object1.get_bits_value())
