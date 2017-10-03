@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rxcap limiter="">
+<root limiter="">
 <HEDER>RADIO X-CEIVER ADMINISTRATION BTS STATUS DATA</HEDER>
 <KEYS>OMLF1 OMLF2 RSLF1</KEYS>
 <NAME_KEY>MO</NAME_KEY>
@@ -80,7 +80,7 @@
 	</RSLF1>
 </ACTIVE_KEYS>
 <PRINT_KEYS>MO OMLF1 OMLF2 RSLF1</PRINT_KEYS>
-</rxcap>
+</root>
 
 
 

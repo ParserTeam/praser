@@ -1,5 +1,5 @@
 
-<rxmsp limiter="">
+<root limiter="">
 <HEDER>RADIO X-CEIVER ADMINISTRATION</HEDER>
 <KEYS>BLO BLA LMO</KEYS>
 <NAME_KEY>MO</NAME_KEY>
@@ -41,4 +41,4 @@
 	</LMO>
 </ACTIVE_KEYS>
 <PRINT_KEYS>MO BLO BLA LMO</PRINT_KEYS>
-</rxmsp>
+</root>

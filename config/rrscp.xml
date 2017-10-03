@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rrscp limiter="">
+<root limiter="">
 <HEDER>RADIO TRANSMISSION SUPER CHANNEL DATA</HEDER>
 <KEYS>SCGR SC DEV DEV1 NUMDEV DCP STATE REASON</KEYS>
 <NAME_KEY>SCGR</NAME_KEY>
@@ -7,4 +7,4 @@
 	<STATE type="str" norm_val="WO"></STATE>
 </ACTIVE_KEYS>
 <PRINT_KEYS>SCGR SC DEV DEV1 NUMDEV DCP STATE REASON</PRINT_KEYS>
-</rrscp>
+</root>
