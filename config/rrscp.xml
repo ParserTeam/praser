@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<root limiter="">
+<root limiter="SCGR[\s\S]*?\n{2,}">
 <HEDER>RADIO TRANSMISSION SUPER CHANNEL DATA</HEDER>
 <KEYS>SCGR SC DEV DEV1 NUMDEV DCP STATE REASON</KEYS>
 <NAME_KEY>SCGR</NAME_KEY>

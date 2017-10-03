@@ -7,7 +7,7 @@ class PrintReader:
     subjects = []
 
     def __init__(self, text, configuration_keys):
-        text = split("\n{2,}", text)
+
 
         for string in text:
             subject = self.get_subject(string, configuration_keys)
