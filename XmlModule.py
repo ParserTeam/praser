@@ -19,6 +19,8 @@ class ConfigObject:
 
     def __str__(self):
         return (str(self.header) + " " + str(self.name_key) + " " + str(self.root_limiter))
+    def __repr__(self):
+        return self.__str__()
 
 
 class ConfigModule(object):
