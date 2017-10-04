@@ -1,5 +1,5 @@
 from tkinter import filedialog
-# from PrintReader import PrintReader
+from PrintReader import PrintReader
 from XmlModule import ConfigModule
 
 
@@ -20,7 +20,7 @@ class Controller:
         text = file_name.read()
 
         self.xml_reader = ConfigModule()
-        # self.print_reader = PrintReader(text, self.xml_files)
+        self.print_reader = PrintReader(text, self.xml_files)
         xml_objects = self.xml_reader.get_list_objects(self.print_reader.get_config_files_in_text())
         self.print_reader.make_subjects(xml_objects)
         # for subject in self.print_reader.subjects:
@@ -98,12 +98,12 @@ class Controller:
 controller = Controller()
 # controller.checker_bits("10001")
 # on button click
-# controller.check_text()
-test = ConfigModule()
-controller.checker_bits({"BVCSTATE": "ACTIVE",
-                         "BVCSTATE": "ACTIVE",
-                         "BVCSTATE": "ACTIVE",
-                         "BVCSTATE": "Fault"}, test.get_list_objects(['rrbvp.xml']))
+controller.check_text()
+# test = ConfigModule()
+# controller.checker_bits({"BVCSTATE": "ACTIVE",
+#                          "BVCSTATE": "ACTIVE",
+#                          "BVCSTATE": "ACTIVE",
+#                          "BVCSTATE": "Fault"}, test.get_list_objects(['rrbvp.xml']))
 # if controller.no_subjects():
 #   print("Can't find eny subject to read")
 #    exit(0)

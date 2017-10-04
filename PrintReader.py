@@ -29,11 +29,14 @@ class PrintReader:
             self.subjects += [Subject(sub_text, xml_objects)]
 
         if len(self.subjects) > 0:
-            table = self.subjects[0].get_table_by_header("MO OPCOND  OPCONDMAP OMLSTAT  RSLSTAT")
+            subject = self.subjects[1]
+            print(subject)
+            print("############################subject#########################")
+            table = subject.get_table_by_header("MO CASCADABLE  OMLF1  OMLF2  RSLF1  RSLF2  FTXADDR")
             print("++++++++++++++++++++++++++++++table+++++++++++++++++++++++")
             print(table)
             while not table.table_end:
-                print("row = {}".format(table.get_next_row(self.subjects[0].xml_instance)))
+                print("row = {}".format(table.get_next_row(subject.xml_instance)))
 
 
 class Subject:
@@ -145,11 +148,11 @@ class Table:
         value = ""
         while start[self.X] < end[self.X]:
             value += self._get_value(column, row) or ""
-            start[self.Y] += 1
+            start[self.X] += 1
         while start[self.X] > end[self.X]:
             value += self._get_value(column, row) or ""
-            start[self.Y] -= 1
-        value += self._get_value(column, row) or ""
+            start[self.X] -= 1
+        value += self._get_value(column + start[self.Y], row + start[self.X]) or ""
         return value
 
     def _get_value(self, column_nbr, row_nbr):
@@ -179,6 +182,7 @@ class Table:
         return self._row_to_dict(row_nbr, xml_obj.list_of_object_keys)
 
     def _row_to_dict(self, row_nbr, list_of_obj_keys):
+        print(list_of_obj_keys)
         row_dict = dict()
         for key_obj in list_of_obj_keys:
             row_dict[key_obj.name] = self.get_values(row_nbr, key_obj.name, key_obj.start, key_obj.end)
