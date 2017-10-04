@@ -33,7 +33,7 @@ class PrintReader:
             print("++++++++++++++++++++++++++++++table+++++++++++++++++++++++")
             print(table)
             while not table.table_end:
-                print(table.get_next_row(self.subjects[0].xml_instance))
+                print("row = {}".format(table.get_next_row(self.subjects[0].xml_instance)))
 
 
 class Subject:
@@ -124,10 +124,10 @@ class Table:
 # end create table
 
 # get value
-    def get_values(self, row_nbr, column, start="0,0", end="0,0"):
+    def get_values(self, row_nbr, column, start, end):
         column_nbr = list(self.header_row_with_start.keys()).index(column)
-        start_coor = self._coor_to_int(start)
-        end_coor = self._coor_to_int(end)
+        start_coor = self._coor_to_int(start or "0,0")
+        end_coor = self._coor_to_int(end or "0,0")
         return self._value_in_column(row_nbr, column_nbr, start_coor, end_coor)
 
     def _value_in_column(self, row, column, start, end):
@@ -138,7 +138,7 @@ class Table:
         while start[self.Y] > end[self.Y]:
             value += self._value_in_row(row, column, start, end)
             start[self.Y] -= 1
-        self._value_in_row(row, column, start, end)
+        value += self._value_in_row(row, column, start, end)
         return value
 
     def _value_in_row(self, row, column, start, end):
@@ -159,7 +159,6 @@ class Table:
             return None
 
     def _coor_to_int(self, coor):
-        print(coor)
         coor_arr = split("[\s,]+", coor)
         return [int(coor_arr[self.Y]), int(coor_arr[self.X])]
 
@@ -182,13 +181,15 @@ class Table:
     def _row_to_dict(self, row_nbr, list_of_obj_keys):
         row_dict = dict()
         for key_obj in list_of_obj_keys:
-            row_dict[key_obj.name] = self.get_values(row_nbr, key_obj.name, start=key_obj.start, end=key_obj.end)
+            row_dict[key_obj.name] = self.get_values(row_nbr, key_obj.name, key_obj.start, key_obj.end)
+        return row_dict
 
     def _get_next_row_nbr(self, old_row_nbr, name_key):
         new_row_nbr = old_row_nbr
+        column_nbr = list(self.header_row_with_start.keys()).index(name_key)
         while new_row_nbr < len(self.table):
             new_row_nbr += 1
-            if self.get_values(new_row_nbr, name_key):
+            if self._get_value(column_nbr, new_row_nbr):
                 return new_row_nbr
         return old_row_nbr
 
