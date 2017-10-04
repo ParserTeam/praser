@@ -58,13 +58,13 @@ class Controller:
                 bits = keys.list_of_object_keys[index]
                 bit = bits.dict_bits
                 print_out_for_view = []
-                print(keys)
-                print(bits)
-                print(bits.type)
-                print(bits.norm_val)
-                print(bits.name)
-                print(keys.name_key)
-                print(bit)
+                # print(keys)
+                # print(bits)
+                # print(bits.type)
+                # print(bits.norm_val)
+                # print(bits.name)
+                # print(keys.name_key)
+                # print(bit)
                 if bits.type.isdigit():
                     x = int(str(printout_bits.get(bits.name)), int(bits.type))
                     text = (format(x, "0>42b"))
@@ -98,12 +98,12 @@ class Controller:
 controller = Controller()
 # controller.checker_bits("10001")
 # on button click
-controller.check_text()
-# test = ConfigModule()
-# controller.checker_bits({"BVCSTATE": "ACTIVE",
-#                          "BVCSTATE": "ACTIVE",
-#                          "BVCSTATE": "ACTIVE",
-#                          "BVCSTATE": "Fault"}, test.get_list_objects(['rrbvp.xml']))
+# controller.check_text()
+test = ConfigModule()
+controller.checker_bits({"BVCSTATE": "ACTIVE",
+                         "BVCSTATE": "ACTIVE",
+                         "BVCSTATE": "ACTIVE",
+                         "BVCSTATE": "Fault"}, test.get_list_objects(['rrbvp.xml']))
 # if controller.no_subjects():
 #   print("Can't find eny subject to read")
 #    exit(0)
