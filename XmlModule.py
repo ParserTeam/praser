@@ -50,6 +50,9 @@ class ConfigObject:
     def __repr__(self):
         return self.__str__()
 
+    def __init__(self):
+        self.list_of_object_keys=[]
+
 
 class ConfigModule(object):
     list_of_keys = []
@@ -127,5 +130,5 @@ class ConfigModule(object):
         return list_of_objects
 
 #
-# object1 = ConfigModule()
-# print(object1.get_list_objects(["rxbsp.xml"]))
+object1 = ConfigModule()
+print(object1.get_list_objects(["rxbsp.xml"]))

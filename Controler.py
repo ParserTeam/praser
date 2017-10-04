@@ -70,7 +70,7 @@ class Controller:
                     text = (format(x, "0>42b"))
                     text_revers = text[::-1]
                     print(text_revers)
-                    for i in range(0,len(text_revers)):
+                    for i in range(0, len(text_revers)):
                         if text_revers[i] != str(bits.norm_val):
                             try:
                                 print_out_for_view.append(bit[i])
@@ -81,9 +81,18 @@ class Controller:
                         else:
                             continue
 
-                    print (print_out_for_view)
                 if bits.type.isalpha():
-                    print("String YEAH")
+                    text = printout_bits.get(bits.name)
+                    if text != str(bits.norm_val):
+                        try:
+                            print_out_for_view.append(bit)
+                            print_out_for_view.append(keys.name_key)
+
+                        except IndexError:
+                            pass
+                    else:
+                        continue
+                print(print_out_for_view)
 
 
 controller = Controller()
@@ -91,7 +100,10 @@ controller = Controller()
 # on button click
 # controller.check_text()
 test = ConfigModule()
-controller.checker_bits({"BVCSTATE": "ACTIVE"}, test.get_list_objects(['rrbvp.xml']))
+controller.checker_bits({"BVCSTATE": "ACTIVE",
+                         "BVCSTATE": "ACTIVE",
+                         "BVCSTATE": "ACTIVE",
+                         "BVCSTATE": "Fault"}, test.get_list_objects(['rrbvp.xml']))
 # if controller.no_subjects():
 #   print("Can't find eny subject to read")
 #    exit(0)
