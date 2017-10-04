@@ -110,7 +110,6 @@ class ConfigModule(object):
                 # run by keys sub tags
                 # print('###########')
                 for bits in item:
-                    print(bits)
                     # create object of bit
                     bit_object = BitsObject()
                     # get name of bit
@@ -120,17 +119,13 @@ class ConfigModule(object):
                     # get value of bit
                     bit_object.value = bits.attrib.get("bit")
                     # magic
-                    # if item.tag in bit_object.name:
                     key_object.dict_bits += [bit_object]
-                    # else:
-                    #     key_object.dict_bits = [bit_object]
-                # add key object to file = object
                 file_object.list_of_object_keys.append(key_object)
             # add file object to list
             list_of_objects[i] = file_object
         # return list of objects
         return list_of_objects
 
-
+#
 # object1 = ConfigModule()
-# print(object1.get_list_objects(["rxcap.xml"]))
+# print(object1.get_list_objects(["rxbsp.xml"]))

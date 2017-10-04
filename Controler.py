@@ -1,5 +1,5 @@
 from tkinter import filedialog
-from PrintReader import PrintReader
+#from PrintReader import PrintReader
 from XmlModule import ConfigModule
 
 
@@ -20,7 +20,7 @@ class Controller:
         text = file_name.read()
 
         self.xml_reader = ConfigModule()
-        self.print_reader = PrintReader(text, self.xml_files)
+        #self.print_reader = PrintReader(text, self.xml_files)
         xml_objects = self.xml_reader.get_list_objects(self.print_reader.get_config_files_in_text())
         self.print_reader.make_subjects(xml_objects)
         # for subject in self.print_reader.subjects:
@@ -50,34 +50,31 @@ class Controller:
     # #     x=int(str(printout_bits), 2)
     # #     print(x)
 
-    def checker_bits(self,printout_bits=None, type_file = None,config_bits=None, norm_val = None):
-            keys =  config_bits.get("rxbsp.xml")
-            bits     = keys.list_of_object_keys[0]
-            bit = bits.dict_bits.get('OPCONDMAP')
-            if type_file.isdigit:
-                x=int(str(printout_bits), int(type_file))
-                text = (format(x,"0>42b"))
-               # text = text[0:].reverse()
-                text_revers = text[::-1]
-                print(text_revers)
-                for i in range(len(text_revers)):
-                   if text_revers[i]!=str(norm_val):
-                       print(bit[i-1])
-
-
-
-            else:
-                print("String")
-
-
-controller = Controller()
-# controller.checker_bits("10001")
-# on button click
-#controller.check_text()
-test = ConfigModule()
-controller.checker_bits("04", "16",test.get_list_objects(['rxbsp.xml']),0)
-# if controller.no_subjects():
-#   print("Can't find eny subject to read")
+#     def checker_bits(self,printout_bits=None, config_bits=None):
+#             keys =  config_bits.get("rxbsp.xml")
+#             bits     = keys.list_of_object_keys[0]
+#             bit = bits.dict_bits
+#             if type_file.isdigit:
+#                 x=int(str(printout_bits), int(type_file))
+#                 text = (format(x,"0>42b"))
+#                 text_revers = text[::-1]
+#                 print(text_revers)
+#                 for i in range(len(text_revers)):
+#                    if text_revers[i]!=str(norm_val):
+#                        print(bit[i-1])
+#
+#             else:
+#                 print("String")
+#
+#
+# controller = Controller()
+# # controller.checker_bits("10001")
+# # on button click
+# #controller.check_text()
+# test = ConfigModule()
+# controller.checker_bits([{"OPCONDMAP":"04"}],test.get_list_objects(['rxbsp.xml']))
+# # if controller.no_subjects():
+# #   print("Can't find eny subject to read")
 #    exit(0)
 # end on button click
 
