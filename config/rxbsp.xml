@@ -16,7 +16,7 @@
 		<F9 bit="9">MO is degraded or not operational due to TX maximum power deviation.</F9>
 	</OPCONDMAP>
 </ACTIVE_KEYS>
-<PRINT_KEYS>MO OPCONDMAP</PRINT_KEYS>
+<PRINT_KEYS></PRINT_KEYS>
 </root>
 
 
