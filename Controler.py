@@ -53,19 +53,19 @@ class Controller:
     def checker_bits(self, printout_bits=None, config_bits=None):
 
         for file in config_bits:
-            keys = config_bits.get("rxcap.xml")
+            keys = config_bits.get("rrbvp.xml")
             for index in range(len(keys.list_of_object_keys)):
                 bits = keys.list_of_object_keys[index]
                 bit = bits.dict_bits
                 print_out_for_view = []
-                # print(keys)
-                # print(bits)
-                # print(bits.type)
-                # print(bits.norm_val)
-                # print(bits.name)
-                # print(keys.name_key)
-                # print(bit)
-                if bits.type.isdigit:
+                print(keys)
+                print(bits)
+                print(bits.type)
+                print(bits.norm_val)
+                print(bits.name)
+                print(keys.name_key)
+                print(bit)
+                if bits.type.isdigit():
                     x = int(str(printout_bits.get(bits.name)), int(bits.type))
                     text = (format(x, "0>42b"))
                     text_revers = text[::-1]
@@ -82,8 +82,8 @@ class Controller:
                             continue
 
                     print (print_out_for_view)
-                else:
-                    print("String")
+                if bits.type.isalpha():
+                    print("String YEAH")
 
 
 controller = Controller()
@@ -91,9 +91,7 @@ controller = Controller()
 # on button click
 # controller.check_text()
 test = ConfigModule()
-controller.checker_bits({"OMLF1": "F",
-                         "OMLF2": "0",
-                         "RSLF1": "F"}, test.get_list_objects(['rxcap.xml']))
+controller.checker_bits({"BVCSTATE": "ACTIVE"}, test.get_list_objects(['rrbvp.xml']))
 # if controller.no_subjects():
 #   print("Can't find eny subject to read")
 #    exit(0)
