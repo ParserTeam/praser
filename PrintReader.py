@@ -28,6 +28,13 @@ class PrintReader:
         for sub_text in subject_texts:
             self.subjects += [Subject(sub_text, xml_objects)]
 
+        if len(self.subjects) > 0:
+            table = self.subjects[0].get_table_by_header("MO OPCOND  OPCONDMAP OMLSTAT  RSLSTAT")
+            print("++++++++++++++++++++++++++++++table+++++++++++++++++++++++")
+            print(table)
+            while not table.table_end:
+                print(table.get_next_row(self.subjects[0].xml_instance))
+
 
 class Subject:
     xml_instance = None
@@ -41,12 +48,14 @@ class Subject:
             if match(xml_obj.root_limiter, text):
                 self.xml_instance = xml_obj
                 self.file_name = file_name
-        print("####################subject####################" + self.file_name)
         lines = split("\n{2,}", text)
         self.tables = []
         self._make_tables(lines)
 
-        print(self.tables[0].get_values(0, "NSEI"))
+    def get_table_by_header(self, header):
+        for table in self.tables:
+            if table.is_this_table(header):
+                return table
 
     def _make_tables(self, lines):
         for line in lines:
@@ -75,15 +84,15 @@ class Subject:
 
 
 class Table:
+    Y = 0
+    X = 1
+
     header_row_with_start = None
     table = None
     current_row = 0
     table_end = False
 
     def __init__(self, text):
-        print("==============================table==============================")
-        print(text)
-
         lines = split("\n", text)
         self.header_row_with_start = dict()
         self.table = []
@@ -114,14 +123,34 @@ class Table:
         return row
 # end create table
 
+# get value
     def get_values(self, row_nbr, column, start="0,0", end="0,0"):
         column_nbr = list(self.header_row_with_start.keys()).index(column)
         start_coor = self._coor_to_int(start)
         end_coor = self._coor_to_int(end)
-        return self._value_in(row_nbr, column_nbr, start_coor, end_coor)
+        return self._value_in_column(row_nbr, column_nbr, start_coor, end_coor)
 
-    def _value_in(self, row, column, start, end):
-        if start
+    def _value_in_column(self, row, column, start, end):
+        value = ""
+        while start[self.Y] < end[self.Y]:
+            value += self._value_in_row(row, column, start, end)
+            start[self.Y] += 1
+        while start[self.Y] > end[self.Y]:
+            value += self._value_in_row(row, column, start, end)
+            start[self.Y] -= 1
+        self._value_in_row(row, column, start, end)
+        return value
+
+    def _value_in_row(self, row, column, start, end):
+        value = ""
+        while start[self.X] < end[self.X]:
+            value += self._get_value(column, row) or ""
+            start[self.Y] += 1
+        while start[self.X] > end[self.X]:
+            value += self._get_value(column, row) or ""
+            start[self.Y] -= 1
+        value += self._get_value(column, row) or ""
+        return value
 
     def _get_value(self, column_nbr, row_nbr):
         try:
@@ -130,20 +159,25 @@ class Table:
             return None
 
     def _coor_to_int(self, coor):
-        coor_arr = split(coor)
-        return [int(coor[0]), int(coor[1])]
+        print(coor)
+        coor_arr = split("[\s,]+", coor)
+        return [int(coor_arr[self.Y]), int(coor_arr[self.X])]
+
+# end get value
 
     def get_name(self):
         return " ".join(self.header_row_with_start.keys())
 
-    def is_this_table(self, pattern):
-        return match(pattern, self.get_name())
+    def is_this_table(self, table_name):
+        pattern = "\s*" + r"\s+".join(self.header_row_with_start.keys()) + "\s*"
+        return match(pattern, table_name)
 
     def get_next_row(self, xml_obj):
         row_nbr = self.current_row
         self.current_row = self._get_next_row_nbr(row_nbr, xml_obj.name_key)
         if self.current_row == row_nbr:
             self.table_end = True
+        return self._row_to_dict(row_nbr, xml_obj.list_of_object_keys)
 
     def _row_to_dict(self, row_nbr, list_of_obj_keys):
         row_dict = dict()
@@ -157,3 +191,6 @@ class Table:
             if self.get_values(new_row_nbr, name_key):
                 return new_row_nbr
         return old_row_nbr
+
+    def __repr__(self):
+        return "Table: header = '{}'".format(self.get_name())
