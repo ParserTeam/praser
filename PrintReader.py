@@ -152,7 +152,7 @@ class Table:
         while start[self.X] > end[self.X]:
             value += self._get_value(column, row) or ""
             start[self.X] -= 1
-        value += self._get_value(column + start[self.Y], row + start[self.X]) or ""
+        value += self._get_value(column + start[self.X], row + start[self.Y]) or ""
         return value
 
     def _get_value(self, column_nbr, row_nbr):
