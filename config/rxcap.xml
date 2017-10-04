@@ -78,6 +78,7 @@
 		<F36 bit ="36">Extended DRX not supported by the BTS.</F36>
 	</RSLF1>
 </ACTIVE_KEYS>
+	<!--all keys that should print beside active keys/ active keys should not be here-->
 <PRINT_KEYS>MO OMLF1 OMLF2 RSLF1</PRINT_KEYS>
 </root>
 
