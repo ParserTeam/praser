@@ -50,11 +50,32 @@ class Controller:
     # #     x=int(str(printout_bits), 2)
     # #     print(x)
 
+    def checker_bits(self,printout_bits=None, type_file = None,config_bits=None, norm_val = None):
+            keys =  config_bits.get("rxbsp.xml")
+            bits     = keys.list_of_object_keys[0]
+            bit = bits.dict_bits.get('OPCONDMAP')
+            if type_file.isdigit:
+                x=int(str(printout_bits), int(type_file))
+                text = (format(x,"0>42b"))
+               # text = text[0:].reverse()
+                text_revers = text[::-1]
+                print(text_revers)
+                for i in range(len(text_revers)):
+                   if text_revers[i]!=str(norm_val):
+                       print(bit[i-1])
+
+
+
+            else:
+                print("String")
+
 
 controller = Controller()
 # controller.checker_bits("10001")
 # on button click
-controller.check_text()
+#controller.check_text()
+test = ConfigModule()
+controller.checker_bits("04", "16",test.get_list_objects(['rxbsp.xml']),0)
 # if controller.no_subjects():
 #   print("Can't find eny subject to read")
 #    exit(0)

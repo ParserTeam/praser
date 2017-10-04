@@ -2,14 +2,20 @@ import xml.etree.ElementTree as ET
 
 
 class KeysObject:
-    dict_bits = {}
+    dict_bits = []
     type = ''
     norm_val = ''
     start = ''
     end = ''
+    name = ''
+
+    def __init__(self):
+        self.dict_bits = []
 
     def __str__(self):
-        return (str(self.type) + " " + str(self.norm_val) + " " + str(self.start) + " " + str(self.end) + " " + str(
+        return (
+        str(self.type) + " " + str(self.norm_val) + " " + str(self.start) + " " + str(self.end) + " " + " " + str(
+            self.name) + " " + str(
             self.dict_bits))
 
     def __repr__(self):
@@ -92,6 +98,7 @@ class ConfigModule(object):
             for item in tree.iterfind('.ACTIVE_KEYS/'):
                 # create object of class KeysObject
                 key_object = KeysObject()
+                key_object.name = item.tag
                 # get type of notation
                 key_object.type = (item.attrib).get("type")
                 # get start
@@ -101,7 +108,9 @@ class ConfigModule(object):
                 # get value of bits
                 key_object.norm_val = (item.attrib).get("norm_val")
                 # run by keys sub tags
+                # print('###########')
                 for bits in item:
+                    print(bits)
                     # create object of bit
                     bit_object = BitsObject()
                     # get name of bit
@@ -111,10 +120,10 @@ class ConfigModule(object):
                     # get value of bit
                     bit_object.value = bits.attrib.get("bit")
                     # magic
-                    if item.tag in key_object.dict_bits:
-                        key_object.dict_bits[item.tag] += [bit_object]
-                    else:
-                        key_object.dict_bits[item.tag] = [bit_object]
+                    # if item.tag in bit_object.name:
+                    key_object.dict_bits += [bit_object]
+                    # else:
+                    #     key_object.dict_bits = [bit_object]
                 # add key object to file = object
                 file_object.list_of_object_keys.append(key_object)
             # add file object to list
@@ -122,5 +131,6 @@ class ConfigModule(object):
         # return list of objects
         return list_of_objects
 
+
 # object1 = ConfigModule()
-# print(object1.get_list_objects(["rrscp.xml"]))
+# print(object1.get_list_objects(["rxcap.xml"]))
