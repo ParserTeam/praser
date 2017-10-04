@@ -51,48 +51,42 @@ class Controller:
     # #     print(x)
 
     def checker_bits(self, printout_bits=None, config_bits=None):
+        print_out_for_view = []
+        keys = config_bits.get("rxbsp.xml")
 
-        for file in config_bits:
-            keys = config_bits.get("rrbvp.xml")
-            for index in range(len(keys.list_of_object_keys)):
-                bits = keys.list_of_object_keys[index]
-                bit = bits.dict_bits
-                print_out_for_view = []
-                # print(keys)
-                # print(bits)
-                # print(bits.type)
-                # print(bits.norm_val)
-                # print(bits.name)
-                # print(keys.name_key)
-                # print(bit)
-                if bits.type.isdigit():
-                    x = int(str(printout_bits.get(bits.name)), int(bits.type))
-                    text = (format(x, "0>42b"))
-                    text_revers = text[::-1]
-                    print(text_revers)
-                    for i in range(0, len(text_revers)):
-                        if text_revers[i] != str(bits.norm_val):
-                            try:
-                                print_out_for_view.append(bit[i])
-                                print_out_for_view.append(keys.name_key)
+        for i in keys.list_of_object_keys:
+            bits = i
+            bit = bits.dict_bits
 
-                            except IndexError:
-                                pass
-                        else:
-                            continue
+            if bits.type.isdigit():
+                value = int(str(printout_bits.get(bits.name)), int(bits.type))
+                value_in_bits = (format(value, "0>42b"))
+                value_in_bits_revers = value_in_bits[::-1]
 
-                if bits.type.isalpha():
-                    text = printout_bits.get(bits.name)
-                    if text != str(bits.norm_val):
+                for i in range(0, len(value_in_bits_revers)):
+                    if value_in_bits_revers[i] != str(bits.norm_val):
                         try:
-                            print_out_for_view.append(bit)
-                            print_out_for_view.append(keys.name_key)
-
+                            print_out_for_view.append(bit[i].name)
+                            print_out_for_view.append(bit[i].text_of_bit)
+                            #print_out_for_view.append(bit[i].name)
                         except IndexError:
                             pass
                     else:
-                        continue
-                print(print_out_for_view)
+                        print_out_for_view.append(None)
+
+            if bits.type.isalpha():
+                string_value = printout_bits.get(bits.name)
+
+                if string_value != str(bits.norm_val):
+                    try:
+                        print_out_for_view.append(bit)
+                        print_out_for_view.append(bit.name)
+                    except IndexError:
+                        pass
+                else:
+                    print_out_for_view.append(None)
+
+            return print_out_for_view
 
 
 controller = Controller()
@@ -100,10 +94,8 @@ controller = Controller()
 # on button click
 # controller.check_text()
 test = ConfigModule()
-controller.checker_bits({"BVCI": "123",
-                         "CELL": "113020C",
-                         "BVCSTATE": "ACTIVE",
-                         "IPDEV": "RTIPGPH-2"}, test.get_list_objects(['rrbvp.xml']))
+print(controller.checker_bits({"BVCI": "123", "CELL": "113020C", "OPCONDMAP": "04", "IPDEV": "RTIPGPH-2"},
+                              test.get_list_objects(['rxbsp.xml'])))
 # if controller.no_subjects():
 #   print("Can't find eny subject to read")
 #    exit(0)
