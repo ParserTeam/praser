@@ -1,6 +1,10 @@
 from tkinter import filedialog
 from PrintReader import PrintReader
 from XmlModule import ConfigModule
+import sys
+sys.path.append("..")
+
+from HTML.cgibin.interface import *
 
 
 class Controller:
@@ -96,6 +100,7 @@ controller = Controller()
 test = ConfigModule()
 print(controller.checker_bits({"BVCI": "123", "CELL": "113020C", "OPCONDMAP": "04", "IPDEV": "RTIPGPH-2"},
                               test.get_list_objects(['rxbsp.xml'])))
+
 # if controller.no_subjects():
 #   print("Can't find eny subject to read")
 #    exit(0)
