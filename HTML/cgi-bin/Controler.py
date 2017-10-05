@@ -25,7 +25,7 @@ class Controller:
 
     def create_data_for_out(self, list_check_values):
         result = dict()
-
+        #return list_check_values
         for check_value in list_check_values:
             xml_object = check_value.xml_obj
             for dictionary_of_subject in check_value.parse_objects:
@@ -44,12 +44,15 @@ class Controller:
         keys = config_bits
 
 
-        for i in keys.list_of_object_keys:
-            bits = i
+        for i_obj in keys.list_of_object_keys:
+            bits = i_obj
             bit = bits.dict_bits
 # if type is digit we have one way
             if bits.type.isdigit():
+                # try:
                 value = int(str(printout_bits.get(bits.name)), int(bits.type))
+                # except :
+                #     value = 0
                 value_in_bits = (format(value, "0>42b"))
                 value_in_bits_revers = value_in_bits[::-1]
                 printout_bits[bits.name] = {}
@@ -81,7 +84,7 @@ class Controller:
                 # else:
                 #     print_out_for_view.append(None)
 
-            return printout_bits
+        return printout_bits
 
 
 
