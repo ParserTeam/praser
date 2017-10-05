@@ -1,10 +1,11 @@
+import sys
 from tkinter import filedialog
 from PrintReader import PrintReader
 from XmlModule import ConfigModule
-import sys
-sys.path.append("..")
 
-from HTML.cgibin.interface import *
+# sys.path.append("..")
+#
+# from HTML.cgibin.interface import *
 
 
 class Controller:
