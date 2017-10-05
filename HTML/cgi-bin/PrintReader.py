@@ -24,6 +24,10 @@ class PrintReader:
     def make_subjects(self, xml_objects):
         limiters = [xml_obj.root_limiter for xml_obj in xml_objects.values()]
         subject_texts = findall("|".join(limiters), self.text + "\n\n")
+        file = "C:/Users/ezburde/Desktop/rxbsp1.txt"
+        file = open(file, "r")
+        self.text = file.read()
+        subject_texts = findall("|".join(limiters), self.text + "\n\n")
         for sub_text in subject_texts:
             self.subjects += [Subject(sub_text, xml_objects)]
 
@@ -222,7 +226,8 @@ class Table:
         column_nbr = list(self.header_row_with_start.keys()).index(name_key)
         while new_row_nbr < len(self.table):
             new_row_nbr += 1
-            if self._get_value(column_nbr, new_row_nbr):
+            value = self._get_value(column_nbr, new_row_nbr)
+            if value and value != "END":
                 return new_row_nbr
         return old_row_nbr
 
