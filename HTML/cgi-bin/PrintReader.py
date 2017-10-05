@@ -26,8 +26,6 @@ class PrintReader:
         subject_texts = findall("|".join(limiters), self.text + "\n\n")
         for sub_text in subject_texts:
             self.subjects += [Subject(sub_text, xml_objects)]
-        print("PrintReader:29")
-        print(len(self.subjects))
 
     def get_check_values(self):
         subject_values = []
@@ -46,21 +44,11 @@ class Subject:
 
     def __init__(self, text, xml_objects):
         self.text = text
-        print("#########################start check######################")
-        print(text)
-        print("=====================")
         for file_name, xml_obj in xml_objects.items():
-            print(xml_obj.root_limiter)
-            print(match(xml_obj.root_limiter, text))
             if match(xml_obj.root_limiter, text):
-                print("____________________add obj to self___________________________")
                 self.xml_instance = xml_obj
                 self.file_name = file_name
-                print(self.xml_instance)
-                print(self.file_name)
-                print("____________________end___________________________")
                 break
-        print("##########################end Check#############################")
         lines = split("\n{2,}", text)
         self.tables = []
         self._make_tables(lines)
@@ -73,13 +61,13 @@ class Subject:
         keys = split("\s+", self.xml_instance.list_of_keys_to_print)
 
         for key in keys:
-            table = self.get_table_by_header(key)
+            table = self.get_table_by_keys([key])
             if table:
-                self.add_to_print[key] = table.get_values(0, key, None, None)
+                self.add_to_print[key] = table.get_value(0, key, None, None)
 
-    def get_table_by_header(self, header):
+    def get_table_by_keys(self, keys):
         for table in self.tables:
-            if table.is_this_table(header):
+            if table.have_keys(keys):
                 return table
 
     def _make_tables(self, lines):
@@ -103,15 +91,12 @@ class Subject:
 
     def get_objects_to_check(self):
         keys = [obj_key.name for obj_key in self.xml_instance.list_of_object_keys]
-        print(keys)
-        print(self.tables, keys)
-        keys = " ".join(keys)
-        table = self.get_table_by_header(keys)
+        table = self.get_table_by_keys(keys)
         objects = []
 
         while not table.table_end:
             objects += [table.get_next_row(self.xml_instance)]
-            print("while", objects)
+        print("PrintReader:99", objects)
         return objects
 
     def __str__(self):
@@ -162,7 +147,7 @@ class Table:
 # end create table
 
 # get value
-    def get_values(self, row_nbr, column, start, end):
+    def get_value(self, row_nbr, column, start, end):
         column_nbr = list(self.header_row_with_start.keys()).index(column)
         start_coor = self._coor_to_int(start or "0,0")
         end_coor = self._coor_to_int(end or "0,0")
@@ -205,13 +190,11 @@ class Table:
     def get_name(self):
         return " ".join(self.header_row_with_start.keys())
 
-    def is_this_table(self, table_name):
-        pattern = r"\s*" + r"\s+".join(self.header_row_with_start.keys()) + r"\s*"
-        result = match(pattern, table_name)
-        return result
-
-    def table_have_column(self, columns_names):
-        return columns_names in self.header_row_with_start.keys()
+    def have_keys(self, keys):
+        for key in keys:
+            if key not in self.header_row_with_start.keys():
+                return False
+        return True
 
     def get_next_row(self, xml_obj):
         row_nbr = self.current_row
@@ -223,7 +206,7 @@ class Table:
     def _row_to_dict(self, row_nbr, list_of_obj_keys):
         row_dict = dict()
         for key_obj in list_of_obj_keys:
-            row_dict[key_obj.name] = self.get_values(row_nbr, key_obj.name, key_obj.start, key_obj.end)
+            row_dict[key_obj.name] = self.get_value(row_nbr, key_obj.name, key_obj.start, key_obj.end)
         return row_dict
 
     def _get_next_row_nbr(self, old_row_nbr, name_key):
@@ -250,4 +233,4 @@ class CheckedValues:
         self.parse_objects = subject.get_objects_to_check()
 
     def __repr__(self):
-        return self.parse_objects
+        return "CheckValue object: {}".format(self.parse_objects)
