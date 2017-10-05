@@ -1,5 +1,6 @@
 
 from re import match, findall, split, finditer
+from os import linesep
 
 
 class PrintReader:
@@ -23,11 +24,7 @@ class PrintReader:
 
     def make_subjects(self, xml_objects):
         limiters = [xml_obj.root_limiter for xml_obj in xml_objects.values()]
-        # subject_texts = findall("|".join(limiters), self.text + "\n\n")
-        # file = "C:/Users/ezburde/Desktop/rxbsp1.txt"
-        # file = open(file, "r")
-        # self.text = file.read()
-        subject_texts = findall("|".join(limiters), self.text + "\n\n")
+        subject_texts = findall("|".join(limiters), self.text + (linesep * 2))
         for sub_text in subject_texts:
             self.subjects += [Subject(sub_text, xml_objects)]
 

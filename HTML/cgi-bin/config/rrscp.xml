@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<root limiter="SCGR\s[\s\S]*?SC\s[\s\S]*?DEV\s[\s\S]*?DEV1\s[\s\S]*?NUMDEV\s[\s\S]*?DCP\s[\s\S]*?STATE\s[\s\S]*?REASON\s[\s\S]*?\n{2,}">
+<root limiter="SCGR\s[\s\S]*?SC\s[\s\S]*?DEV\s[\s\S]*?DEV1\s[\s\S]*?NUMDEV\s[\s\S]*?DCP\s[\s\S]*?STATE\s[\s\S]*?REASON\s[\s\S]*?[\r\n?|\n]{2,}">
 <HEDER>RADIO TRANSMISSION SUPER CHANNEL DATA</HEDER>
 <KEYS>SCGR SC DEV DEV1 NUMDEV DCP STATE REASON</KEYS>
 <NAME_KEY>SCGR</NAME_KEY>
