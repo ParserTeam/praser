@@ -6,16 +6,21 @@
 #
 # Distributed under terms of the MIT license.
 import cgi
-
 # Create instance of FieldStorage
+
 form = cgi.FieldStorage()
+def get_input_inf():
+	# Get data from fields
+	if form.getvalue('comment'):
+		comment = form.getvalue('comment')
+		return comment
+	else:
+		comment = "Not entered"
+		return comment
+get_input_inf()
 
-# Get data from fields
-if form.getvalue('comment'):
-	comment = form.getvalue('comment')
-else:
-    comment = "Not entered"
-
+new=['qfqefqe']
+		#return comment
 print("Content-type:text/html\r\n\r\n")
 print()
 print("<html>")
@@ -23,8 +28,6 @@ print("<head>")
 print("<title>Text Area - Fifth CGI Program</title>")
 print("</head>")
 print("<body>")
-print(comment)
+print(get_input_inf())
 print("</body>")
 print("</html>")
-
-#new = ["efefe"]
