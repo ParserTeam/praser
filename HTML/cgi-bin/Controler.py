@@ -49,10 +49,7 @@ class Controller:
             bit = bits.dict_bits
 # if type is digit we have one way
             if bits.type.isdigit():
-                try:
-                    value = int(str(printout_bits.get(bits.name)), int(bits.type))
-                except :
-                    value = 0
+                value = int(str(printout_bits.get(bits.name)), int(bits.type))
                 value_in_bits = (format(value, "0>42b"))
                 value_in_bits_revers = value_in_bits[::-1]
                 printout_bits[bits.name] = {}
