@@ -1,4 +1,4 @@
-import xml.etree.ElementTree as ET
+import xml.etree.cElementTree as ET
 
 
 class KeysObject:
@@ -14,9 +14,9 @@ class KeysObject:
 
     def __str__(self):
         return (
-        str(self.type) + " " + str(self.norm_val) + " " + str(self.start) + " " + str(self.end) + " " + " " + str(
-            self.name) + " " + str(
-            self.dict_bits))
+            str(self.type) + " " + str(self.norm_val) + " " + str(self.start) + " " + str(self.end) + " " + " " + str(
+                self.name) + " " + str(
+                self.dict_bits))
 
     def __repr__(self):
         return self.__str__()
@@ -51,7 +51,7 @@ class ConfigObject:
         return self.__str__()
 
     def __init__(self):
-        self.list_of_object_keys=[]
+        self.list_of_object_keys = []
 
 
 class ConfigModule(object):
@@ -60,15 +60,17 @@ class ConfigModule(object):
 
     # check all files in config directory and return dictionary of keys and files name
     def get_keys_from_files(self):
-        from os import listdir
+        from os import listdir, path
 
         dict_of_keys = {}
-        list_of_files = listdir("config")
+        list_of_files = listdir('cgi-bin\config')
+        # scriptpath = path.dirname("config")
 
         for i in list_of_files:
             try:
+
                 i = i.replace("[", "").replace("]", "").replace("'", "")
-                tree = ET.ElementTree(file="config\\" + i)
+                tree = ET.ElementTree(file=i)
 
                 list_of_keys = str(tree.findtext('KEYS')).split(' ')
                 dict_of_keys[i] = list_of_keys
@@ -84,7 +86,7 @@ class ConfigModule(object):
             # create a empty object of file
             file_object = ConfigObject()
             # open xml config file
-            tree = ET.ElementTree(file="config\\" + i)
+            tree = ET.ElementTree(file='cgi-bin\config\\' + i)
             # get header from config.xml
             file_object.name_of_CANDY = i
 
@@ -130,5 +132,5 @@ class ConfigModule(object):
         return list_of_objects
 
 #
-object1 = ConfigModule()
-print(object1.get_list_objects(["rxbsp.xml"]))
+# object1 = ConfigModule()
+# print(object1.get_list_objects(["rxbsp.xml"]))
