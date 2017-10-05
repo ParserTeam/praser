@@ -73,7 +73,7 @@ class Controller:
                 printout_bits[bits.name] = {}
                 if string_value != str(bits.norm_val):
                     try:
-                        print_out_for_view[bits.name][bit.name] = bit.text_of_bit
+                        printout_bits[bits.name][bit.name] = bit.text_of_bit
                         # print_out_for_view.append(bit)
                         # print_out_for_view.append(bit.name)
                     except IndexError:
