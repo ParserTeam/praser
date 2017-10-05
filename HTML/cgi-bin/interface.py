@@ -2,8 +2,6 @@ import cgi
 from Controler import Controller
 #from XmlModule import ConfigModule
 
-
-
 #test = ConfigModule()
 
 # Create instance of FieldStorage
@@ -17,7 +15,7 @@ def get_input_inf():
         comment = form.getvalue('comment')
         return comment
     else:
-        comment = "Nothing wos entered"
+        comment = "Nothing wos paste"
         return comment
 
 
