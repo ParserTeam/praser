@@ -2,10 +2,7 @@ import sys
 from tkinter import filedialog
 from PrintReader import PrintReader
 from XmlModule import ConfigModule
-
-# sys.path.append("..")
-#
-# from HTML.cgibin.interface import *
+#from interface import pull_data
 
 
 class Controller:
