@@ -2,7 +2,6 @@ from tkinter import filedialog
 from PrintReader import PrintReader
 from XmlModule import ConfigModule
 
-
 class Controller:
     print_reader = None
     xml_files = None
