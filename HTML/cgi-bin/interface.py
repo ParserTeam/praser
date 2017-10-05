@@ -2,8 +2,6 @@ import cgi
 from Controler import Controller
 #from XmlModule import ConfigModule
 
-
-
 #test = ConfigModule()
 
 # Create instance of FieldStorage
