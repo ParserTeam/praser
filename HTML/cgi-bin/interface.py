@@ -17,7 +17,7 @@ def get_input_inf():
         comment = form.getvalue('comment')
         return comment
     else:
-        comment = "Nothing wos pasted"
+        comment = "Nothing wos past"
         return comment
 
 
