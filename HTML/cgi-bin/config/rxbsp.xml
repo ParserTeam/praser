@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<root limiter="MO\s[\s\S]*?\n{2,}">
+<root limiter="MO\s[\s\S]*?OPCOND\s[\s\S]*?OPCONDMAP\s[\s\S]*?OMLSTAT\s[\s\S]*?RSLSTAT\s[\s\S]*?\n{2,}">
 <HEDER>RADIO X-CEIVER ADMINISTRATION BTS STATUS DATA</HEDER>
 <KEYS>OPCONDMAP</KEYS>
 <NAME_KEY>MO</NAME_KEY>

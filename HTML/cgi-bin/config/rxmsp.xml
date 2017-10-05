@@ -1,5 +1,5 @@
 
-<root limiter="MO\s[\s\S]*?\n{2,}">
+<root limiter="MO\s[\s\S]*?BLO\s[\s\S]*?BLA\s[\s\S]*?LMO\s[\s\S]*?\n{2,}">
 <HEDER>RADIO X-CEIVER ADMINISTRATION MANAGED OBJECT STATUS</HEDER>
 <KEYS>BLO BLA LMO</KEYS>
 <NAME_KEY>MO</NAME_KEY>
