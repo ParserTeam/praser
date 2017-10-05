@@ -21,10 +21,8 @@ def get_input_inf():
         return comment
 
 
-
 controller = Controller()
-text =  controller.check_text(get_input_inf())
-
+text = controller.check_text(get_input_inf())
 
 # output = ['new inf']
 

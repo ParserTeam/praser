@@ -67,15 +67,15 @@ class ConfigModule(object):
         # scriptpath = path.dirname("config")
 
         for i in list_of_files:
-            try:
+            # try:
 
                 i = i.replace("[", "").replace("]", "").replace("'", "")
-                tree = ET.ElementTree(file=i)
+                tree = ET.ElementTree(file='cgi-bin\config\\'+i)
 
                 list_of_keys = str(tree.findtext('KEYS')).split(' ')
                 dict_of_keys[i] = list_of_keys
-            except FileNotFoundError:
-                return {}
+            # except FileNotFoundError:
+            #     return {}
         return dict_of_keys
 
     # function that return keys with their types

@@ -204,9 +204,6 @@ class Table:
 
     def _row_to_dict(self, row_nbr, list_of_obj_keys):
         row_dict = dict()
-        # for key_obj in list_of_obj_keys:
-        #     row_dict[key_obj.name] = self.get_value(row_nbr, key_obj.name, key_obj.start, key_obj.end)
-        # return row_dict
         for column in self.header_row_with_start.keys():
             key_obj = self._get_key_obj(column, list_of_obj_keys)
             if key_obj:
@@ -235,6 +232,7 @@ class Table:
 
 class CheckedValues:
     xml_file_name = None
+    xml_obj = None
     add_to_print = None
     parse_objects = None
 
@@ -242,6 +240,7 @@ class CheckedValues:
         self.xml_file_name = subject.file_name
         self.add_to_print = subject.add_to_print
         self.parse_objects = subject.get_objects_to_check()
+        self.xml_obj = subject.xml_instance
 
     def __repr__(self):
         return "CheckValue object: {}".format(self.parse_objects)
