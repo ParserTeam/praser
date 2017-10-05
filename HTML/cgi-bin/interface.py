@@ -17,9 +17,20 @@ def get_input_inf():
 	else:
 		comment = "Not entered"
 		return comment
-get_input_inf()
+#get_input_inf()
 
-new=['qfqefqe']
+def output_inf(output):
+	print("Content-type:text/html\r\n\r\n")
+	print()
+	print("<html>")
+	print("<head>")
+	print("<title>Text Area - Fifth CGI Program</title>")
+	print("</head>")
+	print("<body>")
+	print(output)
+	print("</body>")
+	print("</html>")
+output_inf(output)
 		#return comment
 print("Content-type:text/html\r\n\r\n")
 print()
