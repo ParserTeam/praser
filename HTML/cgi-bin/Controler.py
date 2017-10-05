@@ -4,7 +4,6 @@ from PrintReader import PrintReader
 from XmlModule import ConfigModule
 #from interface import pull_data
 
-
 class Controller:
     print_reader = None
     xml_files = None
