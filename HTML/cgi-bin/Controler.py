@@ -25,6 +25,7 @@ class Controller:
 
     def create_data_for_out(self, list_check_values):
         result = dict()
+
         #return list_check_values
         for check_value in list_check_values:
             xml_object = check_value.xml_obj
