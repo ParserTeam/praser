@@ -51,15 +51,16 @@ class Controller:
     # # def checker_bits(self,printout_bits=None,config_bits=None):
     # #     x=int(str(printout_bits), 2)
     # #     print(x)
-
+#function for check bits and return list of print cases
     def checker_bits(self, printout_bits=None, config_bits=None):
         print_out_for_view = []
+
         keys = config_bits.get("rxbsp.xml")
 
         for i in keys.list_of_object_keys:
             bits = i
             bit = bits.dict_bits
-
+# if type is digit we have one way
             if bits.type.isdigit():
                 value = int(str(printout_bits.get(bits.name)), int(bits.type))
                 value_in_bits = (format(value, "0>42b"))
@@ -75,7 +76,7 @@ class Controller:
                             pass
                     else:
                         print_out_for_view.append(None)
-
+#if type is string we have another way
             if bits.type.isalpha():
                 string_value = printout_bits.get(bits.name)
 
