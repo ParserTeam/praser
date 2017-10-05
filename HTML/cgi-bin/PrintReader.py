@@ -96,7 +96,6 @@ class Subject:
 
         while not table.table_end:
             objects += [table.get_next_row(self.xml_instance)]
-        print("PrintReader:99", objects)
         return objects
 
     def __str__(self):
@@ -205,9 +204,21 @@ class Table:
 
     def _row_to_dict(self, row_nbr, list_of_obj_keys):
         row_dict = dict()
-        for key_obj in list_of_obj_keys:
-            row_dict[key_obj.name] = self.get_value(row_nbr, key_obj.name, key_obj.start, key_obj.end)
+        # for key_obj in list_of_obj_keys:
+        #     row_dict[key_obj.name] = self.get_value(row_nbr, key_obj.name, key_obj.start, key_obj.end)
+        # return row_dict
+        for column in self.header_row_with_start.keys():
+            key_obj = self._get_key_obj(column, list_of_obj_keys)
+            if key_obj:
+                row_dict[key_obj.name] = self.get_value(row_nbr, key_obj.name, key_obj.start, key_obj.end)
+            else:
+                row_dict[column] = self.get_value(row_nbr, column, None, None)
         return row_dict
+
+    def _get_key_obj(self, name, list_of_obj_keys):
+        for key_obj in list_of_obj_keys:
+            if name == key_obj.name:
+                return key_obj
 
     def _get_next_row_nbr(self, old_row_nbr, name_key):
         new_row_nbr = old_row_nbr
