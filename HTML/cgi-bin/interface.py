@@ -63,20 +63,24 @@ def output_inf(output):
     a = output
 
     for i in a:
+        print("-"*200+"<p></p>")
         print(i[:i.find(".")] + "<p></p>")
         for j in a.get(i):
-            if type(a.get(i).get(j)) != dict:
-                print(j)
-                print(a.get(i).get(j) + "<p></p>")
-            else:
-                if len(a.get(i).get(j)) != 0:
-                    print(j + "<p></p>")
-                    for y in a.get(i).get(j):
-                        print(y)
-                        print(a.get(i).get(j).get(y) + "<p></p>")
+            b = j
+            print("-" * 200 + "<p></p>")
+            for z in b:
+                if type(b.get(z)) != dict:
+                    print(z)
+                    print(b.get(z) + "<p></p>")
                 else:
-                    print(j)
-                    print("OK<p></p>" )
+                    if len(b.get(z)) != 0:
+                        print(z + "<p></p>")
+                        for y in b.get(z):
+                            print(y)
+                            print(b.get(z).get(y) + "<p></p>")
+                    else:
+                        print(z)
+                        print(" OK<p></p>")
 
 
 output_inf(text)
