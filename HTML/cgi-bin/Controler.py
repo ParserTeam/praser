@@ -57,7 +57,7 @@ class Controller:
                     value = 0
                 else:
                     value = int(str(printout_bits.get(bits.name)), int(bits.type))
-                value_in_bits = (format(value, "0>10b"))
+                value_in_bits = (format(value, "0>42b"))
                 value_in_bits_revers = value_in_bits[::-1]
                 printout_bits[bits.name] = {}
                 for i in range(0, len(value_in_bits_revers)):
@@ -77,15 +77,19 @@ class Controller:
                             # if type is string we have another way
             if bits.type.isalpha():
                 string_value = printout_bits.get(bits.name)
-                printout_bits[bits.name] = {}
+                #work_dict =  printout_bits[bits.name]
                 if string_value != str(bits.norm_val):
                     try:
-                        printout_bits[bits.name][bit.name] = bit.text_of_bit
+                        work_dict = printout_bits
+                        # printout_bits[bits.name][cheker.name] = cheker.text_of_bit
+                        #printout_bits[bits.name][bit.name] = bits.norm_val
                         # print_out_for_view.append(bit)
                         # print_out_for_view.append(bit.name)
                     except IndexError:
                         pass
-                        # else:
-                        #     print_out_for_view.append(None)
+                else:
+                    work_dict= {}
+            printout_bits = work_dict
+                        # printout_bits[bits.name][cheker.name].popitem(cheker.text_of_bit)
 
         return printout_bits
