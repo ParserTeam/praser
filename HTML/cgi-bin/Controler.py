@@ -76,6 +76,7 @@ class Controller:
                             #     print_out_for_view.append(None)
                             # if type is string we have another way
             if bits.type.isalpha():
+                work_dict ={}
                 string_value = printout_bits.get(bits.name)
                 #work_dict =  printout_bits[bits.name]
                 if string_value != str(bits.norm_val):
@@ -86,10 +87,10 @@ class Controller:
                         # print_out_for_view.append(bit)
                         # print_out_for_view.append(bit.name)
                     except IndexError:
-                        pass
+                        work_dict = {}
                 else:
                     work_dict= {}
-            printout_bits = work_dict
+                printout_bits = work_dict
                         # printout_bits[bits.name][cheker.name].popitem(cheker.text_of_bit)
 
         return printout_bits
