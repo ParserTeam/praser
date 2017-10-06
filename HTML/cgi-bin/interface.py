@@ -60,5 +60,23 @@ def output_inf(output):
         </body>
         </html>""".format(output))
 
+    a = output
+
+    for i in a:
+        print(i[:i.find(".")] + "<p></p>")
+        for j in a.get(i):
+            if type(a.get(i).get(j)) != dict:
+                print(j)
+                print(a.get(i).get(j) + "<p></p>")
+            else:
+                if len(a.get(i).get(j)) != 0:
+                    print(j + "<p></p>")
+                    for y in a.get(i).get(j):
+                        print(y)
+                        print(a.get(i).get(j).get(y) + "<p></p>")
+                else:
+                    print(j)
+                    print("OK<p></p>" )
+
 
 output_inf(text)
