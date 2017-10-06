@@ -45,7 +45,6 @@ def output_inf(output):
         <p><input name = 'inf' type='submit' value='Pars' formaction = '/cgi-bin/interface.py' formmethod = 'post' ></input><input type='reset' value='Clean'></p>
         <p STYLE = 'text-align: center' >Errors:</p>
         </form>
-        {}
         </TR>
         </DIV>
         </TBODY>
@@ -58,7 +57,25 @@ def output_inf(output):
         </TFOOT>
         </TABLE>
         </body>
-        </html>""".format(output))
+        </html>""")
+
+    a = output
+
+    for i in a:
+        print(i[:i.find(".")] + "<p></p>")
+        for j in a.get(i):
+            if type(a.get(i).get(j)) != dict:
+                print(j)
+                print(a.get(i).get(j) + "<p></p>")
+            else:
+                if len(a.get(i).get(j)) != 0:
+                    print(j + "<p></p>")
+                    for y in a.get(i).get(j):
+                        print(y)
+                        print(a.get(i).get(j).get(y) + "<p></p>")
+                else:
+                    print(j)
+                    print("OK<p></p>" )
 
 
 output_inf(text)
