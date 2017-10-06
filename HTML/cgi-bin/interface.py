@@ -75,9 +75,12 @@ def output_inf(output):
                 else:
                     if len(b.get(z)) != 0:
                         print(z + "<p></p>")
+                        print("-" * 200 + "<p></p>")
                         for y in b.get(z):
                             print(y)
                             print(b.get(z).get(y) + "<p></p>")
+                        print("-" * 200 + "<p></p>")
+
                     else:
                         print(z)
                         print(" OK<p></p>")
