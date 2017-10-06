@@ -45,6 +45,7 @@ def output_inf(output):
         <p><input name = 'inf' type='submit' value='Pars' formaction = '/cgi-bin/interface.py' formmethod = 'post' ></input><input type='reset' value='Clean'></p>
         <p STYLE = 'text-align: center' >Errors:</p>
         </form>
+        {}
         </TR>
         </DIV>
         </TBODY>
@@ -57,7 +58,7 @@ def output_inf(output):
         </TFOOT>
         </TABLE>
         </body>
-        </html>""")
+        </html>""".format(output))
 
     a = output
 
