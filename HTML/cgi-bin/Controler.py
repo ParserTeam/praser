@@ -28,15 +28,18 @@ class Controller:
 
     def create_data_for_out(self, list_check_values):
         result = dict()
+
         # return list_check_values
         for check_value in list_check_values:
             xml_object = check_value.xml_obj
             for dictionary_of_subject in check_value.parse_objects:
                 errors = self.checker_bits(dictionary_of_subject, xml_object)
                 if errors:
-                    result[check_value.xml_file_name] = errors
-                else:
-                    result[check_value.xml_file_name] = "Everything is OK. Go drink coffee :)"
+                    if not result.get(check_value.xml_file_name):
+                        result[check_value.xml_file_name] = [errors]
+                    else:
+                        result[check_value.xml_file_name] += [errors]
+                    # result[check_value.xml_file_name] = "Everything is OK. Go drink coffee :)"
         return result
 
     # function for check bits and return list of print cases
