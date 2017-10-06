@@ -94,8 +94,7 @@ class Subject:
         keys = [obj_key.name for obj_key in self.xml_instance.list_of_object_keys]
         table = self.get_table_by_keys(keys)
         objects = []
-
-        while not table.table_end:
+        while table and not table.table_end:
             objects += [table.get_next_row(self.xml_instance)]
         return objects
 

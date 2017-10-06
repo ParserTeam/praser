@@ -21,7 +21,6 @@ class Controller:
             return "<b>No file found for text</b>"
         self.print_reader.make_subjects(xml_objects)
         list_check_values = self.print_reader.get_check_values()
-        return list_check_values
         return self.create_data_for_out(list_check_values)
 
     def create_data_for_out(self, list_check_values):
@@ -33,7 +32,7 @@ class Controller:
             for dictionary_of_subject in check_value.parse_objects:
                 errors = self.checker_bits(dictionary_of_subject, xml_object)
                 if errors:
-                    result[check_value.xml_file_name] = errors
+                    result[check_value.xml_file_name] = errors#.update(check_value.add_to_print)
                 else:
                     result[check_value.xml_file_name] = "Everything is OK. Go drink coffee :)"
         return result
