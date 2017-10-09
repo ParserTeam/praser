@@ -72,6 +72,11 @@ def output_inf(output):
         ''')
         for i in a:
             print('''
+                                <tr>
+                                        <th colspan="4" ></th>
+                                </tr>
+                            ''')
+            print('''
                 <tr>
 					<th colspan="4" >''' + i[:i.find(".")].upper() + '''</th>
 				</tr>
