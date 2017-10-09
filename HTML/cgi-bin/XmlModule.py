@@ -65,7 +65,7 @@ class ConfigModule(object):
         dict_of_keys = {}
         try:
             list_of_files = listdir('cgi-bin\\config')
-        except FileNotFoundError:
+        except (WindowsError, IOError):
             list_of_files = listdir('config')
 
         # scriptpath = path.dirname("config")
@@ -75,7 +75,7 @@ class ConfigModule(object):
             i = i.replace("[", "").replace("]", "").replace("'", "")
             try:
                 tree = ET.ElementTree(file='cgi-bin\config\\'+i)
-            except FileNotFoundError:
+            except (WindowsError, IOError):
                 tree = ET.ElementTree(file='config\\' + i)
             list_of_keys = str(tree.findtext('KEYS')).split(' ')
             dict_of_keys[i] = list_of_keys
@@ -91,7 +91,7 @@ class ConfigModule(object):
             # open xml config file
             try:
                 tree = ET.ElementTree(file='cgi-bin\config\\' + i)
-            except FileNotFoundError:
+            except (WindowsError, IOError):
                 tree = ET.ElementTree(file='config\\' + i)
             # get header from config.xml
             file_object.name_of_CANDY = i

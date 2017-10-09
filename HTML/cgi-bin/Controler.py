@@ -85,9 +85,10 @@ class Controller:
         return printout_bits
 
 
+if __name__ == "__main__":
+    from tkFileDialog import askopenfile
 
-#
-# if __name__ == "__main__":
-#     controller = Controller()
-#     text = controller.check_text(input1)
-#     print(text)
+    controller = Controller()
+    file = askopenfile("r")
+    text = controller.check_text(file.read())
+    print text
