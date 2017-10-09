@@ -61,67 +61,70 @@ def output_inf(output):
         </html>""".format(output))
 
     a = output
-    if len(a) != 0 :
-        print('''
-            <link rel="stylesheet" type="text/css" href="style.css">
-            <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
-            <link rel='stylesheet prefetch' href='http://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.10.0/bootstrap-table.min.css'>
-            <link rel='stylesheet prefetch' href='http://rawgit.com/vitalets/x-editable/master/dist/bootstrap3-editable/css/bootstrap-editable.css'>
-            <div class="container">
-			 <table class="table table-bordered">
-        ''')
-        for i in a:
+    if type(a) != str:
+        if len(a) != 0 :
             print('''
-                                <tr>
-                                        <th colspan="4" ></th>
-                                </tr>
-                            ''')
-            print('''
-                <tr>
-					<th colspan="4" >''' + i[:i.find(".")].upper() + '''</th>
-				</tr>
+                <link rel="stylesheet" type="text/css" href="style.css">
+                <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
+                <link rel='stylesheet prefetch' href='http://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.10.0/bootstrap-table.min.css'>
+                <link rel='stylesheet prefetch' href='http://rawgit.com/vitalets/x-editable/master/dist/bootstrap3-editable/css/bootstrap-editable.css'>
+                <div class="container">
+                 <table class="table table-bordered">
             ''')
-            for j in a.get(i):
-                b = j
+            for i in a:
                 print('''
-                    <tr>
-                            <th colspan="4" ></th>
-                    </tr>
-                ''')
-                for z in b:
-                    if type(b.get(z)) != dict:
-                        print('''
-                            <tr class="bg-primary">
-                              <th>''' + z + ''' -''' + '''</th>
-                              <th colspan="3" >''' + b.get(z) + ''' ;''' + '''</th>
-                            </tr>
-                        ''')
-                    else:
-                        if len(b.get(z)) != 0:
-                            print('''
-                                <tr class="bg-success ">
-                                  <th>''' + z + ''' :''' +'''</th>
-                                  <th colspan="3" >ERRORS:</th>
-                                </tr>
-                            ''')
-                            for y in b.get(z):
-                                print('''
-                                    <tr class="bg-success ">
-                                      <th>''' + y + ''' -''' + '''</th>
-                                      <th colspan="3" >''' + b.get(z).get(y) + ''' ;''' + '''</th>
+                                    <tr>
+                                            <th colspan="4" ></th>
                                     </tr>
                                 ''')
-                        else:
+                print('''
+                    <tr>
+                        <th colspan="4" >''' + i[:i.find(".")].upper() + '''</th>
+                    </tr>
+                ''')
+                for j in a.get(i):
+                    b = j
+                    print('''
+                        <tr>
+                                <th colspan="4" ></th>
+                        </tr>
+                    ''')
+                    for z in b:
+                        if type(b.get(z)) != dict:
                             print('''
-                                <tr class="bg-success ">
+                                <tr class="bg-primary">
                                   <th>''' + z + ''' -''' + '''</th>
-                                  <th colspan="3" >OK;</th>
+                                  <th colspan="3" >''' + b.get(z) + ''' ;''' + '''</th>
                                 </tr>
                             ''')
-        print('''
-                    </table>
-		    </div>
-                ''')
+                        else:
+                            if len(b.get(z)) != 0:
+                                print('''
+                                    <tr class="bg-success ">
+                                      <th>''' + z + ''' :''' +'''</th>
+                                      <th colspan="3" >ERRORS:</th>
+                                    </tr>
+                                ''')
+                                for y in b.get(z):
+                                    print('''
+                                        <tr class="bg-success ">
+                                          <th>''' + y + ''' -''' + '''</th>
+                                          <th colspan="3" >''' + b.get(z).get(y) + ''' ;''' + '''</th>
+                                        </tr>
+                                    ''')
+                            else:
+                                print('''
+                                    <tr class="bg-success ">
+                                      <th>''' + z + ''' -''' + '''</th>
+                                      <th colspan="3" >OK;</th>
+                                    </tr>
+                                ''')
+            print('''
+                        </table>
+                </div>
+                    ''')
+    else:
+        print(a)
 
 output_inf(text)
 
