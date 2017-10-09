@@ -15,6 +15,7 @@ class Controller:
     def __init__(self):
         self.xml_reader = ConfigModule()
         self.xml_files = self.xml_reader.get_keys_from_files()
+        print(self.xml_files)
 
     def check_text(self, text):
         self.print_reader = PrintReader(text, self.xml_files)
