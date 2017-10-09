@@ -12,7 +12,7 @@ class PrintReader:
         self.subjects = []
         self.key_file_pattern = dict()
         pattern = None
-        self.text = text
+        self.text = text + "\n" * 3
         for file_name, keys in configuration_keys.items():
             pattern = "[\s\S]*" + "[\s\S]*".join(keys) + "[\s\S]*"
             if match(pattern, text):
