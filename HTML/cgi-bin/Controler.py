@@ -35,6 +35,8 @@ class Controller:
             for dictionary_of_subject in check_value.parse_objects:
                 errors = self.checker_bits(dictionary_of_subject, xml_object)
                 if errors:
+                    if check_value.add_to_print:
+                        errors.update(check_value.add_to_print)
                     if not result.get(check_value.xml_file_name):
                         result[check_value.xml_file_name] = [errors]
                     else:
