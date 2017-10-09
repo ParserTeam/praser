@@ -4,7 +4,7 @@
     <KEYS>OPCONDMAP</KEYS>
     <NAME_KEY>MO</NAME_KEY>
     <ACTIVE_KEYS limiter="">
-        <OPCONDMAP in_type="16" out_type="2" norm_val="0">
+        <OPCONDMAP type="16" out_type="2" norm_val="0">
             <F1 bit="1">MO is degraded or not operational due to internal TRXC fault.</F1>
             <F2 bit="2">MO is degraded or not operational due to SW upgrade.</F2>
             <F3 bit="3">MO is degraded or not operational due to synchronization problems.</F3>
