@@ -24,7 +24,7 @@ class Controller:
         self.print_reader.make_subjects(xml_objects)
         list_check_values = self.print_reader.get_check_values()
         # return list_check_values
-        return str(self.create_data_for_out(list_check_values)) + ("#"*50) + "\r\n\r\n\r\n" + str(list_check_values)
+        return (self.create_data_for_out(list_check_values))
 
     def create_data_for_out(self, list_check_values):
         result = dict()

@@ -64,7 +64,7 @@ class ConfigModule(object):
 
         dict_of_keys = {}
         try:
-            list_of_files = listdir('cgi-bin\config')
+            list_of_files = listdir('cgi-bin\\config')
         except FileNotFoundError:
             list_of_files = listdir('config')
 
