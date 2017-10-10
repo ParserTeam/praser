@@ -80,7 +80,6 @@ class ConfigModule(object):
             # list_of_limiters = str(tree.findtext('KEYS')).split(' ')
             list_of_limiters = tree.getroot().attrib.get("limiter").split(" ")
             dict_of_keys[i] = list_of_limiters
-        print list_of_limiters
         return dict_of_keys
 
     # function that return keys with their types

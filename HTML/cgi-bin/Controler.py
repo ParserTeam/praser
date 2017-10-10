@@ -85,6 +85,6 @@ if __name__ == "__main__":
     from tkFileDialog import askopenfile
 
     controller = Controller()
-    file = askopenfile("r")
-    text = controller.check_text(file.read())
+    print_file = askopenfile("r")
+    text = controller.check_text(print_file.read())
     print text

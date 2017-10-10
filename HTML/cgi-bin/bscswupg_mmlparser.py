@@ -20641,4 +20641,4 @@ END
 #    prettyPrint(MMLparser(objHierarchy = {'NAME': ['SIDE']}).parsePrintouts(exscpAll))
 #    prettyPrint(MMLparser(objHierarchy = {'CELL': ['CHTYPE']}).parsePrintouts(rlslpAll))
 #    prettyPrint(MMLparser(objHierarchy = {'NVIF': ['DEST']}).parsePrintouts(ihrhpAll))
-    prettyPrint(MMLparser().parsePrintouts(DBTSP_LMCONTRPARS))
+#     prettyPrint(MMLparser().parsePrintouts(DBTSP_LMCONTRPARS))
