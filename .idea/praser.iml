@@ -5,7 +5,7 @@
       <sourceFolder url="file://$MODULE_DIR$/HTML/cgi-bin/config" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/HTML/cgi-bin" isTestSource="false" />
     </content>
-    <orderEntry type="jdk" jdkName="Python 2.7.14 (C:\Python27\python.exe)" jdkType="Python SDK" />
+    <orderEntry type="jdk" jdkName="Python 2.7.14 (C:\Program Files\Python27\python.exe)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
   <component name="TestRunnerService">
