@@ -1,2 +1,0 @@
-class ObjectForView(object):
-    pass

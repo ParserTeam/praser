@@ -84,7 +84,7 @@ class ConfigModule(object):
                     except ParseError:
                         print "Bad file xml :" + i
                 # list_of_limiters = str(tree.findtext('KEYS')).split(' ')
-                list_of_limiters = tree.getroot().attrib.get("limiter").split(" ")
+                list_of_limiters = tree.getroot().attrib.get("limiter")
                 dict_of_keys[i] = list_of_limiters
         return dict_of_keys
 
@@ -148,7 +148,7 @@ class ConfigModule(object):
             list_of_objects[i.file_names[0]] = file_object
         # return list of objects
         return list_of_objects
-#
 # #
+# # #
 # object1 = ConfigModule()
 # print(object1.get_list_objects())

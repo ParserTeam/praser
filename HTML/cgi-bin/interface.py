@@ -1,10 +1,11 @@
 import cgi
 from Controler import Controller
-#from XmlModule import ConfigModule
+
+# from XmlModule import ConfigModule
 
 
 
-#test = ConfigModule()
+# test = ConfigModule()
 
 # Create instance of FieldStorage
 
@@ -24,6 +25,7 @@ def get_input_inf():
 controller = Controller()
 text = controller.check_text(get_input_inf())
 
+
 # output = ['new inf']
 
 def output_inf(output):
@@ -42,7 +44,9 @@ def output_inf(output):
         <form name='pars'>
         <p STYLE = 'text-align: center'>Paste your log file here<Br>
         <textarea name='comment' cols='200' rows='15'></textarea></p>
-        <p><input name = 'inf' type='submit' value='Pars' formaction = '/cgi-bin/interface.py' formmethod = 'post' ></input><input type='reset' value='Clean'></p>
+        <p><input name = 'inf' type='submit' value='Pars' formaction = '/cgi-bin/interface.py' formmethod = 'post' ></input><input type='reset' value='Clean'>
+        <input name = 'add_xml' type = 'submit' value = 'Add new config' formaction = '/cgi-bin/AddXmlConfig.py' formmethod = 'post'  >
+        </p>
         <p STYLE = 'text-align: center' >Errors:</p>
         </form>
         {}
@@ -102,7 +106,7 @@ def output_inf(output):
                         if len(b.get(z)) != 0:
                             print '''
                                 <tr class="bg-success ">
-                                  <th>''' + z + ''' :''' +'''</th>
+                                  <th>''' + z + ''' :''' + '''</th>
                                   <th colspan="3" >ERRORS:</th>
                                 </tr>
                             '''
@@ -124,6 +128,8 @@ def output_inf(output):
                     </table>
             </div>
                 '''
+
+
 def select_version(L, Text):
     """:return L(random object)"""
     import random
@@ -131,5 +137,5 @@ def select_version(L, Text):
     rand = secure_random.choice(L)
     return [rand]
 
-output_inf(text)
 
+output_inf("sdasdklasldjaskl")
