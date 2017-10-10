@@ -1,6 +1,7 @@
 from PrintReader import PrintReader
 from XmlModule import ConfigModule
 
+
 class Controller:
     print_reader = None
     xml_files = None
@@ -9,17 +10,15 @@ class Controller:
     def __init__(self):
         self.xml_reader = ConfigModule()
         self.xml_files = self.xml_reader.get_keys_from_files()
-        print(self.xml_files)
 
-    def check_text(self, text):
-        self.print_reader = PrintReader(text, self.xml_files)
-        xml_objects = self.xml_reader.get_list_objects(self.print_reader.get_config_files_in_text())
-        if not xml_objects:
+    def check_text(self, print_text):
+        self.print_reader = PrintReader(print_text, self.xml_files)
+        if len(self.print_reader.subjects) == 0:
             return "<b>No file found for text</b>"
-        self.print_reader.make_subjects(xml_objects)
+        self.xml_reader.get_list_objects(self.print_reader.subjects)
         list_check_values = self.print_reader.get_check_values()
-        # return list_check_values
-        return (self.create_data_for_out(list_check_values))
+        return list_check_values
+        # return (self.create_data_for_out(list_check_values))
 
     def create_data_for_out(self, list_check_values):
         result = dict()
@@ -82,17 +81,26 @@ class Controller:
 
 
 if __name__ == "__main__":
-    import interface
-    controller = Controller()
-    #text = controller.check_text(interface.get_input_inf())
-    interface.output_inf({'rxcap.xml': [{'MO': 'RXOTG-187', 'CASCADABLE': 'YES',
-                                    'OMLF1': {'F1': 'TRXC function change not supported by the BTS.',
-                                               'F2': 'Automatic ciphering capability not supported by the BTS.',
-                                               'F15': 'MCTR not supported by the BTS.',
-                                              'F22': 'MCTR maximum allowed power extension not supported by the BTS.',
-                                              'F25': 'Native IP Configuration not supported by the BTS.',
-                                              'F27': 'Reporting of Access Burst Info not supported by the BTS.',
-                                              'F28': 'Decimal resolution of configured power not supported by the BTS.'},
-                                   'OMLF2': {}, 'RSLF1': {'F11': 'Extended CBCH not supported by the BTS.'},
-                                     'RSLF2': 'FF', 'FTXADDR': 'NO'}]} )
+    from tkFileDialog import askopenfile
 
+    controller = Controller()
+    print_file = askopenfile("r")
+    text = controller.check_text(print_file.read())
+    print text
+
+
+# if __name__ == "__main__":
+#     import interface
+#
+#     controller = Controller()
+#     text = controller.check_text(interface.get_input_inf())
+#     interface.output_inf({'rxcap.xml': [{'MO': 'RXOTG-187', 'CASCADABLE': 'YES',
+#                                      'OMLF1': {'F1': 'TRXC function change not supported by the BTS.',
+#                                                'F2': 'Automatic ciphering capability not supported by the BTS.',
+#                                                'F15': 'MCTR not supported by the BTS.',
+#                                                'F22': 'MCTR maximum allowed power extension not supported by the BTS.',
+#                                                'F25': 'Native IP Configuration not supported by the BTS.',
+#                                                'F27': 'Reporting of Access Burst Info not supported by the BTS.',
+#                                                'F28': 'Decimal resolution of configured power not supported by the BTS.'},
+#                                      'OMLF2': {}, 'RSLF1': {'F11': 'Extended CBCH not supported by the BTS.'},
+#                                      'RSLF2': 'FF', 'FTXADDR': 'NO'}]})

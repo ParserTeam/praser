@@ -1,6 +1,5 @@
 import xml.etree.cElementTree as ET
 from xml.etree.cElementTree import ParseError
-import interface
 #from interface import select_version
 
 
@@ -148,7 +147,7 @@ class ConfigModule(object):
             # list_of_objects[i.file_names[0]] = file_object
             i.xml_file_obj = file_object
         # return list of objects
-        return list_of_objects
+        return true_config
 # #
 # # #
 # object1 = ConfigModule()

@@ -10,13 +10,15 @@ class PrintReader:
     text = None
 
     def __init__(self, text, configuration_keys):
-        self.text = text
+        text += "\n" * 4
+        self.text = text.replace("\r\n", "\n")
         self.subjects = self._split_text(text, configuration_keys)
+        self._add_texts_to_subjects(self.subjects, self.text)
 
     def _split_text(self, text, configuration_keys):
         """
         :param text: input text with printouts;
-            configuration_keys: dictionary with xml_file name as key and limiter as value
+        :param configuration_keys: dictionary with xml_file name as key and limiter as value
         :return: list with SubText object
         """
         result = list()
@@ -27,6 +29,12 @@ class PrintReader:
         return result
 
     def _unite_texts(self, result, texts, file_name):
+        """
+        This function add to SubText object file with overlapping
+        :param result: list of SubText objects
+        :param texts: list of SRE_Match objects with all printouts correspond this xml file
+        :param file_name: xml file name
+        """
         for text in texts:
             if text in result:
                 for subtext_obj in result:
@@ -34,12 +42,21 @@ class PrintReader:
             else:
                 result += [SubText(text, file_name)]
 
-    # def get_check_values(self):
-    #     subject_values = []
-    #
-    #     for subject in self.subjects:
-    #         subject_values += [CheckedValues(subject)]
-    #     return subject_values
+    def _add_texts_to_subjects(self, subjects, text):
+        """
+        This function add text parts to each SubText object in subjects list
+        :param subjects: list of SubText objects
+        :param text: all input text
+        """
+        for subject in subjects:
+            subject.add_text(text)
+
+    def get_check_values(self):
+        subject_values = []
+
+        for subject in self.subjects:
+            subject_values += [CheckedValues(subject.parse_self())]
+        return subject_values
 
 
 class SubText:
@@ -50,7 +67,7 @@ class SubText:
     text = None
 
     def __init__(self, text, file_name):
-        self.file_name = [file_name]
+        self.file_names = [file_name]
         self.start = text.start()
         self.end = text.end()
 
@@ -64,9 +81,16 @@ class SubText:
         if text.start() < self.end and text.end() > self.start:
             self.start = text.start() if text.start() < self.start else self.start
             self.end = text.end() if text.end() > self.end else self.end
-            self.file_name += [file_name]
+            self.file_names += [file_name]
             return True
         return False
+
+    def add_text(self, text):
+        self.text = text[self.start: self.end]
+
+    def parse_self(self):
+        self.text = "\n" + self.xml_file_obj.header + "\n\n" + self.text
+        return MMLparser().parsePrintouts(self.text)
 
     def __eq__(self, other):
         """
@@ -81,7 +105,30 @@ class SubText:
             return self.start == other.start and self.end == other.end
         return False
 
-#
+
+class CheckedValues:
+    """
+    parse_objects structure:
+    [{'MO': 'RXOTG-187', 'CASCADABLE': 'YES', 'OMLF1': '72DFBFFC',
+    'OMLF2': 'FF', 'RSLF1': '1FFFFFFBFF', 'RSLF2': 'FF', 'FTXADDR': 'NO'}]
+    """
+    xml_file_name = None
+    xml_obj = None
+    add_to_print = None
+    parse_objects = None
+
+    def __init__(self, subject):
+        print subject
+        # self.xml_file_name = subject.xml_file_obj.name_of_CANDY
+        # self.add_to_print = subject.add_to_print
+        # self.parse_objects = subject.get_objects_to_check()
+        # self.xml_obj = subject.xml_instance
+
+    def __repr__(self):
+        return "CheckValue object: {}".format(self.parse_objects)
+
+
+        #
 # class Subject:
 #     xml_instance = None
 #     text = None
@@ -277,17 +324,4 @@ class SubText:
 #         return "Table: header = '{}'".format(self.get_name())
 #
 #
-# class CheckedValues:
-#     xml_file_name = None
-#     xml_obj = None
-#     add_to_print = None
-#     parse_objects = None
 #
-#     def __init__(self, subject):
-#         self.xml_file_name = subject.file_name
-#         self.add_to_print = subject.add_to_print
-#         self.parse_objects = subject.get_objects_to_check()
-#         self.xml_obj = subject.xml_instance
-#
-#     def __repr__(self):
-#         return "CheckValue object: {}".format(self.parse_objects)
