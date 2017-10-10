@@ -1,4 +1,6 @@
 import xml.etree.cElementTree as ET
+from xml.etree.cElementTree import ParseError
+from interface import select_version
 
 
 class KeysObject:
@@ -76,7 +78,10 @@ class ConfigModule(object):
                 try:
                     tree = ET.ElementTree(file='cgi-bin\config\\' + i)
                 except (WindowsError, IOError):
-                    tree = ET.ElementTree(file='config\\' + i)
+                    try:
+                        tree = ET.ElementTree(file='config\\' + i)
+                    except ParseError:
+                        print "Bad file xml :" + i
                 # list_of_limiters = str(tree.findtext('KEYS')).split(' ')
                 list_of_limiters = tree.getroot().attrib.get("limiter").split(" ")
                 dict_of_keys[i] = list_of_limiters
@@ -87,14 +92,18 @@ class ConfigModule(object):
 def get_list_objects(self, true_config=None):
     list_of_objects = {}
     # run by list of files
+    for obj in range(len(true_config)):
+        if len(true_config[obj].file_names) > 2:
+            true_config[obj].file_names = select_version(true_config[obj].file_names, true_config[obj].text)
+
     for i in true_config:
         # create a empty object of file
         file_object = ConfigObject()
         # open xml config file
         try:
-            tree = ET.ElementTree(file='cgi-bin\config\\' + i)
+            tree = ET.ElementTree(file='cgi-bin\config\\' + i.file_names[0])
         except (WindowsError, IOError):
-            tree = ET.ElementTree(file='config\\' + i)
+            tree = ET.ElementTree(file='config\\' + i.file_names[0])
         # get header from config.xml
         file_object.name_of_CANDY = i
 
