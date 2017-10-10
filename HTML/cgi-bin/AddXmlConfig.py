@@ -26,23 +26,12 @@ print """
     <TR>
     <form name = "test" method = "post">
     <p><b>Key</b></br>
-    <input type ="text" size="40">
-    {}
-    <input type="button" onclick="NewTeg()" value="Add button">
-    <script>
-    function NewTeg() {
-    var Div=document.getElementById('menu');
-    button='<input type="button" id="NewButton" value="Button">';
-    Div.NewButton=button;
-    </script>
+    <input type ="text" size="50">        
+    </p>
+    <p><b>Key</b></br>
+    <input type ="text" size="20">        
     </p>
     </from>
-    <form name='pars'>
-    <p STYLE = 'text-align: center'>Paste your log file here<Br>
-    <textarea name='comment' cols='200' rows='15'></textarea></p>
-    <p><input name = 'inf' type='submit' value='Add' formmethod = 'post' ></input><input type='reset' value='Clean'>
-    </p>
-    </form>
     </TR>
     </DIV>
     </TBODY>

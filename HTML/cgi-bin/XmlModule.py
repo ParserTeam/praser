@@ -1,6 +1,6 @@
 import xml.etree.cElementTree as ET
 from xml.etree.cElementTree import ParseError
-#from interface import select_version
+
 
 
 class KeysObject:
@@ -56,7 +56,7 @@ class ConfigObject:
         self.list_of_object_keys = []
 
 
-class ConfigModule(object):
+class ConfigModule():
     list_of_active_keys = []
 
     # check all files in config directory and return dictionary of keys and files name
@@ -75,16 +75,18 @@ class ConfigModule(object):
         for i in list_of_files:
             if i[len(i) - 4: len(i)] == ".xml":
                 i = i.replace("[", "").replace("]", "").replace("'", "")
+                tree = None
                 try:
                     tree = ET.ElementTree(file='cgi-bin\config\\' + i)
                 except (WindowsError, IOError):
                     try:
                         tree = ET.ElementTree(file='config\\' + i)
                     except ParseError:
-                        print "Bad file xml :" + i
+                        pass
                 # list_of_limiters = str(tree.findtext('KEYS')).split(' ')
-                list_of_limiters = tree.getroot().attrib.get("limiter")
-                dict_of_keys[i] = list_of_limiters
+                if tree:
+                    list_of_limiters = tree.getroot().attrib.get("limiter")
+                    dict_of_keys[i] = list_of_limiters
         return dict_of_keys
 
 
@@ -92,10 +94,6 @@ class ConfigModule(object):
     def get_list_objects(self, true_config=None):
         list_of_objects = {}
         # run by list of files
-        for obj in range(len(true_config)):
-            if len(true_config[obj].file_names) > 1:
-                true_config[obj].file_names = interface.select_version(true_config[obj].file_names, true_config[obj].text)
-
         for i in true_config:
             # create a empty object of file
             file_object = ConfigObject()
@@ -150,5 +148,4 @@ class ConfigModule(object):
         return true_config
 # #
 # # #
-# object1 = ConfigModule()
-# print(object1.get_list_objects())
+

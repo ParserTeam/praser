@@ -5,6 +5,7 @@
     <NAME_KEY>BVCI</NAME_KEY>
     <ACTIVE_KEYS limiter="BVCI CELL BVCSTATE IPDEV">
         <BVCSTATE type="str" norm_val="ACTIVE"></BVCSTATE>
+            <>
     </ACTIVE_KEYS>
     <PRINT_KEYS>NSEI</PRINT_KEYS>
 </root>
