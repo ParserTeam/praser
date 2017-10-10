@@ -14,7 +14,7 @@ class Controller:
     def check_text(self, print_text):
         self.print_reader = PrintReader(print_text, self.xml_files)
         if len(self.print_reader.subjects) == 0:
-            return "<b>No file found for text</b>"
+            return "<b>No file found for text</b><p>Files available: " + " ".join(self.xml_files.keys()) + "</p>"
         self.xml_reader.get_list_objects(self.print_reader.subjects)
         list_check_values = self.print_reader.get_check_values()
         return list_check_values
