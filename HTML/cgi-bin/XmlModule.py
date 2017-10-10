@@ -55,12 +55,12 @@ class ConfigObject:
 
 
 class ConfigModule(object):
-    list_of_keys = []
     list_of_active_keys = []
 
     # check all files in config directory and return dictionary of keys and files name
     def get_keys_from_files(self):
         from os import listdir, path
+        list_of_limiters = []
 
         dict_of_keys = {}
         try:
@@ -77,8 +77,10 @@ class ConfigModule(object):
                 tree = ET.ElementTree(file='cgi-bin\config\\'+i)
             except (WindowsError, IOError):
                 tree = ET.ElementTree(file='config\\' + i)
-            list_of_keys = str(tree.findtext('KEYS')).split(' ')
-            dict_of_keys[i] = list_of_keys
+            # list_of_limiters = str(tree.findtext('KEYS')).split(' ')
+            list_of_limiters = tree.getroot().attrib.get("limiter").split(" ")
+            dict_of_keys[i] = list_of_limiters
+        print list_of_limiters
         return dict_of_keys
 
     # function that return keys with their types
@@ -100,7 +102,7 @@ class ConfigModule(object):
             # get name of key from config.xml
             file_object.name_key = tree.find('NAME_KEY').text
             # get regular expression from config.xml
-            file_object.root_limiter = tree.getroot().attrib.get("limiter")
+           # file_object.root_limiter = tree.getroot().attrib.get("limiter")
             # get regular expression from config.xml
             file_object.active_key_limiter = tree.find('ACTIVE_KEYS').attrib.get("limiter")
             # get keys which we will printout from config.xml
@@ -138,5 +140,5 @@ class ConfigModule(object):
         return list_of_objects
 
 #
-# object1 = ConfigModule()
-# print(object1.get_list_objects(["rxbsp.xml"]))
+object1 = ConfigModule()
+print(object1.get_keys_from_files())

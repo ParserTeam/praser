@@ -1,10 +1,6 @@
 from PrintReader import PrintReader
 from XmlModule import ConfigModule
 
-
-# from interface import get_input_inf,output_inf
-
-
 class Controller:
     print_reader = None
     xml_files = None
