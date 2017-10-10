@@ -1,6 +1,15 @@
 import cgi
 form = cgi.FieldStorage()
 
+def add_button():
+    print """
+    <p><b>Key</b></br>
+    <input type ="text" size="40">
+    <input type = "submit" a>
+    </p>"""
+
+
+
 
 
 print "Content-type:text/html\r\n\r\n"
@@ -16,11 +25,16 @@ print """
     <DIV STYLE = 'text-align: center' 'height = 100%' >
     <TR>
     <form name = "test" method = "post">
-    <p><b>Your name</b></br>
+    <p><b>Key</b></br>
     <input type ="text" size="40">
-    
-    
-    <input type = "submit" a>
+    {}
+    <input type="button" onclick="NewTeg()" value="Add button">
+    <script>
+    function NewTeg() {
+    var Div=document.getElementById('menu');
+    button='<input type="button" id="NewButton" value="Button">';
+    Div.NewButton=button;
+    </script>
     </p>
     </from>
     <form name='pars'>

@@ -94,7 +94,7 @@ class ConfigModule(object):
         list_of_objects = {}
         # run by list of files
         for obj in range(len(true_config)):
-            if len(true_config[obj].file_names) > 2:
+            if len(true_config[obj].file_names) > 1:
                 true_config[obj].file_names = interface.select_version(true_config[obj].file_names, true_config[obj].text)
 
         for i in true_config:
@@ -145,7 +145,8 @@ class ConfigModule(object):
                     key_object.dict_bits += [bit_object]
                 file_object.list_of_object_keys.append(key_object)
             # add file object to list
-            list_of_objects[i.file_names[0]] = file_object
+            # list_of_objects[i.file_names[0]] = file_object
+            i.xml_file_obj = file_object
         # return list of objects
         return list_of_objects
 # #
