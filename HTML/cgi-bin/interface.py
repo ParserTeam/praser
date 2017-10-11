@@ -23,12 +23,8 @@ def get_input_inf():
         return form.getvalue("comment")
     return "No input data"
 
-
-
 # controller = Controller()
 # text = controller.check_text(get_input_inf())
-
-
 # output = ['new inf']
 
 
@@ -39,7 +35,6 @@ def output_inf(output):
     else:
         a = output
         print type(a)
-
         if len(a) != 0:
             print '''
                 <link rel="stylesheet" type="text/css" href="style.css">
