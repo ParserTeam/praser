@@ -57,7 +57,7 @@ def output_inf(output):
                                 '''
                 print '''
                     <tr>
-                        <th colspan="4" >''' + i[:i.find(".")].upper() + '''</th>
+                        <th colspan="4"style="text-align:  center;" >''' + i[:i.find(".")].upper() + '''</th>
                     </tr>
                 '''
                 for j in a.get(i):
