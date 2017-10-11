@@ -43,17 +43,12 @@ def output_inf(output):
             <TITLE>ERRORS PARSER</TITLE>
             </head>
             <BODY STYLE = 'color: #000080' 'background-color: #3366CC'>
-            <H1 STYLE = 'text-align: center'><STRONG>BSC ERRORS PARSER</STRONG></H1>
             <TABLE>
             <TBODY>
             <DIV STYLE = 'text-align: center' 'height = 100%' >
             <TR>
             <form name='pars'>
             <p STYLE = 'text-align: center'>Paste your log file here<Br>
-            <textarea name='comment' cols='200' rows='15'></textarea></p>
-            <p><input name = 'inf' type='submit' value='Pars' formaction = '/cgi-bin/interface.py' formmethod = 'post' ></input><input type='reset' value='Clean'>
-            <input name = 'add_xml' type = 'submit' value = 'Add new config' formaction = '/cgi-bin/AddXmlConfig.py' formmethod = 'post'  >
-            </p>
             <p STYLE = 'text-align: center' >Errors:</p>
             </form>
             {}
