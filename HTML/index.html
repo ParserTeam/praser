@@ -42,6 +42,9 @@
 
     }
     </script>
+        <style>
+   textarea { resize: none; }
+  </style>
 	</HEAD>
 	<BODY STYLE = "color: #000080 background-color: #3366CC">
 		<H1 STYLE = "text-align: center"><STRONG>BSC ERRORS PARSER</STRONG></H1>
@@ -55,10 +58,15 @@
 				</DIV>
 
 				<DIV id = "upload">
-					<form name="upload" enctype="multipart/form-data" action="/cgi-bin/Controler.py" method="post" id="ajax_form2">
-					<p>File: <input type="file" id="btn3"/></p>
-					<p><input type="submit" value="Upload" name="upload"/></p>
-					</form>
+					<!--<form enctype="multipart/form-data" action="/cgi-bin/Controler.py" method="post" id="ajax_form2">-->
+					<!--<p>File: <input type="file" name="filename" id="btn3"/></p>-->
+					<!--<p><input type="submit" value="Upload" /></p>   id="ajax_form2"  id="btn3"-->
+					<!--</form>-->
+                    <p>&nbsp</p>
+                    <p>&nbsp</p>
+                     <form action = "/cgi-bin/Controler.py"  >
+                    <p>Or upload file: <input name="button" type="submit" value="upload"></p>
+                     </form>
 				</DIV>
 				<DIV id = "result">
 									<p>&nbsp</p>
@@ -68,20 +76,9 @@
 						<p id="inf3"></p>
 					</form>
 				</DIV>
-		<div id="win">
-			<div id="win">
-				<button onClick="getElementById('win').removeAttribute('style');" type="button">Модальное окно</button>
-			</div>
-   <div class="overlay"></div>
-      <div class="visible">
-        <h2>Заголовок окна</h2>
-          <div class="content">
-            <p>Содержание</p>
-            <p>Модальное окно фиксированной ширины</p>
-          </div>
-        <button type="button" onClick="getElementById('win').style.display='none';">закрыть</button>
-    </div>
-</div>
+
+
+
 		<!--<div id="result_form"><div>-->
 	</BODY>
 </html>
