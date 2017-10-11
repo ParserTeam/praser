@@ -16,7 +16,7 @@ def get_input_inf():
     # Get data from fields
     form = cgi.FieldStorage()
 
-    if form.list[0].name == "upload":
+    if not form.list:
         print_file = askopenfile("r")
         return print_file.read()
     elif form.list[0].name == "comment":
