@@ -13,7 +13,19 @@ class Controller:
         self.xml_files = self.xml_reader.get_keys_from_files()
 
     def check_text(self, print_text):
-
+        """
+        Main function to check text
+        :param print_text: text with printouts
+        :return: dict:
+                    key: xml_file name
+                    value: list of dict printout for this file:
+                            dict:
+                                key: key name (MO, NSEI, ...)
+                                value: dict with decode info:
+                                    key: short decode
+                                    value: long decode
+        example =
+        """
         self.print_reader = PrintReader(print_text, self.xml_files)
         if len(self.print_reader.subjects) == 0:
             return "<b>No file found for text</b><p>Files available: " + ", ".join(self.xml_files.keys()) + "</p>"
@@ -51,7 +63,7 @@ class Controller:
             bit = bits.dict_bits
 
             if bits.type.isdigit():
-                if printout_bits.get(bits.name) == '':
+                if not printout_bits.get(bits.name):
                     value = 0
                 else:
                     value = int(str(printout_bits.get(bits.name)), int(bits.type))

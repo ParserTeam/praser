@@ -11,7 +11,9 @@ def get_input_inf():
         root = Tk()
         root.withdraw()
         print_file = askopenfile("r")
-        return print_file.read()
+        if print_file:
+            return print_file.read()
+        return "Error"
     elif form.list[0].name == "comment":
         return form.getvalue("comment")
     return "No input data"

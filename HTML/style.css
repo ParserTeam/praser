@@ -28,6 +28,11 @@ height:20px;
 
 }
 
+#fromNameToMo{
+font-size: 20px;
+font-weight:bold;
+}
+
 #main {
         display: none;
         position: absolute;
@@ -52,6 +57,7 @@ height:20px;
         margin: auto;
       }
       #main:target {display: block;}
+
 textarea { resize: none;
  width:98%; }
  input {color: #000080;

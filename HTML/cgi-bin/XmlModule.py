@@ -1,6 +1,6 @@
 import xml.etree.cElementTree as ET
 from xml.etree.cElementTree import ParseError
-
+from os import listdir, path
 
 
 class KeysObject:
@@ -61,14 +61,15 @@ class ConfigModule():
 
     # check all files in config directory and return dictionary of keys and files name
     def get_keys_from_files(self):
-        from os import listdir, path
         list_of_limiters = []
 
         dict_of_keys = {}
-        try:
-            list_of_files = listdir('cgi-bin\\config')
-        except (WindowsError, IOError):
+        if path.exists('cgi-bin/config'):
+            list_of_files = listdir('cgi-bin/config')
+        elif path.exists('config'):
             list_of_files = listdir('config')
+        elif path.exists('../config'):
+            list_of_files = listdir('../config')
 
         # scriptpath = path.dirname("config")
 
@@ -77,12 +78,14 @@ class ConfigModule():
                 i = i.replace("[", "").replace("]", "").replace("'", "")
                 tree = None
                 try:
-                    tree = ET.ElementTree(file='cgi-bin\config\\' + i)
-                except (WindowsError, IOError):
-                    try:
-                        tree = ET.ElementTree(file='config\\' + i)
-                    except ParseError:
-                        pass
+                    if path.exists('cgi-bin/config/'):
+                        tree = ET.ElementTree(file='cgi-bin/config/' + i)
+                    elif path.exists('config/'):
+                        tree = ET.ElementTree(file='config/' + i)
+                    elif path.exists('../config/'):
+                        tree = ET.ElementTree(file='../config/' + i)
+                except ParseError:
+                    pass
                 # list_of_limiters = str(tree.findtext('KEYS')).split(' ')
                 if tree:
                     list_of_limiters = tree.getroot().attrib.get("limiter")
@@ -99,9 +102,14 @@ class ConfigModule():
             file_object = ConfigObject()
             # open xml config file
             try:
-                tree = ET.ElementTree(file='cgi-bin\config\\' + i.file_names[0])
-            except (WindowsError, IOError):
-                tree = ET.ElementTree(file='config\\' + i.file_names[0])
+                if path.exists('cgi-bin/config/'):
+                    tree = ET.ElementTree(file='cgi-bin/config/' + i.file_names[0])
+                elif path.exists('config/'):
+                    tree = ET.ElementTree(file='config/' + i.file_names[0])
+                elif path.exists('../config/'):
+                    tree = ET.ElementTree(file='../config/' + i.file_names[0])
+            except ParseError:
+                pass
             # get header from config.xml
             file_object.name_of_CANDY = i.file_names[0]
 
