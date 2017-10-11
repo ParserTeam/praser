@@ -1,12 +1,12 @@
 <html>
-	<HEAD>
-	<META HTTP-EQUIV ="Content-Type" CONTENT="text/html;charset=utf-8">
-	<!DOCTYPE html>
-	<TITLE>ERRORS PARSER</TITLE>
-		<link rel="stylesheet" type="text/css" href="style.css">
+<HEAD>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=utf-8">
+    <!DOCTYPE html>
+    <TITLE>ERRORS PARSER</TITLE>
+    <link rel="stylesheet" type="text/css" href="style.css">
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-	<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
-		<script type="text/javascript">
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript">
 					$(document).ready(function(){
 					$('#ajax_form').submit(function(event){
 						$.post("/cgi-bin/Controler.py",{comment:$("#btn2").val()},onResponse);
@@ -16,8 +16,14 @@
 						$("#inf2").html(btn);
 					}
 				})
-		</script>
-		<script type="text/javascript">
+
+
+
+
+
+
+    </script>
+    <script type="text/javascript">
 					$(document).ready(function(){
 					$('#ajax_form2').submit(function(event){
 						$.post("/cgi-bin/Controler.py",{comment:$("#btn3").val()},onResponse);
@@ -27,8 +33,14 @@
 						$("#inf3").html(btn);
 					}
 				})
-		</script>
-		<script>
+
+
+
+
+
+
+    </script>
+    <script>
 		function addFullShow(form) {
 
       alert("about to send form");
@@ -41,45 +53,74 @@
       xhr.send(formData);
 
     }
+
+
+
+
+
+
     </script>
-        <style>
-   textarea { resize: none; }
-  </style>
-	</HEAD>
-	<BODY STYLE = "color: #000080 background-color: #3366CC">
-		<H1 STYLE = "text-align: center"><STRONG>BSC ERRORS PARSER</STRONG></H1>
-				<DIV id = "input">
-							<p STYLE = "text-align: center">Paste your log file here<Br>
-							<form name="pars" id="ajax_form" >
-								<textarea name="comment" cols="150" rows="15" id="btn2"></textarea>
-								<input type="submit" value="Pars" id="in1" formaction = "/cgi-bin/Controler.py" formmethod = "post" ></input>
-								<input type="reset" value="Clean">
-							</form>
-				</DIV>
+</HEAD>
+<BODY STYLE="color: #000080 background-color: #3366CC">
+<H1 STYLE="text-align: center"><STRONG>BSC ERRORS PARSER</STRONG></H1>
+<DIV id="input">
+    <p STYLE="text-align: center">Paste your log file here<Br>
+    <form name="pars" id="ajax_form">
+        <textarea name="comment" cols="150" rows="15" id="btn2"></textarea>
+        <input type="submit" value="Pars" id="in1" formaction="/cgi-bin/Controler.py" formmethod="post">
+        <input type="reset" value="Clean">
+    </form>
+</DIV>
 
-				<DIV id = "upload">
-					<!--<form enctype="multipart/form-data" action="/cgi-bin/Controler.py" method="post" id="ajax_form2">-->
-					<!--<p>File: <input type="file" name="filename" id="btn3"/></p>-->
-					<!--<p><input type="submit" value="Upload" /></p>   id="ajax_form2"  id="btn3"-->
-					<!--</form>-->
-                    <p>&nbsp</p>
-                    <p>&nbsp</p>
-                     <form action = "/cgi-bin/Controler.py"  >
-                    <p>Or upload file: <input name="button" type="submit" value="upload"></p>
-                     </form>
-				</DIV>
-				<DIV id = "result">
-									<p>&nbsp</p>
-					<form>
-						<input type="reset" value="Clean"/>
-						<p id="inf2"></p>
-						<p id="inf3"></p>
-					</form>
-				</DIV>
+<DIV id="upload">
+    <form enctype="multipart/form-data" action="/cgi-bin/Controler.py" method="post" id="ajax_form2">
+        <p>File: <input type="file" name="filename" id="btn3"/></p>
+        <p><input type="submit" value="Upload"/></p>
+    </form>
+</DIV>
+<div id="helpconfig">
+    <form name="add_xml_form">
+        <p>
+            <input name='add_xml' type='submit' value='Add new config' formaction='/cgi-bin/AddXmlConfig.py'
+                   formmethod='post'>
+            <input name='help' type='submit' value='Help' formaction="README.txt">
+        </p>
+    </form>
+</div>
 
+<DIV id="result">
+    <p>&nbsp</p>
+    <form>
+        <input type="reset" value="Clean"/>
+        <p id="inf2"></p>
+        <p id="inf3"></p>
+    </form>
+</DIV>
+<div class="b-container">
+    Sample Text
+</div>
+<a href="#" id="main">
+<div id="okno">
+    Всплывающее окошко!
+</div>
+</a>
+<a href="#main">Вызвать всплывающее окно</a>
 
-
-		<!--<div id="result_form"><div>-->
-	</BODY>
+<div id="win">
+    <div id="win">
+        <button onClick="getElementById('win').removeAttribute('style');" type="button">Модальное окно</button>
+    </div>
+    <div class="overlay"></div>
+    <div class="visible">
+        <h2>Заголовок окна</h2>
+        <div class="content">
+            <p>Содержание</p>
+            <p>Модальное окно фиксированной ширины</p>
+        </div>
+        <button type="button" onClick="getElementById('win').style.display='none';">закрыть</button>
+    </div>
+</div>
+<!--<div id="result_form"><div>-->
+</BODY>
 </html>
 
