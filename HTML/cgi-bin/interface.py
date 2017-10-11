@@ -121,13 +121,13 @@ def output_inf(output):
                                           <th colspan="3" >''' + b.get(z).get(y) + ''' ;''' + '''</th>
                                         </tr>
                                     '''
-                            else:
-                                print'''
-                                    <tr class="bg-success ">
-                                      <th>''' + z + ''' -''' + '''</th>
-                                      <th colspan="3" >OK;</th>
-                                    </tr>
-                                '''
+                            # else:
+                            #     print'''
+                            #         <tr class="bg-success ">
+                            #           <th>''' + z + ''' -''' + '''</th>
+                            #           <th colspan="3" >OK;</th>
+                            #         </tr>
+                            #     '''
             print '''
                         </table>
                 </div>
