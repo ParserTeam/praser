@@ -51,6 +51,6 @@ height:20px;
       }
       #main:target {display: block;}
 textarea { resize: none;
- width:98%; }
+ width:100%; }
  input {color: #000080;
  font-family: Helvetica Neue ,Helvetica,Arial,sans-serif;}
