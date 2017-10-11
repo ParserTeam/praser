@@ -91,15 +91,15 @@ class Controller:
 if __name__ == "__main__":
     controller = Controller()
 
-    # input_text = get_input_inf()
+    input_text = get_input_inf()
 
-    from tkFileDialog import askopenfile
-    input_text = askopenfile("r").read()
+    # from tkFileDialog import askopenfile
+    # input_text = askopenfile("r").read()
 
     text = controller.check_text(input_text)
 
-    print text
-    # output_inf(text)
+    # print text
+    output_inf(text)
 
 
 # if __name__ == "__main__":

@@ -104,7 +104,9 @@ def output_inf(output):
                                   <th colspan="3" >''' + b.get(z) + ''' ;''' + '''</th>
                                 </tr>
                             '''
-                        else:
+
+                    for z in b:
+                        if type(b.get(z)) == dict:
                             if len(b.get(z)) != 0:
                                 print '''
                                     <tr class="bg-success ">
