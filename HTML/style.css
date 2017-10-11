@@ -58,3 +58,5 @@ height:350px;
         margin: auto;
       }
       #main:target {display: block;}
+
+       textarea { resize: none; }
