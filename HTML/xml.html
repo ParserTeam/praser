@@ -15,23 +15,23 @@
 </DIV>
 <div id="help">
 <p>You must write a .xml file with the following structure:</p>
-<p>&lt?xml version="1.0" encoding="UTF-8"?></p>
-<p>&ltroot limiter=here you need to specify a table header (start) and mandatory keywords.&gt</p>
-<p>&#8195;&ltHEDER&gtspecify the decryption of the name of the printout&lt/HEDER&gt</p>
-<p>&#8195;&ltKEYS&gtspecify the name of the column in which to find and decrypt the error&lt/KEYS&gt</p>
-<p>&#8195;&ltNAME_KEY&gtThe abbreviation for the object names for which we will perform the printout&lt/NAME_KEY&gt</p>
-<p>&#8195;&ltACTIVE_KEYS limiter=""&gt - Inside this tag, all the keys specified in the &ltKEYS&gt tag with the error encoding, are taken from the documentation in the following form (for each key separately):</p>
-<p>&#8195;&ltThe name of the first key specified in the key &ltKEYS&gt type=System of calculation in which specified value of this key in the printout norm_val=key value indicating no error></p>
+<span><p>&lt?xml version="1.0" encoding="UTF-8"?></p></span>
+<span><p>&ltroot limiter=here you need to specify a table header (start) and mandatory keywords.&gt</p></span>
+    <p>&#8195;<span>&ltHEDER&gt</span>specify the decryption of the name of the printout<span>&lt/HEDER&gt</span></p>
+<p>&#8195;<span>&ltKEYS&gt</span>specify the name of the column in which to find and decrypt the error<span>&lt/KEYS&gt</p>
+<p>&#8195;<span>&ltNAME_KEY&gt</span>The abbreviation for the object names for which we will perform the printout<span>&lt/NAME_KEY&gt</p>
+<p>&#8195;<span>&ltACTIVE_KEYS limiter=""&gt</span> - Inside this tag, all the keys specified in the <span>&ltKEYS&gt</span> tag with the error encoding, are taken from the documentation in the following form (for each key separately):</p>
+<p>&#8195;&ltThe name of the first key specified in the key <span>&ltKEYS&gt</span> type=System of calculation in which specified value of this key in the printout norm_val=key value indicating no error></p>
 <p>&#8195;&#8195;&#8195;&ltThe value of the 1st bit specified in the documentation bit=Lighted Bit Number (1)>Description of the error taken from the documentation&lt/The bit value specified in the documentation&gt</p>
 <p>&#8195;&#8195;&#8195;&#8195;.</p>
 <p>&#8195;&#8195;&#8195;&#8195;.</p>
 <p>&#8195;&#8195;&#8195;&#8195;.</p>
 <p>&#8195;&#8195;&#8195;&ltThe n-th bit specified in the documentation bit=Lighted Bit Number (n)>Description of the error taken from the documentation&lt/The bit value specified in the documentation&gt</p>
-<p>&#8195;&#8195;&#8195;&lt/The name of the first key specified in the &ltKEYS&gt tag></p>
-<p>&#8195;&lt/ACTIVE_KEYS&gt</p>
-<p>&#8195;&ltPRINT_KEYS&gtyou must specify an additional parameter (specified in a separate table of the print out, that is separated by an empty string from the main table where the key values are specified) that must be displayed on the screen together with the error, if any. Otherwise, this tag remains empty</p>
-<p>&#8195;&lt/PRINT_KEYS&gt</p>
-<p>&lt/root></p>
+<p>&#8195;&#8195;&#8195;&lt/The name of the first key specified in the <span>&ltKEYS&gt</span> tag></p>
+<p>&#8195;<span>&lt/ACTIVE_KEYS&gt</span></p>
+<p>&#8195;<span>&ltPRINT_KEYS&gt</span>you must specify an additional parameter (specified in a separate table of the print out, that is separated by an empty string from the main table where the key values are specified) that must be displayed on the screen together with the error, if any. Otherwise, this tag remains empty</p>
+<p>&#8195;<span>&lt/PRINT_KEYS&gt</span></p>
+<p><span>&lt/root&gt</span></p>
 
 <p>This file must be placed in the "config" directory of the given project.</p>
 </div>
