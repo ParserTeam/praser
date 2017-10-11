@@ -55,7 +55,7 @@ class PrintReader:
         subject_values = []
 
         for subject in self.subjects:
-            subject_values += [CheckedValues(subject.parse_self())]
+            subject_values += [CheckedValues(subject.parse_self(), subject.xml_file_obj)]
         return subject_values
 
 
@@ -114,15 +114,36 @@ class CheckedValues:
     """
     xml_file_name = None
     xml_obj = None
-    add_to_print = None
     parse_objects = None
 
-    def __init__(self, subject):
-        print subject
-        # self.xml_file_name = subject.xml_file_obj.name_of_CANDY
-        # self.add_to_print = subject.add_to_print
-        # self.parse_objects = subject.get_objects_to_check()
-        # self.xml_obj = subject.xml_instance
+    def __init__(self, subjects, xml_obj):
+        active_keys = [key.name for key in xml_obj.list_of_object_keys]
+        self.xml_obj = xml_obj
+        self.xml_file_name = xml_obj.name_of_CANDY
+        self.parse_objects = self._select_values_to_parse_objects(subjects, active_keys)
+
+    def _select_values_to_parse_objects(self, subjects, active_keys):
+        parse_objects = []
+        for subject in subjects:
+            my_values = dict()
+            for key, val in subject.items():
+                if key in active_keys or key == self.xml_obj.name_key:
+                    my_values[key] = self._values_to_string(val, -1)
+            parse_objects += [my_values]
+        return parse_objects
+
+    def _values_to_string(self, values, direction):
+        """
+        Transform the value from list to string
+        :param values: list of strings
+        :param direction: 1 is from left to right and -1 vice versa
+        :return: string
+        """
+        values = values[::direction]
+        result = ""
+        for value in values:
+            result += value
+        return result
 
     def __repr__(self):
         return "CheckValue object: {}".format(self.parse_objects)

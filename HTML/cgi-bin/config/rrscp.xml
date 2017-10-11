@@ -4,7 +4,7 @@
 <KEYS>SCGR SC DEV DEV1 NUMDEV DCP STATE REASON</KEYS>
 <NAME_KEY>SCGR</NAME_KEY>
 <ACTIVE_KEYS limiter="">
-	<STATE type="str" norm_val="WO"></STATE>
+	<REASON type="16" norm_val=""></REASON>
 </ACTIVE_KEYS>
 <PRINT_KEYS></PRINT_KEYS>
 </root>
