@@ -1,10 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <root limiter="NSEI[\s|\n]+[\s\S]*?SIGBVCSTATE[\s|\n]+[\s\S]*?SGSNFEAT[\s|\n]+[\s\S]*?\n{2,}">
     <HEDER>RADIO TRANSMISSION IP BSSGP VIRTUAL CONNECTION DATA</HEDER>
-    <KEYS>NSEI BVCI CELL BVCSTATE IPDEV</KEYS>
     <NAME_KEY>NSEI</NAME_KEY>
     <ACTIVE_KEYS limiter="BVCI CELL BVCSTATE IPDEV">
-        <SGSNFEAT type="16"></SGSNFEAT>
+        <SGSNFEAT type="16" norm_val="0">
+            <PFC bit="0">Packet Flow Context (PFC) procedures</>
+            <CBL bit="1">Current Bucket Level (CBL) procedures</>
+            <INR bit="2">Inter NSE Re-routing (INR)</>
+            <LCS bit="3">Location Services (LCS) procedures</>
+            <RIM bit="4">RAN Information Management (RIM) procedures</>
+            <PFC-FC bit="5">PFC Flow Control (FC) procedures</>
+            <ERS bit="6">Enhanced Radio Status (ERS) procedures</>
+            <MBMS bit="7">Multimedia Broadcast Multicast Service (MBMS) procedures</>
+            <PSHO bit="8">PS Handover (PSHO) procedures</>
+            <GI bit="9">Gigabit Interface (GI) procedures</>
+            <MOCN bit="10">Multi Operator Core Network (MOCN) procedures</>
+            <EC-GSM-IoT bit="12">Extended Coverage GSM Internet of Things (EC-GSM IoT) procedures</>
+            <EDRX bit="14">Extended Discontinuous Reception (EDRX) procedures</>
+        </SGSNFEAT>
     </ACTIVE_KEYS>
     <PRINT_KEYS>NSEI</PRINT_KEYS>
 </root>
