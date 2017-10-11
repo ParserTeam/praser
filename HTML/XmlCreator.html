@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <div>
+        <h1> Add xml config </h1>
+        <meta http-equiv="content-type" charset="utf-8">
+
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+    </div>
+        </head>
+
+<body>
+
+<form id="fromNameToMo">
+    <p>Name of config file
+        <br>
+        <input type="text" name="nameFile">
+    </p>
+    <p>Regexep pattern for parsing
+        <br>
+        <input type="text" name="limiter">
+    </p>
+    <p>Keys for searching
+        <br>
+        <input type="text" name="keys" value="Key1 Key2 Key3">
+    </p>
+    <p>Name of managed object
+        <br>
+        <input type="text" name="name_key">
+    </p>
+    </div>
+
+    <script type="text/javascript">
+
+function generate_bit_map(form, keys,name){
+
+name.disabled = true;
+var str = keys.value;
+var arr = str.split(" ");
+var i = 0;
+
+for (i = 0; i <arr.length; i++){
+var node = document.createTextNode(arr[i]);
+var para = document.createElement("p");
+
+var node1 = document.createTextNode("System of calculation for in  ");
+var node2 = document.createTextNode("System of calculation for out ");
+var node3 = document.createTextNode("Direction of calculation      ");
+var node4 = document.createTextNode("Key value indicating no error ");
+var para1 = document.createElement("p");
+var para2 = document.createElement("p");
+var para3 = document.createElement("p");
+var para4 = document.createElement("p");
+var tab = document.createElement("t");
+
+
+var btndiv = document.createElement("div");
+btndiv.id = arr[i];
+document.getElementById("myDiv").appendChild(btndiv);
+
+var in_type = document.createElement('input');
+in_type.type = 'text';
+in_type.name = 'in_type';
+
+var out_type = document.createElement('input');
+out_type.type = 'text';
+out_type.name = 'out_type';
+
+var direct = document.createElement('input');
+direct.type = 'text';
+direct.name = 'direct';
+
+var norm_val = document.createElement('input');
+norm_val.type = 'text';
+norm_val.name = 'norm_val';
+
+var btnbits = document.createElement('input');
+btnbits.type = 'button';
+btnbits.value = "Add bit to bit-map";
+btnbits.name = arr[i];
+btnbits.setAttribute("onclick","append(this.form, this.name)");
+
+btndiv.appendChild(btnbits);
+para1.appendChild(node);
+
+para.appendChild(tab);
+para.appendChild(node1);
+para.appendChild(out_type);
+
+para2.appendChild(node2);
+para2.appendChild(in_type);
+
+para3.appendChild(node3)
+para3.appendChild(direct);
+
+para4.appendChild(node4)
+para4.appendChild(norm_val);
+
+document.getElementById("myDiv").appendChild(para1).appendChild(btndiv).appendChild(para).appendChild(para2).appendChild(para3).appendChild(para4);
+
+
+}
+
+}
+
+
+
+    </script>
+
+    <script type="text/javascript">
+function append(form, name) {
+    var btndiv = document.createElement("div");
+
+    btndiv.id = 'divBtn';
+    document.getElementById(name).appendChild(btndiv);
+
+    var btn = document.createElement('input');
+    btn.type = 'text';
+    btn.name = name
+    btndiv.appendChild(btn);
+
+}
+
+    </script>
+
+        </t><form>
+        <div id="myDiv">
+            <input type="button" name=button1 value="Generate bit-map for keys"
+                   onclick="generate_bit_map(this.form, keys, this.name);this.disabled=true;"/>
+
+        </div>
+        </form>
+    </form>
+<form>
+    <div>
+           <p>
+            <input type="submit" value="Create xml config" formaction="/cgi-bin/AddXmlConfig.py" formmethod="post">
+            </p>
+    </div>
+</form>
+</body>
+</html>

@@ -63,7 +63,7 @@ class Controller:
             bit = bits.dict_bits
 
             if bits.type.isdigit():
-                if printout_bits.get(bits.name) == '':
+                if not printout_bits.get(bits.name):
                     value = 0
                 else:
                     value = int(str(printout_bits.get(bits.name)), int(bits.type))
