@@ -1,3 +1,4 @@
+
 import cgi
 form = cgi.FieldStorage()
 
@@ -25,13 +26,19 @@ print """
     <DIV STYLE = 'text-align: center' 'height = 100%' >
     <TR>
     <form name = "test" method = "post">
-    <p><b>Key</b></br>
-    <input type ="text" size="50">        
+    <p><b>Name of config file</b></br>
+    <input type ="text" size="100" title= "dasdada">        
     </p>
-    <p><b>Key</b></br>
-    <input type ="text" size="20">        
+    <p><b>Regex pattern to select printout</b></br>
+    <input type ="text" size="100">        
     </p>
-    </from>
+    <p><b>Insert header</b></br>
+    <input type ="text" size="100">        
+    </p>
+    <p><b>Insert name managed object</b></br>
+    <input type ="text" size="100">        
+    </p>
+    </form>
     </TR>
     </DIV>
     </TBODY>
