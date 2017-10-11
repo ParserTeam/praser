@@ -30,7 +30,7 @@
     </script>
 
 </HEAD>
-<BODY STYLE="color: #000080; font-family: Helvetica Neue ,Helvetica,Arial,sans-serif; font: 14pt;">
+<BODY STYLE="color: #000080; font-family: Helvetica Neue ,Helvetica,Arial,sans-serif; font-size: 14px;">
 <H1 STYLE="text-align: center; "><STRONG>BSC ERRORS PARSER</STRONG></H1>
 <div id="helpconfig">
     <form name="add_xml_form">
@@ -46,9 +46,10 @@
         <form enctype="multipart/form-data" action="/cgi-bin/Controler.py" method="post" id="ajax_form2">
     <input type="submit" value="Upload"/></form>
     <form name="pars" id="ajax_form">
-        <textarea name="comment" rows="15" id="btn2"  ></textarea>
-        <input type="submit" value="Pars" id="in1" formaction="/cgi-bin/Controler.py" formmethod="post">
-        <input type="reset" value="Clean">
+        <div id="textarea"><textarea name="comment" rows="15" id="btn2"  ></textarea></div>
+        <p>&nbsp</p>
+        <div id="ParsAndClean"><input type="submit" value="Pars" id="in1" formaction="/cgi-bin/Controler.py" formmethod="post">
+            <input type="reset" value="Clean"></div>
     </form>
 
 </DIV>

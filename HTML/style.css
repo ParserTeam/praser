@@ -5,7 +5,7 @@ background:Lavender;
 text-align: center;
 float: left;
 width:100%;
-height:400px;
+height:450px;
 }
 
 #result{
@@ -51,6 +51,6 @@ height:20px;
       }
       #main:target {display: block;}
 textarea { resize: none;
- width:100%; }
+ width:98%; }
  input {color: #000080;
  font-family: Helvetica Neue ,Helvetica,Arial,sans-serif;}
