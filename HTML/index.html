@@ -16,12 +16,6 @@
 						$("#inf2").html(btn);
 					}
 				})
-
-
-
-
-
-
     </script>
     <script type="text/javascript">
 					$(document).ready(function(){
@@ -33,33 +27,8 @@
 						$("#inf3").html(btn);
 					}
 				})
-
-
-
-
-
-
     </script>
-    <script>
-		function addFullShow(form) {
 
-      alert("about to send form");
-
-      var formElement = form;
-      formData = new FormData(formElement);
-
-      var xhr = new XMLHttpRequest();
-      xhr.open("POST", "myScript.cgi");
-      xhr.send(formData);
-
-    }
-
-
-
-
-
-
-    </script>
 </HEAD>
 <BODY STYLE="color: #000080 background-color: #3366CC">
 <H1 STYLE="text-align: center"><STRONG>BSC ERRORS PARSER</STRONG></H1>
@@ -74,7 +43,7 @@
 
 <DIV id="upload">
     <form enctype="multipart/form-data" action="/cgi-bin/Controler.py" method="post" id="ajax_form2">
-        <p>File: <input type="file" name="filename" id="btn3"/></p>
+       <!--<p>File: <input type="file" name="filename" id="btn3"/></p>-->
         <p><input type="submit" value="Upload"/></p>
     </form>
 </DIV>
@@ -91,36 +60,12 @@
 <DIV id="result">
     <p>&nbsp</p>
     <form>
-        <input type="reset" value="Clean"/>
+        <textarea name="comment" cols="150" rows="15"></textarea>
         <p id="inf2"></p>
         <p id="inf3"></p>
+        <input type="reset" value="Clean"/>
     </form>
 </DIV>
-<div class="b-container">
-    Sample Text
-</div>
-<a href="#" id="main">
-<div id="okno">
-    Всплывающее окошко!
-</div>
-</a>
-<a href="#main">Вызвать всплывающее окно</a>
-
-<div id="win">
-    <div id="win">
-        <button onClick="getElementById('win').removeAttribute('style');" type="button">Модальное окно</button>
-    </div>
-    <div class="overlay"></div>
-    <div class="visible">
-        <h2>Заголовок окна</h2>
-        <div class="content">
-            <p>Содержание</p>
-            <p>Модальное окно фиксированной ширины</p>
-        </div>
-        <button type="button" onClick="getElementById('win').style.display='none';">закрыть</button>
-    </div>
-</div>
-<!--<div id="result_form"><div>-->
 </BODY>
 </html>
 
