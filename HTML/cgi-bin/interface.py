@@ -1,15 +1,6 @@
 import cgi
 from tkFileDialog import askopenfile
-# from Controler import Controller
-
-# from XmlModule import ConfigModule
-
-
-
-# test = ConfigModule()
-
-# Create instance of FieldStorage
-
+from Tkinter import Tk
 
 
 def get_input_inf():
@@ -17,15 +8,13 @@ def get_input_inf():
     form = cgi.FieldStorage()
 
     if not form.list:
+        root = Tk()
+        root.withdraw()
         print_file = askopenfile("r")
         return print_file.read()
     elif form.list[0].name == "comment":
         return form.getvalue("comment")
     return "No input data"
-
-# controller = Controller()
-# text = controller.check_text(get_input_inf())
-# output = ['new inf']
 
 
 def output_inf(output):

@@ -88,32 +88,8 @@ class Controller:
         self.xml_reader.get_list_objects(list_ojects)
 
 
-
 if __name__ == "__main__":
     controller = Controller()
-
     input_text = get_input_inf()
-
-    # from tkFileDialog import askopenfile
-    # input_text = askopenfile("r").read()
-
     text = controller.check_text(input_text)
-
-    # print text
     output_inf(text)
-
-
-# if __name__ == "__main__":
-#     import interface
-#     controller = Controller()
-#     text = controller.check_text(interface.get_input_inf())
-#     interface.output_inf({'rxcap.xml': [{'MO': 'RXOTG-187', 'CASCADABLE': 'YES',
-#                                      'OMLF1': {'F1': 'TRXC function change not supported by the BTS.',
-#                                                'F2': 'Automatic ciphering capability not supported by the BTS.',
-#                                                'F15': 'MCTR not supported by the BTS.',
-#                                                'F22': 'MCTR maximum allowed power extension not supported by the BTS.',
-#                                                'F25': 'Native IP Configuration not supported by the BTS.',
-#                                                'F27': 'Reporting of Access Burst Info not supported by the BTS.',
-#                                                'F28': 'Decimal resolution of configured power not supported by the BTS.'},
-#                                      'OMLF2': {}, 'RSLF1': {'F11': 'Extended CBCH not supported by the BTS.'},
-#                                      'RSLF2': 'FF', 'FTXADDR': 'NO'}]})
