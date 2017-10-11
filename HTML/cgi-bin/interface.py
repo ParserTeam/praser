@@ -37,35 +37,6 @@ def output_inf(output):
     if type(output) == str:
         print "<p>" + output + "</p>"
     else:
-        print """
-            <html>
-            <head>
-            <TITLE>ERRORS PARSER</TITLE>
-            </head>
-            <BODY STYLE = 'color: #000080' 'background-color: #3366CC'>
-            <TABLE>
-            <TBODY>
-            <DIV STYLE = 'text-align: center' 'height = 100%' >
-            <TR>
-            <form name='pars'>
-            <p STYLE = 'text-align: center'>Paste your log file here<Br>
-            <p STYLE = 'text-align: center' >Errors:</p>
-            </form>
-            {}
-            </TR>
-            </DIV>
-            </TBODY>
-            <TFOOT>
-            <TR>
-            <TD>
-            <ADDRESS> HERE WILL BE CONTAKT INFORMATION</ADDRESS>
-            </TD>
-            </TR>
-            </TFOOT>
-            </TABLE>
-            </body>
-            </html>""".format(output)
-
         a = output
         print type(a)
 

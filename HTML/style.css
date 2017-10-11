@@ -4,19 +4,11 @@
 background:Lavender;
 text-align: center;
 float: left;
-width:70%;
-height:350px;
-}
-#upload{
-background:Lavender;
-text-align: left;
-float: right;
-width:30%;
-height:350px;
+width:100%;
+height:400px;
 }
 
 #result{
-background:Thistle;
 text-align: center;
 width:100%;
 height:100%;
@@ -28,10 +20,10 @@ width:100%;
 clear: both;
 }
 #helpconfig{
-background:Thistle;
+background:Lavender;
 text-align: right;
 width:100%;
-height:350px;
+height:20px;
 }
 
 #main {
@@ -58,5 +50,5 @@ height:350px;
         margin: auto;
       }
       #main:target {display: block;}
-
-       textarea { resize: none; }
+textarea { resize: none;
+ width:98%; }
