@@ -31,6 +31,7 @@ def get_input_inf():
 
 # output = ['new inf']
 
+
 def output_inf(output):
     print "Content-type:text/html\r\n\r\n"
     if type(output) == str:

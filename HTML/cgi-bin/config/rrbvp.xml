@@ -5,7 +5,6 @@
     <NAME_KEY>NSEI</NAME_KEY>
     <ACTIVE_KEYS limiter="BVCI CELL BVCSTATE IPDEV">
         <SGSNFEAT type="16"></SGSNFEAT>
-
     </ACTIVE_KEYS>
     <PRINT_KEYS>NSEI</PRINT_KEYS>
 </root>
