@@ -28,24 +28,36 @@
 					}
 				})
     </script>
-
+  <style>
+   ul.hr {
+    margin: 0; /* Обнуляем значение отступов */
+    padding: 4px; /* Значение полей */
+   }
+   ul.hr li {
+    display: inline; /* Отображать как строчный элемент */
+  }
+  </style>
 </HEAD>
 <BODY STYLE="color: #000080; font-family: Helvetica Neue ,Helvetica,Arial,sans-serif; font-size: 14px;">
-<H1 STYLE="text-align: center; "><STRONG>BSC ERRORS PARSER</STRONG></H1>
+<H1 STYLE="text-align: center; padding-top:2%;"><STRONG>BSC ERRORS PARSER</STRONG></H1>
 <div id="helpconfig">
     <form name="add_xml_form">
         <p>
             <input name='add_xml' type='submit' value='Add new config' formaction='/cgi-bin/AddXmlConfig.py'
                    formmethod='post'>
-            <input name='help' type='submit' value='Help' formaction="README.txt">
+            <input name='help' type='submit' value='Help' formaction="README.html">
         </p>
     </form>
 </div>
 <DIV id="input">
-    <p STYLE="text-align: center">Paste your log file here or upload file</p>
-        <form enctype="multipart/form-data" action="/cgi-bin/Controler.py" method="post" id="ajax_form2">
+      <ul class="hr">
+   <li>Paste your log file here or</li>
+   <li ><form enctype="multipart/form-data" action="/cgi-bin/Controler.py" method="post" id="ajax_form2">
     <input type="submit" value="Upload"/></form>
     <form name="pars" id="ajax_form">
+   </li>
+   </ul>
+
         <div id="textarea"><textarea name="comment" rows="15" id="btn2"  ></textarea></div>
         <p>&nbsp</p>
         <div id="ParsAndClean"><input type="submit" value="Pars" id="in1" formaction="/cgi-bin/Controler.py" formmethod="post">

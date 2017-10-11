@@ -24,6 +24,8 @@ background:Lavender;
 text-align: right;
 width:100%;
 height:20px;
+
+
 }
 
 #main {
@@ -54,3 +56,13 @@ textarea { resize: none;
  width:98%; }
  input {color: #000080;
  font-family: Helvetica Neue ,Helvetica,Arial,sans-serif;}
+
+#navigation {
+font-size:20px;
+margin:2%; /* Отступы вокруг элемента */
+}
+#help {
+margin:2%;
+}
+#up{
+display: inline;}
