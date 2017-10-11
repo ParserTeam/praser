@@ -80,7 +80,7 @@ def output_inf(output):
                         if type(b.get(z)) == dict:
                             if len(b.get(z)) != 0:
                                 print '''
-                                    <tr class="bg-success ">
+                                    <tr style="background: rgba(154, 206, 235, 0.7) ">
                                       <th>''' + z + ''' :''' + '''</th>
                                       <th colspan="3" >ERRORS:</th>
                                     </tr>
