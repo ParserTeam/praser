@@ -18,7 +18,6 @@
             <EC-GSM-IoT bit="12">Extended Coverage GSM Internet of Things (EC-GSM IoT) procedures</>
             <EDRX bit="14">Extended Discontinuous Reception (EDRX) procedures</>
         </SGSNFEAT>
-
     </ACTIVE_KEYS>
     <PRINT_KEYS>NSEI</PRINT_KEYS>
 </root>
