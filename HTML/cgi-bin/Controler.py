@@ -88,6 +88,7 @@ class Controller:
         self.xml_reader.get_list_objects(list_ojects)
 
 
+
 if __name__ == "__main__":
     controller = Controller()
 
