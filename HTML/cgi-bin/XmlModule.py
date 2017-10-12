@@ -62,11 +62,11 @@ class ConfigModule():
         true_path = ''
 
         if path.exists('cgi-bin/config'):
-            true_path = 'cgi-bin/config'
+            true_path = 'cgi-bin/config/'
         elif path.exists('config'):
-            true_path = 'config'
+            true_path = 'config/'
         elif path.exists('../config'):
-            true_path = '../config'
+            true_path = '../config/'
 
         return true_path
 
@@ -92,7 +92,7 @@ class ConfigModule():
                 i = i.replace("[", "").replace("]", "").replace("'", "")
                 tree = None
                 try:
-                    tree = ET.ElementTree(file=self.check_path() + i)
+                    tree = ET.ElementTree(file=self.check_path()+ i)
                     #
                     # if path.exists('cgi-bin/config/'):
                     #     tree = ET.ElementTree(file='cgi-bin/config/' + i)
@@ -117,7 +117,7 @@ class ConfigModule():
             file_object = ConfigObject()
             # open xml config file
             try:
-                tree = ET.ElementTree(file=self.check_path() + i.file_names[0])
+                tree = ET.ElementTree(file=self.check_path()+ i.file_names[0])
                 # if path.exists('cgi-bin/config/'):
                 #     tree = ET.ElementTree(file='cgi-bin/config/' + i.file_names[0])
                 # elif path.exists('config/'):
