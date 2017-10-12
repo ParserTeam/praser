@@ -31,16 +31,16 @@
 
 </HEAD>
 <BODY STYLE="color: #000080; font-family: Helvetica Neue ,Helvetica,Arial,sans-serif; font-size: 14px;">
-<H1 STYLE="text-align: center; margin:2% "><STRONG>BSC ERRORS PARSER</STRONG></H1>
+<p STYLE="font-size:36px; text-align: center; margin:2% "><STRONG>BSC ERRORS PARSER</STRONG></p>
 <!--<div id="empty"><p>&nbsp</p></div>-->
 <div id="xmlinfo">
    <!--<nav><a href="xmlinfo.py">XML INFORMATION</a></nav>-->
     <form action="/cgi-bin/xmlinfo.py" method="post"  >
-        <p>&nbsp&#8195;<input type="submit" value="XML INFORMATION"/></form></p>
+        <p style="margin-top:14px; margin-bottom:14px;">&nbsp&#8195;<input type="submit" value="XML INFORMATION"/></form></p>
 </div>
 <div id="helpconfig">
     <form name="add_xml_form">
-        <p>
+        <p style="margin-top:14px; margin-bottom:14px;">
             <input name='add_xml' type='submit' value='Add new config' formaction='XmlCreator.html'>
             <input name='help' type='submit' value='Help' formaction="README.html">&#8195;
         </p>
@@ -51,7 +51,7 @@
         <form enctype="multipart/form-data" action="/cgi-bin/Controler.py" method="post" id="ajax_form2">
     <input type="submit" value="Upload"/></form>
     <form name="pars" id="ajax_form">
-        <div id="textarea"><textarea name="comment" rows="15" id="btn2" ></textarea></div>
+        <div id="textarea"><textarea name="comment" rows="18" id="btn2" style=" height: 234px;"></textarea></div>
         <p>&nbsp</p>
         <div id="ParsAndClean"><input type="submit" value="Pars" id="in1" formaction="/cgi-bin/Controler.py" formmethod="post">
             <input type="reset" value="Clean"></div>
