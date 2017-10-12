@@ -1,4 +1,3 @@
-
 from re import match, findall, split, finditer, sub
 from bscswupg_mmlparser import MMLparser
 
@@ -117,7 +116,7 @@ class CheckedValues:
     parse_objects = None
 
     def __init__(self, subjects, xml_obj):
-        active_keys = [key.name for key in xml_obj.list_of_object_keys]
+        active_keys = self._get_active_keys(xml_obj.list_of_object_keys)
         self.xml_obj = xml_obj
         self.xml_file_name = xml_obj.name_of_CANDY
         self.parse_objects = self._select_values_to_parse_objects(subjects, active_keys)
@@ -126,23 +125,57 @@ class CheckedValues:
         parse_objects = []
         for subject in subjects:
             my_values = dict()
-            for key, val in subject.items():
-                if key in active_keys or key == self.xml_obj.name_key:
-                    my_values[key] = self._values_to_string(val, -1)
+            name_key_values = subject.get(self.xml_obj.name_key) or []
+            print_keys_with_val = self._get_print_keys_with_val(subject)
+            # print "#" * 20
+            # print print_keys_with_val
+            my_values.update(print_keys_with_val)
+            name_key_values_len = len(name_key_values)
+            for i in range(name_key_values_len):
+                if self.xml_obj.name_key in subject.keys():
+                    for key, val in subject.items():
+                        if key in active_keys.keys() or key == self.xml_obj.name_key:
+                            direction = int(active_keys.get(key) or 0)
+                            my_values[key] = self._values_to_string(val if direction else val[i], direction,
+                                                                    name_key_values_len, i)
             parse_objects += [my_values]
         return parse_objects
 
-    def _values_to_string(self, values, direction):
+    def _get_print_keys_with_val(self, subject):
+        """
+        :param subject:
+        :param print_keys:
+        :return:
+        """
+        if not self.xml_obj.list_of_keys_to_print:
+            return {}
+        result = dict()
+        for key in self.xml_obj.list_of_keys_to_print:
+            result[key] = subject[key]
+        return result
+
+    def _get_active_keys(self, list_of_object_keys):
+        active_keys = dict()
+        for key in list_of_object_keys:
+            active_keys[key.name] = key.direction
+        return active_keys
+
+    def _values_to_string(self, values, direction, name_key_val_len, position):
         """
         Transform the value from list to string
         :param values: list of strings
-        :param direction: 1 is from left to right and -1 vice versa
+        :param direction: 1 is from left to right and -1 vice versa or 0 return first element
+        :param position: main object array position
+        :param name_key_val_len: main object values len (to calculate
         :return: string
         """
+        if direction == 0:
+            return sub("H'([a-fA-F\d]+)", lambda m: m.group(1), values[0])
         values = values[::direction]
         result = ""
-        for value in values:
-            result += sub("H'([a-fA-F\d]+)", lambda m: m.group(1), value)
+        size = len(values) / name_key_val_len
+        for i in range(position * size, position * size + size):
+            result += sub("H'([a-fA-F\d]+)", lambda m: m.group(1), values[i])
         return result
 
     def __repr__(self):

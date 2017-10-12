@@ -19,5 +19,5 @@
             <EDRX bit="14">Extended Discontinuous Reception (EDRX) procedures</EDRX>
         </SGSNFEAT>
     </ACTIVE_KEYS>
-    <PRINT_KEYS>NSEI</PRINT_KEYS>
+    <PRINT_KEYS></PRINT_KEYS>
 </root>

@@ -2,9 +2,9 @@
 <root limiter="SCGR\s[\s\S]*?SC\s[\s\S]*?DEV\s[\s\S]*?DEV1\s[\s\S]*?NUMDEV\s[\s\S]*?DCP\s[\s\S]*?STATE\s[\s\S]*?REASON\s[\s\S]*?[\r\n?|\n]{2,}">
 <HEDER>RADIO TRANSMISSION SUPER CHANNEL DATA</HEDER>
 <KEYS>SCGR SC DEV DEV1 NUMDEV DCP STATE REASON</KEYS>
-<NAME_KEY>SCGR</NAME_KEY>
+<NAME_KEY>SC</NAME_KEY>
 <ACTIVE_KEYS limiter="">
-	<REASON type="16" norm_val="0">
+	<REASON type="16" norm_val="0" direction="1">
 		<b0 bit="0">Not all transmission devices seized</b0>
 		<b1 bit="1">Packet Gateway (PGW) devices not seized</b1>
 		<b2 bit="2">No semipermanent connection</b2>
@@ -31,5 +31,5 @@
 		<b29 bit="29">SC is faulty, used for maintenance purposes</b29>
 	</REASON>
 </ACTIVE_KEYS>
-<PRINT_KEYS></PRINT_KEYS>
+<PRINT_KEYS>SCGR</PRINT_KEYS>
 </root>
