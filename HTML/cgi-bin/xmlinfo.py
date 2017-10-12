@@ -15,8 +15,10 @@ def xmlinfo():
 			<DIV id = 'navigationxml'>
 	'''
 	names = os.listdir(".\config")
+	i = 0
 	for name in names:
-		print "<nav><a href=/config/" + name +">" + name + "</a></nav>"
+		i +=1
+		print "<nav><span>"+str(i)+" - "+"</span><a href=/config/" + name +">" + name + "</a></nav>"
 	print '''
 	</div>
 		    </body>
