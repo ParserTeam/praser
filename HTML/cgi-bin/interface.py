@@ -58,8 +58,8 @@ def output_inf(output):
                         if type(b.get(z)) != dict:
                             print '''
                                 <tr class="bg-primary">
-                                  <th>''' + z + ''' -''' + '''</th>
-                                  <th colspan="3" >''' + b.get(z) + ''' ;''' + '''</th>
+                                  <th>''' + z + '''</th>
+                                  <th colspan="3" >''' + b.get(z) + '''</th>
                                 </tr>
                             '''
 
@@ -68,15 +68,15 @@ def output_inf(output):
                             if len(b.get(z)) != 0:
                                 print '''
                                     <tr style="background: rgba(154, 206, 235, 0.7) ">
-                                      <th>''' + z + ''' :''' + '''</th>
-                                      <th colspan="3" >ERRORS:</th>
+                                      <th>''' + z + '''</th>
+                                      <th colspan="3" >VALUES:</th>
                                     </tr>
                                 '''
                                 for y in b.get(z):
                                     print '''
                                         <tr class="bg-success ">
-                                          <th>''' + y + ''' -''' + '''</th>
-                                          <th colspan="3" >''' + b.get(z).get(y) + ''' ;''' + '''</th>
+                                          <th>''' + y + '''</th>
+                                          <th colspan="3" >''' + b.get(z).get(y) + '''</th>
                                         </tr>
                                     '''
                             # else:
