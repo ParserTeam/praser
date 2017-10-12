@@ -137,7 +137,9 @@ class ErrorManeger:
 
 
 if __name__ == "__main__":
+    import doctest
     controller = Controller()
     input_text = get_input_inf()
     text = controller.check_text(input_text)
     output_inf(text)
+    doctest.testmod()
