@@ -7,8 +7,7 @@ class KeysObject:
     dict_bits = []
     type = ''
     norm_val = ''
-    start = ''
-    end = ''
+    direction = ''
     name = ''
 
     def __init__(self):
@@ -128,7 +127,7 @@ class ConfigModule():
                 # get type of notation
                 key_object.type = (item.attrib).get("type")
                 # get start
-                key_object.start = (item.attrib).get("direction")
+                key_object.direction = (item.attrib).get("direction")
                 # get value of bits
                 key_object.norm_val = (item.attrib).get("norm_val")
                 # run by keys sub tags
