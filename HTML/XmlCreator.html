@@ -8,7 +8,7 @@
         <link rel="stylesheet" type="text/css" href="style.css">
         <meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
     </div>
-        </head>
+</head>
 
 <body>
 
@@ -27,7 +27,7 @@
     </p>
     <p>Name of managed object
         <br>
-        <input type="text" name="name_key">
+        <input type="text" name="name_key" title="lalalalall">
     </p>
     </div>
 
@@ -44,16 +44,14 @@ for (i = 0; i <arr.length; i++){
 var node = document.createTextNode(arr[i]);
 var para = document.createElement("p");
 
-var node1 = document.createTextNode("System of calculation for in  ");
-var node2 = document.createTextNode("System of calculation for out ");
-var node3 = document.createTextNode("Direction of calculation      ");
-var node4 = document.createTextNode("Key value indicating no error ");
+var node1 = document.createTextNode("System of calculation for in \xa0\xa0 \xa0 \xa0 \xa0");
+var node2 = document.createTextNode("System of calculation for out \xa0 \xa0\xa0 \xa0");
+var node3 = document.createTextNode("Direction of calculation \xa0 \xa0 \xa0 \xa0 \xa0 \xa0 \xa0 \xa0");
+var node4 = document.createTextNode("Key value indicating no error \xa0 \xa0 \xa0");
 var para1 = document.createElement("p");
 var para2 = document.createElement("p");
 var para3 = document.createElement("p");
 var para4 = document.createElement("p");
-var tab = document.createElement("t");
-
 
 var btndiv = document.createElement("div");
 btndiv.id = arr[i];
@@ -84,7 +82,6 @@ btnbits.setAttribute("onclick","append(this.form, this.name)");
 btndiv.appendChild(btnbits);
 para1.appendChild(node);
 
-para.appendChild(tab);
 para.appendChild(node1);
 para.appendChild(out_type);
 
@@ -106,6 +103,7 @@ document.getElementById("myDiv").appendChild(para1).appendChild(btndiv).appendCh
 
 
 
+
     </script>
 
     <script type="text/javascript">
@@ -122,21 +120,28 @@ function append(form, name) {
 
 }
 
+
     </script>
 
-        </t><form>
-        <div id="myDiv">
-            <input type="button" name=button1 value="Generate bit-map for keys"
-                   onclick="generate_bit_map(this.form, keys, this.name);this.disabled=true;"/>
+    <form id="keys_bits" name="keys_bit">
+        <table>
+            <div id="myDiv">
+                <input type="button" name=button1 value="Generate bit-map for keys"
+                       onclick="generate_bit_map(this.form, keys, this.name);this.hidden=true;"/>
 
-        </div>
-        </form>
+            </div>
+        </table>
+        <p>
+            <input type="submit" value="Create xml config" formaction="/cgi-bin/AddXmlConfig.py" formmethod="post">
+        </p>
     </form>
+</form>
 <form>
     <div>
-           <p>
-            <input type="submit" value="Create xml config" formaction="/cgi-bin/AddXmlConfig.py" formmethod="post">
-            </p>
+
+    </div>
+    <div>
+
     </div>
 </form>
 </body>

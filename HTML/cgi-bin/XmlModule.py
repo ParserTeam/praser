@@ -117,8 +117,6 @@ class ConfigModule():
             # get name of key from config.xml
             file_object.name_key = tree.find('NAME_KEY').text
             # get regular expression from config.xml
-            # file_object.root_limiter = tree.getroot().attrib.get("limiter")
-            # get regular expression from config.xml
             file_object.active_key_limiter = tree.find('ACTIVE_KEYS').attrib.get("limiter")
             # get keys which we will printout from config.xml
             file_object.list_of_keys_to_print = tree.find('PRINT_KEYS').text
@@ -130,9 +128,7 @@ class ConfigModule():
                 # get type of notation
                 key_object.type = (item.attrib).get("type")
                 # get start
-                key_object.start = (item.attrib).get("start")
-                # get end
-                key_object.end = (item.attrib).get("end")
+                key_object.start = (item.attrib).get("direction")
                 # get value of bits
                 key_object.norm_val = (item.attrib).get("norm_val")
                 # run by keys sub tags
