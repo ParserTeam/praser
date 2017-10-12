@@ -1,6 +1,7 @@
 import cgi
 from tkFileDialog import askopenfile
-from Tkinter import Tk
+from Tkinter import Tk, Button, Label, Toplevel
+
 
 
 def get_input_inf():
@@ -91,11 +92,32 @@ def output_inf(output):
                     '''
 
 
-def select_version(L, Text):
-    """:return L(random object)"""
-    import random
-    secure_random = random.SystemRandom()
-    rand = secure_random.choice(L)
-    return [rand]
+class DialogWindow:
+    window = None
+    question = "This text is OK?"
+    return_value = None
+    title = None
 
+    def __init__(self, title, question):
+        self.question = question
+        self.title = title
+
+    def _on_button_click(self, event):
+        self.return_value = event.widget._name
+        self.window.destroy()
+
+    def get_answer(self, text, button_list):
+        self.window = Tk()
+        self.window.title(self.title)
+        self.window.minsize(width=300, height=300)
+        label_text = "{} \n\n {}".format(self.question, text)
+        Label(self.window, text=label_text).pack(fill="both")
+        for button_name in button_list:
+            button = Button(self.window, text=button_name, name=button_name.replace(".", "|dot|"))
+            button.pack()
+            button.bind("<Button-1>", self._on_button_click)
+        self.window.focus_set()
+        self.window.grab_set()
+        self.window.wait_window()
+        print self.return_value.replace("|dot|", ".")
 

@@ -1,0 +1,26 @@
+<rxbsp:mo=rxstf-200;
+
+RADIO X-CEIVER ADMINISTRATION BTS STATUS DATA
+
+MO               OPCOND  OPCONDMAP                      OMLSTAT  RSLSTAT
+NORM             NOP     04
+
+
+MO               OPCOND  OPCONDMAP                      OMLSTAT  RSLSTAT
+MAX              NOP     FFFF
+
+
+MO               OPCOND  OPCONDMAP                      OMLSTAT  RSLSTAT
+MIN              NOP     0
+
+
+MO               OPCOND  OPCONDMAP                      OMLSTAT  RSLSTAT
+MoreThanMax      NOP     FFBFB
+
+
+MO               OPCOND  OPCONDMAP                      OMLSTAT  RSLSTAT
+Error            NOP     F F
+
+MO               OPCOND  OPCONDMAP                      OMLSTAT  RSLSTAT
+EMPTY            NOP              
+

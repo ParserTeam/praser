@@ -1,6 +1,6 @@
 from PrintReader import PrintReader
 from XmlModule import ConfigModule
-from interface import select_version, get_input_inf, output_inf
+from interface import get_input_inf, output_inf, DialogWindow
 
 
 class Controller:
@@ -24,7 +24,15 @@ class Controller:
                                 value: dict with decode info:
                                     key: short decode
                                     value: long decode
-        example =
+        example: =
+        {'rxbsp.xml':
+            [
+                {'OPCONDMAP':
+                    {'F3': 'MO is degraded or not operational due to synchronization problems.'},
+                    'MO': 'RXSTF-200'
+                }
+            ]
+        }
         """
         self.print_reader = PrintReader(print_text, self.xml_files)
         if len(self.print_reader.subjects) == 0:
@@ -93,11 +101,39 @@ class Controller:
 
         return printout_bits
 
-    def _check_file_version(self,list_ojects):
+    def _check_file_version(self, list_ojects):
+        print "in checker"
+        window = DialogWindow("Select configuration file", "Please select XML file for this printout:")
+        from tkMessageBox import askokcancel
         for obj in range(len(list_ojects)):
             if len(list_ojects[obj].file_names) > 1:
-                list_ojects[obj].file_names = select_version(list_ojects[obj].file_names, list_ojects[obj].text)
+                # askokcancel("aa")
+                window.get_answer(list_ojects[obj].text, list_ojects[obj].file_names)
+                # print dialog(["name", "push", "name2"])
+        print "exit"
         self.xml_reader.get_list_objects(list_ojects)
+
+
+class ErrorManeger:
+    _instance = None
+    _error = False
+    _error_messages = []
+
+    def __new__(cls, *args, **kwargs):
+        if not cls._instance:
+            cls._instance = super(ErrorManeger, cls).__new__(cls, *args, **kwargs)
+        return cls._instance
+
+    def has_error(self):
+        return self._error
+
+    def add_error_message(self, message):
+        self._error = True
+        self._error_messages += [message]
+
+    def get_error_messages_as_string(self):
+        self._error = False
+        return ("\n" * 2 + ("#" * 20)).join(self._error_messages)
 
 
 if __name__ == "__main__":
