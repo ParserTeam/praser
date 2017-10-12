@@ -14,7 +14,7 @@
 <form id="fromNameToMo">
     <p>Name of config file
         <br>
-        <input type="text" pattern="\d" name="nameFile" value="" spellcheck="false" style="width:50%" autofocus>
+        <input type="text" pattern="\d" name="nameFile" value="rxlul" spellcheck="false" style="width:50%" autofocus>
         <meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
 
         <!--<input type="text" style="min-width:50%" onkeydown="this.style.width = ((this.value.length + 1) * 8) + 'px';"> -->
@@ -23,7 +23,7 @@
     </p>
     <p>Regexep pattern for parsing
         <br>
-        <input type="text" name="limiter" placeholder="Search"
+        <input type="text" name="limiter"
                value="NSEI[\s|\n]+[\s\S]*?SIGBVCSTATE[\s|\n]+[\s\S]*?SGSNFEAT[\s|\n]+[\s\S]*?\n{2,}"
                style="min-width:50%; max-width:100%;" onkeydown="this.style.width = ((this.value.length) * 8) + 'px';">
     </p>
@@ -34,7 +34,7 @@
     </p>
     <p>Name of managed object
         <br>
-        <input type="text" name="name_key" title="lalalalall" style="width:50%">
+        <input type="text" name="name_key" value="MO" title="lalalalall" style="width:50%">
     </p>
     </div>
 
@@ -104,10 +104,10 @@ para.appendChild(out_type);
 para2.appendChild(node2);
 para2.appendChild(in_type);
 
-para3.appendChild(node3)
+para3.appendChild(node3);
 para3.appendChild(direct);
 
-para4.appendChild(node4)
+para4.appendChild(node4);
 para4.appendChild(norm_val);
 
 document.getElementById("myDiv").appendChild(para1).appendChild(btndiv).appendChild(para).appendChild(para2).appendChild(para3).appendChild(para4);
@@ -136,8 +136,10 @@ function append(form, name) {
 
     var btn = document.createElement('input');
     btn.type = 'text';
-    btn.name = name
-    btn.size = 65
+    btn.name = name;
+    btn.size = 65;
+    btn.setAttribute("placeholder","Insert bit in format {name, value, text}");
+    btn.setAttribute("pattern","[a-zA-Z0-9]+ [0-9]{,3} .+");
     btndiv.appendChild(btn);
 
 }
@@ -161,7 +163,7 @@ function append(form, name) {
         </table>
         <p>Keys to print
             <br>
-            <input type="text" name="KeysToPrint" style="width:50%">
+            <input type="text" name="KeysToPrint" style="width:50%" value="NSEI">
             </br>
 
 

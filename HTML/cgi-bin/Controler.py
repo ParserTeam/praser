@@ -80,11 +80,13 @@ class Controller:
                 printout_bits[bits.name] = {}
                 for i in range(0, len(value_in_bits_revers)):
 
-                    if value_in_bits_revers[i] != str(bits.norm_val):
-                        try:
-                            printout_bits[bits.name][bit[i].name] = bit[i].text_of_bit
-                        except IndexError:
-                            pass
+                     if value_in_bits_revers[i] != str(bits.norm_val):
+                        # try:
+                        for value_in_bit in bits.dict_bits:
+                            if value_in_bit.value == str(i):
+                                printout_bits[bits.name][value_in_bit.name] = value_in_bit.text_of_bit
+                                # except IndexError:
+                                #    pass
             if bits.type.isalpha():
                 work_dict = {}
                 string_value = printout_bits.get(bits.name)
@@ -141,4 +143,3 @@ if __name__ == "__main__":
     input_text = get_input_inf()
     text = controller.check_text(input_text)
     output_inf(text)
-
