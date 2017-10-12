@@ -118,7 +118,11 @@ class ConfigModule():
             # get regular expression from config.xml
             file_object.active_key_limiter = tree.find('ACTIVE_KEYS').attrib.get("limiter")
             # get keys which we will printout from config.xml
-            file_object.list_of_keys_to_print = tree.find('PRINT_KEYS').text
+            if not tree.find('PRINT_KEYS').text:
+                file_object.list_of_keys_to_print = []
+            else:
+                file_object.list_of_keys_to_print = tree.find('PRINT_KEYS').text.split(" ")
+
             # run by xml file
             for item in tree.iterfind('.ACTIVE_KEYS/'):
                 # create object of class KeysObject
