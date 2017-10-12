@@ -78,31 +78,14 @@ class ConfigModule():
 
         list_of_files = listdir(self.check_path())
 
-        # if path.exists('cgi-bin/config'):
-        #     list_of_files = listdir('cgi-bin/config')
-        # elif path.exists('config'):
-        #     list_of_files = listdir('config')
-        # elif path.exists('../config'):
-        #     list_of_files = listdir('../config')
-
-        # scriptpath = path.dirname("config")
-
         for i in list_of_files:
             if i[len(i) - 4: len(i)] == ".xml":
                 i = i.replace("[", "").replace("]", "").replace("'", "")
                 tree = None
                 try:
-                    tree = ET.ElementTree(file=self.check_path()+ i)
-                    #
-                    # if path.exists('cgi-bin/config/'):
-                    #     tree = ET.ElementTree(file='cgi-bin/config/' + i)
-                    # elif path.exists('config/'):
-                    #     tree = ET.ElementTree(file='config/' + i)
-                    # elif path.exists('../config/'):
-                    #     tree = ET.ElementTree(file='../config/' + i)
+                    tree = ET.ElementTree(file=self.check_path() + i)
                 except ParseError:
                     pass
-                # list_of_limiters = str(tree.findtext('KEYS')).split(' ')
                 if tree:
                     list_of_limiters = tree.getroot().attrib.get("limiter")
                     dict_of_keys[i] = list_of_limiters
@@ -117,13 +100,8 @@ class ConfigModule():
             file_object = ConfigObject()
             # open xml config file
             try:
-                tree = ET.ElementTree(file=self.check_path()+ i.file_names[0])
-                # if path.exists('cgi-bin/config/'):
-                #     tree = ET.ElementTree(file='cgi-bin/config/' + i.file_names[0])
-                # elif path.exists('config/'):
-                #     tree = ET.ElementTree(file='config/' + i.file_names[0])
-                # elif path.exists('../config/'):
-                #     tree = ET.ElementTree(file='../config/' + i.file_names[0])
+                tree = ET.ElementTree(file=self.check_path() + i.file_names[0])
+
             except ParseError:
                 pass
             # get header from config.xml
