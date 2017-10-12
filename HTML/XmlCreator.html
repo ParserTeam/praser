@@ -6,7 +6,6 @@
         <meta http-equiv="content-type" charset="utf-8">
 
         <link rel="stylesheet" type="text/css" href="style.css">
-        <meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
     </div>
 </head>
 
@@ -15,19 +14,27 @@
 <form id="fromNameToMo">
     <p>Name of config file
         <br>
-        <input type="text" name="nameFile">
+        <input type="text" pattern="\d" name="nameFile" value="" spellcheck="false" style="width:50%" autofocus>
+        <meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+
+        <!--<input type="text" style="min-width:50%" onkeydown="this.style.width = ((this.value.length + 1) * 8) + 'px';"> -->
+
+
     </p>
     <p>Regexep pattern for parsing
         <br>
-        <input type="text" name="limiter">
+        <input type="text" name="limiter" placeholder="Search"
+               value="NSEI[\s|\n]+[\s\S]*?SIGBVCSTATE[\s|\n]+[\s\S]*?SGSNFEAT[\s|\n]+[\s\S]*?\n{2,}"
+               style="min-width:50%; max-width:100%;" onkeydown="this.style.width = ((this.value.length) * 8) + 'px';">
     </p>
     <p>Keys for searching
         <br>
-        <input type="text" name="keys" value="Key1 Key2 Key3">
+        <input type="text" name="keys" value="Key1 Key2 Key3" style="width:50%"
+               pattern="([\d\w]+ ?)+[\d\w]$" required>
     </p>
     <p>Name of managed object
         <br>
-        <input type="text" name="name_key" title="lalalalall">
+        <input type="text" name="name_key" title="lalalalall" style="width:50%">
     </p>
     </div>
 
@@ -37,8 +44,13 @@ function generate_bit_map(form, keys,name){
 
 name.disabled = true;
 var str = keys.value;
-var arr = str.split(" ");
+
+
+var true_str = str.replace(/\s+/g, ' ');
+var arr = true_str.split(" ");
 var i = 0;
+
+
 
 for (i = 0; i <arr.length; i++){
 var node = document.createTextNode(arr[i]);
@@ -59,18 +71,22 @@ document.getElementById("myDiv").appendChild(btndiv);
 
 var in_type = document.createElement('input');
 in_type.type = 'text';
+in_type.setAttribute("maxlength","4");
 in_type.name = 'in_type';
 
 var out_type = document.createElement('input');
 out_type.type = 'text';
+out_type.setAttribute("maxlength","4");
 out_type.name = 'out_type';
 
 var direct = document.createElement('input');
 direct.type = 'text';
+direct.setAttribute("maxlength","4");
 direct.name = 'direct';
 
 var norm_val = document.createElement('input');
 norm_val.type = 'text';
+norm_val.setAttribute("maxlength","4");
 norm_val.name = 'norm_val';
 
 var btnbits = document.createElement('input');
@@ -104,6 +120,11 @@ document.getElementById("myDiv").appendChild(para1).appendChild(btndiv).appendCh
 
 
 
+
+
+
+
+
     </script>
 
     <script type="text/javascript">
@@ -116,22 +137,34 @@ function append(form, name) {
     var btn = document.createElement('input');
     btn.type = 'text';
     btn.name = name
+    btn.size = 65
     btndiv.appendChild(btn);
 
 }
 
 
+
+
+
+
+
     </script>
+
 
     <form id="keys_bits" name="keys_bit">
         <table>
             <div id="myDiv">
                 <input type="button" name=button1 value="Generate bit-map for keys"
-                       onclick="generate_bit_map(this.form, keys, this.name);this.hidden=true;"/>
+                       onclick="generate_bit_map(this.form, keys, this.name);this.hidden=true;">
 
             </div>
         </table>
-        <p>
+        <p>Keys to print
+            <br>
+            <input type="text" name="KeysToPrint" style="width:50%">
+            </br>
+
+
             <input type="submit" value="Create xml config" formaction="/cgi-bin/AddXmlConfig.py" formmethod="post">
         </p>
     </form>
