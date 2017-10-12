@@ -58,17 +58,32 @@ class ConfigObject:
 class ConfigModule():
     list_of_active_keys = []
 
+    def check_path(self):
+        true_path = ''
+
+        if path.exists('cgi-bin/config'):
+            true_path = 'cgi-bin/config'
+        elif path.exists('config'):
+            true_path = 'config'
+        elif path.exists('../config'):
+            true_path = '../config'
+
+        return true_path
+
     # check all files in config directory and return dictionary of keys and files name
     def get_keys_from_files(self):
         list_of_limiters = []
 
         dict_of_keys = {}
-        if path.exists('cgi-bin/config'):
-            list_of_files = listdir('cgi-bin/config')
-        elif path.exists('config'):
-            list_of_files = listdir('config')
-        elif path.exists('../config'):
-            list_of_files = listdir('../config')
+
+        list_of_files = listdir(self.check_path())
+
+        # if path.exists('cgi-bin/config'):
+        #     list_of_files = listdir('cgi-bin/config')
+        # elif path.exists('config'):
+        #     list_of_files = listdir('config')
+        # elif path.exists('../config'):
+        #     list_of_files = listdir('../config')
 
         # scriptpath = path.dirname("config")
 
@@ -77,12 +92,14 @@ class ConfigModule():
                 i = i.replace("[", "").replace("]", "").replace("'", "")
                 tree = None
                 try:
-                    if path.exists('cgi-bin/config/'):
-                        tree = ET.ElementTree(file='cgi-bin/config/' + i)
-                    elif path.exists('config/'):
-                        tree = ET.ElementTree(file='config/' + i)
-                    elif path.exists('../config/'):
-                        tree = ET.ElementTree(file='../config/' + i)
+                    tree = ET.ElementTree(file=self.check_path() + i)
+                    #
+                    # if path.exists('cgi-bin/config/'):
+                    #     tree = ET.ElementTree(file='cgi-bin/config/' + i)
+                    # elif path.exists('config/'):
+                    #     tree = ET.ElementTree(file='config/' + i)
+                    # elif path.exists('../config/'):
+                    #     tree = ET.ElementTree(file='../config/' + i)
                 except ParseError:
                     pass
                 # list_of_limiters = str(tree.findtext('KEYS')).split(' ')
@@ -91,8 +108,7 @@ class ConfigModule():
                     dict_of_keys[i] = list_of_limiters
         return dict_of_keys
 
-
-# function that return keys with their types
+    # function that return keys with their types
     def get_list_objects(self, true_config=None):
         list_of_objects = {}
         # run by list of files
@@ -101,12 +117,13 @@ class ConfigModule():
             file_object = ConfigObject()
             # open xml config file
             try:
-                if path.exists('cgi-bin/config/'):
-                    tree = ET.ElementTree(file='cgi-bin/config/' + i.file_names[0])
-                elif path.exists('config/'):
-                    tree = ET.ElementTree(file='config/' + i.file_names[0])
-                elif path.exists('../config/'):
-                    tree = ET.ElementTree(file='../config/' + i.file_names[0])
+                tree = ET.ElementTree(file=self.check_path() + i.file_names[0])
+                # if path.exists('cgi-bin/config/'):
+                #     tree = ET.ElementTree(file='cgi-bin/config/' + i.file_names[0])
+                # elif path.exists('config/'):
+                #     tree = ET.ElementTree(file='config/' + i.file_names[0])
+                # elif path.exists('../config/'):
+                #     tree = ET.ElementTree(file='../config/' + i.file_names[0])
             except ParseError:
                 pass
             # get header from config.xml
@@ -153,6 +170,6 @@ class ConfigModule():
             i.xml_file_obj = file_object
         # return list of objects
         return true_config
+
 # #
 # # #
-
