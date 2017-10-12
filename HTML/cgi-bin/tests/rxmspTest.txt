@@ -1,0 +1,14 @@
+<rxmsp:mo=rxotg-187,subord;
+
+RADIO X-CEIVER ADMINISTRATION
+MANAGED OBJECT STATUS
+
+MO               STATE  BLSTATE    BLO   BLA   LMO    BTS   CONF
+MAX              OPER              FFFF  FFFF  FFFF   STA
+MIN              OPER              0000  0000  0000   STA
+MOREMAX          OPER              FBFFF FBFFF FBFFF  DIS   CONF
+ERROR            OPER              FF F  FF F  FF F   DIS   CONF
+EMPTY            OPER                                 STA
+NORM             OPER              0450  0008  0840   DIS   UNCONF
+
+END       

@@ -1,0 +1,71 @@
+<rxcap:mo=rxotg-187,subord;
+
+RADIO X-CEIVER ADMINISTRATION
+MANAGED OBJECT CAPABILITY INFORMATION
+
+MO                CASCADABLE  OMLF1  OMLF2  RSLF1  RSLF2  FTXADDR
+NORM              YES         BFFC     FF   FBFF     FF   NO
+                              72DF      0   FFFF      0
+                                 0      0     1F      0
+                                 0      0      0      0
+                                 0      0      0      0
+
+
+MO                CASCADABLE  OMLF1  OMLF2  RSLF1  RSLF2  FTXADDR
+MAX               YES         FFFF     FF   FFFF     FF   NO
+                              FFFF      0   FFFF      0
+                                 0      0     1F      0
+                                 0      0      0      0
+                                 0      0      0      0
+
+
+MO                CASCADABLE  OMLF1  OMLF2  RSLF1  RSLF2  FTXADDR
+MIN               YES            0      0      0      0   NO
+                                 0      0      0      0
+                                 0      0      0      0
+                                 0      0      0      0
+                                 0      0      0      0
+
+
+MO                CASCADABLE  OMLF1  OMLF2  RSLF1  RSLF2  FTXADDR
+MoreThanMax       YES         FFFF     FF   FBFF     FF   NO
+                              FFFF      0   FFFF      0
+                              FFFF      0   FFFF      0
+                                 0      0      0      0
+                                 0      0      0      0
+
+
+MO                CASCADABLE  OMLF1  OMLF2  RSLF1  RSLF2  FTXADDR
+ErrorOMLF1        YES         BFFC     FF   FBFF     FF   NO
+                              72 DF     0   FFFF      0
+                                 0      0     1F      0
+                                 0      0      0      0
+                                 0      0      0      0
+
+
+MO                CASCADABLE  OMLF1  OMLF2  RSLF1  RSLF2  FTXADDR
+ErrorOMLF2        YES         BFFC     F F  FBFF     FF   NO
+                              72DF      0   FFFF      0
+                                 0      0     1F      0
+                                 0      0      0      0
+                                 0      0      0      0
+
+
+MO                CASCADABLE  OMLF1  OMLF2  RSLF1  RSLF2  FTXADDR
+ErrorRLSF1        YES         BFFC     FF   FBFF     FF   NO
+                              72DF      0   FF FF     0
+                                 0      0     1F      0
+                                 0      0      0      0
+                                 0      0      0      0
+
+MO                CASCADABLE  OMLF1  OMLF2  RSLF1  RSLF2  FTXADDR
+ErrorRLSF2        YES         BFFC     FF   FBFF     F F  NO
+                              72DF      0   FF FF     0
+                                 0      0     1F      0
+                                 0      0      0      0
+                                 0      0      0      0
+MO                CASCADABLE  OMLF1  OMLF2  RSLF1  RSLF2  FTXADDR
+EMPTY             YES                                            
+                                                                 
+                                                                 
+                                                                 

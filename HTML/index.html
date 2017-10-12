@@ -8,25 +8,27 @@
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
     <script type="text/javascript">
 					$(document).ready(function(){
-					$('#ajax_form').submit(function(event){
-						$.post("/cgi-bin/Controler.py",{comment:$("#btn2").val()},onResponse);
-						return false;
-					})
-					function onResponse(btn){
-						$("#inf2").html(btn);
-					}
-				})
+                        $('#ajax_form').submit(function(event){
+                            $.post("/cgi-bin/Controler.py",{comment:$("#btn2").val()},onResponse);
+                            return false;
+                        })
+                        function onResponse(btn){
+                            $("#btn2").html("Input");
+                            $("#inf2").html(btn);
+                        }
+				    })
     </script>
     <script type="text/javascript">
 					$(document).ready(function(){
-					$('#ajax_form2').submit(function(event){
-						$.post("/cgi-bin/Controler.py",{comment:$("#btn3").val()},onResponse);
-						return false;
-					})
-					function onResponse(btn){
-						$("#inf2").html(btn);
-					}
-				})
+                        $('#ajax_form2').submit(function(event){
+                            $.post("/cgi-bin/Controler.py",{comment:$("#btn3").val()},onResponse);
+                            return false;
+                        })
+                        function onResponse(btn){
+                            $("#btn2").html("Input");
+                            $("#inf2").html(btn);
+                        }
+				    })
     </script>
 
 </HEAD>
@@ -68,4 +70,3 @@
 </DIV>
 </BODY>
 </html>
-
