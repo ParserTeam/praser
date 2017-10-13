@@ -23,6 +23,7 @@ class PrintReader:
         result = list()
 
         for file_name, limiter in configuration_keys.items():
+            limiter = limiter.replace(" ", r"[\s|\n]+[\s\S]*?")
             texts = finditer(limiter, text)
             self._unite_texts(result, texts, file_name)
         return result

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<root limiter="MO\s[\s\S]*?OPCOND\s[\s\S]*?OPCONDMAP\s[\s\S]*?OMLSTAT\s[\s\S]*?RSLSTAT\s[\s\S]*?[\r\n?|\n]{2,}">
+<root limiter="MO OPCOND OPCONDMAP OMLSTAT RSLSTAT \n{2,}">
     <HEDER>RADIO X-CEIVER ADMINISTRATION BTS STATUS DATA</HEDER>
     <KEYS>OPCONDMAP</KEYS>
     <NAME_KEY>MO</NAME_KEY>
-    <ACTIVE_KEYS limiter="">
+    <ACTIVE_KEYS>
         <OPCONDMAP type="16" norm_val="0">
             <F1 bit="1">MO is degraded or not operational due to internal TRXC fault.</F1>
             <F2 bit="2">MO is degraded or not operational due to SW upgrade.</F2>

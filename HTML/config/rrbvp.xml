@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<root limiter="NSEI[\s|\n]+[\s\S]*?SIGBVCSTATE[\s|\n]+[\s\S]*?SGSNFEAT[\s|\n]+[\s\S]*?\n{2,}">
+<root limiter="NSEI SIGBVCSTATE SGSNFEAT \n{2,}">
     <HEDER>RADIO TRANSMISSION IP BSSGP VIRTUAL CONNECTION DATA</HEDER>
     <NAME_KEY>NSEI</NAME_KEY>
-    <ACTIVE_KEYS limiter="BVCI CELL BVCSTATE IPDEV">
+    <ACTIVE_KEYS>
         <SGSNFEAT type="16" norm_val="0">
             <PFC bit="0">Packet Flow Context (PFC) procedures</PFC>
             <CBL bit="1">Current Bucket Level (CBL) procedures</CBL>

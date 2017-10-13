@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<root limiter="SCGR\s[\s\S]*?SC\s[\s\S]*?DEV\s[\s\S]*?DEV1\s[\s\S]*?NUMDEV\s[\s\S]*?DCP\s[\s\S]*?STATE\s[\s\S]*?REASON\s[\s\S]*?[\r\n?|\n]{2,}">
+<root limiter="SCGR SC DEV DEV1 NUMDEV DCP STATE REASON \n{2,}">
 <HEDER>RADIO TRANSMISSION SUPER CHANNEL DATA</HEDER>
 <KEYS>SCGR SC DEV DEV1 NUMDEV DCP STATE REASON</KEYS>
 <NAME_KEY>SC</NAME_KEY>
-<ACTIVE_KEYS limiter="">
+<ACTIVE_KEYS>
 	<REASON type="16" norm_val="0" direction="1">
 		<b0 bit="0">Not all transmission devices seized</b0>
 		<b1 bit="1">Packet Gateway (PGW) devices not seized</b1>

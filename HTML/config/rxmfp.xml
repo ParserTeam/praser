@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<root limiter="MO\s[\s\S]*?FAULT\s[\s\S]*?CODES\s[\s\S]*?CLASS\s[\s\S]*?2A\s[\s\S]*?[\r\n?|\n]{2,}">
+<root limiter="MO FAULT CODES CLASS 2A \n{2,}">
     <HEDER>RADIO X-CEIVER ADMINISTRATION</HEDER>
     <KEYS>FAULT CODES</KEYS>
     <NAME_KEY>MO</NAME_KEY>
-    <ACTIVE_KEYS limiter="">
+    <ACTIVE_KEYS>
     </ACTIVE_KEYS>
+    <PRINT_KEYS></PRINT_KEYS>
 </root>
