@@ -123,12 +123,11 @@ class CheckedValues:
         self.parse_objects = self._select_values_to_parse_objects(subjects, active_keys)
 
     def _select_values_to_parse_objects(self, subjects, active_keys):
+        # TODO structuring this function
         parse_objects = []
         for subject in subjects:
             name_key_values = subject.get(self.xml_obj.name_key) or []
             print_keys_with_val = self._get_print_keys_with_val(subject)
-            # print "#" * 20
-            # print print_keys_with_val
             name_key_values_len = len(name_key_values)
             for i in range(name_key_values_len):
                 my_values = dict()

@@ -1,6 +1,7 @@
 from PrintReader import PrintReader
 from XmlModule import ConfigModule
 from interface import get_input_inf, output_inf, DialogWindow
+from ErrorManager import ErrorManager
 
 
 class Controller:
@@ -85,7 +86,11 @@ class Controller:
                 if not printout_bits.get(bits.name):
                     value = 0
                 else:
-                    value = int(str(printout_bits.get(bits.name)), int(bits.type))
+                    try:
+                        value = int(str(printout_bits.get(bits.name)), int(bits.type))
+                    except ValueError:
+                        error_manager.add_error_message()
+                        return None
                 value_in_bits = (format(value, "0>42b"))
                 value_in_bits_revers = value_in_bits[::-1]
                 printout_bits[bits.name] = {}
@@ -121,9 +126,9 @@ class Controller:
         for obj in range(len(list_ojects)):
             if len(list_ojects[obj].file_names) > 1:
                 if isinstance(self.list_of_xml_to_use, list):
-                    self._get_file_from_file_to_use(list_ojects[obj].file_names)
+                    list_ojects[obj].file_name = self._get_file_from_file_to_use(list_ojects[obj].file_names)
                 else:
-                    window.get_answer(list_ojects[obj].text, list_ojects[obj].file_names)
+                    list_ojects[obj].file_name = window.get_answer(list_ojects[obj].text, list_ojects[obj].file_names)
         self.xml_reader.get_list_objects(list_ojects)
 
     def _get_file_from_file_to_use(self, ask_files):
@@ -138,30 +143,12 @@ class Controller:
         return ask_files[0]
 
 
-class ErrorManeger:
-    _instance = None
-    _error = False
-    _error_messages = []
-
-    def __new__(cls, *args, **kwargs):
-        if not cls._instance:
-            cls._instance = super(ErrorManeger, cls).__new__(cls, *args, **kwargs)
-        return cls._instance
-
-    def has_error(self):
-        return self._error
-
-    def add_error_message(self, message):
-        self._error = True
-        self._error_messages += [message]
-
-    def get_error_messages_as_string(self):
-        self._error = False
-        return ("\n" * 2 + ("#" * 20)).join(self._error_messages)
-
-
 if __name__ == "__main__":
     controller = Controller()
+    error_manager = ErrorManager()
     input_text = get_input_inf()
     text = controller.check_text(input_text)
-    output_inf(text)
+    if error_manager.has_error():
+        output_inf(error_manager.get_error_messages_as_string())
+    else:
+        output_inf(text)
