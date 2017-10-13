@@ -109,15 +109,15 @@ class DialogWindow:
     def get_answer(self, text, button_list):
         self.window = Tk()
         self.window.title(self.title)
-        self.window.minsize(width=300, height=300)
+        self.window.minsize(width=100, height=100)
         label_text = "{} \n\n {}".format(self.question, text)
-        Label(self.window, text=label_text).pack(fill="both")
+        Label(self.window, text=label_text, anchor="w", justify="left").pack(fill="both")
         for button_name in button_list:
             button = Button(self.window, text=button_name, name=button_name.replace(".", "|dot|"))
-            button.pack()
+            button.pack(fill="both")
             button.bind("<Button-1>", self._on_button_click)
         self.window.focus_set()
         self.window.grab_set()
         self.window.wait_window()
-        print self.return_value.replace("|dot|", ".")
+        print self.return_value.replace("|dot|", ".") if self.return_value else None
 

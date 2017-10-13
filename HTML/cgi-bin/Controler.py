@@ -7,12 +7,13 @@ class Controller:
     print_reader = None
     xml_files = None
     xml_reader = None
+    list_of_xml_to_use = None
 
     def __init__(self):
         self.xml_reader = ConfigModule()
         self.xml_files = self.xml_reader.get_keys_from_files()
 
-    def check_text(self, print_text):
+    def check_text(self, print_text, list_of_xml_to_use=None):
         """
         Main function to check text
         :param print_text: text with printouts
@@ -34,12 +35,14 @@ class Controller:
             ]
         }
         """
+        if isinstance(list_of_xml_to_use, list):
+            self.list_of_xml_to_use = list_of_xml_to_use
         self.print_reader = PrintReader(print_text, self.xml_files)
         if len(self.print_reader.subjects) == 0:
             return "<b>No file found for text</b><p>Files available: " + ", ".join(self.xml_files.keys()) + "</p>"
         self._check_file_version(self.print_reader.subjects)
         list_check_values = self.print_reader.get_check_values()
-        # return list_check_values
+        return list_check_values
         return self.create_data_for_out(list_check_values)
 
     def create_data_for_out(self, list_check_values):
@@ -80,13 +83,11 @@ class Controller:
                 printout_bits[bits.name] = {}
                 for i in range(0, len(value_in_bits_revers)):
 
-                     if value_in_bits_revers[i] != str(bits.norm_val):
-                        # try:
-                        for value_in_bit in bits.dict_bits:
-                            if value_in_bit.value == str(i):
-                                printout_bits[bits.name][value_in_bit.name] = value_in_bit.text_of_bit
-                                # except IndexError:
-                                #    pass
+                    if value_in_bits_revers[i] != str(bits.norm_val):
+                        try:
+                            printout_bits[bits.name][bit[i].name] = bit[i].text_of_bit
+                        except IndexError:
+                            pass
             if bits.type.isalpha():
                 work_dict = {}
                 string_value = printout_bits.get(bits.name)
@@ -104,16 +105,26 @@ class Controller:
         return printout_bits
 
     def _check_file_version(self, list_ojects):
-        print "in checker"
         window = DialogWindow("Select configuration file", "Please select XML file for this printout:")
-        from tkMessageBox import askokcancel
         for obj in range(len(list_ojects)):
             if len(list_ojects[obj].file_names) > 1:
-                # askokcancel("aa")
-                window.get_answer(list_ojects[obj].text, list_ojects[obj].file_names)
-                # print dialog(["name", "push", "name2"])
+                if isinstance(self.list_of_xml_to_use, list):
+                    print "function", self._get_file_from_file_to_use(list_ojects[obj].file_names)
+                else:
+                    print "window", window.get_answer(list_ojects[obj].text, list_ojects[obj].file_names)
         print "exit"
         self.xml_reader.get_list_objects(list_ojects)
+
+    def _get_file_from_file_to_use(self, ask_files):
+        for file_to_use in self.list_of_xml_to_use:
+            for ask_file in ask_files:
+                # to insure that filename have .xml extension
+                file_to_use = file_to_use.replace(".xml", "")
+                file_to_use += ".xml"
+                if ask_file == file_to_use:
+                    return ask_file
+        ask_files.sort()
+        return ask_files[0]
 
 
 class ErrorManeger:
@@ -143,3 +154,4 @@ if __name__ == "__main__":
     input_text = get_input_inf()
     text = controller.check_text(input_text)
     output_inf(text)
+
