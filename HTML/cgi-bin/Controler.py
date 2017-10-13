@@ -48,9 +48,9 @@ class Controller:
             return "<b>No file found for text</b><p>Files available: " + ", ".join(self.xml_files.keys()) + "</p>"
         self._check_file_version(self.print_reader.subjects)
         list_check_values = self.print_reader.get_check_values()
-        print list_check_values
-        return []
-        # return self.create_data_for_out(list_check_values)
+        # print list_check_values
+        # return []
+        return self.create_data_for_out(list_check_values)
 
     def create_data_for_out(self, list_check_values):
         result = dict()
@@ -95,23 +95,25 @@ class Controller:
                         for value_bit in bits.dict_bits:
                             if value_bit.value == str(i):
                                 printout_bits[bits.name][value_bit.name] = value_bit.text_of_bit
-                        # except IndexError:
-                        #     pass
-            if bits.type.isalpha():
-                work_dict = {}
-                string_value = printout_bits.get(bits.name)
-                # work_dict =  printout_bits[bits.name]
-                if string_value != str(bits.norm_val):
-                    try:
-                        work_dict = printout_bits
-                    except IndexError:
-                        work_dict = {}
-                else:
-                    work_dict = {}
-                printout_bits = work_dict
-                # printout_bits[bits.name][cheker.name].popitem(cheker.text_of_bit)
-
-        return printout_bits
+                                # except IndexError:
+                                #             #     pass
+                                # if bits.type.isalpha():
+                                #     work_dict = {}
+                                #     string_value = printout_bits.get(bits.name)
+                                #     # work_dict =  printout_bits[bits.name]
+                                #     if string_value != str(bits.norm_val):
+                                #         try:
+                                #             work_dict = printout_bits
+                                #         except IndexError:
+                                #             work_dict = {}
+                                #     else:
+                                #         work_dict = {}
+                                #     printout_bits = work_dict
+                                # printout_bits[bits.name][cheker.name].popitem(cheker.text_of_bit)
+        if not printout_bits.get(bits.name):
+            return {}
+        else:
+            return printout_bits
 
     def _check_file_version(self, list_ojects):
         window = DialogWindow("Select configuration file", "Please select XML file for this printout:")
@@ -163,4 +165,3 @@ if __name__ == "__main__":
     input_text = get_input_inf()
     text = controller.check_text(input_text)
     output_inf(text)
-
