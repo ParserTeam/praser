@@ -50,11 +50,11 @@ def output_inf(output):
                     </tr>
                 '''
                 for j in a.get(i):
-                    print '''
-                                            <tr>
-                                                    <th colspan="4" ></th>
-                                            </tr>
-                                        '''
+                    # print '''
+                    #                         <tr>
+                    #                                 <th colspan="4" ></th>
+                    #                         </tr>
+                    #                     '''
                     b = j
                     for z in b:
                         if type(b.get(z)) == list:
