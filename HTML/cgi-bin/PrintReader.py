@@ -151,7 +151,7 @@ class CheckedValues:
             return {}
         result = dict()
         for key in self.xml_obj.list_of_keys_to_print:
-            result[key] = subject[key][0]
+            result[key] = subject[key]
         return result
 
     def _get_active_keys(self, list_of_object_keys):

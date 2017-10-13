@@ -121,10 +121,9 @@ class Controller:
         for obj in range(len(list_ojects)):
             if len(list_ojects[obj].file_names) > 1:
                 if isinstance(self.list_of_xml_to_use, list):
-                    print "function", self._get_file_from_file_to_use(list_ojects[obj].file_names)
+                    self._get_file_from_file_to_use(list_ojects[obj].file_names)
                 else:
-                    print "window", window.get_answer(list_ojects[obj].text, list_ojects[obj].file_names)
-        print "exit"
+                    window.get_answer(list_ojects[obj].text, list_ojects[obj].file_names)
         self.xml_reader.get_list_objects(list_ojects)
 
     def _get_file_from_file_to_use(self, ask_files):
