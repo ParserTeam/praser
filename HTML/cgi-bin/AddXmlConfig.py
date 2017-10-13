@@ -1,11 +1,9 @@
 import cgi
 import xml.etree.ElementTree as xml
 from xml.dom import minidom
+from os import listdir
 
 form = cgi.FieldStorage()
-list1212 = form.list
-
-config_file = ''
 
 limiter = ''
 header = ''
@@ -41,7 +39,7 @@ for i in form.list:
     elif i.name == "norm_val":
         norm_value.append(i.value)
 
-file_name_for_creating = "config\\" + name_of_file + ".xml"
+
 
 list_keys = keys.split(" ")
 
@@ -100,15 +98,14 @@ for i in range(0, len(list_keys)):
     for j in list_of_bits:
         if (type(j) != str) and (j.name == list_keys[i]):
 
-            bit_name =j.value[:j.value.find(" ")]
-            j.value = j.value[j.value.find(" ")+1:]
+            bit_name = j.value[:j.value.find(" ")]
+            j.value = j.value[j.value.find(" ") + 1:]
 
             bit_value = j.value[:j.value.find(" ")]
             j.value = j.value[j.value.find(" ") + 1:]
 
-
             bit_tag = doc.createElement(bit_name)
-            bit_tag.setAttribute("bit",bit_value)
+            bit_tag.setAttribute("bit", bit_value)
             bit_text = doc.createTextNode(j.value)
             bit_tag.appendChild(bit_text)
             key_tag.appendChild(bit_tag)
@@ -125,28 +122,20 @@ keys_to_print_text = doc.createTextNode(keys_to_print)
 keys_to_print_tag.appendChild(keys_to_print_text)
 root.appendChild(keys_to_print_tag)
 
+list_of_files = listdir('config/')
+
 xml_str = doc.toprettyxml(indent="  ")
+
+for file in list_of_files:
+    if name_of_file + ".xml" == file:
+        if name_of_file[len(name_of_file)-1:len(name_of_file)].isdigit:
+            pass # file_name_for_creating =
+        break
+    else:
+        file_name_for_creating = "config\\" + name_of_file + ".xml"
+
 with open(file_name_for_creating, "w") as f:
     f.write(xml_str)
-
-# leaf_cdata = doc.createElement('leaf_cdata')
-# cdata = doc.createCDATASection('<em>CData</em> can contain <strong>HTML tags</strong> without encoding')
-# leaf_cdata.appendChild(cdata)
-# root.appendChild(leaf_cdata)
-#
-# branch = doc.createElement('branch')
-# branch.appendChild(header_tag.cloneNode(True))
-# root.appendChild(branch)
-#
-# mixed = doc.createElement('mixed')
-# mixed_leaf = header_tag.cloneNode(True)
-# mixed_leaf.setAttribute('color', 'black')
-# mixed_leaf.setAttribute('state', 'modified')
-# mixed.appendChild(mixed_leaf)
-# mixed_text = doc.createTextNode('Do not use mixed elements if it possible.')
-# mixed.appendChild(mixed_text)
-# root.appendChild(mixed)
-
 
 
 
@@ -155,4 +144,4 @@ print """
 Sucsses!!!
 {}
 </html>
-""".format(list_of_bits)
+""".format(list_of_files)

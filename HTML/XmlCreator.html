@@ -14,7 +14,7 @@
 <form id="fromNameToMo">
     <p>Name of config file
         <br>
-        <input type="text" name="nameFile" value="" spellcheck="false" style="width:50%" autofocus required placeholder="With out .xml. Only letters and numbers">
+        <input type="text" name="nameFile" value="" pattern="^[a-zA-Z]+$" title="Only letter" spellcheck="false" style="width:50%" autofocus required placeholder="With out .xml. Only letters and numbers">
         <meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
 
         <!--<input type="text" style="min-width:50%" onkeydown="this.style.width = ((this.value.length + 1) * 8) + 'px';"> -->
@@ -53,7 +53,6 @@
 
 function generate_bit_map(form, keys,name){
 
-keys.disable =true;
 
 name.disabled = true;
 var str = keys.value;
@@ -160,16 +159,23 @@ function append(form, name) {
 
 }
 
+function a(obj) {
+if (obj!=undefined) {
+obj.disabled=true;
+//или можно так
+//obj.disabled=(!obj.disabled);
+}
 
+}
+</script>
 
-    </script>
 
 
     <form id="keys_bits" name="keys_bit">
         <table>
             <div id="myDiv">
                 <input type="button" name=button1 value="Generate bit-map for keys"
-                       onclick="generate_bit_map(this.form, keys, this.name);this.hidden=true;">
+                       onclick="generate_bit_map(this.form, keys, this.name);this.hidden=true;a(keys)">
 
             </div>
         </table>
