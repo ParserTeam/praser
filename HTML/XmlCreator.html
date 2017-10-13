@@ -14,8 +14,16 @@
 <form id="fromNameToMo">
     <p>Name of config file
         <br>
-        <input type="text" name="nameFile" value="rxlul" spellcheck="false" style="width:50%" autofocus>
+        <input type="text" name="nameFile" value="" spellcheck="false" style="width:50%" autofocus required>
         <meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+
+        <!--<input type="text" style="min-width:50%" onkeydown="this.style.width = ((this.value.length + 1) * 8) + 'px';"> -->
+
+
+    </p>
+    <p>Decryption of the name of the printout
+        <br>
+        <input type="text" name="Header" value="" style="width:50%">
 
         <!--<input type="text" style="min-width:50%" onkeydown="this.style.width = ((this.value.length + 1) * 8) + 'px';"> -->
 
@@ -24,17 +32,18 @@
     <p>Regexep pattern for parsing
         <br>
         <input type="text" name="limiter"
-               value="NSEI[\s|\n]+[\s\S]*?SIGBVCSTATE[\s|\n]+[\s\S]*?SGSNFEAT[\s|\n]+[\s\S]*?\n{2,}"
-               style="min-width:50%; max-width:100%;" onkeydown="this.style.width = ((this.value.length) * 8) + 'px';">
+               value=""
+               style="min-width:50%; max-width:100%;" onkeydown="this.style.width = ((this.value.length) * 8) + 'px';" required>
+    </p>
+
+    <p>Name of managed object
+        <br>
+        <input type="text" name="name_key" value="" title="lalalalall" style="width:50%" required>
     </p>
     <p>Keys for searching
         <br>
-        <input type="text" name="keys" value="Key1 Key2 Key3" style="width:50%"
+        <input type="text" name="keys" value="" style="width:50%"
                pattern="([\d\w]+ ?)+[\d\w]$" required>
-    </p>
-    <p>Name of managed object
-        <br>
-        <input type="text" name="name_key" value="MO" title="lalalalall" style="width:50%">
     </p>
     </div>
 
@@ -42,11 +51,18 @@
 
 function generate_bit_map(form, keys,name){
 
+keys.disable =true;
+
 name.disabled = true;
 var str = keys.value;
 
 
 var true_str = str.replace(/\s+/g, ' ');
+
+if (true_str.substring(true_str.length-1,true_str.length) == ' '){
+    true_str = true_str.slice(0, -1);
+}
+
 var arr = true_str.split(" ");
 var i = 0;
 
@@ -71,21 +87,25 @@ document.getElementById("myDiv").appendChild(btndiv);
 
 var in_type = document.createElement('input');
 in_type.type = 'text';
+in_type.value = ""
 in_type.setAttribute("maxlength","4");
 in_type.name = 'in_type';
 
 var out_type = document.createElement('input');
 out_type.type = 'text';
+out_type.value = ""
 out_type.setAttribute("maxlength","4");
 out_type.name = 'out_type';
 
 var direct = document.createElement('input');
 direct.type = 'text';
+direct.value = ""
 direct.setAttribute("maxlength","4");
 direct.name = 'direct';
 
 var norm_val = document.createElement('input');
 norm_val.type = 'text';
+norm_val.value = ""
 norm_val.setAttribute("maxlength","4");
 norm_val.name = 'norm_val';
 
@@ -118,36 +138,24 @@ document.getElementById("myDiv").appendChild(para1).appendChild(btndiv).appendCh
 }
 
 
-
-
-
-
-
-
-
     </script>
 
     <script type="text/javascript">
 function append(form, name) {
     var btndiv = document.createElement("div");
-
     btndiv.id = 'divBtn';
     document.getElementById(name).appendChild(btndiv);
 
     var btn = document.createElement('input');
     btn.type = 'text';
     btn.name = name;
+    btn.value = ""
     btn.size = 65;
     btn.setAttribute("placeholder","Insert bit in format {name, value, text}");
     btn.setAttribute("pattern","[a-zA-Z0-9]+ [0-9]{,3} .+");
     btndiv.appendChild(btn);
 
 }
-
-
-
-
-
 
 
     </script>
@@ -163,7 +171,7 @@ function append(form, name) {
         </table>
         <p>Keys to print
             <br>
-            <input type="text" name="KeysToPrint" style="width:50%" value="NSEI">
+            <input type="text" name="KeysToPrint" style="width:50%" value="">
             </br>
 
 
