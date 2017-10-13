@@ -34,6 +34,12 @@ class Controller:
                 }
             ]
         }
+        :param list_of_xml_to_use:
+                You can add ass second parameter list of files to use. When program will run, it will check if this
+                parameter is not None. If it's None or anything else then list you will see the pop up window witch asks
+                you to select configuration file for current printout.
+                If parameter is list the program will run through the list to find corresponding file for current
+                printout. If program doesn't find file, it select the first version of file.
         """
         if isinstance(list_of_xml_to_use, list):
             self.list_of_xml_to_use = list_of_xml_to_use
