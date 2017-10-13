@@ -26,7 +26,8 @@ def output_inf(output):
         print "<p>" + output + "</p>"
     else:
         a = output
-        print type(a)
+        # a = {'rrscp.xml': [{'SC': '0', 'REASON': {'b27': 'Not activated in RP unit'}, 'SCGR': ['20']}, {'SC': '1', 'REASON': {'b27': 'Not activated in RP unit'}, 'SCGR': ['20']}, {'SC': '0', 'REASON': {'b27': 'Not activated in RP unit'}, 'SCGR': ['21']}]}
+        print a
         if len(a) != 0:
             print '''
                 <link rel="stylesheet" type="text/css" href="style.css">
@@ -37,6 +38,7 @@ def output_inf(output):
                  <table class="table table-bordered">
             '''
             for i in a:
+                g = ""
                 print '''
                                     <tr>
                                             <th colspan="4" ></th>
@@ -48,14 +50,27 @@ def output_inf(output):
                     </tr>
                 '''
                 for j in a.get(i):
+                    # print '''
+                    #                         <tr>
+                    #                                 <th colspan="4" ></th>
+                    #                         </tr>
+                    #                     '''
                     b = j
-                    print '''
-                        <tr>
-                                <th colspan="4" ></th>
-                        </tr>
-                    '''
                     for z in b:
-                        if type(b.get(z)) != dict:
+                        if type(b.get(z)) == list:
+                            for h in b.get(z):
+                                if str(h) != g:
+                                    print '''
+                                        <tr style="background: rgba(51,68,183,0.7)">
+                                          <th>''' + z + '''</th>
+                                          <th colspan="3" >''' + str(h) + '''</th>
+                                        </tr>
+                                    '''
+
+                                g = str(h)
+                    for z in b:
+
+                        if type(b.get(z)) != dict and type(b.get(z)) != list:
                             print '''
                                 <tr class="bg-primary">
                                   <th>''' + z + '''</th>
@@ -79,13 +94,6 @@ def output_inf(output):
                                           <th colspan="3" >''' + b.get(z).get(y) + '''</th>
                                         </tr>
                                     '''
-                            # else:
-                            #     print'''
-                            #         <tr class="bg-success ">
-                            #           <th>''' + z + ''' -''' + '''</th>
-                            #           <th colspan="3" >OK;</th>
-                            #         </tr>
-                            #     '''
             print '''
                         </table>
                 </div>
