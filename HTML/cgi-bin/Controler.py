@@ -48,8 +48,9 @@ class Controller:
             return "<b>No file found for text</b><p>Files available: " + ", ".join(self.xml_files.keys()) + "</p>"
         self._check_file_version(self.print_reader.subjects)
         list_check_values = self.print_reader.get_check_values()
-        return list_check_values
-        return self.create_data_for_out(list_check_values)
+        print list_check_values
+        return []
+        # return self.create_data_for_out(list_check_values)
 
     def create_data_for_out(self, list_check_values):
         result = dict()

@@ -136,8 +136,7 @@ class CheckedValues:
                     for key, val in subject.items():
                         if key in active_keys.keys() or key == self.xml_obj.name_key:
                             direction = int(active_keys.get(key) or 0)
-                            my_values[key] = self._values_to_string(val if direction else val[i], direction,
-                                                                    name_key_values_len, i)
+                            my_values[key] = self._values_to_string(val, direction, name_key_values_len, i)
             parse_objects += [my_values]
         return parse_objects
 
@@ -151,7 +150,7 @@ class CheckedValues:
             return {}
         result = dict()
         for key in self.xml_obj.list_of_keys_to_print:
-            result[key] = subject[key]
+            result[key] = subject[key][0]
         return result
 
     def _get_active_keys(self, list_of_object_keys):
@@ -170,7 +169,7 @@ class CheckedValues:
         :return: string
         """
         if direction == 0:
-            return sub("H'([a-fA-F\d]+)", lambda m: m.group(1), values[0])
+            return sub("H'([a-fA-F\d]+)", lambda m: m.group(1), values[position])
         values = values[::direction]
         result = ""
         size = len(values) / name_key_val_len
