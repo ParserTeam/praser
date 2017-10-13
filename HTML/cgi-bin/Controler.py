@@ -40,6 +40,7 @@ class Controller:
                 you to select configuration file for current printout.
                 If parameter is list the program will run through the list to find corresponding file for current
                 printout. If program doesn't find file, it select the first version of file.
+                (To use first version for all printouts, just paste an empty list for list_of_xml_to_use)
         """
         if isinstance(list_of_xml_to_use, list):
             self.list_of_xml_to_use = list_of_xml_to_use
