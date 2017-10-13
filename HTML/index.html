@@ -63,13 +63,11 @@
 </HEAD>
 <BODY STYLE="color: #000080; font-family: Helvetica Neue ,Helvetica,Arial,sans-serif; font-size: 14px;">
 <p STYLE="font-size:36px; text-align: center; margin:2% "><STRONG>BSC ERRORS PARSER</STRONG></p>
-<!--<div id="empty"><p>&nbsp</p></div>-->
-<div id="xmlinfo">
-   <!--<nav><a href="xmlinfo.py">XML INFORMATION</a></nav>-->
+<div id="xmlinfo"> <!--button XML INFORMATION - to see oll xml config files which are in config folder (xmlinfo.py -  manage action for this button)-->
     <form action="/cgi-bin/xmlinfo.py" method="post"  >
         <p style="margin-top:14px; margin-bottom:14px;">&nbsp&#8195;<input type="submit" value="XML INFORMATION"/></form></p>
 </div>
-<div id="helpconfig">
+<div id="helpconfig"> <!-- buttons Help - to read information about parser and Add new config - to create new xml file  -->
     <form name="add_xml_form">
         <p style="margin-top:14px; margin-bottom:14px;">
             <input name='add_xml' type='submit' value='Add new config' formaction='XmlCreator.html'>
@@ -77,7 +75,7 @@
         </p>
     </form>
 </div>
-<DIV id="input">
+<DIV id="input"> <!-- text area and upload button for input log information, with buttons Pars - witch action is pars log info (send information to the server (file Controler.py) and send result to the index.html) and Clean - use it to clean text area  -->
     <p STYLE="text-align: center">Paste your log file here or</p>
         <form enctype="multipart/form-data" action="/cgi-bin/Controler.py" method="post" id="ajax_form2">
     <input type="submit" value="Upload"/></form>
@@ -89,12 +87,10 @@
     </form>
 
 </DIV>
-
-<DIV id="result">
+<DIV id="result"> <!--ajax send result information to this place -->
     <div id="loader"></div>
     <p>&nbsp</p>
-        <p id="inf2"></p>
-        <!--<p id="inf3"></p>-->
+    <p id="inf2"></p>
 </DIV>
 </BODY>
 </html>

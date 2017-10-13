@@ -1,21 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <div>
-        <h1> Add xml config </h1>
-        <meta http-equiv="content-type" charset="utf-8">
-
-        <link rel="stylesheet" type="text/css" href="style.css">
-    </div>
+    <meta http-equiv="content-type" charset="utf-8">
+    <!DOCTYPE html>
+    <TITLE>Create xml</TITLE>
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
-
 <body>
+    <div id = "navigation" STYLE="background:Lavender; text-align: left; height:120px; width:50%; float: left;">
+        <p>&nbsp</p>
+        <h1 STYLE = "right;font-size:24px;">&#8195;Add xml config </h1>
+    </div >
+    <DIV id = "navigation" STYLE = "background:Lavender; text-align: right; height:120px; width:48%; float: right;font-size:18px; padding-right: 2%;">
+        <p>&nbsp</p>
+        <nav><a href="http://localhost:8000/">BACK TO PARSER</a></nav>
+    </DIV>
 
 <form id="fromNameToMo">
+<p>&nbsp</p>
     <p>Name of config file
         <br>
-        <input type="text" name="nameFile" value="rxlul" spellcheck="false" style="width:50%" autofocus>
+        <input type="text" name="nameFile" value="" pattern="^[a-zA-Z]+$" title="Only letter" spellcheck="false" style="width:50%" autofocus required placeholder="With out .xml. Only letters and numbers">
         <meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+
+        <!--<input type="text" style="min-width:50%" onkeydown="this.style.width = ((this.value.length + 1) * 8) + 'px';"> -->
+
+
+    </p>
+    <p>Decryption of the name of the printout
+        <br>
+        <input type="text" name="Header" value="" style="width:50%" placeholder="Header for this type printouts">
 
         <!--<input type="text" style="min-width:50%" onkeydown="this.style.width = ((this.value.length + 1) * 8) + 'px';"> -->
 
@@ -24,29 +38,40 @@
     <p>Regexep pattern for parsing
         <br>
         <input type="text" name="limiter"
-               value="NSEI[\s|\n]+[\s\S]*?SIGBVCSTATE[\s|\n]+[\s\S]*?SGSNFEAT[\s|\n]+[\s\S]*?\n{2,}"
-               style="min-width:50%; max-width:100%;" onkeydown="this.style.width = ((this.value.length) * 8) + 'px';">
+               value=""
+               style="min-width:50%; max-width:100%;" onkeydown="this.style.width = ((this.value.length) * 8) + 'px';"
+               placeholder="Regular expression for parsing. Example: MO FAULT CODES CLASS 2A \n{2,}" required>
+    </p>
+
+    <p>Name of managed object
+        <br>
+        <input type="text" name="name_key" value="" title="Letters and " placeholder="Managed object. Example {MO NSEI}"
+               style="width:50%" required>
     </p>
     <p>Keys for searching
         <br>
-        <input type="text" name="keys" value="Key1 Key2 Key3" style="width:50%"
-               pattern="([\d\w]+ ?)+[\d\w]$" required>
-    </p>
-    <p>Name of managed object
-        <br>
-        <input type="text" name="name_key" value="MO" title="lalalalall" style="width:50%">
+        <input type="text" name="keys" value="" style="width:50%"
+               pattern="([\d\w]+ ?)+[\d\w]$" placeholder="Insert searching keys if format {key1 key2 key3}" required>
     </p>
     </div>
 
     <script type="text/javascript">
 
+
+
 function generate_bit_map(form, keys,name){
+
 
 name.disabled = true;
 var str = keys.value;
 
 
 var true_str = str.replace(/\s+/g, ' ');
+
+if (true_str.substring(true_str.length-1,true_str.length) == ' '){
+    true_str = true_str.slice(0, -1);
+}
+
 var arr = true_str.split(" ");
 var i = 0;
 
@@ -71,21 +96,25 @@ document.getElementById("myDiv").appendChild(btndiv);
 
 var in_type = document.createElement('input');
 in_type.type = 'text';
+in_type.value = ""
 in_type.setAttribute("maxlength","4");
 in_type.name = 'in_type';
 
 var out_type = document.createElement('input');
 out_type.type = 'text';
+out_type.value = ""
 out_type.setAttribute("maxlength","4");
 out_type.name = 'out_type';
 
 var direct = document.createElement('input');
 direct.type = 'text';
+direct.value = ""
 direct.setAttribute("maxlength","4");
 direct.name = 'direct';
 
 var norm_val = document.createElement('input');
 norm_val.type = 'text';
+norm_val.value = ""
 norm_val.setAttribute("maxlength","4");
 norm_val.name = 'norm_val';
 
@@ -119,24 +148,18 @@ document.getElementById("myDiv").appendChild(para1).appendChild(btndiv).appendCh
 
 
 
-
-
-
-
-
-
     </script>
 
     <script type="text/javascript">
 function append(form, name) {
     var btndiv = document.createElement("div");
-
     btndiv.id = 'divBtn';
     document.getElementById(name).appendChild(btndiv);
 
     var btn = document.createElement('input');
     btn.type = 'text';
     btn.name = name;
+    btn.value = ""
     btn.size = 65;
     btn.setAttribute("placeholder","Insert bit in format {name, value, text}");
     btn.setAttribute("pattern","[a-zA-Z0-9]+ [0-9]{,3} .+");
@@ -144,26 +167,29 @@ function append(form, name) {
 
 }
 
+function a(obj) {
+if (obj!=undefined) {
+obj.disabled=true;
+//или можно так
+//obj.disabled=(!obj.disabled);
+}
 
+}
+</script>
 
-
-
-
-
-    </script>
 
 
     <form id="keys_bits" name="keys_bit">
         <table>
             <div id="myDiv">
                 <input type="button" name=button1 value="Generate bit-map for keys"
-                       onclick="generate_bit_map(this.form, keys, this.name);this.hidden=true;">
+                       onclick="generate_bit_map(this.form, keys, this.name);this.hidden=true;a(keys)">
 
             </div>
         </table>
         <p>Keys to print
             <br>
-            <input type="text" name="KeysToPrint" style="width:50%" value="NSEI">
+            <input type="text" name="KeysToPrint" style="width:50%" value="" placeholder="By side key that you want to print">
             </br>
 
 
@@ -179,5 +205,6 @@ function append(form, name) {
 
     </div>
 </form>
+
 </body>
 </html>

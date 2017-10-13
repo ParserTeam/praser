@@ -108,11 +108,9 @@ class ConfigModule():
             file_object.name_of_CANDY = i.file_names[0]
 
             file_object.header = tree.find('HEDER').text
-            # get name of key from config.xml
             file_object.name_key = tree.find('NAME_KEY').text
-            # get regular expression from config.xml
             file_object.active_key_limiter = tree.find('ACTIVE_KEYS').attrib.get("limiter")
-            # get keys which we will printout from config.xml
+
             if not tree.find('PRINT_KEYS').text:
                 file_object.list_of_keys_to_print = []
             else:
@@ -120,34 +118,23 @@ class ConfigModule():
 
             # run by xml file
             for item in tree.iterfind('.ACTIVE_KEYS/'):
-                # create object of class KeysObject
                 key_object = KeysObject()
                 key_object.name = item.tag
-                # get type of notation
+
                 key_object.type = (item.attrib).get("type")
-                # get start
                 key_object.direction = (item.attrib).get("direction")
-                # get value of bits
                 key_object.norm_val = (item.attrib).get("norm_val")
-                # run by keys sub tags
-                # print('###########')
+
                 for bits in item:
-                    # create object of bit
                     bit_object = BitsObject()
-                    # get name of bit
                     bit_object.name = bits.tag
-                    # get description of bit
                     bit_object.text_of_bit = bits.text
-                    # get value of bit
                     bit_object.value = bits.attrib.get("bit")
                     # magic
                     key_object.dict_bits += [bit_object]
                 file_object.list_of_object_keys.append(key_object)
-            # add file object to list
-            # list_of_objects[i.file_names[0]] = file_object
+
             i.xml_file_obj = file_object
-        # return list of objects
+
         return true_config
 
-# #
-# # #
