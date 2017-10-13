@@ -4,7 +4,7 @@ from Tkinter import Tk, Button, Label, Toplevel
 
 
 
-def get_input_inf():
+def get_input_inf(): # it take oll inut infornation from web to server (if it is upload file - read file using withdraw Class, else take take value from text area)
     # Get data from fields
     form = cgi.FieldStorage()
 
@@ -20,7 +20,7 @@ def get_input_inf():
     return "No input data"
 
 
-def output_inf(output):
+def output_inf(output): #use it to print dynamic table with the result information after parsing
     print "Content-type:text/html\r\n\r\n"
     if type(output) == str:
         print "<p>" + output + "</p>"
@@ -100,7 +100,7 @@ def output_inf(output):
                     '''
 
 
-class DialogWindow:
+class DialogWindow: # use it to upload file from local directory after press button Upload
     window = None
     question = "This text is OK?"
     return_value = None

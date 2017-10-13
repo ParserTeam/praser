@@ -1,17 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <div>
-        <h1> Add xml config </h1>
-        <meta http-equiv="content-type" charset="utf-8">
-
-        <link rel="stylesheet" type="text/css" href="style.css">
-    </div>
+    <meta http-equiv="content-type" charset="utf-8">
+    <!DOCTYPE html>
+    <TITLE>Create xml</TITLE>
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
-
 <body>
+    <div id = "navigation" STYLE="background:Lavender; text-align: left; height:120px; width:50%; float: left;">
+        <p>&nbsp</p>
+        <h1 STYLE = "right;font-size:24px;">&#8195;Add xml config </h1>
+    </div >
+    <DIV id = "navigation" STYLE = "background:Lavender; text-align: right; height:120px; width:48%; float: right;font-size:18px; padding-right: 2%;">
+        <p>&nbsp</p>
+        <nav><a href="http://localhost:8000/">BACK TO PARSER</a></nav>
+    </DIV>
 
 <form id="fromNameToMo">
+<p>&nbsp</p>
     <p>Name of config file
         <br>
         <input type="text" name="nameFile" value="" spellcheck="false" style="width:50%" autofocus required placeholder="With out .xml. Only letters and numbers">
@@ -50,6 +56,8 @@
     </div>
 
     <script type="text/javascript">
+
+
 
 function generate_bit_map(form, keys,name){
 
@@ -191,5 +199,6 @@ function append(form, name) {
 
     </div>
 </form>
+
 </body>
 </html>
