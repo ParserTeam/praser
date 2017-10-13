@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<root limiter="MO FAULT CODES CLASS 2A \n{2,}">
+<root limiter="MO FAULT\s+CODES\s+CLASS\s+2A \n{2,}">
     <HEDER>RADIO X-CEIVER ADMINISTRATION</HEDER>
     <KEYS>FAULT CODES</KEYS>
     <NAME_KEY>MO</NAME_KEY>

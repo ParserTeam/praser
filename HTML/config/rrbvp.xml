@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<root limiter="NSEI SIGBVCSTATE SGSNFEAT \n{2,}">
+<root limiter="NSEI SIGBVCSTATE\s+SGSNFEAT \n{2,}">
     <HEDER>RADIO TRANSMISSION IP BSSGP VIRTUAL CONNECTION DATA</HEDER>
     <NAME_KEY>NSEI</NAME_KEY>
     <ACTIVE_KEYS>

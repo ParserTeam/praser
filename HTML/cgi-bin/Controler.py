@@ -46,6 +46,7 @@ class Controller:
         if isinstance(list_of_xml_to_use, list):
             self.list_of_xml_to_use = list_of_xml_to_use
         self.print_reader = PrintReader(print_text, self.xml_files)
+        print "end PrintReader creating. Controller:49"
         if len(self.print_reader.subjects) == 0:
             return "<b>No file found for text</b><p>Files available: " + ", ".join(self.xml_files.keys()) + "</p>"
         self._check_file_version(self.print_reader.subjects)
