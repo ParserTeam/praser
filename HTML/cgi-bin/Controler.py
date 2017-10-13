@@ -91,10 +91,12 @@ class Controller:
                 for i in range(0, len(value_in_bits_revers)):
 
                     if value_in_bits_revers[i] != str(bits.norm_val):
-                        try:
-                            printout_bits[bits.name][bit[i].name] = bit[i].text_of_bit
-                        except IndexError:
-                            pass
+                        # try:
+                        for value_bit in bits.dict_bits:
+                            if value_bit.value == str(i):
+                                printout_bits[bits.name][value_bit.name] = value_bit.text_of_bit
+                        # except IndexError:
+                        #     pass
             if bits.type.isalpha():
                 work_dict = {}
                 string_value = printout_bits.get(bits.name)
