@@ -14,7 +14,7 @@
 <form id="fromNameToMo">
     <p>Name of config file
         <br>
-        <input type="text" name="nameFile" value="" spellcheck="false" style="width:50%" autofocus required>
+        <input type="text" name="nameFile" value="" spellcheck="false" style="width:50%" autofocus required placeholder="With out .xml. Only letters and numbers">
         <meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
 
         <!--<input type="text" style="min-width:50%" onkeydown="this.style.width = ((this.value.length + 1) * 8) + 'px';"> -->
@@ -23,7 +23,7 @@
     </p>
     <p>Decryption of the name of the printout
         <br>
-        <input type="text" name="Header" value="" style="width:50%">
+        <input type="text" name="Header" value="" style="width:50%" placeholder="Header for this type printouts">
 
         <!--<input type="text" style="min-width:50%" onkeydown="this.style.width = ((this.value.length + 1) * 8) + 'px';"> -->
 
@@ -33,17 +33,19 @@
         <br>
         <input type="text" name="limiter"
                value=""
-               style="min-width:50%; max-width:100%;" onkeydown="this.style.width = ((this.value.length) * 8) + 'px';" required>
+               style="min-width:50%; max-width:100%;" onkeydown="this.style.width = ((this.value.length) * 8) + 'px';"
+               placeholder="Regular expression for parsing. Example: MO FAULT CODES CLASS 2A \n{2,}" required>
     </p>
 
     <p>Name of managed object
         <br>
-        <input type="text" name="name_key" value="" title="lalalalall" style="width:50%" required>
+        <input type="text" name="name_key" value="" title="Letters and " placeholder="Managed object. Example {MO NSEI}"
+               style="width:50%" required>
     </p>
     <p>Keys for searching
         <br>
         <input type="text" name="keys" value="" style="width:50%"
-               pattern="([\d\w]+ ?)+[\d\w]$" required>
+               pattern="([\d\w]+ ?)+[\d\w]$" placeholder="Insert searching keys if format {key1 key2 key3}" required>
     </p>
     </div>
 
@@ -138,6 +140,7 @@ document.getElementById("myDiv").appendChild(para1).appendChild(btndiv).appendCh
 }
 
 
+
     </script>
 
     <script type="text/javascript">
@@ -158,6 +161,7 @@ function append(form, name) {
 }
 
 
+
     </script>
 
 
@@ -171,7 +175,7 @@ function append(form, name) {
         </table>
         <p>Keys to print
             <br>
-            <input type="text" name="KeysToPrint" style="width:50%" value="">
+            <input type="text" name="KeysToPrint" style="width:50%" value="" placeholder="By side key that you want to print">
             </br>
 
 
