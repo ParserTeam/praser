@@ -129,21 +129,41 @@ class CheckedValues:
         self.parse_objects = self._select_values_to_parse_objects(subjects, active_keys)
 
     def _select_values_to_parse_objects(self, subjects, active_keys):
-        # TODO structuring this function
+        """
+        This function does magic:
+
+        :param subjects: list with dictionaries of objects
+        :param active_keys: dictionary with active keys like a key and direction like value
+        :return: parse_objects: list of dictionaries (main objects) with keys from printout as key and
+                    values like value
+        """
         parse_objects = []
         for subject in subjects:
+            # subject:              dictionary of all keys and list of values in subject
+            # name_key_values:      list of main key values, it should be added to all dictionaries
+            # print_keys_with_val:  dictionary with keys and values for keys that are one for few objects
+            # name_key_values_len:  number of name key values (number of objects)
             name_key_values = subject.get(self.xml_obj.name_key) or []
             print_keys_with_val = self._get_print_keys_with_val(subject)
             name_key_values_len = len(name_key_values)
+
+            # going through all objects in subject to collect all values from it
             for i in range(name_key_values_len):
+                # my_values:    dictionary of object to return
                 my_values = dict()
-                my_values.update(print_keys_with_val)
-                if self.xml_obj.name_key in subject.keys():
-                    for key, val in subject.items():
-                        if key in active_keys.keys() or key == self.xml_obj.name_key:
-                            direction = int(active_keys.get(key) or 0)
-                            my_values[key] = self._values_to_string(val, direction, name_key_values_len, i)
-                    parse_objects += [my_values]
+                my_values.update(print_keys_with_val)  # add the print key and value to each object dict
+
+                # going through all elements in subject
+                for key, val in subject.items():
+
+                    # if key is one of active keys or object name key it will be add to dictionary
+                    if key in active_keys.keys() or key == self.xml_obj.name_key:
+                        # direction:    in which direction
+                        direction = int(active_keys.get(key) or 0)
+
+                        my_values[key] = self._values_to_string(val, direction, name_key_values_len, i)
+                parse_objects += [my_values]
+        # print "parse obj", parse_objects
         return parse_objects
 
     def _get_print_keys_with_val(self, subject):
@@ -174,7 +194,6 @@ class CheckedValues:
         :param name_key_val_len: main object values len (to calculate
         :return: string
         """
-        print values
         if direction == 0:
             return sub("H'([a-fA-F\d]+)", lambda m: m.group(1), values[position])
         values = values[::direction]

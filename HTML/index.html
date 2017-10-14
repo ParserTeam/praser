@@ -31,17 +31,25 @@
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
     <script type="text/javascript">
+                    var pageLoaded = true;
+
                     function show_log() {
-                        document.getElementById("loader").style.display = "block";
+                        console.log(pageLoaded);
+                        if (pageLoaded === false){
+                            document.getElementById("loader").style.display = "block";
+                        }
                     }
 					$(document).ready(function(){
                         $('#ajax_form').submit(function(event){
                             $.post("/cgi-bin/Controler.py",{comment:$("#btn2").val()},onResponse);
+                            pageLoaded = false;
                             setTimeout(show_log, 5000);
                             return false;
-                        })
+                        });
                         function onResponse(btn){
                             $("#inf2").html(btn);
+                            pageLoaded = true;
+                            console.log("on response " + pageLoaded)
                             document.getElementById("loader").style.display = "none";
                         }
 				    })
@@ -52,9 +60,10 @@
                             $.post("/cgi-bin/Controler.py",{comment:$("#btn3").val()},onResponse);
                             setTimeout(show_log, 5000);
                             return false;
-                        })
+                        });
                         function onResponse(btn){
                             $("#inf2").html(btn);
+                            console.log("on response " + pageLoaded)
                             document.getElementById("loader").style.display = "none";
                         }
 				    })
