@@ -1,4 +1,4 @@
-from re import match, findall, split, finditer, sub
+from re import match, finditer, sub
 from bscswupg_mmlparser import MMLparser
 
 SRE_MATCH_TYPE = type(match("", ""))
@@ -158,7 +158,7 @@ class CheckedValues:
 
                     # if key is one of active keys or object name key it will be add to dictionary
                     if key in active_keys.keys() or key == self.xml_obj.name_key:
-                        # direction:    in which direction
+                        # direction:    in which direction value should be concatenate (don't concatenate for 0)
                         direction = int(active_keys.get(key) or 0)
 
                         my_values[key] = self._values_to_string(val, direction, name_key_values_len, i)
