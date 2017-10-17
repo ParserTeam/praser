@@ -97,6 +97,7 @@ def output_inf(output): #use it to print dynamic table with the result informati
             print '''
                         </table>
                 </div>
+                 <a href="#top" CLASS="toTop"> UP </a >
                     '''
 
 
