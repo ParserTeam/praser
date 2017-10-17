@@ -23,12 +23,7 @@ class PrintReader:
         """
         result = list()
 
-        import time
-        start_time = time.time()
-
         for file_name, limiter in configuration_keys.items():
-            print "Find text for " + file_name
-            print("--- %s seconds ---" % (time.time() - start_time))
             limiter = limiter.replace(" ", r"[\s|\n]+[\s\S]*?")
             texts = finditer(limiter, text)
             self._unite_texts(result, texts, file_name)

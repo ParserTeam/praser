@@ -1,8 +1,9 @@
 import unittest
-import print_reader
+from print_reader import PrintReader
 
 
 class TestPrintReader(unittest.TestCase):
 
     def setUp(self):
-        p
+        self.print_reader_0 = PrintReader("", )
+        self.print_reader_1 = PrintReader()
