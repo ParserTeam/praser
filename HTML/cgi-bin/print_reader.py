@@ -14,7 +14,6 @@ class PrintReader:
         self.subjects = self._split_text(text, configuration_keys)
         self._add_texts_to_subjects(self.subjects, self.text)
 
-
     def _split_text(self, text, configuration_keys):
         """
         :param text: input text with printouts;
@@ -171,7 +170,7 @@ class CheckedValues:
             return {}
         result = dict()
         for key in self.xml_obj.list_of_keys_to_print:
-            result[key] = subject[key]
+            result[key] = subject.get(key) or "EMPTY"
         return result
 
     def _get_active_keys(self, list_of_object_keys):
