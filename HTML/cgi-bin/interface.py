@@ -1,6 +1,6 @@
 import cgi
 from tkFileDialog import askopenfile
-from Tkinter import Tk, Button, Label, Toplevel
+from Tkinter import Tk, Button, Label
 
 
 
