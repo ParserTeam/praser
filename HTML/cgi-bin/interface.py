@@ -27,7 +27,6 @@ def output_inf(output): #use it to print dynamic table with the result informati
     else:
         a = output
         # a = {'rrscp.xml': [{'SC': '0', 'REASON': {'b27': 'Not activated in RP unit'}, 'SCGR': ['20']}, {'SC': '1', 'REASON': {'b27': 'Not activated in RP unit'}, 'SCGR': ['20']}, {'SC': '0', 'REASON': {'b27': 'Not activated in RP unit'}, 'SCGR': ['21']}]}
-        print a
         if len(a) != 0:
             print '''
                 <link rel="stylesheet" type="text/css" href="style.css">
