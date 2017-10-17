@@ -79,7 +79,7 @@ root.appendChild(active_keys_tag)
 for i in range(0, len(list_keys)):
     key_tag = doc.createElement(list_keys[i])
     try:
-        key_tag.setAttribute('in_type', in_type[i])
+        key_tag.setAttribute('type', in_type[i])
     except IndexError:
         pass
     try:
