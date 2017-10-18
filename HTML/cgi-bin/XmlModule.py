@@ -5,7 +5,6 @@ from os import listdir, path
 
 class KeysObject:
     dict_bits = []
-    # type = ''
     in_type = ''
     out_type = ''
     norm_val = ''
@@ -123,7 +122,8 @@ class ConfigModule():
                 key_object = KeysObject()
                 key_object.name = item.tag
 
-                key_object.type = (item.attrib).get("type")
+                key_object.name = key_object.name.replace("_"," ")
+
                 key_object.in_type = (item.attrib).get("in_type")
                 key_object.out_type = (item.attrib).get("out_type")
                 key_object.direction = (item.attrib).get("direction")

@@ -50,9 +50,9 @@ class Controller:
             return "<b>No file found for text</b><p>Files available: " + ", ".join(self.xml_files.keys()) + "</p>"
         self._check_file_version(self.print_reader.subjects)
         list_check_values = self.print_reader.get_check_values()
-        print list_check_values
-        return []
-        # return self.create_data_for_out(list_check_values)
+        # print list_check_values
+        # return []
+        return self.create_data_for_out(list_check_values)
 
     def create_data_for_out(self, list_check_values):
         result = dict()
@@ -72,6 +72,14 @@ class Controller:
                         # result[check_value.xml_file_name] = "Everything is OK. Go drink coffee :)"
         return result
 
+    def _valid_printout_bits(self, number, in_type):
+        try:
+            value = int(str(number), int(in_type))
+        except ValueError:
+            error_manager.add_error_message()
+            return None
+        return value
+
     # function for check bits and return list of print cases
     def checker_bits(self, printout_bits=None, config_bits=None):
         print_out_for_view = {}
@@ -80,42 +88,28 @@ class Controller:
 
         for i_obj in keys.list_of_object_keys:
             bits = i_obj
-            bit = bits.dict_bits
 
-            if bits.in_type.isdigit():
-                if not printout_bits.get(bits.name):
-                    value = 0
-                else:
-                    try:
-                        value = int(str(printout_bits.get(bits.name)), int(bits.in_type))
-                    except ValueError:
-                        error_manager.add_error_message()
-                        return None
-                value_in_bits = (format(value, "0>42b"))
-                value_in_bits_revers = value_in_bits[::-1]
-                printout_bits[bits.name] = {}
-                for i in range(0, len(value_in_bits_revers)):
+            if bits.in_type.isdigit:
+                for bits_name_value in printout_bits.get(bits.name):
+                    # if not printout_bits.get(bits.name):
+                    if not bits_name_value:
+                        value = 0
+                    else:
+                        # value = self._valid_printout_bits(printout_bits.get(bits.name)[0],bits.in_type)
+                        value = self._valid_printout_bits(bits_name_value,bits.in_type)
 
-                    if value_in_bits_revers[i] != str(bits.norm_val):
-                        # try:
-                        for value_bit in bits.dict_bits:
-                            if value_bit.value == str(i):
-                                printout_bits[bits.name][value_bit.name] = value_bit.text_of_bit
-                                # except IndexError:
-                                #             #     pass
-                                # if bits.type.isalpha():
-                                #     work_dict = {}
-                                #     string_value = printout_bits.get(bits.name)
-                                #     # work_dict =  printout_bits[bits.name]
-                                #     if string_value != str(bits.norm_val):
-                                #         try:
-                                #             work_dict = printout_bits
-                                #         except IndexError:
-                                #             work_dict = {}
-                                #     else:
-                                #         work_dict = {}
-                                #     printout_bits = work_dict
-                                # printout_bits[bits.name][cheker.name].popitem(cheker.text_of_bit)
+                    value_in_bits = (format(value, "0>42b"))
+                    value_in_bits_revers = value_in_bits[::-1]
+                    printout_bits[bits.name] = {}
+                    for i in range(0, len(value_in_bits_revers)):
+
+                        if value_in_bits_revers[i] != str(bits.norm_val):
+                            # try:
+                            for value_bit in bits.dict_bits:
+                                if value_bit.value == str(i):
+                                    printout_bits[bits.name][value_bit.name] = value_bit.text_of_bit
+            if bits.in_type == "10":
+                pass
         if not printout_bits.get(bits.name):
             return {}
         else:

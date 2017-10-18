@@ -42,7 +42,7 @@
 					$(document).ready(function(){
                         $('#ajax_form').submit(function(event){
                             $.post("/cgi-bin/Controler.py",{comment:$("#btn2").val()},onResponse);
-                            pageLoaded = false;
+                            pageLoaded = true;
                             setTimeout(show_log, 5000);
                             return false;
                         });
@@ -58,7 +58,7 @@
 					$(document).ready(function(){
                         $('#ajax_form2').submit(function(event){
                             $.post("/cgi-bin/Controler.py",{comment:$("#btn3").val()},onResponse);
-                            pageLoaded = false;
+                            pageLoaded = true;
                             setTimeout(show_log, 5000);
                             return false;
                         });

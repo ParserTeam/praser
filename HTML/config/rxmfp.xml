@@ -4,7 +4,7 @@
     <KEYS>FAULT CODES</KEYS>
     <NAME_KEY>MO</NAME_KEY>
     <ACTIVE_KEYS>
-        <key1 in_type="10" out_type="10" norm_val="0">
+        <FAULT_CODES_CLASS_2A in_type="10" out_type="10" norm_val="0">
             <PFC bit="0">Packet Flow Context (PFC) procedures</PFC>
             <CBL bit="1">Current Bucket Level (CBL) procedures</CBL>
             <INR bit="2">Inter NSE Re-routing (INR)</INR>
@@ -18,7 +18,7 @@
             <MOCN bit="10">Multi Operator Core Network (MOCN) procedures</MOCN>
             <EC-GSM-IoT bit="12">Extended Coverage GSM Internet of Things (EC-GSM IoT) procedures</EC-GSM-IoT>
             <EDRX bit="14">Extended Discontinuous Reception (EDRX) procedures</EDRX>
-        </key1>
+        </FAULT_CODES_CLASS_2A>
     </ACTIVE_KEYS>
     <PRINT_KEYS></PRINT_KEYS>
 </root>
