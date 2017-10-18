@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <root limiter="MO\s.*RSLF2\s[\s\S]*?[\r\n?|\n]{2,}">
     <HEADER>RADIO X-CEIVER ADMINISTRATION MANAGED OBJECT CAPABILITY INFORMATION</HEADER>
-    <KEYS>OMLF1 OMLF2 RSLF1</KEYS>
     <NAME_KEY>MO</NAME_KEY>
     <ACTIVE_KEYS limiter="">
         <OMLF1 in_type="16" out_type="2" direction="-1" norm_val="1">
@@ -79,6 +78,117 @@
             <F35 bit="35">Extended Coverage not supported by the BTS.</F35>
             <F36 bit="36">Extended DRX not supported by the BTS.</F36>
         </RSLF1>
+        <TCFMODE in_type="10" out_type="10" direction="0">
+            <N0 bit="0">2.4 kbps or less data, transparent
+
+                        TCH/F2.4 + Fast Associated Control Channel (FACCH/F) + SACCH/TF according to 3GPP TS 45.002, section 6.4, combination i) using channel code for data rate 2.4 kbps or less as specified in 3GPP TS 45.003, providing transparent mode. </N0>
+            <N1 bit="1">4.8 kbps data, transparent
+
+                        TCH/F4.8 + FACCH/F + SACCH/TF according to 3GPP TS 45.002, section 6.4, combination i) using channel code for data rate 4.8 kbps as specified in 3GPP TS 45.003, providing transparent mode. </N1>
+            <N2 bit="2">4.8 kbps data, non-transparent
+
+                        TCH/F4.8 + FACCH/F + SACCH/TF according to 3GPP TS 45.002, section 6.4, combination i) using channel code for data rate 4.8 kbps as specified in 3GPP TS 45.003, providing non-transparent mode.</N2>
+            <N3 bit="3">9.6 kbps data, transparent
+
+                        TCH/F9.6 + FACCH/F + SACCH/TF according to 3GPP TS 45.002, section 6.4, combination i) using channel code for data rate 9.6 kbps as specified in 3GPP TS 45.003, providing transparent mode. </N3>
+            <N4 bit="4">9.6 kbps data, non-transparent
+
+                        TCH/F9.6 + FACCH/F + SACCH/TF according to 3GPP TS 45.002, section 6.4, combination i) using channel code for data rate 9.6 kbps as specified in 3GPP TS 45.003, providing non-transparent mode. </N4>
+            <N5 bit="5">Full rate speech version 1, full rate
+
+                        TCH/FS + FACCH/F + SACCH/TF according to 3GPP TS 45.002, section 6.4, combination i) using channel code for TCH/FS according to 3GPP TS 45.003 and speech transcoding according to GSM 06.01. </N5>
+            <N6 bit="6">Full rate speech version 2, PCS enhanced full rate
+
+                        TCH/FS + FACCH/F + SACCH/TF according to 3GPP TS 45.002, section 6.4, combination i) using PCS enhanced speech transcoding and either, channel code for TCH/FS according to 3GPP TS 45.003, or a PCS enhanced speech transcoding specific channel code. </N6>
+            <N7 bit="7">2.4 kbps or less multislot data, transparent
+
+                        TCH/F2.4 + FACCH/F + SACCH/M or TCH/F2.4 + SACCH/M or TCH/F2.4 + SACCH/MD according to 3GPP TS 45.002, section 6.4.1 combinations viii) - x) and 6.4.2, using channel code for channel data rate 2.4 kbps and less as specified in 3GPP TS 45.003, providing transparent mode for symmetric or asymmetric multislot configurations. </N7>
+            <N8 bit="8">4.8 kbps multislot data, transparent
+
+                        TCH/F4.8 + FACCH/F + SACCH/M or TCH/F4.8 + SACCH/M or TCH/F4.8 + SACCH/MD according to 3GPP TS 45.002, section 6.4.1 combinations viii) - x) and 6.4.2, using channel code for channel data rate 4.8 kbps as specified in 3GPP TS 45.003, providing transparent mode for symmetric or asymmetric multislot configurations. </N8>
+            <N9 bit="9">4.8 kbps multislot data, non-transparent
+
+                        TCH/F4.8 + FACCH/F + SACCH/M or TCH/F4.8 + SACCH/M or TCH/F4.8 + SACCH/MD according to 3GPP TS 45.002, section 6.4.1 combinations viii) - x) and 6.4.2, using channel code for channel data rate 4.8 kbps as specified in 3GPP TS 45.003, providing non-transparent mode for symmetric or asymmetric multislot configurations. </N9>
+            <N10 bit="10">9.6 kbps multislot data, transparent
+
+                          TCH/F9.6 + FACCH/F + SACCH/M or TCH/F9.6 + SACCH/M or TCH/F9.6 + SACCH/MD according to 3GPP TS 45.002, section 6.4.1 combinations viii) - x) and 6.4.2, using channel code for channel data rate 9.6 kbps as specified in 3GPP TS 45.003, providing transparent mode for symmetric or asymmetric multislot configurations. </N10>
+            <N11 bit="11">9.6 kbps multislot data, non-transparent
+
+                          TCH/F9.6 + FACCH/F + SACCH/M or TCH/F9.6 + SACCH/M or TCH/F9.6 + SACCH/MD according to 3GPP TS 45.002, section 6.4.1 combinations viii) - x) and 6.4.2, using channel code for channel data rate 9.6 kbps as specified in 3GPP TS 45.003, providing non-transparent mode for symmetric or asymmetric multislot configurations. </N11>
+            <N12 bit="12">14.4 kbps data, transparent
+
+                          TCH/F14.4 + FACCH/F + SACCH/F according to 3GPP TS 45.002, section 6.4 combination i) using channel code for data rate 14.4 kbps as specified in 3GPP TS 45.003, providing transparent mode. </N12>
+            <N13 bit="13">14.4 kbps data, non-transparent
+
+                          TCH/F14.4 + FACCH/F + SACCH/F according to 3GPP TS 45.002, section 6.4 combination i) using channel code for data rate 14.4 kbps as specified in 3GPP TS 45.003, providing non-transparent mode. </N13>
+            <N14 bit="14">14.4 kbps multislot data, transparent
+
+                          TCH/F14.4 + FACCH/F + SACCH/F or TCH/F14.4 + SACCH/M or TCH/F14.4 - see 3GPP TS 45.002, section 6.4.1, combinations viii) -x) and 6.4.2 using channel code for channel data rate 14.4 kbps as specified in 3GPP TS 45.003, providing transparent mode for symmetric or asymmetric multislot configurations. </N14>
+            <N15 bit="15">14.4 kbps multislot data, non-transparent
+
+                          TCH/F14.4 + FACCH/F + SACCH/F or TCH/F14.4 + SACCH/M or TCH/F14.4 - see 3GPP TS 45.002, section 6.4.1, combinations viii) -x) and 6.4.2 using channel code for channel data rate 14.4 kbps as specified in 3GPP TS 45.003, providing non-transparent mode for symmetric or asymmetric multislot configurations. </N15>
+            <N16 bit="16">GPRS coding scheme 1
+
+                          Packet Broadcast Control Channel (PBCCH) + Packet Common Control Channel (PCCCH) + Packet Data Traffic Channel (PDTCH) + Packet Associated Control Channel (PACCH) + Packet Timing Advance Control Channel (PTCCH) or PCCCH + PDTCH + PACCH + PTCCH or PDTCH + PACCH + PTCCH - see 3GPP TS 45.002, section 6.4.1, combinations xi) - xiii) and 6.4.2 using channel code for packet data block type 1 (CS-1) as specified in 3GPP TS 45.003. </N16>
+            <N17 bit="17">GPRS coding scheme 2
+
+                          PBCCH + PCCCH + PDTCH + PACCH + PTCCH or PCCCH + PDTCH + PACCH + PTCCH or PDTCH + PACCH + PTCCH - see 3GPP TS 45.002, section 6.4.1, combinations xi) - xiii) and 6.4.2 using channel code for packet data block type 2 (CS-2) as specified in 3GPP TS 45.003. </N17>
+            <N18 bit="18">GPRS coding scheme 3
+
+                          PBCCH + PCCCH + PDTCH + PACCH + PTCCH or PCCCH + PDTCH + PACCH + PTCCH or PDTCH + PACCH + PTCCH - see 3GPP TS 45.002, section 6.4.1, combinations xi) - xiii) and 6.4.2 using channel code for packet data block type 3 (CS-3) as specified in 3GPP TS 45.003. </N18>
+            <N19 bit="19">GPRS coding scheme 4
+
+                          PBCCH + PCCCH + PDTCH + PACCH + PTCCH or PCCCH + PDTCH + PACCH + PTCCH or PDTCH + PACCH + PTCCH - see 3GPP TS 45.002, section 6.4.1, combinations xi) - xiii) and 6.4.2 using channel code for packet data block type 4 (CS-4) as specified in 3GPP TS 45.003. </N19>
+            <N20 bit="20">Extended packet access
+
+                          PBCCH + PCCCH + PDTCH + PACCH + PTCCH or PCCCH + PDTCH + PACCH + PTCCH - see 3GPP TS 45.002, section 6.4.1, combinations xi) - xiii) and 6.4.2 using extended packet access burst as specified in 3GPP TS 45.003. </N20>
+            <N21 bit="21">TCH/FS + FACCH/F + SACCH/TF according to 3GPP TS 45.002, section 6.4, combination i) using channel code for TCH/FS according to 3GPP TS 45.003, and Adaptive Multi-Rate (AMR) speech transcoding.
+
+                          Indicates capability for AMR speech transcoding using the following speech codec modes: TCH/AFS12.2, TCH/AFS10.2, TCH/AFS7.95, TCH/AFS7.4, TCH/AFS6.7, TCH/AFS5.9, TCH/AFS5.15, TCH/AFS4.75. </N21>
+            <N22 bit="22">PBCCH + PCCCH + PDTCH + PACCH + PTCCH or PCCCH + PDTCH + PACCH + PTCCH - see 3GPP TS 45.002, section 6.4.1 combinations xi) - xii) and 6.4.2, using channel code for modulation and coding scheme type 1 (MCS-1) as specified in 3GPP TS 45.003.</N22>
+            <N23 bit="23">PBCCH + PCCCH + PDTCH + PACCH + PTCCH or PCCCH + PDTCH + PACCH + PTCCH or PDTCH + PACCH + PTCCH - see 3GPP TS 45.002, section 6.4.1 combinations xi) - xiii) and 6.4.2, using channel code for modulation and coding scheme type 2 (MCS-2) as specified in 3GPP TS 45.003.</N23>
+            <N24 bit="24">PBCCH + PCCCH + PDTCH + PACCH + PTCCH or PCCCH + PDTCH + PACCH + PTCCH or PDTCH + PACCH + PTCCH - see 3GPP TS 45.002, section 6.4.1 combinations xi) - xiii) and 6.4.2, using channel code for modulation and coding scheme type 3 (MCS-3) as specified in 3GPP TS 45.003.</N24>
+            <N25 bit="25">PBCCH + PCCCH + PDTCH + PACCH + PTCCH or PCCCH + PDTCH + PACCH + PTCCH or PDTCH + PACCH + PTCCH - see 3GPP TS 45.002, section 6.4.1 combinations xi) - xiii) and 6.4.2, using channel code for modulation and coding scheme type 4 (MCS-4) as specified in 3GPP TS 45.003.</N25>
+            <N26 bit="26">PBCCH + PCCCH + PDTCH + PACCH + PTCCH or PCCCH + PDTCH + PACCH + PTCCH or PDTCH + PACCH + PTCCH - see 3GPP TS 45.002, section 6.4.1 combinations xi) - xiii) and 6.4.2, using channel code for modulation and coding scheme type 5 (MCS-5) as specified in 3GPP TS 45.003.</N26>
+            <N27 bit="27">PBCCH + PCCCH + PDTCH + PACCH + PTCCH or PCCCH + PDTCH + PACCH + PTCCH or PDTCH + PACCH + PTCCH - see 3GPP TS 45.002, section 6.4.1 combinations xi) - xiii) and 6.4.2, using channel code for modulation and coding scheme type 6 (MCS-6) as specified in 3GPP TS 45.003.</N27>
+            <N28 bit="28">PBCCH + PCCCH + PDTCH + PACCH + PTCCH or PCCCH + PDTCH + PACCH + PTCCH or PDTCH + PACCH + PTCCH - see 3GPP TS 45.002, section 6.4.1 combinations xi) - xiii) and 6.4.2, using channel code for modulation and coding scheme type 7 (MCS-7) as specified in 3GPP TS 45.003.</N28>
+            <N29 bit="29">PBCCH + PCCCH + PDTCH + PACCH + PTCCH or PCCCH + PDTCH + PACCH + PTCCH or PDTCH + PACCH + PTCCH - see 3GPP TS 45.002, section 6.4.1 combinations xi) - xiii) and 6.4.2, using channel code for modulation and coding scheme type 8 (MCS-8) as specified in 3GPP TS 45.003.</N29>
+            <N30 bit="30">PBCCH + PCCCH + PDTCH + PACCH + PTCCH or PCCCH + PDTCH + PACCH + PTCCH or PDTCH + PACCH + PTCCH - see 3GPP TS 45.002, section 6.4.1 combinations xi) - xiii) and 6.4.2, using channel code for modulation and coding scheme type 9 (MCS-9) as specified in 3GPP TS 45.003.</N30>
+            <N31 bit="31">Frequency Correction Channel (FCCH) + Synchronization Channel (SCH) + BCCH + CCCH or FCCH + SCH + BCCH + CCCH + Stand-alone Dedicated Control Channel (SDCCH) SDCCH/4(0..3) + SACCH/4(0..3) - see 3GPP TS 45.002, section 6.4.1 combinations iv) - v), using Enhanced General Packet Radio Service (EGPRS) packet channel request as specified in 3GPP TS 44.060.</N31>
+            <N32 bit="32">TCH/FS + FACCH/F + SACCH/TF according to 3GPP TS 45.002, section 6.4, combination i) using channel code for TCH/FS according to 3GPP TS 45.003, and wideband AMR speech transcoding
+
+                          Indicates capability for wideband AMR speech transcoding, which uses coding algorithm version 5, using the following speech codec modes according to 3GPP TS 45.003: TCH/WFS12.65, TCH/WFS8.85, TCH/WFS6.60. </N32>
+            <N33 bit="33">PBCCH + PCCCH + PDTCH/F + PACCH/F + PTCCH/F or PCCCH + PDTCH/F + PACCH/F + PTCCH/F or PDTCH/F + PACCH/F + PTCCH/F - see GSM 45.002, section 6.4.1 combinations xi) - xiii) and 6.4.2, using channel code for DAS-5 as specified in GSM 45.003.</N33>
+            <N34 bit="34">PBCCH + PCCCH + PDTCH/F + PACCH/F + PTCCH/F or PCCCH + PDTCH/F + PACCH/F + PTCCH/F or PDTCH/F + PACCH/F + PTCCH/F - see GSM 45.002, section 6.4.1 combinations xi) - xiii) and 6.4.2, using channel code for DAS-6 as specified in GSM 45.003.</N34>
+            <N35 bit="35">PBCCH + PCCCH + PDTCH/F + PACCH/F + PTCCH/F or PCCCH + PDTCH/F + PACCH/F + PTCCH/F or PDTCH/F + PACCH/F + PTCCH/F - see GSM 45.002, section 6.4.1 combinations xi) - xiii) and 6.4.2, using channel code for DAS-7 as specified in GSM 45.003.</N35>
+            <N36 bit="36">PBCCH + PCCCH + PDTCH/F + PACCH/F + PTCCH/F or PCCCH + PDTCH/F + PACCH/F + PTCCH/F or PDTCH/F + PACCH/F + PTCCH/F - see GSM 45.002, section 6.4.1 combinations xi) - xiii) and 6.4.2, using channel code for DAS-8 as specified in GSM 45.003.</N36>
+            <N37 bit="37">PBCCH + PCCCH + PDTCH/F + PACCH/F + PTCCH/F or PCCCH + PDTCH/F + PACCH/F + PTCCH/F or PDTCH/F + PACCH/F + PTCCH/F - see GSM 45.002, section 6.4.1 combinations xi) - xiii) and 6.4.2, using channel code for DAS-9 as specified in GSM 45.003.</N37>
+            <N38 bit="38">PBCCH + PCCCH + PDTCH/F + PACCH/F + PTCCH/F or PCCCH + PDTCH/F + PACCH/F + PTCCH/F or PDTCH/F + PACCH/F + PTCCH/F - see GSM 45.002, section 6.4.1 combinations xi) - xiii) and 6.4.2, using channel code for DAS-10 as specified in GSM 45.003.</N38>
+            <N39 bit="39">PBCCH + PCCCH + PDTCH/F + PACCH/F + PTCCH/F or PCCCH + PDTCH/F + PACCH/F + PTCCH/F or PDTCH/F + PACCH/F + PTCCH/F - see GSM 45.002, section 6.4.1 combinations xi) - xiii) and 6.4.2, using channel code for DAS-11 as specified in GSM 45.003.</N39>
+            <N40 bit="40">PBCCH + PCCCH + PDTCH/F + PACCH/F + PTCCH/F or PCCCH + PDTCH/F + PACCH/F + PTCCH/F or PDTCH/F + PACCH/F + PTCCH/F - see GSM 45.002, section 6.4.1 combinations xi) - xiii) and 6.4.2, using channel code for DAS-12 as specified in GSM 45.003.</N40>
+            <N41 bit="41">PBCCH + PCCCH + PDTCH/F + PACCH/F + PTCCH/F or PCCCH + PDTCH/F + PACCH/F + PTCCH/F or PDTCH/F + PACCH/F + PTCCH/F - see GSM 45.002, section 6.4.1 combinations xi) - xiii) and 6.4.2, using channel code for UAS-7 as specified in GSM 45.003.</N41>
+            <N42 bit="42">PBCCH + PCCCH + PDTCH/F + PACCH/F + PTCCH/F or PCCCH + PDTCH/F + PACCH/F + PTCCH/F or PDTCH/F + PACCH/F + PTCCH/F - see GSM 45.002, section 6.4.1 combinations xi) - xiii) and 6.4.2, using channel code for UAS-8 as specified in GSM 45.003.</N42>
+            <N43 bit="43">PBCCH + PCCCH + PDTCH/F + PACCH/F + PTCCH/F or PCCCH + PDTCH/F + PACCH/F + PTCCH/F or PDTCH/F + PACCH/F + PTCCH/F - see GSM 45.002, section 6.4.1 combinations xi) - xiii) and 6.4.2, using channel code for UAS-9 as specified in GSM 45.003.</N43>
+            <N44 bit="44">PBCCH + PCCCH + PDTCH/F + PACCH/F + PTCCH/F or PCCCH + PDTCH/F + PACCH/F + PTCCH/F or PDTCH/F + PACCH/F + PTCCH/F - see GSM 45.002, section 6.4.1 combinations xi) - xiii) and 6.4.2, using channel code for UAS-10 as specified in GSM 45.003.</N44>
+            <N45 bit="45">PBCCH + PCCCH + PDTCH/F + PACCH/F + PTCCH/F or PCCCH + PDTCH/F + PACCH/F + PTCCH/F or PDTCH/F + PACCH/F + PTCCH/F - see GSM 45.002, section 6.4.1 combinations xi) - xiii) and 6.4.2, using channel code for UAS-11 as specified in GSM 45.003.</N45>
+        </TCFMODE>
+        <TCHMODE in_type="10" out_type="10" direction="0">
+            <N0 bit="0">2.4 kbps or less data
+
+                        TCH/H2.4(n) + FACCH/H(n) + SACCH/TH(n), where n = 0 or n = 1, according to 3GPP TS 45.002, section 6.4, combination ii) using channel code for data rate 2.4 kbps or less as specified in 3GPP TS 45.003. </N0>
+            <N1 bit="1">4.8 kbps data, transparent
+
+                        TCH/H4.8(n) + FACCH/H(n) + SACCH/TH(n), where n = 0 or n = 1, according to 3GPP TS 45.002, section 6.4, combination ii) using channel code for data rate 4.8 kbps as specified in 3GPP TS 45.003, providing transparent mode. </N1>
+            <N2 bit="2">4.8 kbps data, non-transparent
+
+                        TCH/H4.8(n) + FACCH/H(n) + SACCH/TH(n), where n = 0 or n = 1, according to 3GPP TS 45.002, section 6.4, combination ii) using channel code for data rate 4.8 kbps as specified in 3GPP TS 45.003, providing non-transparent mode. </N2>
+            <N3 bit="3">Half rate speech version 1, Half Rate
+
+                        TCH/HS(n) + FACCH/H(n) + SACCH/TH(n), where n = 0 or n = 1, according to 3GPP TS 45.002, section 6.4, combination ii) using channel code for TCH/HS according to 3GPP TS 45.003 and speech transcoding according to GSM 06.02. </N3>
+            <N4 bit="4">TCH/HS(n) + FACCH/H(n) + SACCH/TH(n), where n = 0 or 1, according to 3GPP TS 45.002, section 6.4, combination ii) using channel code for TCH/HS according to 3GPP TS 45.003, and AMR speech transcoding.
+
+                        Indicates capability for AMR speech transcoding, which uses speech coding algorithm version 3, using the following speech codec modes according to 3GPP TS 45.003: TCH/AHS7.4, TCH/AHS6.7, TCH/AHS5.9, TCH/AHS5.15, TCH/AHS4.75.</N4>
+        </TCHMODE>
     </ACTIVE_KEYS>
     <PRINT_KEYS></PRINT_KEYS>
 </root>
