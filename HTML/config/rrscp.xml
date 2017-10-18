@@ -4,7 +4,7 @@
 <KEYS>SCGR SC DEV DEV1 NUMDEV DCP STATE REASON</KEYS>
 <NAME_KEY>SC</NAME_KEY>
 <ACTIVE_KEYS>
-	<REASON type="16" norm_val="0" direction="1">
+	<REASON in_type="16" out_type="2" norm_val="0" direction="1">
 		<b0 bit="0">Not all transmission devices seized</b0>
 		<b1 bit="1">Packet Gateway (PGW) devices not seized</b1>
 		<b2 bit="2">No semipermanent connection</b2>

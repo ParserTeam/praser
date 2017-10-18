@@ -3,7 +3,7 @@
 	<HEADER>RADIO X-CEIVER ADMINISTRATION MANAGED OBJECT STATUS</HEADER>
 	<NAME_KEY>MO</NAME_KEY>
 	<ACTIVE_KEYS>
-		<BLO type="16" norm_val="0">
+		<BLO in_type="16" out_type="2" norm_val="0">
 			<AP bit ="0">Object blocked from own supervision permanently.</AP>
 			<AT bit ="1">Object blocked from own supervision temporarily.</AT>
 			<AS bit ="2">Object blocked due to fault suspected.</AS>
@@ -18,7 +18,7 @@
 			<PSV bit ="13">Object blocked due to power savings.</PSV>
 			<AIR bit ="15">Object block from Antenna Integrated Radio (AIR).</AIR>
 		</BLO>
-			<BLA type="16" norm_val="0">
+			<BLA in_type="16" out_type="2" norm_val="0">
 			<BNU bit ="0">Object needs reset and unconditional load or reset and loading are in progress.</BNU>
 			<BNR bit ="1">Object needs reset and load check or the reset and loading are in progress.</BNR>
 			<BNL bit ="2">Object needs load check or loading in progress.</BNL>
@@ -30,7 +30,7 @@
 			<BNM bit ="8">Object needs to be manually unblocked due to request from the Base Transceiver Station (BTS).</BNM>
 			<BNO bit ="9">Object needs loop test or loop test in progress.</BNO>
 		</BLA>
-		<LMO type="16" norm_val="0">
+		<LMO in_type="16" out_type="2" norm_val="0">
 			<CRN bit ="5">LRX blocked due to creation in progress.</CRN>
 			<ENA bit ="6">LRX blocked due to not enabled.</ENA>
 			<MO bit ="8">LRX blocked from RX.</MO>

@@ -3,7 +3,7 @@
     <HEADER>RADIO TRANSMISSION IP BSSGP VIRTUAL CONNECTION DATA</HEADER>
     <NAME_KEY>NSEI</NAME_KEY>
     <ACTIVE_KEYS>
-        <SGSNFEAT type="16" norm_val="0">
+        <SGSNFEAT int_type="16" out_type="2" norm_val="0">
             <PFC bit="0">Packet Flow Context (PFC) procedures</PFC>
             <CBL bit="1">Current Bucket Level (CBL) procedures</CBL>
             <INR bit="2">Inter NSE Re-routing (INR)</INR>
