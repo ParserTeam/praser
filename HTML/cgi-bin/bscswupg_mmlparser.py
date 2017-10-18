@@ -20554,6 +20554,62 @@ QTA             CME20BSCS       NORMAL  32760 AVAIL   FALSE   FALSE
 
 END
 '''
+
+    rxcap = """
+MO                TEI  DCP1  DCP2  OMLF1  OMLF2  RSLF1  RSLF2
+RXOTRX-187-0       0   178   179   FFDC     FF   FBFF     FF
+                             180   72FF      0   FFFF      0
+                             181      0      0     1F      0
+                             182      0      0      0      0
+                             183      0      0      0      0
+                             184
+                             185
+                             186
+
+                  AA   TCFMODE                TCHMODE
+                  ON    0   1   2   3          0   1   2   3
+                        4   5   6   7          4   5   6   7
+                        8   9  10  11          8   9  10  11
+                       12  13  14  15         12  13  14  15
+                       16  17  18  19         16  17
+                       20  21  22  23
+                       24  25  26  27
+                       28  29  30  31
+                       32  33  34  35
+                       36  37  38  39
+                       40  41  42  43
+                       44  45
+"""
+
+rxmfp = """
+<rxmfp:mo=rxotg-187,subord,faulty;
+
+RADIO X-CEIVER ADMINISTRATION
+MANAGED OBJECT FAULT INFORMATION
+
+MO                   BTSSWVER          
+RXORX-187-0          ERA-G07-R37-V01
+
+RU  RUREVISION                           RUSERIALNO
+ 0
+
+    RUPOSITION                           RULOGICALID
+    
+
+    RULOGICALIDEXT
+
+
+STATE  BLSTATE  INTERCNT  CONCNT  CONERRCNT  LASTFLT   LFREASON
+OPER            00000                                   
+
+FAULT CODES CLASS 2A
+  1   2   3   4
+
+END  
+
+"""
+
+print MMLparser().parsePrintouts(rxmfp)
 #    prettyPrint(MMLparser().parsePrintouts(rlsvpALL))
 
 #    prettyPrint(MMLparser(objHierarchy = {'SCGR':        ['SC']}).parsePrintouts(rrsspAll))
