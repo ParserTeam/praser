@@ -72,13 +72,21 @@ class Controller:
                         # result[check_value.xml_file_name] = "Everything is OK. Go drink coffee :)"
         return result
 
-    def _valid_printout_bits(self, number, in_type):
+    def _valid_printout_bits(self, number, in_type,out_type):
+
         try:
-            value = int(str(number), int(in_type))
+            if out_type == "2":
+                value_bin = int(str(number), int(in_type))
+                value_in_bits = (format(value_bin, "0>42b"))
+                value = value_in_bits[::-1]
+                return value
+            elif out_type == "10":
+                value = int(str(number), int(in_type))
+                return value
         except ValueError:
             error_manager.add_error_message()
             return None
-        return value
+
 
     # function for check bits and return list of print cases
     def checker_bits(self, printout_bits=None, config_bits=None):
@@ -90,28 +98,29 @@ class Controller:
             bits = i_obj
 
             if bits.in_type.isdigit:
+                list_of_printouts = printout_bits.get(bits.name)
+                printout_bits[bits.name] = {}
 
+                for bits_name_value in list_of_printouts or []:
 
-                for bits_name_value in printout_bits.get(bits.name) or []:
-                    # if not printout_bits.get(bits.name):
                     if not bits_name_value:
                         value = 0
                     else:
-                        # value = self._valid_printout_bits(printout_bits.get(bits.name)[0],bits.in_type)
-                        value = self._valid_printout_bits(bits_name_value,bits.in_type)
+                        value = self._valid_printout_bits(bits_name_value,bits.in_type,bits.out_type)
 
-                    value_in_bits = (format(value, "0>42b"))
-                    value_in_bits_revers = value_in_bits[::-1]
-                    printout_bits[bits.name] = {}
-                    for i in range(0, len(value_in_bits_revers)):
+                    if bits.out_type == "2":
+                        for i in range(0, len(value)):
 
-                        if value_in_bits_revers[i] != str(bits.norm_val):
-                            # try:
-                            for value_bit in bits.dict_bits:
-                                if value_bit.value == str(i):
-                                    printout_bits[bits.name][value_bit.name] = value_bit.text_of_bit
-            if bits.in_type == "10":
-                pass
+                            if value[i] != str(bits.norm_val):
+                                # try:
+                                for value_bit in bits.dict_bits:
+                                    if value_bit.value == str(i):
+                                        printout_bits[bits.name][value_bit.name] = value_bit.text_of_bit
+                    if bits.out_type == "10":
+                        for value_bit in bits.dict_bits:
+                            if value_bit.value == str(value):
+                                printout_bits[bits.name][value_bit.name] = value_bit.text_of_bit
+
         if not printout_bits.get(bits.name):
             return {}
         else:

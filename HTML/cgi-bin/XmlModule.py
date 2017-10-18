@@ -122,7 +122,7 @@ class ConfigModule():
                 key_object = KeysObject()
                 key_object.name = item.tag
 
-                key_object.name = key_object.name.replace("_"," ")
+                key_object.name = key_object.name.replace("_","\s+")
 
                 key_object.in_type = (item.attrib).get("in_type")
                 key_object.out_type = (item.attrib).get("out_type")
