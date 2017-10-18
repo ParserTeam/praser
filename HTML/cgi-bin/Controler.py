@@ -90,6 +90,8 @@ class Controller:
             bits = i_obj
 
             if bits.in_type.isdigit:
+
+
                 for bits_name_value in printout_bits.get(bits.name) or []:
                     # if not printout_bits.get(bits.name):
                     if not bits_name_value:
