@@ -170,7 +170,7 @@ class CheckedValues:
             return {}
         result = dict()
         for key in self.xml_obj.list_of_keys_to_print:
-            result[key] = subject.get(key) or "EMPTY"
+            result[key] = subject.get(key) or "-"
         return result
 
     def _get_active_keys(self, list_of_object_keys):
@@ -188,14 +188,15 @@ class CheckedValues:
         :param name_key_val_len: main object values len (to calculate
         :return: string
         """
+        pattern = "H'([a-fA-F\d]+)"
         if direction == 0:
-            return sub("H'([a-fA-F\d]+)", lambda m: m.group(1), values[position])
+            return [sub(pattern, lambda m: m.group(1), value) for value in values]
         values = values[::direction]
         result = ""
         size = len(values) / name_key_val_len
         for i in range(position * size, position * size + size):
-            result += sub("H'([a-fA-F\d]+)", lambda m: m.group(1), values[i])
-        return result
+            result += sub(pattern, lambda m: m.group(1), values[i])
+        return [result]
 
     def __repr__(self):
         return "CheckValue object: {}".format(self.parse_objects)
