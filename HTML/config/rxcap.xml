@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <root limiter="MO\s.*RSLF2\s[\s\S]*?[\r\n?|\n]{2,}">
-    <HEDER>RADIO X-CEIVER ADMINISTRATION MANAGED OBJECT CAPABILITY INFORMATION</HEDER>
+    <HEADER>RADIO X-CEIVER ADMINISTRATION MANAGED OBJECT CAPABILITY INFORMATION</HEADER>
     <KEYS>OMLF1 OMLF2 RSLF1</KEYS>
     <NAME_KEY>MO</NAME_KEY>
     <ACTIVE_KEYS limiter="">
-        <OMLF1 type="16" direction="-1" norm_val="1">
+        <OMLF1 in_type="16" out_type="2" direction="-1" norm_val="1">
             <F1 bit="1">TRXC function change not supported by the BTS.</F1>
             <F2 bit="2">Automatic ciphering capability not supported by the BTS.</F2>
             <F3 bit="3">IRC not supported by the BTS.</F3>
@@ -37,10 +37,10 @@
             <F30 bit="30">Extended Coverage not supported by the BTS.</F30>
             <F31 bit="31">Synchronization Observability not supported by the BTS.</F31>
         </OMLF1>
-        <OMLF2 type="16" direction="-1" norm_val="1">
+        <OMLF2 in_type="16" out_type="2" direction="-1" norm_val="1">
             <F1 bit="1">Frequency measurements not supported by the BTS.</F1>
         </OMLF2>
-        <RSLF1 type="16" direction="-1" norm_val="1">
+        <RSLF1 in_type="16" out_type="2" direction="-1" norm_val="1">
             <F1 bit="1">Channel Needed not supported.</F1>
             <F2 bit="2">BCCH information phase 2 not supported, Layer 3 (L3) information must be included in Slow
                 Associated Control Channel (SACCH) filling, and immediate assign phase 2 not supported.

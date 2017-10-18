@@ -64,6 +64,7 @@
                         });
                         function onResponse(btn){
                             $("#inf2").html(btn);
+                            pageLoaded = true;
                             console.log("on response " + pageLoaded)
                             document.getElementById("loader").style.display = "none";
                         }

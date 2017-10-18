@@ -82,12 +82,12 @@ class Controller:
             bits = i_obj
             bit = bits.dict_bits
 
-            if bits.type.isdigit():
+            if bits.in_type.isdigit():
                 if not printout_bits.get(bits.name):
                     value = 0
                 else:
                     try:
-                        value = int(str(printout_bits.get(bits.name)), int(bits.type))
+                        value = int(str(printout_bits.get(bits.name)), int(bits.in_type))
                     except ValueError:
                         error_manager.add_error_message()
                         return None
