@@ -107,7 +107,7 @@ class ConfigModule():
             # get header from config.xml
             file_object.name_of_CANDY = i.file_names[0]
 
-            file_object.header = tree.find('HEDER').text
+            file_object.header = tree.find('HEADER').text
             file_object.name_key = tree.find('NAME_KEY').text
             file_object.active_key_limiter = tree.find('ACTIVE_KEYS').attrib.get("limiter")
 
