@@ -20581,35 +20581,7 @@ RXOTRX-187-0       0   178   179   FFDC     FF   FBFF     FF
                        44  45
 """
 
-rxmfp = """
-<rxmfp:mo=rxotg-187,subord,faulty;
 
-RADIO X-CEIVER ADMINISTRATION
-MANAGED OBJECT FAULT INFORMATION
-
-MO                   BTSSWVER          
-RXORX-187-0          ERA-G07-R37-V01
-
-RU  RUREVISION                           RUSERIALNO
- 0
-
-    RUPOSITION                           RULOGICALID
-    
-
-    RULOGICALIDEXT
-
-
-STATE  BLSTATE  INTERCNT  CONCNT  CONERRCNT  LASTFLT   LFREASON
-OPER            00000                                   
-
-FAULT CODES CLASS 2A
-  1   2   3   4
-
-END  
-
-"""
-
-print MMLparser().parsePrintouts(rxmfp)
 #    prettyPrint(MMLparser().parsePrintouts(rlsvpALL))
 
 #    prettyPrint(MMLparser(objHierarchy = {'SCGR':        ['SC']}).parsePrintouts(rrsspAll))

@@ -89,8 +89,14 @@ class SubText:
         self.text = text[self.start: self.end]
 
     def parse_self(self):
+        self._replace_space_in_text_for_keys([key.name for key in self.xml_file_obj.list_of_object_keys])
         self.text = "\n" + self.xml_file_obj.header + "\n\n" + self.text
         return MMLparser().parsePrintouts(self.text)
+
+    def _replace_space_in_text_for_keys(self, keys):
+        for key in keys:
+            if "\s+" in key:
+                self.text = sub(key, key, self.text)
 
     def __eq__(self, other):
         """
@@ -151,11 +157,13 @@ class CheckedValues:
                 for key, val in subject.items():
 
                     # if key is one of active keys or object name key it will be add to dictionary
-                    if key in active_keys.keys() or key == self.xml_obj.name_key:
+                    if key in active_keys.keys():
                         # direction:    in which direction value should be concatenate (don't concatenate for 0)
                         direction = int(active_keys.get(key) or 0)
 
                         my_values[key] = self._values_to_string(val, direction, name_key_values_len, i)
+                    elif key == self.xml_obj.name_key:
+                        my_values[key] = val[i]
                 parse_objects += [my_values]
         # print "parse obj", parse_objects
         return parse_objects
