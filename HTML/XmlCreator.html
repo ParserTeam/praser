@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta http-equiv="content-type" charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
     <!DOCTYPE html>
     <TITLE>Create xml</TITLE>
     <link rel="stylesheet" type="text/css" href="style.css">
@@ -172,13 +172,13 @@ if (obj!=undefined) {
 obj.disabled=true;
 //obj.disabled=(!obj.disabled);
 }
-
 }
 </script>
 
 
 
-    <form id="keys_bits" name="keys_bit">
+
+    <form id="keys_bits" name="keys_bit" onload="readfile()">
         <table>
             <div id="myDiv">
                 <input type="button" name=button1 value="Generate bit-map for keys"
@@ -194,6 +194,7 @@ obj.disabled=true;
 
             <input type="submit" value="Create xml config" formaction="/cgi-bin/AddXmlConfig.py" formmethod="post">
         </p>
+
     </form>
 </form>
 <form>
