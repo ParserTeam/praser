@@ -21,6 +21,8 @@ def get_input_inf(): # it take oll inut infornation from web to server (if it is
 
 
 def output_inf(output): #use it to print dynamic table with the result information after parsing
+    mainId = 0
+    valuesId = 0
     print "Content-type:text/html\r\n\r\n"
     if type(output) == str:
         print "<p>" + output + "</p>"
@@ -29,6 +31,7 @@ def output_inf(output): #use it to print dynamic table with the result informati
         # a = {'rrscp.xml': [{'SC': '0', 'REASON': {'b27': 'Not activated in RP unit'}, 'SCGR': ['20']}, {'SC': '1', 'REASON': {'b27': 'Not activated in RP unit'}, 'SCGR': ['20']}, {'SC': '0', 'REASON': {'b27': 'Not activated in RP unit'}, 'SCGR': ['21']}]}
         if len(a) != 0:
             print '''
+                <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
                 <link rel="stylesheet" type="text/css" href="style.css">
                 <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
                 <link rel='stylesheet prefetch' href='http://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.10.0/bootstrap-table.min.css'>
@@ -86,19 +89,55 @@ def output_inf(output): #use it to print dynamic table with the result informati
                     for z in b:
                         if type(b.get(z)) == dict:
                             if len(b.get(z)) != 0:
+                                mainId += 1
                                 print '''
-                                    <tr style="background: rgba(154, 206, 235, 0.7) ">
+                                    <tr style="background: rgba(154, 206, 235, 0.7) " id="''' + str(mainId) +'''">
                                       <th>''' + z + '''</th>
-                                      <th colspan="3" >VALUES:</th>
+                                      <th colspan="3" >VALUES:<a href="#" id="moreless''' +str(mainId)+'''" style ="position:relative; left: 80%;"> Less inf.</a></th>
                                     </tr>
                                 '''
+
                                 for y in b.get(z):
+                                    valuesId += 1
                                     print '''
-                                        <tr class="bg-success ">
+                                        <tr class="bg-success " id="''' + str(mainId) + "-" + str(valuesId) +'''">
                                           <th>''' + y + '''</th>
                                           <th colspan="3" >''' + b.get(z).get(y) + '''</th>
                                         </tr>
                                     '''
+
+                                valuesId = 0
+            print'''
+            <script language="javascript">
+                    $(document).ready(function(){
+            '''
+            for mainCount in range(mainId+1):
+                print '''
+                                    <script language="javascript">
+                                    $(document).ready(function(){
+                                    '''
+                # for y in range(mainId+1): #undock to hide for defoult
+                    # print '''
+                    #     $("#''' + str(x) + "-" + str(y) + '''").hide();
+                    #     '''
+                print '''
+                        $("#moreless''' + str(mainCount) + '''").click(function(e''' + str(mainCount) + "_" + str(mainCount) + ''') {
+                '''
+                for valueCount in range(len(b.get(z))+1):
+                    print '''
+                                var allother''' + str(mainCount) + "_" + str(valueCount) + ''' = $("#''' + str(mainCount) + "-" + str(valueCount) + '''");
+                                $(this).text(allother''' + str(mainCount) + "_" + str(valueCount) + '''.is(":hidden") ? "Less inf." : "More inf.");    
+                                allother''' + str(mainCount) + "_" + str(valueCount) + '''.slideToggle();
+                                
+                                '''   #visible
+                print '''
+                
+                                e''' + str(mainCount) + "_" + str(mainCount) + '''.stopImmediatePropagation();
+                                return false;
+                            });
+                        });
+                        </script>
+                        '''
             print '''
                         </table>
                 </div>
