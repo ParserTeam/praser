@@ -49,16 +49,22 @@ def output_inf(output): #use it to print dynamic table with the result informati
                     </tr>
                 '''
                 for j in a.get(i):
-                    # print '''
-                    #                         <tr>
-                    #                                 <th colspan="4" ></th>
-                    #                         </tr>
-                    #                     '''
+                    if len(g) == 0:
+                        print '''
+                                                <tr>
+                                                        <th colspan="4" ></th>
+                                                </tr>
+                                            '''
                     b = j
                     for z in b:
                         if type(b.get(z)) == list:
                             for h in b.get(z):
                                 if str(h) != g:
+                                    print '''
+                                                            <tr>
+                                                                    <th colspan="4" ></th>
+                                                            </tr>
+                                                        '''
                                     print '''
                                         <tr style="background: rgba(51,68,183,0.7)">
                                           <th>''' + z + '''</th>
