@@ -1,6 +1,6 @@
 from print_reader import PrintReader
 from XmlModule import ConfigModule
-from interface import get_input_inf, output_inf, DialogWindow
+from interface import get_input_inf, output_inf
 from ErrorManager import ErrorManager
 
 
