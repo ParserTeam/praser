@@ -23,6 +23,7 @@ def get_input_inf(): # it take oll inut infornation from web to server (if it is
 def output_inf(output): #use it to print dynamic table with the result information after parsing
     mainId = 0
     valuesId = 0
+    mainDict = {}
     print "Content-type:text/html\r\n\r\n"
     if type(output) == str:
         print "<p>" + output + "</p>"
@@ -99,6 +100,9 @@ def output_inf(output): #use it to print dynamic table with the result informati
 
                                 for y in b.get(z):
                                     valuesId += 1
+                                    tempValue = str(mainId) + "-" + str(valuesId)
+                                    tempDict = {mainId:tempValue}
+                                    mainDict.update(tempDict)
                                     print '''
                                         <tr class="bg-success " id="''' + str(mainId) + "-" + str(valuesId) +'''">
                                           <th>''' + y + '''</th>
@@ -107,11 +111,7 @@ def output_inf(output): #use it to print dynamic table with the result informati
                                     '''
 
                                 valuesId = 0
-            print'''
-            <script language="javascript">
-                    $(document).ready(function(){
-            '''
-            for mainCount in range(mainId+1):
+            for mainCount in range(1, mainId+1):
                 print '''
                                     <script language="javascript">
                                     $(document).ready(function(){
@@ -123,7 +123,7 @@ def output_inf(output): #use it to print dynamic table with the result informati
                 print '''
                         $("#moreless''' + str(mainCount) + '''").click(function(e''' + str(mainCount) + "_" + str(mainCount) + ''') {
                 '''
-                for valueCount in range(len(b.get(z))+1):
+                for valueCount in range(1, int(mainDict.get(mainCount)[mainDict.get(mainCount).find("-")+1:])+1):
                     print '''
                                 var allother''' + str(mainCount) + "_" + str(valueCount) + ''' = $("#''' + str(mainCount) + "-" + str(valueCount) + '''");
                                 $(this).text(allother''' + str(mainCount) + "_" + str(valueCount) + '''.is(":hidden") ? "Less inf." : "More inf.");    
