@@ -16,7 +16,7 @@ class Controller:
         self.xml_reader = ConfigModule()
         self.xml_files = self.xml_reader.get_keys_from_files()
 
-    def check_text(self, print_text, list_of_xml_to_use=None):
+    def check_text(self, print_text):
         """
         Main function to check text
         :param print_text: text with printouts
@@ -37,20 +37,11 @@ class Controller:
                 }
             ]
         }
-        :param list_of_xml_to_use:
-                You can add ass second parameter list of files to use. When program will run, it will check if this
-                parameter is not None. If it's None or anything else then list you will see the pop up window witch asks
-                you to select configuration file for current printout.
-                If parameter is list the program will run through the list to find corresponding file for current
-                printout. If program doesn't find file, it select the first version of file.
-                (To use first version for all printouts, just paste an empty list for list_of_xml_to_use)
         """
-        if isinstance(list_of_xml_to_use, list):
-            self.list_of_xml_to_use = list_of_xml_to_use
         self.print_reader = PrintReader(print_text, self.xml_files)
         if len(self.print_reader.subjects) == 0:
             return "<b>No file found for text</b><p>Files available: " + ", ".join(self.xml_files.keys()) + "</p>"
-        self._check_file_version(self.print_reader.subjects)
+        self.xml_reader.get_list_objects(self.print_reader.subjects)
         list_check_values = self.print_reader.get_check_values()
 
         # print list_check_values
@@ -66,13 +57,10 @@ class Controller:
             for dictionary_of_subject in check_value.parse_objects:
                 errors = self.checker_bits(dictionary_of_subject, xml_object)
                 if errors:
-                    # if check_value.add_to_print:
-                    #     errors.update(check_value.add_to_print)
                     if not result.get(check_value.xml_header):
                         result[check_value.xml_header] = [errors]
                     else:
                         result[check_value.xml_header] += [errors]
-                        # result[check_value.xml_file_name] = "Everything is OK. Go drink coffee :)"
         return result
 
     def _valid_printout_bits(self, number, in_type,out_type):
@@ -128,27 +116,6 @@ class Controller:
             return {}
         else:
             return printout_bits
-
-    def _check_file_version(self, list_ojects):
-        window = DialogWindow("Select configuration file", "Please select XML file for this printout:")
-        for obj in range(len(list_ojects)):
-            if len(list_ojects[obj].file_names) > 1:
-                if isinstance(self.list_of_xml_to_use, list):
-                    list_ojects[obj].file_name = self._get_file_from_file_to_use(list_ojects[obj].file_names)
-                else:
-                    list_ojects[obj].file_name = window.get_answer(list_ojects[obj].text, list_ojects[obj].file_names)
-        self.xml_reader.get_list_objects(list_ojects)
-
-    def _get_file_from_file_to_use(self, ask_files):
-        for file_to_use in self.list_of_xml_to_use:
-            for ask_file in ask_files:
-                # to insure that filename have .xml extension
-                file_to_use = file_to_use.replace(".xml", "")
-                file_to_use += ".xml"
-                if ask_file == file_to_use:
-                    return ask_file
-        ask_files.sort()
-        return ask_files[0]
 
 
 if __name__ == "__main__":
