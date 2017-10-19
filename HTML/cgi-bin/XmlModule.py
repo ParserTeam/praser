@@ -59,6 +59,10 @@ class ConfigObject:
 class ConfigModule():
     list_of_active_keys = []
 
+    def __init__(self, version):
+        self.version = version.replace("\n","")
+
+
     def check_path(self):
         true_path = ''
 
@@ -72,8 +76,9 @@ class ConfigModule():
         return true_path
 
     # check all files in config directory and return dictionary of keys and files name
-    def get_keys_from_files(self):
+    def get_keys_from_files(self, ):
         list_of_limiters = []
+
 
         dict_of_keys = {}
 
@@ -88,8 +93,9 @@ class ConfigModule():
                 except ParseError:
                     pass
                 if tree:
-                    list_of_limiters = tree.getroot().attrib.get("limiter")
-                    dict_of_keys[i] = list_of_limiters
+                    if str(tree.find('RELEASE').text).find(self.version) != -1:
+                        list_of_limiters = tree.getroot().attrib.get("limiter")
+                        dict_of_keys[i] = list_of_limiters
         return dict_of_keys
 
     # function that return keys with their types

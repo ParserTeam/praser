@@ -11,9 +11,7 @@ class Controller:
     list_of_xml_to_use = None
 
     def __init__(self, version=None):
-        if version is not None:
-            print version
-        self.xml_reader = ConfigModule()
+        self.xml_reader = ConfigModule(version)
         self.xml_files = self.xml_reader.get_keys_from_files()
 
     def check_text(self, print_text):
@@ -112,10 +110,18 @@ class Controller:
                             if value_bit.value == str(value):
                                 printout_bits[bits.name][value_bit.name] = value_bit.text_of_bit
 
-        if not printout_bits[bits.name].values():
+        if self._is_all_values_is_empty(printout_bits):
             return {}
         else:
             return printout_bits
+    def _is_all_values_is_empty(self, printout_bits):
+        for key,val in printout_bits.items():
+            if not isinstance(val, str):
+                if val:
+                    return False
+        return True
+
+
 
 
 if __name__ == "__main__":
