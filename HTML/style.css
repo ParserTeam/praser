@@ -8,14 +8,11 @@ body {
 a{
 text-decoration: none; }
 
-li{
-display: inline;}
 
 ul {
   list-style: none; /*убираем маркеры списка*/
   margin: 0; /*убираем верхнее и нижнее поле, равное 1em*/
-  padding-left: 0; /*убираем левый отступ, равный 40px*/
-}
+ }
 
 #input{
 background:Lavender;
