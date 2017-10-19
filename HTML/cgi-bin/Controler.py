@@ -124,7 +124,7 @@ class Controller:
                             if value_bit.value == str(value):
                                 printout_bits[bits.name][value_bit.name] = value_bit.text_of_bit
 
-        if not printout_bits.get(bits.name):
+        if not printout_bits.values():
             return {}
         else:
             return printout_bits
