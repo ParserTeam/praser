@@ -79,7 +79,7 @@ def output_inf(output): #use it to print dynamic table with the result informati
                                                         '''
                                     print '''
                                         <tr style="background: rgba(51,68,183,0.7)">
-                                          <th>''' + z + '''</th>
+                                          <th style ="width:192;">''' + z + '''</th>
                                           <th colspan="3" >''' + str(h) + '''</th>
                                         </tr>
                                     '''
@@ -90,7 +90,7 @@ def output_inf(output): #use it to print dynamic table with the result informati
                         if type(b.get(z)) != dict and type(b.get(z)) != list:
                             print '''
                                 <tr class="bg-primary">
-                                  <th>''' + z + '''</th>
+                                  <th style ="width:192;">''' + z + '''</th>
                                   <th colspan="3" >''' + b.get(z) + '''</th>
                                 </tr>
                             '''
@@ -101,8 +101,8 @@ def output_inf(output): #use it to print dynamic table with the result informati
                                 mainId += 1
                                 print '''
                                     <tr style="background: rgba(154, 206, 235, 0.7) " id="''' + str(mainId) +'''">
-                                      <th>''' + z + '''</th>
-                                      <th colspan="3" >VALUES:<a href="#" id="moreless''' +str(mainId)+'''" style ="position:relative; left: 80%;"> Less inf.</a></th>
+                                      <th style ="width:192;">''' + z + '''</th>
+                                      <th colspan="3" style ="position:relative;">VALUES:<a href="#" id="moreless''' +str(mainId)+'''" style ="position:absolute; left: 90%;"> Less inf.</a></th>
                                     </tr>
                                 '''
 
@@ -113,7 +113,7 @@ def output_inf(output): #use it to print dynamic table with the result informati
                                     mainDict.update(tempDict)
                                     print '''
                                         <tr class="bg-success " id="''' + str(mainId) + "-" + str(valuesId) +'''">
-                                          <th>''' + y + '''</th>
+                                          <th style ="width:192;">''' + y + '''</th>
                                           <th colspan="3" >''' + b.get(z).get(y) + '''</th>
                                         </tr>
                                     '''
@@ -137,7 +137,7 @@ def output_inf(output): #use it to print dynamic table with the result informati
                                 $(this).text(allother''' + str(mainCount) + "_" + str(valueCount) + '''.is(":hidden") ? "Less inf." : "More inf.");    
                                 allother''' + str(mainCount) + "_" + str(valueCount) + '''.slideToggle();
                                 
-                                '''   #visible
+                                '''   #hidden --> visible
                 print '''
                 
                                 e''' + str(mainCount) + "_" + str(mainCount) + '''.stopImmediatePropagation();
