@@ -5,6 +5,18 @@ body {
      font-size: 14px;/*  */
    }
 
+a{
+text-decoration: none; }
+
+li{
+display: inline;}
+
+ul {
+  list-style: none; /*убираем маркеры списка*/
+  margin: 0; /*убираем верхнее и нижнее поле, равное 1em*/
+  padding-left: 0; /*убираем левый отступ, равный 40px*/
+}
+
 #input{
 background:Lavender;
 text-align: center;
@@ -134,3 +146,9 @@ color:#333;
 font-family:verdana;
 font-size:11px;
 }
+
+#versions li {
+display: inline;}
+
+
+
