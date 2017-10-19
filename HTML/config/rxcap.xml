@@ -79,9 +79,7 @@
             <F36 bit="36">Extended DRX not supported by the BTS.</F36>
         </RSLF1>
         <TCFMODE in_type="10" out_type="10" direction="0">
-            <N0 bit="0">2.4 kbps or less data, transparent
-
-                        TCH/F2.4 + Fast Associated Control Channel (FACCH/F) + SACCH/TF according to 3GPP TS 45.002, section 6.4, combination i) using channel code for data rate 2.4 kbps or less as specified in 3GPP TS 45.003, providing transparent mode. </N0>
+            <N0 bit="0">2.4 kbps or less data, transparent TCH/F2.4 + Fast Associated Control Channel (FACCH/F) + SACCH/TF according to 3GPP TS 45.002, section 6.4, combination i) using channel code for data rate 2.4 kbps or less as specified in 3GPP TS 45.003, providing transparent mode. </N0>
             <N1 bit="1">4.8 kbps data, transparent
 
                         TCH/F4.8 + FACCH/F + SACCH/TF according to 3GPP TS 45.002, section 6.4, combination i) using channel code for data rate 4.8 kbps as specified in 3GPP TS 45.003, providing transparent mode. </N1>
