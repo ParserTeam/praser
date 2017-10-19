@@ -141,3 +141,4 @@ class ConfigModule():
             i.xml_file_obj = file_object
 
         return true_config
+
