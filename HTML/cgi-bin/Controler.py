@@ -10,7 +10,9 @@ class Controller:
     xml_reader = None
     list_of_xml_to_use = None
 
-    def __init__(self):
+    def __init__(self, version=None):
+        if version is not None:
+            print version
         self.xml_reader = ConfigModule()
         self.xml_files = self.xml_reader.get_keys_from_files()
 
@@ -50,6 +52,7 @@ class Controller:
             return "<b>No file found for text</b><p>Files available: " + ", ".join(self.xml_files.keys()) + "</p>"
         self._check_file_version(self.print_reader.subjects)
         list_check_values = self.print_reader.get_check_values()
+
         # print list_check_values
         # return []
         return self.create_data_for_out(list_check_values)
@@ -149,10 +152,10 @@ class Controller:
 
 
 if __name__ == "__main__":
-    controller = Controller()
+    input_val = get_input_inf()
+    controller = Controller(version=input_val[0])
     error_manager = ErrorManager()
-    input_text = get_input_inf()
-    text = controller.check_text(input_text)
+    text = controller.check_text(input_val[1])
     if error_manager.has_error():
         output_inf(error_manager.get_error_messages_as_string())
     else:

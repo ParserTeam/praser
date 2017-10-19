@@ -3,21 +3,29 @@ from tkFileDialog import askopenfile
 from Tkinter import Tk, Button, Label
 
 
-
 def get_input_inf(): # it take oll inut infornation from web to server (if it is upload file - read file using withdraw Class, else take take value from text area)
     # Get data from fields
     form = cgi.FieldStorage()
 
-    if not form.list:
+    if "text" not in form or "file" in form:
         root = Tk()
         root.withdraw()
         print_file = askopenfile("r")
         if print_file:
-            return print_file.read()
+            return form.getvalue("version"), print_file.read()
         return "Error"
-    elif form.list[0].name == "comment":
-        return form.getvalue("comment")
-    return "No input data"
+    else:
+        return form.getvalue("version"), form.getvalue("text")
+
+
+def get_versions():
+    print "Content-type:text/html\r\n\r\n"
+    versions_file = open("config/versions.txt")
+    print "<p>"
+    for line in versions_file.readlines():
+        default = 'checked="checked"' if line == "A58" else ""
+        print '<input type="radio" name="version" {} value="{}"> {} '.format(default, line, line)
+    print "</p>"
 
 
 def output_inf(output): #use it to print dynamic table with the result information after parsing
@@ -174,3 +182,5 @@ class DialogWindow: # use it to upload file from local directory after press but
         self.window.wait_window()
         print self.return_value.replace("|dot|", ".") if self.return_value else None
 
+if __name__ == "__main__":
+    get_versions()

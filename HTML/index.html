@@ -30,46 +30,7 @@
     <link rel="stylesheet" type="text/css" href="style.css">
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
-    <script type="text/javascript">
-                    var pageLoaded = true;
-
-                    function show_log() {
-                        console.log(pageLoaded);
-                        if (pageLoaded === false){
-                            document.getElementById("loader").style.display = "block";
-                        }
-                    }
-					$(document).ready(function(){
-                        $('#ajax_form').submit(function(event){
-                            $.post("/cgi-bin/Controler.py",{comment:$("#btn2").val()},onResponse);
-                            pageLoaded = true;
-                            setTimeout(show_log, 5000);
-                            return false;
-                        });
-                        function onResponse(btn){
-                            $("#inf2").html(btn);
-                            pageLoaded = true;
-                            console.log("on response " + pageLoaded)
-                            document.getElementById("loader").style.display = "none";
-                        }
-				    })
-    </script>
-    <script type="text/javascript">
-					$(document).ready(function(){
-                        $('#ajax_form2').submit(function(event){
-                            $.post("/cgi-bin/Controler.py",{comment:$("#btn3").val()},onResponse);
-                            pageLoaded = true;
-                            setTimeout(show_log, 5000);
-                            return false;
-                        });
-                        function onResponse(btn){
-                            $("#inf2").html(btn);
-                            pageLoaded = true;
-                            console.log("on response " + pageLoaded)
-                            document.getElementById("loader").style.display = "none";
-                        }
-				    })
-    </script>
+    <script type="text/javascript" src="index.js"></script>
 </HEAD>
 <BODY STYLE="color: #000080; font-family: Helvetica Neue ,Helvetica,Arial,sans-serif; font-size: 14px;">
 <p><a name="top"></a></p>
@@ -91,10 +52,11 @@
         <form enctype="multipart/form-data" action="/cgi-bin/Controler.py" method="post" id="ajax_form2">
     <input type="submit" value="Upload"/></form>
     <form name="pars" id="ajax_form">
-        <div id="textarea"><textarea name="comment" rows="18" id="btn2" style=" height: 234px; font-family: monospace"></textarea></div>
+        <div id="textarea"><textarea name="comment" rows="18" id="input_textarea" style=" height: 234px; font-family: monospace"></textarea></div>
         <p>&nbsp</p>
         <div id="ParsAndClean"><input type="submit" value="Pars" id="in1" formaction="/cgi-bin/Controler.py" formmethod="post">
             <input type="reset" value="Clean"></div>
+        <div id="my_versions"><</div>
     </form>
 
 </DIV>
