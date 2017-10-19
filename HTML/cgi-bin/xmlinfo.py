@@ -2,6 +2,7 @@ import cgi, cgitb
 
 # fullname = os.path.join(".\config", name)  # take name
 # if os.path.isfile(fullname):
+
 import os
 def xmlinfo(): # use it to output and open config files, criate html page(action for button XML INFO)
 	print '''
@@ -19,8 +20,11 @@ def xmlinfo(): # use it to output and open config files, criate html page(action
 	for name in names:
 		i +=1
 		print "<nav><span>"+str(i)+" - "+"</span><a href=/config/" + name +">" + name + "</a></nav>"
+		names = os.listdir(".\config")
+
 	print '''
 	</div>
+
 		    </body>
 	        </html>
 	

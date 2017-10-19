@@ -54,10 +54,10 @@ class Controller:
         list_check_values = self.print_reader.get_check_values()
 
         # print list_check_values
-        # return []
-        return self.create_data_for_out(list_check_values)
+        # return "You in debug mode. Please comment 56, 57 line, and uncomment 58 line in Controller.py"
+        return self._create_data_for_out(list_check_values)
 
-    def create_data_for_out(self, list_check_values):
+    def _create_data_for_out(self, list_check_values):
         result = dict()
 
         # return list_check_values
@@ -68,10 +68,10 @@ class Controller:
                 if errors:
                     # if check_value.add_to_print:
                     #     errors.update(check_value.add_to_print)
-                    if not result.get(check_value.xml_file_name):
-                        result[check_value.xml_file_name] = [errors]
+                    if not result.get(check_value.xml_header):
+                        result[check_value.xml_header] = [errors]
                     else:
-                        result[check_value.xml_file_name] += [errors]
+                        result[check_value.xml_header] += [errors]
                         # result[check_value.xml_file_name] = "Everything is OK. Go drink coffee :)"
         return result
 
