@@ -126,6 +126,7 @@ class CheckedValues:
         active_keys = self._get_active_keys(xml_obj.list_of_object_keys)
         self.xml_obj = xml_obj
         self.xml_file_name = xml_obj.name_of_CANDY
+        self.xml_header = xml_obj.header
         self.parse_objects = self._select_values_to_parse_objects(subjects, active_keys)
 
     def _select_values_to_parse_objects(self, subjects, active_keys):
