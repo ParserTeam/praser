@@ -7,7 +7,19 @@ file.write('\n'+f)
 file.close()
 file = open('.\config\\versions.txt','r')
 
-for line in file:
-    print line
 
+print '''
+<html>
+<head>
+</head>
+<body>
+<P>New release wos added successfully.</P>
+<p>RELEASES: '''
+for line in file:
+    print line +  ';'
 file.close()
+print '''
+</p>
+</body>
+</html>
+'''
