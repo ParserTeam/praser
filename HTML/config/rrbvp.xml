@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <root limiter="NSEI SIGBVCSTATE\s+SGSNFEAT \n{2,}">
     <HEADER>RADIO TRANSMISSION IP BSSGP VIRTUAL CONNECTION DATA</HEADER>
+    <RELEASE>A57</RELEASE>
     <NAME_KEY>NSEI</NAME_KEY>
     <ACTIVE_KEYS>
         <SGSNFEAT in_type="16" out_type="2" norm_val="0">
