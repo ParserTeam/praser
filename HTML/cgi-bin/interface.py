@@ -13,7 +13,7 @@ def get_input_inf(): # it take oll inut infornation from web to server (if it is
         print_file = askopenfile("r")
         if print_file:
             return form.getvalue("version"), print_file.read()
-        return "Error"
+        return None, "Error"
     else:
         return form.getvalue("version"), form.getvalue("text")
 
@@ -23,7 +23,11 @@ def get_versions():
     versions_file = open("cgi-bin/versions.txt")
     print "<p>"
     for line in versions_file.readlines():
-        default = 'checked="checked"' if line == "A58" else ""
+        if "default" in line:
+            default = 'checked="checked"'
+            line = line.replace("=default", "")
+        else:
+            default = ""
         print '<input type="radio" name="version" {} value="{}"> {} '.format(default, line, line)
     print "</p>"
 
@@ -180,7 +184,7 @@ class DialogWindow: # use it to upload file from local directory after press but
         self.window.focus_set()
         self.window.grab_set()
         self.window.wait_window()
-        print self.return_value.replace("|dot|", ".") if self.return_value else None
+        return self.return_value.replace("|dot|", ".") if self.return_value else None
 
 if __name__ == "__main__":
     get_versions()

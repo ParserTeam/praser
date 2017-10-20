@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<root limiter="MO\s+OPCOND\s+OPCONDMAP\s+OMLSTAT\s+RSLSTAT \n{2,}">
+<root limiter="MO OPCOND OPCONDMAP OMLSTAT RSLSTAT /any/ CNFG /any/ \n{2,}">
     <HEADER >RADIO X-CEIVER ADMINISTRATION BTS STATUS DATA</HEADER>
     <RELEASE>A54 A55 A56</RELEASE>
     <NAME_KEY>MO</NAME_KEY>

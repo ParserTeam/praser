@@ -56,12 +56,11 @@ class ConfigObject:
         self.list_of_object_keys = []
 
 
-class ConfigModule():
+class ConfigModule:
     list_of_active_keys = []
 
     def __init__(self, version):
         self.version = version.replace("\n","")
-
 
     def check_path(self):
         true_path = ''
@@ -107,12 +106,12 @@ class ConfigModule():
             file_object = ConfigObject()
             # open xml config file
             try:
-                tree = ET.ElementTree(file=self.check_path() + i.file_names[0])
+                tree = ET.ElementTree(file=self.check_path() + i.file_name)
 
             except ParseError:
                 pass
             # get header from config.xml
-            file_object.name_of_CANDY = i.file_names[0]
+            file_object.name_of_CANDY = i.file_name
 
             file_object.header = tree.find('HEADER').text
             file_object.name_key = tree.find('NAME_KEY').text

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<root limiter="SCGR\s+SC\s+DEV\s+DEV1\s+NUMDEV\s+DCP\s+STATE\s+REASON \n{2,}">
+<root limiter="SCGR SC DEV DEV1 NUMDEV DCP STATE REASON /any/ \n{2,}">
 	<HEADER>RADIO TRANSMISSION SUPER CHANNEL DATA</HEADER>
 	<RELEASE>G13B</RELEASE>
 	<NAME_KEY>SC</NAME_KEY>

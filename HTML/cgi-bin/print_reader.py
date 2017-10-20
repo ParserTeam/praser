@@ -23,7 +23,10 @@ class PrintReader:
         result = list()
 
         for file_name, limiter in configuration_keys.items():
-            limiter = limiter.replace(" ", r"[\s|\n]+[\s\S]*?")
+            limiter = limiter.replace(" /any/ ", r"[\s|\n][\s\S]*?")
+            limiter = limiter.replace(" /or/ ", r"|")
+            limiter = limiter.replace(" ", r"\s+")
+            # print file_name, limiter
             texts = finditer(limiter, text)
             self._unite_texts(result, texts, file_name)
         return result
@@ -35,12 +38,17 @@ class PrintReader:
         :param texts: list of SRE_Match objects with all printouts correspond this xml file
         :param file_name: xml file name
         """
+        # i = 0
         for text in texts:
+            # i += 1
+            # print ("+" * 20) + str(i) + ("+" * 20)
+            # print "######\n" + text.group(0) + "#########\n"
             if text in result:
                 for subtext_obj in result:
                     subtext_obj.update_if_need(text, file_name)
             else:
                 result += [SubText(text, file_name)]
+        # print i
 
     def _add_texts_to_subjects(self, subjects, text):
         """
@@ -91,7 +99,7 @@ class SubText:
     def parse_self(self):
         self._replace_space_in_text_for_keys([key.name for key in self.xml_file_obj.list_of_object_keys])
         self.text = "\n" + self.xml_file_obj.header + "\n\n" + self.text
-        return MMLparser().parsePrintouts(self.text)
+        return MMLparser(objIds=[self.xml_file_obj.name_key]).parsePrintouts(self.text)
 
     def _replace_space_in_text_for_keys(self, keys):
         for key in keys:
