@@ -9,7 +9,7 @@ fdel  = form.getvalue('txtdel')
 
 
 if fdel == None and fadd == None:
-    file = open('.\cgi-bin\\versions.txt', 'r')
+    file = open('.\config\\versions.txt', 'r')
     print '''
         <html>
         <head>
@@ -31,10 +31,10 @@ if fdel == None and fadd == None:
         '''
 
 if fadd != None:
-    file = open('.\cgi-bin\\versions.txt','a')
+    file = open('.\config\\versions.txt','a')
     file.write('\n'+fadd)
     file.close()
-    file = open('.\cgi-bin\\versions.txt','r')
+    file = open('.\config\\versions.txt','r')
     print '''
     <html>
     <head>
@@ -57,11 +57,11 @@ if fadd != None:
         '''
 
 if fdel != None:
-    fin = open('.\cgi-bin\\versions.txt',)
+    fin = open('.\config\\versions.txt',)
     text = fin.read()
     lines = text.split("\n")
     fin.close()
-    fout = open('.\cgi-bin\\versions.txt', "w")
+    fout = open('.\config\\versions.txt', "w")
     lines.remove(fdel)
     fout.write("\n".join(lines))
     fout.close()
@@ -77,7 +77,7 @@ if fdel != None:
     <P>&#8195;Version of release wos deleted successfully.</P>
     <div>
     <p STYLE="color:blue">&#8195;RELEASES: '''
-    file = open('.\cgi-bin\\versions.txt', 'r')
+    file = open('.\config\\versions.txt', 'r')
     for line in file:
         print line +  ';'
     file.close()
