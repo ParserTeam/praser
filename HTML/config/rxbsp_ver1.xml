@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root limiter="MO\s+OPCOND\s+OPCONDMAP\s+OMLSTAT\s+RSLSTAT \n{2,}">
+    <HEADER >RADIO X-CEIVER ADMINISTRATION BTS STATUS DATA</HEADER>
+    <RELEASE>A54 A55 A56</RELEASE>
+    <KEYS>OPCONDMAP</KEYS>
+    <NAME_KEY>MO</NAME_KEY>
+    <ACTIVE_KEYS>
+        <OPCONDMAP in_type="16" out_type="2" norm_val="0">
+            <F1 bit="1">MO is degraded or not operational due to internal TRXC fault.</F1>
+            <F2 bit="2">MO is degraded or not operational due to SW upgrade.</F2>
+            <F3 bit="3">MO is degraded or not operational due to synchronization problems.</F3>
+            <F4 bit="4">MO is degraded or not operational due to frame synchronization problems.</F4>
+            <F5 bit="5">MO is degraded or not operational due to communication loss detected for CS traffic.</F5>
+            <F6 bit="6">MO is degraded or not operational due to communication loss detected for PS traffic.</F6>
+            <F7 bit="7">MO is degraded or not operational due to diversity error.</F7>
+            <F8 bit="8">MO is degraded or not operational due to RX path imbalance.</F8>
+            </OPCONDMAP>
+    </ACTIVE_KEYS>
+    <PRINT_KEYS></PRINT_KEYS>
+</root>
