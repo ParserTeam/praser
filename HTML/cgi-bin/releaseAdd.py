@@ -31,10 +31,10 @@ if fdel == None and fadd == None:
         '''
 
 if fadd != None:
-    file = open('.\config\\versions.txt','a')
+    file = open('.\cgi-bin\\versions.txt','a')
     file.write('\n'+fadd)
     file.close()
-    file = open('.\config\\versions.txt','r')
+    file = open('.\cgi-bin\\versions.txt','r')
     print '''
     <html>
     <head>
@@ -58,16 +58,22 @@ if fadd != None:
 
 if fdel != None:
     pattern = fdel
-    fin = open('.\config\\versions.txt',)
-    fout = open('.\config\\versions2.txt', "w")
+    fin = open('.\cgi-bin\\versions.txt',)
+    fout = open('.\cgi-bin\\versions2.txt', "w")
     for line in fin.readlines():
         if not pattern in line:
             fout.write(line)
     fin.close()
     fout.close()
-    path = os.path.join(os.path.abspath(os.path.dirname(__file__)), 'C:\\Users\\ezanaho\\PycharmProjects\\praser\\HTML\\config\\versions.txt')
+    fout = open('.\cgi-bin\\versions2.txt', "r+")
+    for line in fout.readlines():
+        if " " in line:
+            line = line.replace('\n','')
+    fin.close()
+    fout.close()
+    path = os.path.join(os.path.abspath(os.path.dirname(__file__)), 'versions.txt')
     os.remove(path)
-    os.rename('.\config\\versions2.txt', '.\config\\versions.txt')
+    os.rename('.\cgi-bin\\versions2.txt', '.\cgi-bin\\versions.txt')
     print '''
     <html>
     <head>
@@ -80,7 +86,7 @@ if fdel != None:
     <P>&#8195;Version of release wos deleted successfully.</P>
     <div>
     <p STYLE="color:blue">&#8195;RELEASES: '''
-    file = open('.\config\\versions.txt', 'r')
+    file = open('.\cgi-bin\\versions.txt', 'r')
     for line in file:
         print line +  ';'
     file.close()
