@@ -5,6 +5,10 @@ body {
      font-size: 14px;/*  */
    }
 
+input:disabled {
+    color:gray;
+}
+
 a{
 text-decoration: none; }
 

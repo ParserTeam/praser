@@ -10,6 +10,7 @@ def get_input_inf(): # it take oll inut infornation from web to server (if it is
     if "text" not in form or "file" in form:
         root = Tk()
         root.withdraw()
+        root.focus_force()
         print_file = askopenfile("r")
         if print_file:
             return form.getvalue("version"), print_file.read()

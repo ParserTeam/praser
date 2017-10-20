@@ -4,7 +4,6 @@ $.post("/cgi-bin/interface.py",{comment:$("#btn2").val()}, responseVersions);
 function responseVersions(response) {
     var i = 0;
 
-    console.log("response");
     while (!(document.readyState === 'complete')) {
         console.log(i++);
         if (i > 100)
@@ -20,14 +19,26 @@ function show_log() {
     }
 }
 
+function showOpenFileMessage() {
+    $("#inf2").html("<strong>Please, select file</strong>");
+    document.getElementById("in1").disabled = true;
+    document.getElementById("upload_btn").disabled = true;
+}
+
+function hideOpenFileMessage() {
+    document.getElementById("in1").disabled = false;
+    document.getElementById("upload_btn").disabled = false;
+}
+
 function onResponse(btn){
-    console.log(btn);
+    hideOpenFileMessage();
     $("#inf2").html(btn);
     pageLoaded = true;
     document.getElementById("loader").style.display = "none";
 }
 
 function sendData(data) {
+    showOpenFileMessage();
     $.post("/cgi-bin/Controler.py", data, onResponse);
     pageLoaded = true;
     setTimeout(show_log, 5000);
@@ -42,9 +53,6 @@ $(document).ready(function(){
         };
         return sendData(data);
     });
-});
-
-$(document).ready(function(){
     $('#ajax_form2').submit(function(event){
         var data = {
             version: $('input[name="version"]:checked').val(),
