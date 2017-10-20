@@ -59,7 +59,7 @@ class ConfigObject:
 class ConfigModule():
     list_of_active_keys = []
 
-    def __init__(self, version):
+    def __init__(self, version=None):
         self.version = version.replace("\n","")
 
 

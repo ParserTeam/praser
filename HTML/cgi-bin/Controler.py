@@ -114,6 +114,7 @@ class Controller:
             return {}
         else:
             return printout_bits
+
     def _is_all_values_is_empty(self, printout_bits):
         for key,val in printout_bits.items():
             if not isinstance(val, str):

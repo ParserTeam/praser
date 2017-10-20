@@ -20,7 +20,7 @@
 <p>&nbsp</p>
     <p>Name of config file
         <br>
-        <input type="text" name="nameFile" value="" title="Only letter" spellcheck="false" style="width:50%" autofocus required placeholder="With out .xml. Only letters and numbers">
+        <input type="text" name="nameFile" value="rxbspTEST" title="Only letter" spellcheck="false" style="width:50%" autofocus required placeholder="With out .xml. Only letters and numbers">
         <meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
 
         <!--<input type="text" style="min-width:50%" onkeydown="this.style.width = ((this.value.length + 1) * 8) + 'px';"> -->
@@ -29,7 +29,7 @@
     </p>
     <p>Decryption of the name of the printout
         <br>
-        <input type="text" name="Header" value="" style="width:50%" placeholder="Header for this type printouts">
+        <input type="text" name="Header" value="RADIO X-CEIVER ADMINISTRATION BTS STATUS DATA" style="width:50%" placeholder="Header for this type printouts">
 
         <!--<input type="text" style="min-width:50%" onkeydown="this.style.width = ((this.value.length + 1) * 8) + 'px';"> -->
 
@@ -38,19 +38,19 @@
     <p>Regex pattern for parsing
         <br>
         <input type="text" name="limiter"
-               value=""
+               value="MO\s+OPCOND\s+OPCONDMAP\s+OMLSTAT\s+RSLSTAT \n{2,}"
                style="min-width:50%; max-width:100%;" onkeydown="this.style.width = ((this.value.length) * 8) + 'px';"
                placeholder="Regular expression for parsing. Example: MO FAULT CODES CLASS 2A \n{2,}" required>
     </p>
 
     <p>Name of managed object
         <br>
-        <input type="text" name="name_key" value="" title="Letters and " placeholder="Managed object. Example {MO NSEI}"
+        <input type="text" name="name_key" value="MO" title="Letters and " placeholder="Managed object. Example {MO NSEI}"
                style="width:50%" required>
     </p>
     <p>Keys for searching
         <br>
-        <input type="text" name="keys" value="" style="width:50%"
+        <input type="text" name="keys" value="OPCONDMAP" style="width:50%"
                pattern="([\d\w]+ ?)+[\d\w]$" placeholder="Insert searching keys if format {key1 key2 key3}" required>
     </p>
     </div>
@@ -96,13 +96,13 @@ document.getElementById("myDiv").appendChild(btndiv);
 
 var in_type = document.createElement('input');
 in_type.type = 'text';
-in_type.value = ""
+in_type.value = "16"
 in_type.setAttribute("maxlength","4");
 in_type.name = 'in_type';
 
 var out_type = document.createElement('input');
 out_type.type = 'text';
-out_type.value = ""
+out_type.value = "2"
 out_type.setAttribute("maxlength","4");
 out_type.name = 'out_type';
 
@@ -114,7 +114,7 @@ direct.name = 'direct';
 
 var norm_val = document.createElement('input');
 norm_val.type = 'text';
-norm_val.value = ""
+norm_val.value = "0"
 norm_val.setAttribute("maxlength","4");
 norm_val.name = 'norm_val';
 
@@ -159,7 +159,7 @@ function append(form, name) {
     var btn = document.createElement('input');
     btn.type = 'text';
     btn.name = name;
-    btn.value = ""
+    btn.value = "F1 2 MO is degraded or not operational due to internal TRXC fault."
     btn.size = 65;
     btn.setAttribute("placeholder","Insert bit in format {name, value, text}");
     btn.setAttribute("pattern","[a-zA-Z0-9]+ [0-9]{,3} .+");
