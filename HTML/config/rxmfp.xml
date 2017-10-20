@@ -2,7 +2,6 @@
 <root limiter="MO FAULT\s+CODES\s+CLASS\s+2A \n{2,}">
     <HEADER >RADIO X-CEIVER ADMINISTRATION</HEADER>
     <RELEASE>A57</RELEASE>
-    <KEYS>FAULT CODES</KEYS>
     <NAME_KEY>MO</NAME_KEY>
     <ACTIVE_KEYS>
         <FAULT_CODES_CLASS_2A in_type="10" out_type="10" norm_val="0">
