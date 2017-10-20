@@ -40,7 +40,7 @@ function onResponse(btn){
 function sendData(data) {
     showOpenFileMessage();
     $.post("/cgi-bin/Controler.py", data, onResponse);
-    pageLoaded = true;
+    pageLoaded = false;
     setTimeout(show_log, 5000);
     return false;
 }
