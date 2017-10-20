@@ -65,12 +65,6 @@ if fdel != None:
             fout.write(line)
     fin.close()
     fout.close()
-    fout = open('.\cgi-bin\\versions2.txt', "r+")
-    for line in fout.readlines():
-        if " " in line:
-            line = line.replace('\n','')
-    fin.close()
-    fout.close()
     path = os.path.join(os.path.abspath(os.path.dirname(__file__)), 'versions.txt')
     os.remove(path)
     os.rename('.\cgi-bin\\versions2.txt', '.\cgi-bin\\versions.txt')
