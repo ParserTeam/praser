@@ -20,7 +20,7 @@ def get_input_inf(): # it take oll inut infornation from web to server (if it is
 
 def get_versions():
     print "Content-type:text/html\r\n\r\n"
-    versions_file = open("config/versions.txt")
+    versions_file = open("cgi-bin/versions.txt")
     print "<p>"
     for line in versions_file.readlines():
         default = 'checked="checked"' if line == "A58" else ""

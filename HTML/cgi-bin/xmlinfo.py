@@ -14,7 +14,7 @@ def xmlinfo(): # use it to output and open config files, criate html page(action
 			<body>
 			<div id ="goback"><p>&nbsp</p><nav><a href="http://localhost:8000/">BACK TO PARSER</a></nav><p>&nbsp</p></div>
 			<DIV id = 'navigationxml'>
-			<div STYlE='width:40%; float:left; clear: both;height:0px;'>
+			<div STYlE='width:40%; float:left; background:Lavender;clear: both;height:0px;'>
 	'''
 	names = os.listdir(".\config")
 	i = 0
@@ -26,10 +26,8 @@ def xmlinfo(): # use it to output and open config files, criate html page(action
 	</div>
 	
 	'''
-	# for name in names:
-	# 	if name == "versions.txt":
 	print '''
-			<div STYlE='width:48%; float:right; text-align:right;clear: both;height:0px; padding-right:20px;'>
+			<div STYlE='width:48%; float:right; text-align:right;background:Lavender;clear: both;height:0px;padding-right:20px'>
 			<form name='t2' method='post' id = 'ajax_form'>
 			<input type='text' name='txt' >  <br/>
 			<input type='submit' value='Add new release' formaction='releaseAdd.py' />
