@@ -8,7 +8,7 @@ def xmlinfo(): # use it to output and open config files, criate html page(action
 	print '''
 			<html>
 	        <head>
-	        <TITLE>ERRORS PARSER</TITLE>
+	        <TITLE>PARSER</TITLE>
 	        <link rel="stylesheet" type="text/css" href="http://localhost:8000/style.css"> 
 	        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 			<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
@@ -25,11 +25,18 @@ def xmlinfo(): # use it to output and open config files, criate html page(action
 		print "<nav><span>"+str(i)+" - "+"</span><a href=/config/" + name +">" + name + "</a></nav>"
 		names = os.listdir(".\config")
 		if name == "versions.txt":
-			print '''<form name='t2' method='post' id = 'ajax_form'>
+			print '''
+			<form name='t2' method='post' id = 'ajax_form'>
 			<input type='text' name='txt' >  <br/>
-			<input type='submit' value='Add release to file' id = 'btn2' formaction='releaseAdd.py' />
+			<input type='submit' value='Add new release' id = 'btn2' formaction='releaseAdd.py' />
 			<input type="reset" value="Clean"/>
-				</form>'''
+			</form>
+			<form name='t2' method='post' id = 'ajax_form'>
+			<input type='text' name='txtdel' >  <br/>
+			<input type='submit' value='Delete release' id = 'btn2' formaction='releaseAdd.py' />
+			<input type="reset" value="Clean"/>
+			</form>
+				'''
 	print '''
 	</div>
 <p id="results"></p>
