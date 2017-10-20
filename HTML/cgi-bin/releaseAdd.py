@@ -57,17 +57,14 @@ if fadd != None:
         '''
 
 if fdel != None:
-    pattern = fdel
     fin = open('.\cgi-bin\\versions.txt',)
-    fout = open('.\cgi-bin\\versions2.txt', "w")
-    for line in fin.readlines():
-        if not pattern in line:
-            fout.write(line)
+    text = fin.read()
+    lines = text.split("\n")
     fin.close()
+    fout = open('.\cgi-bin\\versions.txt', "w")
+    lines.remove(fdel)
+    fout.write("\n".join(lines))
     fout.close()
-    path = os.path.join(os.path.abspath(os.path.dirname(__file__)), 'versions.txt')
-    os.remove(path)
-    os.rename('.\cgi-bin\\versions2.txt', '.\cgi-bin\\versions.txt')
     print '''
     <html>
     <head>
