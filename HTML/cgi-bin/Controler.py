@@ -61,7 +61,7 @@ class Controller:
                         result[check_value.xml_header] += [errors]
         return result
 
-    def _valid_printout_bits(self, number, in_type,out_type):
+    def _valid_printout_bits(self, number, in_type, out_type):
 
         try:
             if out_type == "2":
@@ -75,7 +75,6 @@ class Controller:
         except ValueError:
             error_manager.add_error_message()
             return None
-
 
     # function for check bits and return list of print cases
     def checker_bits(self, printout_bits=None, config_bits=None):
@@ -95,7 +94,7 @@ class Controller:
                     if not bits_name_value:
                         value = 0
                     else:
-                        value = self._valid_printout_bits(bits_name_value,bits.in_type,bits.out_type)
+                        value = self._valid_printout_bits(bits_name_value, bits.in_type, bits.out_type)
 
                     if bits.out_type == "2":
                         for i in range(0, len(value)):
@@ -110,19 +109,17 @@ class Controller:
                             if value_bit.value == str(value):
                                 printout_bits[bits.name][value_bit.name] = value_bit.text_of_bit
 
-        if self._is_all_values_is_empty(printout_bits):
+        if self._is_all_values_is_empty(printout_bits, config_bits):
             return {}
         else:
             return printout_bits
 
-    def _is_all_values_is_empty(self, printout_bits):
-        for key,val in printout_bits.items():
-            if not isinstance(val, str):
+    def _is_all_values_is_empty(self, printout_bits, config_bits):
+        for key, val in printout_bits.items():
+            if key != config_bits.name_key and key not in config_bits.list_of_keys_to_print:
                 if val:
                     return False
         return True
-
-
 
 
 if __name__ == "__main__":
