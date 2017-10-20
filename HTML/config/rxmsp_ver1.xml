@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <root limiter="MO\s+STATE\s+BLSTATE\s+BLO\s+BLA\s+LMO\s+BTS\s+CONF \n{2,}">
 	<HEADER>RADIO X-CEIVER ADMINISTRATION MANAGED OBJECT STATUS</HEADER>
-	<RELEASE>A53 A54 A55 A56 A57 A58</RELEASE>
+	<RELEASE>G13B G14B</RELEASE>
 	<NAME_KEY>MO</NAME_KEY>
 	<ACTIVE_KEYS>
 		<BLO in_type="16" out_type="2" norm_val="0">
@@ -26,7 +26,7 @@
 			<BNP bit ="3">Object needs polling or polling in progress.</BNP>
 			<BNT bit ="4">Object needs testing or testing in progress.</BNT>
 			<BNI bit ="5">Object needs intermittent test or intermittent test in progress.</BNI>
-			<BNE bit ="6">Object needs reset or reset in progress.</BNE>
+			<BND bit ="6">Object needs updating of Managed Object (MO) data.</BND>
 			<BNS bit ="7">Object needs to be started.</BNS>
 			<BNM bit ="8">Object needs to be manually unblocked due to request from the Base Transceiver Station (BTS).</BNM>
 			<BNO bit ="9">Object needs loop test or loop test in progress.</BNO>

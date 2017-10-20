@@ -1,6 +1,8 @@
 import cgi
 import xml.etree.ElementTree as xml
 from xml.dom import minidom
+import Tkinter
+from tkSimpleDialog import askstring
 from os import listdir
 
 form = cgi.FieldStorage()
@@ -79,7 +81,7 @@ root.appendChild(active_keys_tag)
 for i in range(0, len(list_keys)):
     key_tag = doc.createElement(list_keys[i])
     try:
-        key_tag.setAttribute('type', in_type[i])
+        key_tag.setAttribute('in_type', in_type[i])
     except IndexError:
         pass
     try:
@@ -126,21 +128,33 @@ list_of_files = listdir('config/')
 
 xml_str = doc.toprettyxml(indent="  ")
 
+flag = False
+
 for file in list_of_files:
     if name_of_file + ".xml" == file:
-        if name_of_file[len(name_of_file)-1:len(name_of_file)].isdigit:
-            pass # file_name_for_creating =
-        break
-    else:
-        file_name_for_creating = "config\\" + name_of_file + ".xml"
+        root = Tkinter.Tk()
+        root.withdraw()
+        string = askstring('Test TEs', 'How deep is your love?',initialvalue = "some text")
 
-with open(file_name_for_creating, "w") as f:
-    f.write(xml_str)
+        file_name_for_creating = "config\\" + string+" _v12"+ ".xml"
+        with open(file_name_for_creating, "w") as f:
+            f.write(xml_str)
+        flag = True
+        break
+
+if not flag:
+    file_name_for_creating = "config\\" + name_of_file + ".xml"
+    with open(file_name_for_creating, "w") as f:
+        f.write(xml_str)
+
+
+
+
 
 
 
 print """
-<html>
+
 Sucsses!!!
 {}
 </html>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <root limiter="MO\s+TEI\s+DCP1\s+DCP2\s+OMLF1\s+OMLF2\s+RSLF1\s+RSLF2 \n{2,} AA\s+TCFMODE\s+TCHMODE \n{2,}|MO\s+CASCADABLE\s+OMLF1\s+OMLF2\s+RSLF1\s+RSLF2\s+FTXADDR \n{2,}">
     <HEADER>RADIO X-CEIVER ADMINISTRATION MANAGED OBJECT CAPABILITY INFORMATION</HEADER>
-    <RELEASE>A55 A56 A57 A58</RELEASE>
+    <RELEASE>G14B</RELEASE>
     <NAME_KEY>MO</NAME_KEY>
     <ACTIVE_KEYS limiter="">
         <OMLF1 in_type="16" out_type="2" direction="-1" norm_val="1">
@@ -31,11 +31,6 @@
             <F24 bit="24">BTS Soft Synchronization not supported by the BTS.</F24>
             <F25 bit="25">Native IP Configuration not supported by the BTS.</F25>
             <F26 bit="26">RRUS Cascading not supported by the BTS.</F26>
-            <F27 bit="27">Reporting of Access Burst Info not supported by the BTS.</F27>
-            <F28 bit="28">Decimal resolution of configured power not supported by the BTS.</F28>
-            <F29 bit="29">Node Group Synchronization not supported by the BTS.</F29>
-            <F30 bit="30">Extended Coverage not supported by the BTS.</F30>
-            <F31 bit="31">Synchronization Observability not supported by the BTS.</F31>
         </OMLF1>
         <OMLF2 in_type="16" out_type="2" direction="-1" norm_val="1">
             <F1 bit="1">Frequency measurements not supported by the BTS.</F1>
@@ -75,9 +70,6 @@
             <F30 bit="30">Packet Data Channel (PDCH) options not supported by the BTS.</F30>
             <F31 bit="31">Random SI6 fill bits not supported by the BTS.</F31>
             <F32 bit="32">Channel Specific MI not supported.</F32>
-            <F34 bit="34">A5/4 algorithm not supported by the BTS.</F34>
-            <F35 bit="35">Extended Coverage not supported by the BTS.</F35>
-            <F36 bit="36">Extended DRX not supported by the BTS.</F36>
         </RSLF1>
         <TCFMODE in_type="10" out_type="10" direction="0">
             <N0 bit="0">2.4 kbps or less data, transparent TCH/F2.4 + Fast Associated Control Channel (FACCH/F) + SACCH/TF according to 3GPP TS 45.002, section 6.4, combination i) using channel code for data rate 2.4 kbps or less as specified in 3GPP TS 45.003, providing transparent mode. </N0>

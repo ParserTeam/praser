@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <root limiter="NSEI SIGBVCSTATE\s+SGSNFEAT \n{2,}">
     <HEADER>RADIO TRANSMISSION IP BSSGP VIRTUAL CONNECTION DATA</HEADER>
-    <RELEASE>A57 A58</RELEASE>
+    <RELEASE>G13B</RELEASE>
     <NAME_KEY>NSEI</NAME_KEY>
     <ACTIVE_KEYS>
         <SGSNFEAT in_type="16" out_type="2" norm_val="0">
@@ -13,12 +13,7 @@
             <PFC-FC bit="5">PFC Flow Control (FC) procedures</PFC-FC>
             <ERS bit="6">Enhanced Radio Status (ERS) procedures</ERS>
             <MBMS bit="7">Multimedia Broadcast Multicast Service (MBMS) procedures</MBMS>
-            <PSHO bit="8">PS Handover (PSHO) procedures</PSHO>
-            <GI bit="9">Gigabit Interface (GI) procedures</GI>
-            <MOCN bit="10">Multi Operator Core Network (MOCN) procedures</MOCN>
-            <EC-GSM-IoT bit="12">Extended Coverage GSM Internet of Things (EC-GSM IoT) procedures</EC-GSM-IoT>
-            <EDRX bit="14">Extended Discontinuous Reception (EDRX) procedures</EDRX>
-        </SGSNFEAT>
+            </SGSNFEAT>
     </ACTIVE_KEYS>
     <PRINT_KEYS></PRINT_KEYS>
 </root>

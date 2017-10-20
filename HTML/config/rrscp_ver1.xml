@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <root limiter="SCGR\s+SC\s+DEV\s+DEV1\s+NUMDEV\s+DCP\s+STATE\s+REASON \n{2,}">
 	<HEADER>RADIO TRANSMISSION SUPER CHANNEL DATA</HEADER>
-	<RELEASE>A57 A58</RELEASE>
+	<RELEASE>A53 A54 A55 A56</RELEASE>
 	<KEYS>SCGR SC DEV DEV1 NUMDEV DCP STATE REASON</KEYS>
 	<NAME_KEY>SC</NAME_KEY>
 	<ACTIVE_KEYS>
@@ -14,8 +14,7 @@
 			<b5 bit="5">Semipermanent connection fault</b5>
 			<b6 bit="6">Not activated in Regional Processor (RP) unit</b6>
 			<b7 bit="7">Bad quality on SC</b7>
-			<b8 bit="8">RP communication fault</b8>
-			<b9 bit="9">SC is faulty, used for maintenance purposes</b9>
+			<b8 bit="8">RP communication fault</b8><b9 bit="9">SC is faulty, used for maintenance purposes</b9>
 			<b10 bit="10">Transceiver Group (TG) not connected to Super Channel Group (SCGR)</b10>
 			<b16 bit="16">DIP or SDIP failure</b16>
 			<b18 bit="18">Failure at communication with RP</b18>
@@ -28,8 +27,7 @@
 			<b25 bit="25">Payload or transport protocol mismatch, or both</b25>
 			<b26 bit="26">TG not connected to SCGR</b26>
 			<b27 bit="27">Not activated in RP unit</b27>
-			<b28 bit="28">Bad quality on SC</b28>
-			<b29 bit="29">SC is faulty, used for maintenance purposes</b29>
+			<b28 bit="28">Bad quality on SC</b28><b29 bit="29">SC is faulty, used for maintenance purposes</b29>
 		</REASON>
 	</ACTIVE_KEYS>
 	<PRINT_KEYS>SCGR</PRINT_KEYS>
