@@ -9,7 +9,7 @@ fdel  = form.getvalue('txtdel')
 
 
 if fdel == None and fadd == None:
-    file = open('.\config\\versions.txt', 'r')
+    file = open('.\cgi-bin\\versions.txt', 'r')
     print '''
         <html>
         <head>
