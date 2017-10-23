@@ -90,14 +90,14 @@ class ConfigModule:
                 try:
                     tree = ET.ElementTree(file=self.check_path() + i)
                 except ParseError:
-                    pass
+                    dict_of_keys[i] = "Wrong xml file: "
                 if tree:
                     try:
                         if str(tree.find('RELEASE').text).find(self.version) != -1:
                             list_of_limiters = tree.getroot().attrib.get("limiter")
                             dict_of_keys[i] = list_of_limiters
-                    except ParseError, AttributeError:
-                        dict_of_keys[i] = "Wrong xml file :"
+                    except AttributeError:
+                        dict_of_keys[i] = "Wrong xml file: "
         return dict_of_keys
 
     # function that return keys with their types

@@ -33,11 +33,14 @@ def get_versions():
     print "</p>"
 
 
-def output_inf(output): #use it to print dynamic table with the result information after parsing
+def output_inf(output, error): #use it to print dynamic table with the result information after parsing
     mainId = 0
     valuesId = 0
     mainDict = {}
     print "Content-type:text/html\r\n\r\n"
+
+    if error:
+        print "<p style='color: red;'></br><strong>" + error + "</strong></p>"
     if type(output) == str:
         print "<p>" + output + "</p>"
     else:

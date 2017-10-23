@@ -2,14 +2,6 @@ import unittest
 from print_reader import PrintReader
 from XmlModule import ConfigObject, KeysObject
 
-
-param = {
-    "name_key": "",
-    "header": "",
-    "list_of_keys_to_print": [],
-    "list_of_object_keys": {}
-}
-
 CONFIGURATION_KEYS = {
     "rxbsp.xml": "MO OPCOND OPCONDMAP OMLSTAT RSLSTAT /any/ \n{2,}",
     "rxcap.xml": "MO TEI DCP1 DCP2 OMLF1 OMLF2 RSLF1 RSLF2 /any/ \n{2,} /any/ AA TCFMODE TCHMODE  /any/ \n{2,}"

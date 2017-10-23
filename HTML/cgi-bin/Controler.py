@@ -15,6 +15,9 @@ class Controller:
             version = "A57"
         self.xml_reader = ConfigModule(version)
         self.xml_files = self.xml_reader.get_keys_from_files()
+        for key, val in self.xml_files.items():
+            if "Wrong xml file: " in val:
+                error_manager.add_error_message(val + key)
 
     def check_text(self, print_text):
         """
@@ -61,6 +64,8 @@ class Controller:
                         result[check_value.xml_header] = [errors]
                     else:
                         result[check_value.xml_header] += [errors]
+        if not result:
+            return "<strong>All values is in default state!</strong>"
         return result
 
     def _valid_printout_bits(self, number, in_type, out_type):
@@ -148,11 +153,8 @@ class Controller:
 
 
 if __name__ == "__main__":
+    error_manager = ErrorManager()
     input_val = get_input_inf()
     controller = Controller(version=input_val[0])
-    error_manager = ErrorManager()
     text = controller.check_text(input_val[1])
-    if error_manager.has_error():
-        output_inf(error_manager.get_error_messages_as_string())
-    else:
-        output_inf(text)
+    output_inf(text, error_manager.get_error_messages_as_string())

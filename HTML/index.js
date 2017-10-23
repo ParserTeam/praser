@@ -38,7 +38,6 @@ function onResponse(btn){
 }
 
 function sendData(data) {
-    showOpenFileMessage();
     $.post("/cgi-bin/Controler.py", data, onResponse);
     pageLoaded = false;
     setTimeout(show_log, 5000);
@@ -51,6 +50,7 @@ $(document).ready(function(){
             version: $('input[name="version"]:checked').val(),
             text: $("#input_textarea").val()
         };
+        console.log(data["text"]);
         return sendData(data);
     });
     $('#ajax_form2').submit(function(event){
@@ -58,6 +58,7 @@ $(document).ready(function(){
             version: $('input[name="version"]:checked').val(),
             file: "open file"
         };
+        showOpenFileMessage();
         return sendData(data);
     });
 });

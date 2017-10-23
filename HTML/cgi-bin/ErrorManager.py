@@ -16,9 +16,9 @@ class ErrorManager:
 
     def add_error_message(self, message=None):
         self._error = True
-        self._error_messages += [message or "" + "\n" + traceback.format_exc()]
+        self._error_messages += [message or "" + "</br>" + traceback.format_exc()]
 
     def get_error_messages_as_string(self):
         self._error = False
-        return ("\n" * 2 + ("#" * 20)).join(self._error_messages)
+        return "</br>".join(self._error_messages)
 
