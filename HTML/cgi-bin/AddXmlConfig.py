@@ -161,7 +161,6 @@ class WriteXml(CreateXml):
             
             """
 
-
     def num_sort(self, file_name):
         try:
             return int(re.sub(".*_\D+(\d+).xml", lambda x: x.group(1), file_name))
@@ -178,11 +177,8 @@ class WriteXml(CreateXml):
                 return self._check_in_array(self.name_of_file, file)
 
     def _dry(self):
-        return askstring('Test TEs', 'How deep is your love?',
+        return askstring('The name that you choose already is', 'Please insert the new file name',
                          initialvalue=self._create_name_of_suggest())
-
-
-
 
     def _show_user_message_box(self):
         flag = True
