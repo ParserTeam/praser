@@ -1,6 +1,6 @@
 import unittest
 from print_reader import PrintReader
-from XmlModule import ConfigObject, KeysObject
+from xml_module import ConfigObject, KeysObject
 
 CONFIGURATION_KEYS = {
     "rxbsp.xml": "MO OPCOND OPCONDMAP OMLSTAT RSLSTAT /any/ \n{2,}",

@@ -17,6 +17,7 @@ class CreateXml:
     keys = form.getvalue("keys") or ""
     name_key = form.getvalue("name_key") or ""
     keys_to_print = form.getvalue("KeysToPrint") or ""
+    releases = form.getvalue("Releases") or ""
     in_type = []
     out_type = []
     direction = []
@@ -54,11 +55,11 @@ class CreateXml:
         header_tag.appendChild(header_text)
         return header_tag
 
-    # def create_key
-    #     keys_tag = doc.createElement('KEYS')
-    #     keys_text = doc.createTextNode(keys)
-    #     keys_tag.appendChild(keys_text)
-    #     root.appendChild(keys_tag)
+    def create_releases(self):
+        releases_tag = self.doc.createElement('RELEASE')
+        releases_text = self.doc.createTextNode(self.releases)
+        releases_tag.appendChild(releases_text)
+        return releases_tag
     def create_name_key(self):
         name_key_tag = self.doc.createElement('NAME_KEY')
         name_key_text = self.doc.createTextNode(self.name_key)
@@ -128,6 +129,7 @@ class WriteXml(CreateXml):
         # self.root = self.create_root()
         # self.doc.appendChild(self.root)
         self.root.appendChild(self.create_header())
+        self.root.appendChild(self.create_releases())
         self.root.appendChild(self.create_name_key())
         self.root.appendChild(self.create_active_keys())
         self.root.appendChild(self.create_keys_to_print())
