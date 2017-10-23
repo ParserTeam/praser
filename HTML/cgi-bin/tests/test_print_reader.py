@@ -1,5 +1,14 @@
 import unittest
 from print_reader import PrintReader
+from XmlModule import ConfigObject, KeysObject
+
+
+param = {
+    "name_key": "",
+    "header": "",
+    "list_of_keys_to_print": [],
+    "list_of_object_keys": {}
+}
 
 CONFIGURATION_KEYS = {
     "rxbsp.xml": "MO OPCOND OPCONDMAP OMLSTAT RSLSTAT /any/ \n{2,}",
@@ -82,6 +91,18 @@ RXSTF-200        NOP     ff
                  0001
 """
 
+rxbsp_param = {
+    "name_key": "MO",
+    "header": "RADIO X-CEIVER ADMINISTRATION BTS STATUS DATA",
+    "list_of_keys_to_print": [],
+    "list_of_object_keys": {"OPCONDMAP": 0}
+}
+
+rxbsp_expected = [
+    [{'MO': 'RXSTF-200', 'OPCONDMAP': ['04']}],
+    [{'MO': 'RXSTF-200'}],
+    [{'MO': 'RXSTF-200', 'OPCONDMAP': ['ff']}]
+]
 
 rxcap = """
 MO                CASCADABLE  OMLF1  OMLF2  RSLF1  RSLF2  FTXADDR
@@ -170,6 +191,27 @@ RXOTG-187         YES         FF      FFFF  FFFF     FF   NO
  
 """
 
+
+rxcap_param = {
+    "name_key": "MO",
+    "header": "RADIO X-CEIVER ADMINISTRATION",
+    "list_of_keys_to_print": [],
+    "list_of_object_keys": {'OMLF2': '-1', 'OMLF1': '-1', 'TCHMODE': '0', 'TCFMODE': '0', 'RSLF1': '-1'}
+}
+
+rxcap_expected = [
+    [{'OMLF2': ['0000FF0'], 'MO': 'RXOTG-187', 'OMLF1': ['FF'], 'RSLF1': ['001FFFFFFBFF']}],
+    [{'MO': 'RXOTRX-187-0',
+      'TCHMODE': ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17'],
+      'OMLF2': ['0000FF'], 'OMLF1': ['00072FFFFDC'], 'RSLF1': ['001FFFFFFBFF'],
+      'TCFMODE': ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17',
+                  '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31', '32', '33', '34',
+                  '35', '36', '37', '38', '39', '40', '41', '42', '43', '44', '45']}],
+    [{'MO': 'RXOTG-187'}],
+    [{'OMLF2': ['FF'], 'MO': 'RXOTG-187'}],
+    [{'TCFMODE': ['0'], 'OMLF2': ['0000FF'], 'MO': 'RXOTRX-187-0', 'OMLF1': ['000FFFFFFFF'], 'RSLF1': ['001FFFFFFFFF']}],
+    [{'OMLF2': ['00FFFF'], 'MO': 'RXOTG-187', 'OMLF1': ['FF'], 'RSLF1': ['FFFFFFFFFF']}]
+]
 
 rxmfp = """
 <rxmfp:mo=rxotg-187,subord,faulty;
@@ -263,6 +305,21 @@ OPER            00000
 FAULT CODES CLASS 2A
   1   2   3   4 8  9
 """
+
+rxmfp_param = {
+    "name_key": "MO",
+    "header": "RADIO X-CEIVER ADMINISTRATION",
+    "list_of_keys_to_print": [],
+    "list_of_object_keys": {'FAULT_CODES_CLASS_2A': None}
+}
+
+rxmfp_expected = [
+    [{'MO': 'RXORX-187-0', 'FAULT_CODES_CLASS_2A': ['1', '2', '3', '4']}],
+    [{'MO': 'RXORX-187-0', 'FAULT_CODES_CLASS_2A': ['0']}],
+    [{'MO': 'RXORX-187-0'}],
+    [{'MO': 'RXORX-187-0', 'FAULT_CODES_CLASS_2A': ['1', '2', '3', '4', '5', '6']}],
+    [{'MO': 'RXORX-187-0', 'FAULT_CODES_CLASS_2A': ['1', '2', '3', '4', '8', '9']}]
+]
 
 rxmsp = """
 <rxmsp:mo=rxotg-187,subord;
@@ -365,6 +422,19 @@ RXOTF-187        OPER              0000  0000  0000   ENA   ENA
 RXODP-187-0      OPER              0000  0000         ENA   ENA
 """
 
+rxmsp_param = {
+    "name_key": "MO",
+    "header": "RADIO X-CEIVER ADMINISTRATION MANAGED OBJECT STATUS",
+    "list_of_keys_to_print": [],
+    "list_of_object_keys": {'BLO': None, 'BLA': None, 'LMO': None}
+}
+
+rxmsp_expected = [
+    [{'MO': 'RXOTG-187', 'BLA': ['0000'], 'BLO': ['0000']}, {'MO': 'RXOCF-187', 'BLA': ['0000'], 'BLO': ['0000']}, {'MO': 'RXOIS-187', 'BLA': ['0000'], 'BLO': ['0000']}, {'MO': 'RXOCON-187', 'BLA': ['0000'], 'BLO': ['0000']}, {'MO': 'RXOTRX-187-0', 'BLA': ['0000'], 'BLO': ['0000']}, {'MO': 'RXORX-187-0', 'BLA': ['0000'], 'BLO': ['0000'], 'LMO': ['0000']}, {'MO': 'RXOTS-187-0-0', 'BLA': ['0000'], 'BLO': ['0000'], 'LMO': ['0840']}, {'MO': 'RXOTS-187-0-1', 'BLA': ['0000'], 'BLO': ['0000'], 'LMO': ['0840']}, {'MO': 'RXOTS-187-0-2', 'BLA': ['0000'], 'BLO': ['0000'], 'LMO': ['0840']}, {'MO': 'RXOTS-187-0-3', 'BLA': ['0000'], 'BLO': ['0000'], 'LMO': ['0840']}, {'MO': 'RXOTS-187-0-4', 'BLA': ['0000'], 'BLO': ['0000'], 'LMO': ['0840']}, {'MO': 'RXOTS-187-0-5', 'BLA': ['0000'], 'BLO': ['0000'], 'LMO': ['0840']}, {'MO': 'RXOTS-187-0-6', 'BLA': ['0000'], 'BLO': ['0000'], 'LMO': ['0840']}, {'MO': 'RXOTS-187-0-7', 'BLA': ['0000'], 'BLO': ['0000'], 'LMO': ['0840']}, {'MO': 'RXOTX-187-0', 'BLA': ['0000'], 'BLO': ['0000'], 'LMO': ['0040']}, {'MO': 'RXOTRX-187-1', 'BLA': ['0000'], 'BLO': ['0000']}, {'MO': 'RXORX-187-1', 'BLA': ['0000'], 'BLO': ['0000'], 'LMO': ['0000']}, {'MO': 'RXOTS-187-1-0', 'BLA': ['0000'], 'BLO': ['0000'], 'LMO': ['0840']}, {'MO': 'RXOTS-187-1-1', 'BLA': ['0000'], 'BLO': ['0000'], 'LMO': ['0840']}, {'MO': 'RXOTS-187-1-2', 'BLA': ['0000'], 'BLO': ['0000'], 'LMO': ['0840']}, {'MO': 'RXOTS-187-1-3', 'BLA': ['0000'], 'BLO': ['0000'], 'LMO': ['0840']}, {'MO': 'RXOTS-187-1-4', 'BLA': ['0000'], 'BLO': ['0000'], 'LMO': ['0840']}, {'MO': 'RXOTS-187-1-5', 'BLA': ['0000'], 'BLO': ['0000'], 'LMO': ['0840']}, {'MO': 'RXOTS-187-1-6', 'BLA': ['0000'], 'BLO': ['0000'], 'LMO': ['0840']}, {'MO': 'RXOTS-187-1-7', 'BLA': ['0000'], 'BLO': ['0000'], 'LMO': ['0840']}, {'MO': 'RXOTX-187-1', 'BLA': ['0000'], 'BLO': ['0000'], 'LMO': ['0040']}, {'MO': 'RXOTRX-187-2', 'BLA': ['0002'], 'BLO': ['0000']}, {'MO': 'RXORX-187-2', 'BLA': ['0002'], 'BLO': ['0010'], 'LMO': ['0140']}, {'MO': 'RXOTS-187-2-0', 'BLA': ['0202'], 'BLO': ['0010'], 'LMO': ['0940']}, {'MO': 'RXOTS-187-2-1', 'BLA': ['0202'], 'BLO': ['0010'], 'LMO': ['0940']}, {'MO': 'RXOTS-187-2-2', 'BLA': ['0202'], 'BLO': ['0010'], 'LMO': ['0940']}, {'MO': 'RXOTS-187-2-3', 'BLA': ['0202'], 'BLO': ['0010'], 'LMO': ['0940']}, {'MO': 'RXOTS-187-2-4', 'BLA': ['0202'], 'BLO': ['0010'], 'LMO': ['0940']}, {'MO': 'RXOTS-187-2-5', 'BLA': ['0202'], 'BLO': ['0010'], 'LMO': ['0940']}, {'MO': 'RXOTS-187-2-6', 'BLA': ['0202'], 'BLO': ['0010'], 'LMO': ['0940']}, {'MO': 'RXOTS-187-2-7', 'BLA': ['0202'], 'BLO': ['0010'], 'LMO': ['0940']}, {'MO': 'RXOTX-187-2', 'BLA': ['0002'], 'BLO': ['0010'], 'LMO': ['0140']}, {'MO': 'RXOTRX-187-3', 'BLA': ['0000'], 'BLO': ['0000']}, {'MO': 'RXORX-187-3', 'BLA': ['0000'], 'BLO': ['0000'], 'LMO': ['0000']}, {'MO': 'RXOTS-187-3-0', 'BLA': ['0000'], 'BLO': ['0000'], 'LMO': ['0840']}, {'MO': 'RXOTS-187-3-1', 'BLA': ['0000'], 'BLO': ['0000'], 'LMO': ['0840']}, {'MO': 'RXOTS-187-3-2', 'BLA': ['0000'], 'BLO': ['0000'], 'LMO': ['0840']}, {'MO': 'RXOTS-187-3-3', 'BLA': ['0000'], 'BLO': ['0000'], 'LMO': ['0840']}, {'MO': 'RXOTS-187-3-4', 'BLA': ['0000'], 'BLO': ['0000'], 'LMO': ['0840']}, {'MO': 'RXOTS-187-3-5', 'BLA': ['0000'], 'BLO': ['0000'], 'LMO': ['0840']}, {'MO': 'RXOTS-187-3-6', 'BLA': ['0000'], 'BLO': ['0000'], 'LMO': ['0840']}, {'MO': 'RXOTS-187-3-7', 'BLA': ['0000'], 'BLO': ['0000'], 'LMO': ['0840']}, {'MO': 'RXOTX-187-3', 'BLA': ['0000'], 'BLO': ['0000'], 'LMO': ['0040']}, {'MO': 'RXOTRX-187-4', 'BLA': ['0000'], 'BLO': ['0000']}, {'MO': 'RXORX-187-4', 'BLA': ['0000'], 'BLO': ['0000'], 'LMO': ['0000']}, {'MO': 'RXOTS-187-4-0', 'BLA': ['0000'], 'BLO': ['0000'], 'LMO': ['0840']}, {'MO': 'RXOTS-187-4-1', 'BLA': ['0000'], 'BLO': ['0000'], 'LMO': ['0840']}, {'MO': 'RXOTS-187-4-2', 'BLA': ['0000'], 'BLO': ['0000'], 'LMO': ['0840']}, {'MO': 'RXOTS-187-4-3', 'BLA': ['0000'], 'BLO': ['0000'], 'LMO': ['0840']}, {'MO': 'RXOTS-187-4-4', 'BLA': ['0000'], 'BLO': ['0000'], 'LMO': ['0840']}, {'MO': 'RXOTS-187-4-5', 'BLA': ['0000'], 'BLO': ['0000'], 'LMO': ['0840']}, {'MO': 'RXOTS-187-4-6', 'BLA': ['0000'], 'BLO': ['0000'], 'LMO': ['0840']}, {'MO': 'RXOTS-187-4-7', 'BLA': ['0000'], 'BLO': ['0000'], 'LMO': ['0840']}, {'MO': 'RXOTX-187-4', 'BLA': ['0000'], 'BLO': ['0000'], 'LMO': ['0040']}, {'MO': 'RXOTRX-187-5', 'BLA': ['0000'], 'BLO': ['0000']}, {'MO': 'RXORX-187-5', 'BLA': ['0000'], 'BLO': ['0000'], 'LMO': ['0000']}, {'MO': 'RXOTS-187-5-0', 'BLA': ['0000'], 'BLO': ['0000'], 'LMO': ['0840']}, {'MO': 'RXOTS-187-5-1', 'BLA': ['0000'], 'BLO': ['0000'], 'LMO': ['0840']}, {'MO': 'RXOTS-187-5-2', 'BLA': ['0000'], 'BLO': ['0000'], 'LMO': ['0840']}, {'MO': 'RXOTS-187-5-3', 'BLA': ['0000'], 'BLO': ['0000'], 'LMO': ['0840']}, {'MO': 'RXOTS-187-5-4', 'BLA': ['0000'], 'BLO': ['0000'], 'LMO': ['0840']}, {'MO': 'RXOTS-187-5-5', 'BLA': ['0000'], 'BLO': ['0000'], 'LMO': ['0840']}, {'MO': 'RXOTS-187-5-6', 'BLA': ['0000'], 'BLO': ['0000'], 'LMO': ['0840']}, {'MO': 'RXOTS-187-5-7', 'BLA': ['0000'], 'BLO': ['0000'], 'LMO': ['0840']}, {'MO': 'RXOTX-187-5', 'BLA': ['0000'], 'BLO': ['0000'], 'LMO': ['0040']}, {'MO': 'RXOTF-187', 'BLA': ['0000'], 'BLO': ['0000'], 'LMO': ['0000']}, {'MO': 'RXODP-187-0', 'BLA': ['0000'], 'BLO': ['0000']}],
+    [{'MO': 'RXOTG-187', 'BLA': ['0000'], 'BLO': ['0000']}, {'MO': 'RXOCF-187', 'BLA': ['0000'], 'BLO': ['0000']}],
+    [{'MO': 'RXOTG-187'}, {'MO': 'RXOCF-187', 'BLA': ['0000'], 'BLO': ['0000']}],
+    [{'MO': 'RXOTG-187', 'BLA': ['FFFF'], 'BLO': ['FFFF'], 'LMO': ['FFFF']}, {'MO': 'RXOCF-187', 'BLA': ['0000'], 'BLO': ['0000']}]
+]
 
 rrscp = """
 <rrscp:scgr=all;
@@ -536,6 +606,14 @@ SCGR  SC  DEV            DEV1           NUMDEV  DCP  STATE  REASON
       1                  ETM4-472        8       56  FLT    H'0000 0000
 
 """
+
+rrscp_param = {
+    "name_key": "",
+    "header": "",
+    "list_of_keys_to_print": [],
+    "list_of_object_keys": {}
+}
+
 
 rrbvp = """
 <rrbvp:nsei=all,ncbd;
@@ -1771,6 +1849,7 @@ ACTIVE         H'FFFF
 
 """
 
+
 class TestPrintReader(unittest.TestCase):
 
     def setUp(self):
@@ -1796,16 +1875,38 @@ class TestPrintReader(unittest.TestCase):
         self._my_assert(len(self.print_reader_rrscp.subjects), 32, subject_len_message, "rrscp")
         self._my_assert(len(self.print_reader_rrbvp.subjects), 20, subject_len_message, "rrbvp")
 
-    def test_get_check_values(self):
-        for subject in self.print_reader_rxbsp.subjects:
+    def _set_config_object(self, file_name, **kwargs):
+        list_keys = []
+        for key, val in kwargs["list_of_object_keys"].items():
+            bits_obj = KeysObject()
+            bits_obj.name = key
+            bits_obj.direction = val
+            list_keys += [bits_obj]
+        config_object = ConfigObject()
+        config_object.name_key = kwargs["name_key"]
+        config_object.name_of_CANDY = file_name
+        config_object.header = kwargs["header"]
+        config_object.list_of_keys_to_print = kwargs["list_of_keys_to_print"]
+        config_object.list_of_object_keys = list_keys
+        return config_object
+
+    def _check_values_for_object(self, print_reader, reader_param, expected):
+        for subject in print_reader.subjects:
             files = {file_name for file_name in subject.file_names}
             if len(files) > 1:
                 assert "To many files to choose"
             subject.file_name = subject.file_names[0]
-        lalala = self.print_reader_rxbsp.get_check_values()
-        print lalala
-        self._my_assert(self.print_reader_rxbsp.get_check_values(), check_val, s)
+            subject.xml_file_obj = self._set_config_object(subject.file_name, **reader_param)
+        result = print_reader.get_check_values()
+        print result
+        for i in range(len(result)):
+            self.assertEqual(result[i].parse_objects, expected[i])
 
+    def test_get_check_values(self):
+        self._check_values_for_object(self.print_reader_rxbsp, rxbsp_param, rxbsp_expected)
+        self._check_values_for_object(self.print_reader_rxcap, rxcap_param, rxcap_expected)
+        self._check_values_for_object(self.print_reader_rxmfp, rxmfp_param, rxmfp_expected)
+        self._check_values_for_object(self.print_reader_rxmsp, rxmsp_param, rxmsp_expected)
 
 if __name__ == '__main__':
     unittest.main(exit=False)

@@ -103,8 +103,9 @@ class SubText:
 
     def _replace_space_in_text_for_keys(self, keys):
         for key in keys:
-            if "\s+" in key:
-                self.text = sub(key, key, self.text)
+            pattern = key.replace("_", "\s+")
+            if "_" in key:
+                self.text = sub(pattern, key, self.text)
 
     def __eq__(self, other):
         """
@@ -155,6 +156,10 @@ class CheckedValues:
             name_key_values = subject.get(self.xml_obj.name_key) or []
             print_keys_with_val = self._get_print_keys_with_val(subject)
             name_key_values_len = len(name_key_values)
+            # print self.xml_obj.name_key
+            # print self.xml_header
+            # print self.xml_obj.list_of_keys_to_print
+            # print {obj.name: obj.direction for obj in self.xml_obj.list_of_object_keys}
 
             # going through all objects in subject to collect all values from it
             for i in range(name_key_values_len):
