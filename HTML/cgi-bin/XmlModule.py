@@ -96,8 +96,8 @@ class ConfigModule:
                         if str(tree.find('RELEASE').text).find(self.version) != -1:
                             list_of_limiters = tree.getroot().attrib.get("limiter")
                             dict_of_keys[i] = list_of_limiters
-                    except ParseError:
-                        dict_of_keys[i] = "Unplugged"
+                    except ParseError, AttributeError:
+                        dict_of_keys[i] = "Wrong xml file :"
         return dict_of_keys
 
     # function that return keys with their types
