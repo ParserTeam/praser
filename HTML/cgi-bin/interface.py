@@ -62,7 +62,7 @@ def output_inf(output): #use it to print dynamic table with the result informati
                                 '''
                 print '''
                     <tr>
-                        <th colspan="4"style="text-align:  center;" >''' + i[:i.find(".")].upper() + '''</th>
+                        <th colspan="4"style="text-align:  center;" >''' + i.upper() + '''</th>
                     </tr>
                 '''
                 for j in a.get(i):
