@@ -605,15 +605,54 @@ SCGR  SC  DEV            DEV1           NUMDEV  DCP  STATE  REASON
   20  0                  ETM4-129       31        1  FLT    H'FFFF FFFF
       1                  ETM4-472        8       56  FLT    H'0000 0000
 
+SCGR  SC  DEV            DEV1           NUMDEV  DCP  STATE  REASON
+      0                  ETM4-129       31        1  FLT    H'FFFF FFFF
+      1                  ETM4-472        8       56  FLT    H'0000 0000
+
 """
 
 rrscp_param = {
-    "name_key": "",
-    "header": "",
-    "list_of_keys_to_print": [],
-    "list_of_object_keys": {}
+    "name_key": "SC",
+    "header": "RADIO TRANSMISSION SUPER CHANNEL DATA",
+    "list_of_keys_to_print": ['SCGR'],
+    "list_of_object_keys": {'REASON': '1'}
 }
 
+rrscp_expected = [
+    [{'SC': '0', 'REASON': ['08000000'], 'SCGR': ['20']}, {'SC': '1', 'REASON': ['08000000'], 'SCGR': ['20']}],
+    [{'SC': '0', 'REASON': ['08000000'], 'SCGR': ['21']}],
+    [{'SC': '0', 'SCGR': ['22']}],
+    [{'SC': '0', 'SCGR': ['23']}, {'SC': '1', 'SCGR': ['23']}, {'SC': '2', 'SCGR': ['23']}, {'SC': '3', 'SCGR': ['23']}],
+    [{'SC': '0', 'REASON': ['08000000'], 'SCGR': ['24']}, {'SC': '1', 'REASON': ['08000000'], 'SCGR': ['24']}],
+    [{'SC': '0', 'SCGR': ['20']}, {'SC': '1', 'SCGR': ['20']}],
+    [{'SC': '0', 'SCGR': ['23']}, {'SC': '1', 'SCGR': ['23']}],
+    [{'SC': '0', 'SCGR': ['25']}, {'SC': '1', 'SCGR': ['25']}],
+    [{'SC': '0', 'SCGR': ['30']}, {'SC': '1', 'SCGR': ['30']}],
+    [{'SC': '0', 'SCGR': ['40']}, {'SC': '1', 'SCGR': ['40']}],
+    [{'SC': '0', 'SCGR': ['43']}, {'SC': '1', 'SCGR': ['43']}],
+    [{'SC': '0', 'SCGR': ['45']}, {'SC': '1', 'SCGR': ['45']}],
+    [{'SC': '0', 'SCGR': ['50']}, {'SC': '1', 'SCGR': ['50']}],
+    [{'SC': '0', 'SCGR': ['60']}, {'SC': '1', 'SCGR': ['60']}, {'SC': '2', 'SCGR': ['60']}, {'SC': '3', 'SCGR': ['60']}],
+    [{'SC': '0', 'SCGR': ['61']}, {'SC': '1', 'SCGR': ['61']}, {'SC': '2', 'SCGR': ['61']}, {'SC': '3', 'SCGR': ['61']}],
+    [{'SC': '0', 'SCGR': ['62']}, {'SC': '1', 'SCGR': ['62']}, {'SC': '2', 'SCGR': ['62']}, {'SC': '3', 'SCGR': ['62']}],
+    [{'SC': '0', 'SCGR': ['63']}, {'SC': '1', 'SCGR': ['63']}, {'SC': '2', 'SCGR': ['63']}, {'SC': '3', 'SCGR': ['63']}],
+    [{'SC': '0', 'SCGR': ['64']}, {'SC': '1', 'SCGR': ['64']}, {'SC': '2', 'SCGR': ['64']}, {'SC': '3', 'SCGR': ['64']}],
+    [{'SC': '0', 'SCGR': ['65']}, {'SC': '1', 'SCGR': ['65']}, {'SC': '2', 'SCGR': ['65']}, {'SC': '3', 'SCGR': ['65']}],
+    [{'SC': '0', 'SCGR': ['66']}, {'SC': '1', 'SCGR': ['66']}, {'SC': '2', 'SCGR': ['66']}, {'SC': '3', 'SCGR': ['66']}],
+    [{'SC': '0', 'SCGR': ['67']}, {'SC': '1', 'SCGR': ['67']}, {'SC': '2', 'SCGR': ['67']}, {'SC': '3', 'SCGR': ['67']}],
+    [{'SC': '0', 'SCGR': ['68']}, {'SC': '1', 'SCGR': ['68']}, {'SC': '2', 'SCGR': ['68']}, {'SC': '3', 'SCGR': ['68']}],
+    [{'SC': '0', 'SCGR': ['69']}, {'SC': '1', 'SCGR': ['69']}, {'SC': '2', 'SCGR': ['69']}, {'SC': '3', 'SCGR': ['69']}],
+    [{'SC': '0', 'SCGR': ['70']}, {'SC': '1', 'SCGR': ['70']}, {'SC': '2', 'SCGR': ['70']}, {'SC': '3', 'SCGR': ['70']}],
+    [{'SC': '0', 'SCGR': ['500']}],
+    [{'SC': '0', 'SCGR': ['506']}, {'SC': '1', 'SCGR': ['506']}, {'SC': '2', 'SCGR': ['506']}],
+    [{'SC': '0', 'SCGR': ['509']}, {'SC': '1', 'SCGR': ['509']}],
+    [{'SC': '0', 'SCGR': ['510']}],
+    [{'SC': '2', 'SCGR': ['510']}],
+    [{'SC': '0', 'SCGR': ['510']}],
+    [{'SC': '0', 'REASON': ['8'], 'SCGR': ['20']}, {'SC': '1', 'REASON': ['08000000'], 'SCGR': ['20']}],
+    [{'SC': '0', 'REASON': ['FFFFFFFF'], 'SCGR': ['20']}, {'SC': '1', 'REASON': ['00000000'], 'SCGR': ['20']}],
+    [{'SC': '0', 'REASON': ['FFFFFFFF'], 'SCGR': '-'}, {'SC': '1', 'REASON': ['00000000'], 'SCGR': '-'}]
+]
 
 rrbvp = """
 <rrbvp:nsei=all,ncbd;
@@ -1849,6 +1888,37 @@ ACTIVE         H'FFFF
 
 """
 
+rrbvp_param = {
+    "name_key": "NSEI",
+    "header": "RADIO TRANSMISSION IP BSSGP VIRTUAL CONNECTION DATA",
+    "list_of_keys_to_print": [],
+    "list_of_object_keys": {'SGSNFEAT': None}
+}
+
+rrbvp_expected = [
+    [{'SGSNFEAT': ['5013'], 'NSEI': '11308'}],
+    [{'SGSNFEAT': ['5013'], 'NSEI': '11307'}],
+    [{'SGSNFEAT': ['5013'], 'NSEI': '11306'}],
+    [{'SGSNFEAT': ['5013'], 'NSEI': '11305'}],
+    [{'SGSNFEAT': ['5013'], 'NSEI': '11304'}],
+    [{'SGSNFEAT': ['5013'], 'NSEI': '11303'}],
+    [{'SGSNFEAT': ['5013'], 'NSEI': '11302'}],
+    [{'SGSNFEAT': ['5013'], 'NSEI': '11301'}],
+    [{'SGSNFEAT': ['5013'], 'NSEI': '11308'}],
+    [{'SGSNFEAT': ['5013'], 'NSEI': '11307'}],
+    [{'SGSNFEAT': ['5013'], 'NSEI': '11306'}],
+    [{'SGSNFEAT': ['5013'], 'NSEI': '11305'}],
+    [{'SGSNFEAT': ['5013'], 'NSEI': '11304'}],
+    [{'SGSNFEAT': ['5013'], 'NSEI': '11303'}],
+    [{'SGSNFEAT': ['5013'], 'NSEI': '11302'}],
+    [{'SGSNFEAT': ['5013'], 'NSEI': '11301'}],
+    [],
+    [{'NSEI': '11308'}],
+    [{'SGSNFEAT': ['5013'], 'NSEI': '11308'}],
+    [{'SGSNFEAT': ['FFFF'], 'NSEI': '11308'}]
+
+]
+
 
 class TestPrintReader(unittest.TestCase):
 
@@ -1860,9 +1930,6 @@ class TestPrintReader(unittest.TestCase):
         self.print_reader_rrscp = PrintReader(rrscp, CONFIGURATION_KEYS)
         self.print_reader_rrbvp = PrintReader(rrbvp, CONFIGURATION_KEYS)
 
-    def tearDown(self):
-        print "tear down"
-
     def _my_assert(self, my_val, expected_val, *args):
         self.assertEqual(my_val, expected_val, args[0].format(my_val, expected_val, *args[1:]))
 
@@ -1872,7 +1939,7 @@ class TestPrintReader(unittest.TestCase):
         self._my_assert(len(self.print_reader_rxcap.subjects), 6, subject_len_message, "rxcap")
         self._my_assert(len(self.print_reader_rxmfp.subjects), 5, subject_len_message, "rxmfp")
         self._my_assert(len(self.print_reader_rxmsp.subjects), 4, subject_len_message, "rxmsp")
-        self._my_assert(len(self.print_reader_rrscp.subjects), 32, subject_len_message, "rrscp")
+        self._my_assert(len(self.print_reader_rrscp.subjects), 33, subject_len_message, "rrscp")
         self._my_assert(len(self.print_reader_rrbvp.subjects), 20, subject_len_message, "rrbvp")
 
     def _set_config_object(self, file_name, **kwargs):
@@ -1898,7 +1965,6 @@ class TestPrintReader(unittest.TestCase):
             subject.file_name = subject.file_names[0]
             subject.xml_file_obj = self._set_config_object(subject.file_name, **reader_param)
         result = print_reader.get_check_values()
-        print result
         for i in range(len(result)):
             self.assertEqual(result[i].parse_objects, expected[i])
 
@@ -1907,6 +1973,9 @@ class TestPrintReader(unittest.TestCase):
         self._check_values_for_object(self.print_reader_rxcap, rxcap_param, rxcap_expected)
         self._check_values_for_object(self.print_reader_rxmfp, rxmfp_param, rxmfp_expected)
         self._check_values_for_object(self.print_reader_rxmsp, rxmsp_param, rxmsp_expected)
+        self._check_values_for_object(self.print_reader_rrscp, rrscp_param, rrscp_expected)
+        self._check_values_for_object(self.print_reader_rrbvp, rrbvp_param, rrbvp_expected)
+
 
 if __name__ == '__main__':
     unittest.main(exit=False)
