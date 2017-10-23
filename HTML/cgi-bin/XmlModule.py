@@ -92,9 +92,12 @@ class ConfigModule:
                 except ParseError:
                     pass
                 if tree:
-                    if str(tree.find('RELEASE').text).find(self.version) != -1:
-                        list_of_limiters = tree.getroot().attrib.get("limiter")
-                        dict_of_keys[i] = list_of_limiters
+                    try:
+                        if str(tree.find('RELEASE').text).find(self.version) != -1:
+                            list_of_limiters = tree.getroot().attrib.get("limiter")
+                            dict_of_keys[i] = list_of_limiters
+                    except ParseError:
+                        dict_of_keys[i] = "Unplugged"
         return dict_of_keys
 
     # function that return keys with their types
@@ -105,11 +108,8 @@ class ConfigModule:
             # create a empty object of file
             file_object = ConfigObject()
             # open xml config file
-            try:
-                tree = ET.ElementTree(file=self.check_path() + i.file_name)
 
-            except ParseError:
-                pass
+            tree = ET.ElementTree(file=self.check_path() + i.file_name)
             # get header from config.xml
             file_object.name_of_CANDY = i.file_name
 

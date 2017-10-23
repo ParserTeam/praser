@@ -27,7 +27,7 @@
 
 
     </p>
-    <p>Decryption of the name of the printout
+    <p>Header of the printout
         <br>
         <input type="text" name="Header" value="RADIO X-CEIVER ADMINISTRATION BTS STATUS DATA" style="width:50%" placeholder="Header for this type printouts">
 
@@ -35,7 +35,7 @@
 
 
     </p>
-    <p>Regex pattern for parsing
+    <p>Pattern of regular expression for parsing
         <br>
         <input type="text" name="limiter"
                value="MO\s+OPCOND\s+OPCONDMAP\s+OMLSTAT\s+RSLSTAT \n{2,}"
@@ -48,7 +48,7 @@
         <input type="text" name="name_key" value="MO" title="Letters and " placeholder="Managed object. Example {MO NSEI}"
                style="width:50%" required>
     </p>
-    <p>Keys for searching
+    <p>Values for parsing
         <br>
         <input type="text" name="keys" value="OPCONDMAP" style="width:50%"
                pattern="([\d\w]+ ?)+[\d\w]$" placeholder="Insert searching keys if format {key1 key2 key3}" required>
@@ -186,7 +186,7 @@ obj.disabled=true;
 
             </div>
         </table>
-        <p>Keys to print
+        <p>Additional values for parsing
             <br>
             <input type="text" name="KeysToPrint" style="width:50%" value="" placeholder="By side key that you want to print">
             </br>
