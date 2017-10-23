@@ -6,17 +6,7 @@ from Tkinter import Tk, Button, Label
 def get_input_inf(): # it take oll inut infornation from web to server (if it is upload file - read file using withdraw Class, else take take value from text area)
     # Get data from fields
     form = cgi.FieldStorage()
-
-    if "text" not in form or "file" in form:
-        root = Tk()
-        root.withdraw()
-        root.focus_force()
-        print_file = askopenfile("r")
-        if print_file:
-            return form.getvalue("version"), print_file.read()
-        return None, "Error"
-    else:
-        return form.getvalue("version"), form.getvalue("text")
+    return form.getvalue("version"), form.getvalue("text")
 
 
 def get_versions():

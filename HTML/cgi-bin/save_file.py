@@ -1,5 +1,5 @@
 import cgi, os
-import cgitb;
+import cgitb
 
 cgitb.enable()
 

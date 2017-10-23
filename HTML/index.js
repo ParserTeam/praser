@@ -22,12 +22,12 @@ function show_log() {
 function showOpenFileMessage() {
     $("#inf2").html("<strong>Please, select file</strong>");
     document.getElementById("in1").disabled = true;
-    document.getElementById("upload_btn").disabled = true;
+    // document.getElementById("upload_btn").disabled = true;
 }
 
 function hideOpenFileMessage() {
     document.getElementById("in1").disabled = false;
-    document.getElementById("upload_btn").disabled = false;
+    // document.getElementById("upload_btn").disabled = false;
 }
 
 function onResponse(btn){
@@ -44,21 +44,47 @@ function sendData(data) {
     return false;
 }
 
+function handleFileSelect(evt) {
+    var files = evt.target.files; // FileList object
+
+    // Loop through the FileList and render image files as thumbnails.
+    for (var i = 0, f; f = files[i]; i++) {
+
+        var reader = new FileReader();
+
+        // Closure to capture the file information.
+        reader.onload = (function(theFile) {
+            return function(e) {
+                // Render thumbnail.
+                document.getElementById("input_textarea").textContent = e.target.result;
+            };
+        })(f);
+
+        // Read in the image file as a data URL.
+        reader.readAsText(f);
+    }
+}
+
+document.getElementById('files').addEventListener('change', handleFileSelect, false);
+
 $(document).ready(function(){
     $('#ajax_form').submit(function(event){
+
+        console.log($("#file").val());
         var data = {
             version: $('input[name="version"]:checked').val(),
             text: $("#input_textarea").val()
         };
-        console.log(data["text"]);
         return sendData(data);
     });
-    $('#ajax_form2').submit(function(event){
-        var data = {
-            version: $('input[name="version"]:checked').val(),
-            file: "open file"
-        };
-        showOpenFileMessage();
-        return sendData(data);
-    });
+    // $('#ajax_form2').submit(function(event){
+    //
+    //     console.log($("#file").val());
+    //     var data = {
+    //         version: $('input[name="version"]:checked').val(),
+    //         file: $("#file")
+    //     };
+    //     showOpenFileMessage();
+    //     return sendData(data);
+    // });
 });
