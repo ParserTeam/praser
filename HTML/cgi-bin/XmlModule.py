@@ -60,7 +60,7 @@ class ConfigModule:
     list_of_active_keys = []
 
     def __init__(self, version):
-        self.version = version.replace("\n","")
+        self.version = version.replace("\n", "")
 
     def check_path(self):
         true_path = ''
@@ -77,7 +77,6 @@ class ConfigModule:
     # check all files in config directory and return dictionary of keys and files name
     def get_keys_from_files(self, ):
         list_of_limiters = []
-
 
         dict_of_keys = {}
 
@@ -146,4 +145,3 @@ class ConfigModule:
             i.xml_file_obj = file_object
 
         return true_config
-
