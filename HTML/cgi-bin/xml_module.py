@@ -71,11 +71,13 @@ class ConfigModule:
             true_path = 'config/'
         elif path.exists('../config'):
             true_path = '../config/'
+        elif path.exists('../../config'):
+            true_path = '../../config/'
 
         return true_path
 
     # check all files in config directory and return dictionary of keys and files name
-    def get_keys_from_files(self, ):
+    def get_keys_from_files(self):
         list_of_limiters = []
 
         dict_of_keys = {}
