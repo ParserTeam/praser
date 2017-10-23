@@ -1,14 +1,11 @@
 import cgi, cgitb
-from tkFileDialog import askopenfile
-from Tkinter import Tk, Button, Label
-import os
 
 form = cgi.FieldStorage()
-fadd= form.getvalue('txt')
-fdel  = form.getvalue('txtdel')
+fadd= form.getvalue('txt') # take value from form to add new version of release
+fdel  = form.getvalue('txtdel') # take value from form to delete version of release
 
 
-if fdel == None and fadd == None:
+if fdel == None and fadd == None: #if yoser press any of button (add new version of release or delete version of release) cgi will take None
     text = "You typed any version of release."
 
 if fadd != None:

@@ -20,7 +20,7 @@ cgitb.enable()  # This line enables CGI error reporting
 
 server = BaseHTTPServer.HTTPServer
 handler = CGIHTTPServer.CGIHTTPRequestHandler
-server_address = ("", 8000)
+server_address = ("100.93.20.51", 8000)
 handler.cgi_directories = ["/cgi-bin", "/wsgi"]
 
 httpd = server(server_address, handler)
