@@ -148,18 +148,15 @@ class CheckedValues:
                     values like value
         """
         parse_objects = []
+        print_keys_with_val = dict()
         for subject in subjects:
             # subject:              dictionary of all keys and list of values in subject
             # name_key_values:      list of main key values, it should be added to all dictionaries
             # print_keys_with_val:  dictionary with keys and values for keys that are one for few objects
             # name_key_values_len:  number of name key values (number of objects)
             name_key_values = subject.get(self.xml_obj.name_key) or []
-            print_keys_with_val = self._get_print_keys_with_val(subject)
+            print_keys_with_val = self._get_print_keys_with_val(subject, print_keys_with_val)
             name_key_values_len = len(name_key_values)
-            # print self.xml_obj.name_key
-            # print self.xml_header
-            # print self.xml_obj.list_of_keys_to_print
-            # print {obj.name: obj.direction for obj in self.xml_obj.list_of_object_keys}
 
             # going through all objects in subject to collect all values from it
             for i in range(name_key_values_len):
@@ -179,10 +176,9 @@ class CheckedValues:
                     elif key == self.xml_obj.name_key:
                         my_values[key] = val[i]
                 parse_objects += [my_values]
-        # print "parse obj", parse_objects
         return parse_objects
 
-    def _get_print_keys_with_val(self, subject):
+    def _get_print_keys_with_val(self, subject, print_keys_with_val):
         """
         :param subject:
         :param print_keys:
@@ -192,7 +188,7 @@ class CheckedValues:
             return {}
         result = dict()
         for key in self.xml_obj.list_of_keys_to_print:
-            result[key] = subject.get(key) or "-"
+            result[key] = subject.get(key) or print_keys_with_val.get(key) or '-'
         return result
 
     def _get_active_keys(self, list_of_object_keys):

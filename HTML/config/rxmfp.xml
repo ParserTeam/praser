@@ -4,7 +4,7 @@
     <RELEASE>A57</RELEASE>
     <NAME_KEY>MO</NAME_KEY>
     <ACTIVE_KEYS>
-        <FAULT_CODES_CLASS_2A in_type="10" out_type="10" direction="0">
+        <FAULT_CODES_CLASS_2A in_type="10" out_type="10">
             <PFC bit="0">Packet Flow Context (PFC) procedures</PFC>
             <CBL bit="1">Current Bucket Level (CBL) procedures</CBL>
             <INR bit="2">Inter NSE Re-routing (INR)</INR>

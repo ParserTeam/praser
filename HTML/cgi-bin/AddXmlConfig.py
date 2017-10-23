@@ -117,6 +117,7 @@ class CreateXml:
 
 class WriteXml(CreateXml):
     file_name_for_creating = ''
+    directory = 'config/'
 
     # XmlText.doc.appendChild(XmlText.create_root())
     # root = XmlText.create_root()
@@ -131,34 +132,53 @@ class WriteXml(CreateXml):
         self.root.appendChild(self.create_active_keys())
         self.root.appendChild(self.create_keys_to_print())
 
-        self.list_of_files = listdir('config/')
+        self.list_of_files = listdir(self.directory)
 
         self.xml_str = self.doc.toprettyxml(indent="  ")
 
-        self.list_of_same_files = [xml_file for xml_file in self.list_of_files if self.name_of_file in xml_file]
+        if self.name_of_file + '.xml' in self.list_of_files:
 
-        # self._create_name_of_suggest()
-        self.file_name_for_creating = self._create_name_of_suggest()
-        self._show_user_message_box()
-        self.file_name_for_creating = "config\\" + self.file_name_for_creating
+            self.list_of_same_files = [xml_file for xml_file in self.list_of_files if self.name_of_file in xml_file]
+            self.list_of_same_files = sorted(self.list_of_same_files, key=self.num_sort)
+            # list_sorted = [xml_file for xml_file in self.list_of_files if self.name_of_file in xml_file]
+            # list_sorted += ["1"]
+            # list_sorted.sort()
+            self.file_name_for_creating = self._create_name_of_suggest()
+            self.file_name_for_creating = self._show_user_message_box()
 
-        with open(self.file_name_for_creating, "w") as f:
-            f.write(self.xml_str)
+            # self.file_name_for_creating =
+        else:
+            self.file_name_for_creating = self.name_of_file
+        try:
+            with open(self.directory + self.file_name_for_creating + ".xml", "w") as f:
+                f.write(self.xml_str)
 
-        self._show_created_xml()
+            self._show_created_xml()
+        except TypeError:
+            print """
+            
+            No file name
+            
+            """
+
+    def num_sort(self, file_name):
+        try:
+            return int(re.sub(".*_\D+(\d+).xml", lambda x: x.group(1), file_name))
+        except ValueError:
+            return 0
 
     def _check_in_array(self, name, file):
-        element = re.sub(name + r"\D*(\d*).xml", lambda x: name + "_ver" + str(int(x.group(1) or 0) + 1) + ".xml", file)
-        return element
+        element = re.sub(name + r"\D*(\d*)", lambda x: name + "_ver" + str(int(x.group(1) or 0) + 1), file)
+        return element.replace(".xml", "")
 
     def _create_name_of_suggest(self):
         for file in self.list_of_same_files:
-            if not self._check_in_array(self.name_of_file, file) in self.list_of_same_files:
+            if not self._check_in_array(self.name_of_file, file) + ".xml" in self.list_of_same_files:
                 return self._check_in_array(self.name_of_file, file)
 
     def _dry(self):
-        self.file_name_for_creating = askstring('Test TEs', 'How deep is your love?',
-                                                initialvalue=self._create_name_of_suggest())+".xml"
+        return askstring('The name that you choose already is', 'Please insert the new file name',
+                         initialvalue=self._create_name_of_suggest())
 
     def _show_user_message_box(self):
         flag = True
@@ -166,16 +186,22 @@ class WriteXml(CreateXml):
         root.withdraw()
         # root.minsize(width=100, height=200)
 
-        self._dry()
+        self.file_name_for_creating = self._dry()
 
-        while flag:
-            if not self.file_name_for_creating in self.list_of_same_files:
-                break
-            else:
-                self._dry()
+        try:
+            while flag:
+                if not self.file_name_for_creating + '.xml' in self.list_of_same_files:
+                    if re.match("\w+$", self.file_name_for_creating):
+                        return self.file_name_for_creating
+                    else:
+                        self.file_name_for_creating = self._dry()
+                else:
+                    self.file_name_for_creating = self._dry()
+        except TypeError:
+            pass
 
     def _show_created_xml(self):
-        file_test = open(self.file_name_for_creating, "r")
+        file_test = open(self.directory + self.file_name_for_creating + ".xml", "r")
 
         text = file_test.read()
 
@@ -185,10 +211,6 @@ class WriteXml(CreateXml):
             Sucsses!!!
             {}
              """.format(text)
-
-        # file_name_for_creating = "config\\" + file_name_for_creating
-        # with open(file_name_for_creating, "w") as f:
-        #     f.write(xml_str)
 
 
 objectXml = WriteXml()
