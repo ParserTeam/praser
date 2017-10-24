@@ -48,7 +48,7 @@
     </form>
 </div>
 <DIV id="input"> <!-- text area and upload button for input log information, with buttons Pars - witch action is pars log info (send information to the server (file Controler.py) and send result to the index.html) and Clean - use it to clean text area  -->
-    <p STYLE="text-align: center">Paste your printout here or</p>
+    <p STYLE="text-align: center">Paste your printout here or <input type="file" id="files" name="files[]" multiple /></p>
         <!--<form enctype="multipart/form-data" action="/cgi-bin/Controler.py" method="post" id="ajax_form2">-->
     <!--<input type="submit" value="Upload" id="upload_btn"/></form>-->
 
@@ -67,7 +67,7 @@
         <p>&nbsp</p>
         <div id="ParsAndClean"><input type="submit" value="Parse" id="in1" formaction="/cgi-bin/Controler.py" formmethod="post">
             <input type="reset" value="Clean"></div>
-        <input type="file" id="files" name="files[]" multiple />
+
         <div id="my_versions"></div>
     </form>
 
