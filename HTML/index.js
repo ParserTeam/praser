@@ -22,12 +22,10 @@ function show_log() {
 function showOpenFileMessage() {
     $("#inf2").html("<strong>Please, select file</strong>");
     document.getElementById("in1").disabled = true;
-    // document.getElementById("upload_btn").disabled = true;
 }
 
 function hideOpenFileMessage() {
     document.getElementById("in1").disabled = false;
-    // document.getElementById("upload_btn").disabled = false;
 }
 
 function onResponse(btn){
@@ -44,19 +42,22 @@ function sendData(data) {
     return false;
 }
 
-function handleFileSelect(evt) {
-    var files = evt.target.files; // FileList object
+function addFilesTextToInput(files) {
+    var textArea = document.getElementById("input_textarea");
 
-    // Loop through the FileList and render image files as thumbnails.
+    textArea.textContent = "";
+    var end = files.length;
     for (var i = 0, f; f = files[i]; i++) {
-
         var reader = new FileReader();
 
         // Closure to capture the file information.
         reader.onload = (function(theFile) {
             return function(e) {
                 // Render thumbnail.
-                document.getElementById("input_textarea").textContent = e.target.result;
+                textArea.textContent = textArea.textContent + "\n\n" + e.target.result;
+                end--;
+                if (end == 0)
+                    console.log(textArea.textContent);
             };
         })(f);
 
@@ -65,17 +66,50 @@ function handleFileSelect(evt) {
     }
 }
 
+function textareaChanged() {
+    console.log("aaaaaaaaaaaaaaaaaa");
+}
+
+$(document).ready(function () {
+    $('#input_textarea').change(function () {
+        console.log("qwerty");
+    })
+});
+
+function handleFileDrop(evt) {
+    evt.preventDefault();
+    var files = evt.dataTransfer.files;
+    addFilesTextToInput(files);
+}
+
+function handleFileSelect(evt) {
+    var files = evt.target.files; // FileList object
+    addFilesTextToInput(files);
+}
+
+function handleDragOver(evt) {
+        evt.stopPropagation();
+        evt.preventDefault();
+        evt.dataTransfer.dropEffect = 'copy'; // Explicitly show this is a copy.
+    }
+
 document.getElementById('files').addEventListener('change', handleFileSelect, false);
+var dropZone = document.getElementById('input_textarea');
+dropZone.addEventListener('dragover', handleDragOver, false);
+dropZone.addEventListener('drop', handleFileDrop, false);
+
+function sendMyRequest(event) {
+    console.log($("#file").val());
+    var data = {
+        version: $('input[name="version"]:checked').val(),
+        text: $("#input_textarea").val()
+    };
+    return sendData(data);
+}
 
 $(document).ready(function(){
     $('#ajax_form').submit(function(event){
-
-        console.log($("#file").val());
-        var data = {
-            version: $('input[name="version"]:checked').val(),
-            text: $("#input_textarea").val()
-        };
-        return sendData(data);
+        return sendMyRequest(event);
     });
     // $('#ajax_form2').submit(function(event){
     //

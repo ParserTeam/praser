@@ -29,8 +29,8 @@
 }
     </style>
     <link rel="stylesheet" type="text/css" href="style.css">
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
+    <!--<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>-->
+    <script src="jquery-3.2.1.min.js"></script>
 </HEAD>
 <BODY STYLE="color: #000080; font-family: Helvetica Neue ,Helvetica,Arial,sans-serif; font-size: 14px;">
 <p><a name="top"></a></p>
@@ -48,22 +48,9 @@
     </form>
 </div>
 <DIV id="input"> <!-- text area and upload button for input log information, with buttons Pars - witch action is pars log info (send information to the server (file Controler.py) and send result to the index.html) and Clean - use it to clean text area  -->
-    <p STYLE="text-align: center">Paste your printout here or</p>
-        <!--<form enctype="multipart/form-data" action="/cgi-bin/Controler.py" method="post" id="ajax_form2">-->
-    <!--<input type="submit" value="Upload" id="upload_btn"/></form>-->
-
-    <!--<html>-->
-    <!--<body>-->
-   <!--<form enctype = "multipart/form-data"-->
-                     <!--action = "/cgi-bin/save_file.py" method = "post">-->
-   <!--<p>File: <input type = "file" name = "filename" /></p>-->
-   <!--<p><input type = "submit" value = "Upload" /></p>-->
-   <!--</form>-->
-<!--</body>-->
-<!--</html>-->
-
+    <p STYLE="text-align: center">Paste your printout here or drop files on text area</p>
     <form name="pars" id="ajax_form">
-        <div id="textarea"><textarea name="comment" rows="18" id="input_textarea" style=" height: 234px; font-family: monospace"></textarea></div>
+        <div id="textarea"><textarea onpaste="textareaChanged()" name="comment" rows="18" id="input_textarea" style=" height: 234px; font-family: monospace"></textarea></div>
         <p>&nbsp</p>
         <div id="ParsAndClean"><input type="submit" value="Parse" id="in1" formaction="/cgi-bin/Controler.py" formmethod="post">
             <input type="reset" value="Clean"></div>

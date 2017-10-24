@@ -1,5 +1,4 @@
 import cgi
-from tkFileDialog import askopenfile
 from Tkinter import Tk, Button, Label
 
 
@@ -38,7 +37,7 @@ def output_inf(output, error): #use it to print dynamic table with the result in
         # a = {'rrscp.xml': [{'SC': '0', 'REASON': {'b27': 'Not activated in RP unit'}, 'SCGR': ['20']}, {'SC': '1', 'REASON': {'b27': 'Not activated in RP unit'}, 'SCGR': ['20']}, {'SC': '0', 'REASON': {'b27': 'Not activated in RP unit'}, 'SCGR': ['21']}]}
         if len(a) != 0:
             print '''
-                <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+                <script src="j"></script>
                 <link rel="stylesheet" type="text/css" href="style.css">
                 <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
                 <link rel='stylesheet prefetch' href='http://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.10.0/bootstrap-table.min.css'>
