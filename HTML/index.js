@@ -111,14 +111,4 @@ $(document).ready(function(){
     $('#ajax_form').submit(function(event){
         return sendMyRequest(event);
     });
-    // $('#ajax_form2').submit(function(event){
-    //
-    //     console.log($("#file").val());
-    //     var data = {
-    //         version: $('input[name="version"]:checked').val(),
-    //         file: $("#file")
-    //     };
-    //     showOpenFileMessage();
-    //     return sendData(data);
-    // });
 });
