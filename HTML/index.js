@@ -54,7 +54,7 @@ function addFilesTextToInput(files) {
         reader.onload = (function(theFile) {
             return function(e) {
                 // Render thumbnail.
-                textArea.textContent = textArea.textContent + "\n\n" + e.target.result;
+                textArea.textContent = textArea.textContent + e.target.result + "\n\n";
                 end--;
                 if (end == 0)
                     console.log(textArea.textContent);

@@ -6,7 +6,7 @@ CONFIGURATION_KEYS = {
     "rxbsp.xml": "MO OPCOND OPCONDMAP OMLSTAT RSLSTAT /any/ \n{2,}",
     "rxcap.xml": "MO TEI DCP1 DCP2 OMLF1 OMLF2 RSLF1 RSLF2 /any/ \n{2,} /any/ AA TCFMODE TCHMODE  /any/ \n{2,}"
                  " /or/ MO CASCADABLE OMLF1 OMLF2 RSLF1 RSLF2 FTXADDR /any/ \n{2,}",
-    "rxmfp.xml": "MO /any/ FAULT CODES CLASS 2A /any/ \n{2,}",
+    "rxmfp.xml": "MO BTSSWVER /any/ FAULT CODES CLASS 2A /any/ \n{2,}",
     "rxmsp.xml": "MO STATE BLSTATE BLO BLA LMO BTS CONF /any/ \n{2,}",
     "rrscp.xml": "SCGR SC DEV DEV1 NUMDEV DCP STATE REASON /any/ \n{2,}",
     "rrbvp.xml": "NSEI /any/ SIGBVCSTATE SGSNFEAT /any/ \n{2,}"
@@ -1911,6 +1911,64 @@ rrbvp_expected = [
 
 ]
 
+rxbsp_rxmfp = """
+<rxbsp:mo=rxstf-200;
+
+RADIO X-CEIVER ADMINISTRATION BTS STATUS DATA
+
+MO               OPCOND  OPCONDMAP                      OMLSTAT  RSLSTAT
+RXSTF-200        NOP     04
+
+                 OPCONDTXT
+                 nope
+
+                 BTSSWVER         SECTOR
+
+                 IDENTITYTXT
+
+                 SECTORIDTXT
+
+                 BSCDATE          BSCTIME
+
+                 BTSDATE          BTSTIME
+
+                 NEGA  NEGO  BTSC  BSCC  CTSN
+
+                 CNFG  BUND  BTSN  BSCN
+                 0001
+
+END   
+
+
+<rxmfp:mo=rxotg-187,subord,faulty;
+
+RADIO X-CEIVER ADMINISTRATION
+MANAGED OBJECT FAULT INFORMATION
+
+MO                   BTSSWVER          
+RXORX-187-0          ERA-G07-R37-V01
+
+RU  RUREVISION                           RUSERIALNO
+ 0
+
+    RUPOSITION                           RULOGICALID
+    
+
+    RULOGICALIDEXT
+
+
+STATE  BLSTATE  INTERCNT  CONCNT  CONERRCNT  LASTFLT   LFREASON
+OPER            00000                                   
+
+FAULT CODES CLASS 2A
+  1   2   3   4
+
+END  
+
+
+
+"""
+
 
 class TestPrintReader(unittest.TestCase):
 
@@ -1921,6 +1979,7 @@ class TestPrintReader(unittest.TestCase):
         self.print_reader_rxmsp = PrintReader(rxmsp, CONFIGURATION_KEYS)
         self.print_reader_rrscp = PrintReader(rrscp, CONFIGURATION_KEYS)
         self.print_reader_rrbvp = PrintReader(rrbvp, CONFIGURATION_KEYS)
+        self.print_reader_rxbsp_rxmfp = PrintReader(rxbsp_rxmfp, CONFIGURATION_KEYS)
 
     def _my_assert(self, my_val, expected_val, *args):
         self.assertEqual(my_val, expected_val, args[0].format(my_val, expected_val, *args[1:]))
@@ -1933,6 +1992,7 @@ class TestPrintReader(unittest.TestCase):
         self._my_assert(len(self.print_reader_rxmsp.subjects), 4, subject_len_message, "rxmsp")
         self._my_assert(len(self.print_reader_rrscp.subjects), 33, subject_len_message, "rrscp")
         self._my_assert(len(self.print_reader_rrbvp.subjects), 20, subject_len_message, "rrbvp")
+        self._my_assert(len(self.print_reader_rxbsp_rxmfp.subjects), 2, subject_len_message, "rxbsp_rxmfp")
 
     def _set_config_object(self, file_name, **kwargs):
         list_keys = []
