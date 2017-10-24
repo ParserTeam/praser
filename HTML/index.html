@@ -48,12 +48,12 @@
     </form>
 </div>
 <DIV id="input"> <!-- text area and upload button for input log information, with buttons Pars - witch action is pars log info (send information to the server (file Controler.py) and send result to the index.html) and Clean - use it to clean text area  -->
-    <form name="pars" id="ajax_form">
+    <form name="pars" id="ajax_form" method="post" onsubmit="sendData()">
         <p STYLE="text-align: center">Paste your printout here <strong>or</strong> drop files on text area <strong>or</strong>
-        <input STYLE="display:inline"type="file" id="files" name="files[]" multiple /></p>
+        <input STYLE="display:inline" type="file" id="files" name="files[]" multiple /></p>
         <div id="textarea"><textarea onpaste="textareaChanged()" name="comment" rows="18" id="input_textarea" style=" height: 234px; font-family: monospace"></textarea></div>
         <p>&nbsp</p>
-        <div id="ParsAndClean"><input type="submit" value="Parse" id="in1" formaction="/cgi-bin/Controler.py" formmethod="post">
+        <div id="ParsAndClean"><input type="button" value="Parse" id="in1" onclick="sendData()">
             <input type="reset" value="Clean"></div>
         <div id="my_versions"></div>
     </form>

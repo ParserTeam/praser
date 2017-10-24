@@ -1,4 +1,5 @@
 var pageLoaded = true;
+var textArea = document.getElementById("input_textarea");
 
 $.post("/cgi-bin/interface.py",{comment:$("#btn2").val()}, responseVersions);
 function responseVersions(response) {
@@ -19,62 +20,47 @@ function show_log() {
     }
 }
 
-function showOpenFileMessage() {
-    $("#inf2").html("<strong>Please, select file</strong>");
-    document.getElementById("in1").disabled = true;
-}
-
-function hideOpenFileMessage() {
-    document.getElementById("in1").disabled = false;
-}
-
 function onResponse(btn){
-    hideOpenFileMessage();
     $("#inf2").html(btn);
     pageLoaded = true;
     document.getElementById("loader").style.display = "none";
 }
 
-function sendData(data) {
+function sendData() {
+    console.log($("#input_textarea").val());
+    var data = {
+        version: $('input[name="version"]:checked').val(),
+        text: $("#input_textarea").val()
+    };
     $.post("/cgi-bin/Controler.py", data, onResponse);
     pageLoaded = false;
-    setTimeout(show_log, 5000);
+    show_log();
     return false;
 }
 
 function addFilesTextToInput(files) {
-    var textArea = document.getElementById("input_textarea");
+    var end = files.length;
 
     textArea.textContent = "";
-    var end = files.length;
     for (var i = 0, f; f = files[i]; i++) {
         var reader = new FileReader();
 
-        // Closure to capture the file information.
         reader.onload = (function(theFile) {
             return function(e) {
                 // Render thumbnail.
                 textArea.textContent = textArea.textContent + e.target.result + "\n\n";
                 end--;
-                if (end == 0)
-                    console.log(textArea.textContent);
+                if (end === 0)
+                    sendData();
             };
         })(f);
-
-        // Read in the image file as a data URL.
         reader.readAsText(f);
     }
 }
 
 function textareaChanged() {
-    console.log("aaaaaaaaaaaaaaaaaa");
+    setTimeout(function () { sendData(); }, 100);
 }
-
-$(document).ready(function () {
-    $('#input_textarea').change(function () {
-        console.log("qwerty");
-    })
-});
 
 function handleFileDrop(evt) {
     evt.preventDefault();
@@ -94,21 +80,5 @@ function handleDragOver(evt) {
     }
 
 document.getElementById('files').addEventListener('change', handleFileSelect, false);
-var dropZone = document.getElementById('input_textarea');
-dropZone.addEventListener('dragover', handleDragOver, false);
-dropZone.addEventListener('drop', handleFileDrop, false);
-
-function sendMyRequest(event) {
-    console.log($("#file").val());
-    var data = {
-        version: $('input[name="version"]:checked').val(),
-        text: $("#input_textarea").val()
-    };
-    return sendData(data);
-}
-
-$(document).ready(function(){
-    $('#ajax_form').submit(function(event){
-        return sendMyRequest(event);
-    });
-});
+textArea.addEventListener('dragover', handleDragOver, false);
+textArea.addEventListener('drop', handleFileDrop, false);
