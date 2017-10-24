@@ -17,6 +17,7 @@ if fileitem.filename:
     n.write(fileitem.file.read())
     n.close()
     message = 'The file "' + fn + '" was uploaded successfully'
+
 else:
     message = 'No file was uploaded'
 
