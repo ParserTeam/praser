@@ -27,7 +27,8 @@ function onResponse(btn){
 }
 
 function sendData() {
-    console.log($("#input_textarea").val());
+    console.log("MY TEXT" + textArea.textContent);
+
     var data = {
         version: $('input[name="version"]:checked').val(),
         text: $("#input_textarea").val()
@@ -40,15 +41,17 @@ function sendData() {
 
 function addFilesTextToInput(files) {
     var end = files.length;
+    var input = $("#input_textarea");
 
-    textArea.textContent = "";
+    input.val("");
     for (var i = 0, f; f = files[i]; i++) {
         var reader = new FileReader();
+        console.log(i);
 
         reader.onload = (function(theFile) {
             return function(e) {
                 // Render thumbnail.
-                textArea.textContent = textArea.textContent + e.target.result + "\n\n";
+                    input.val(input.val() + e.target.result + "\n\n");
                 end--;
                 if (end === 0)
                     sendData();
@@ -74,10 +77,10 @@ function handleFileSelect(evt) {
 }
 
 function handleDragOver(evt) {
-        evt.stopPropagation();
-        evt.preventDefault();
-        evt.dataTransfer.dropEffect = 'copy'; // Explicitly show this is a copy.
-    }
+    evt.stopPropagation();
+    evt.preventDefault();
+    evt.dataTransfer.dropEffect = 'copy'; // Explicitly show this is a copy.
+}
 
 document.getElementById('files').addEventListener('change', handleFileSelect, false);
 textArea.addEventListener('dragover', handleDragOver, false);
