@@ -1,26 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
+    <meta http-equiv="Content-Type" content="text/html; charset=windows-1251"/>
     <!DOCTYPE html>
     <TITLE>Create xml</TITLE>
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-    <div id = "navigation" STYLE="background:Lavender; text-align: left; height:120px; width:50%; float: left;">
-        <p>&nbsp</p>
-        <h1 STYLE = "right;font-size:24px;">&#8195;Add xml config </h1>
-    </div >
-    <DIV id = "navigation" STYLE = "background:Lavender; text-align: right; height:120px; width:48%; float: right;font-size:18px; padding-right: 2%;">
-        <p>&nbsp</p>
-        <nav><a href="/">BACK TO PARSER</a></nav>
-    </DIV>
+<script src="jquery-3.2.1.min.js">
+</script>
+
+<div id="navigation" STYLE="background:Lavender; text-align: left; height:120px; width:50%; float: left;">
+    <p>&nbsp</p>
+    <h1 STYLE="right;font-size:24px;">&#8195;Add xml config </h1>
+</div>
+<DIV id="navigation"
+     STYLE="background:Lavender; text-align: right; height:120px; width:48%; float: right;font-size:18px; padding-right: 2%;">
+    <p>&nbsp</p>
+    <nav><a href="/">BACK TO PARSER</a></nav>
+</DIV>
+<p style="position:fixed; top:20%; right:10%;">
+    <img src="Exmple.jpg" style="right:10%;">
+</p>
+<p style="position:fixed; top:65%; right:12%;">
+    <img src="Example2.png" style="right:10%;">
+</p>
 
 <form id="fromNameToMo">
-<p>&nbsp</p>
+    <p>&nbsp</p>
     <p>Name of config file
         <br>
-        <input type="text" name="nameFile" value="rxbspTEST" title="Only letter" spellcheck="false" style="width:50%" autofocus required placeholder="With out .xml. Only letters and numbers">
+        <input type="text" id="nameFile" name="nameFile" value="rxbspTEST" title="Only letter" spellcheck="false" style="width:50%"
+               autofocus required placeholder="With out .xml. Only letters and numbers">
         <meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
 
         <!--<input type="text" style="min-width:50%" onkeydown="this.style.width = ((this.value.length + 1) * 8) + 'px';"> -->
@@ -29,7 +40,8 @@
     </p>
     <p>Header of the printout
         <br>
-        <input type="text" name="Header" value="RADIO X-CEIVER ADMINISTRATION BTS STATUS DATA" style="width:50%" placeholder="Header for this type printouts">
+        <input type="text" name="Header" value="RADIO X-CEIVER ADMINISTRATION BTS STATUS DATA" style="width:50%"
+               placeholder="Header for this type printouts">
 
         <!--<input type="text" style="min-width:50%" onkeydown="this.style.width = ((this.value.length + 1) * 8) + 'px';"> -->
 
@@ -45,12 +57,14 @@
 
     <p>Name of managed object
         <br>
-        <input type="text" name="name_key" value="MO" title="Letters and " placeholder="Managed object. Example {MO NSEI}"
+        <input type="text" name="name_key" value="MO" title="Letters and "
+               placeholder="Managed object. Example {MO NSEI}"
                style="width:50%" required>
     </p>
-     <p>Releases for this printout
+    <p>Releases for this printout
         <br>
-        <input type="text" name="Releases" value="A57" title="" placeholder="Available releases :G13B, G14B, A53, A54, A55, A56, A57, A58"
+        <input type="text" name="Releases" value="A57" title=""
+               placeholder="Available releases :G13B, G14B, A53, A54, A55, A56, A57, A58"
                style="width:50%" required>
     </p>
     <p>Values for parsing
@@ -61,8 +75,6 @@
     </div>
 
     <script type="text/javascript">
-
-
 
 function generate_bit_map(form, keys,name){
 
@@ -153,6 +165,9 @@ document.getElementById("myDiv").appendChild(para1).appendChild(btndiv).appendCh
 
 
 
+
+
+
     </script>
 
     <script type="text/javascript">
@@ -178,9 +193,37 @@ obj.disabled=true;
 //obj.disabled=(!obj.disabled);
 }
 }
+
+function onReceive(val){
+    console.log("'" + val + "'");
+    console.log("'" + "false\n" + "'");
+
+    if (val == 'false\n'){
+        myFunction()
+    }
+    else {
+    alert(val)}
+
+
+}
+
+function send_data(){
+    var a = $("#fromNameToMo").serialize();
+    console.log(a);
+$.post('cgi-bin/add_xml_config.py', a, onReceive)
+
+}
+
+function myFunction() {
+    var txt;
+    var nameOfFile = prompt("Please enter your name:", "");
+     $("#nameFile").val(nameOfFile);
+     //console.log(document.getElementById("nameFile"));
+    send_data();
+
+}
+
 </script>
-
-
 
 
     <form id="keys_bits" name="keys_bit" onload="readfile()">
@@ -193,22 +236,22 @@ obj.disabled=true;
         </table>
         <p>Additional values for parsing
             <br>
-            <input type="text" name="KeysToPrint" style="width:50%" value="" placeholder="By side key that you want to print">
+            <input type="text" name="KeysToPrint" style="width:50%" value=""
+                   placeholder="By side key that you want to print">
             </br>
 
 
-            <input type="submit" value="Create xml config" formaction="/cgi-bin/AddXmlConfig.py" formmethod="post">
+             <!--<input type="submit" value="Create xml config" formaction="/cgi-bin/add_xml_config.py" formmethod="post">-->
+            <input type="button" value="Create xml config" onclick="send_data()"/>
         </p>
 
     </form>
 </form>
+<!--var newWin = window.prompt("sometext","defaultText", "width=200,height=200");-->
+
 <form>
-    <div>
 
-    </div>
-    <div>
-
-    </div>
+    <p id="demo"></p>
 </form>
 
 </body>

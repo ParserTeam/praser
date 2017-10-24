@@ -60,6 +60,7 @@ class CreateXml:
         releases_text = self.doc.createTextNode(self.releases)
         releases_tag.appendChild(releases_text)
         return releases_tag
+
     def create_name_key(self):
         name_key_tag = self.doc.createElement('NAME_KEY')
         name_key_text = self.doc.createTextNode(self.name_key)
@@ -142,26 +143,29 @@ class WriteXml(CreateXml):
 
             self.list_of_same_files = [xml_file for xml_file in self.list_of_files if self.name_of_file in xml_file]
             self.list_of_same_files = sorted(self.list_of_same_files, key=self.num_sort)
-            # list_sorted = [xml_file for xml_file in self.list_of_files if self.name_of_file in xml_file]
-            # list_sorted += ["1"]
-            # list_sorted.sort()
-            self.file_name_for_creating = self._create_name_of_suggest()
+
+            self.file_name_for_creating = self.name_of_file
             self.file_name_for_creating = self._show_user_message_box()
 
-            # self.file_name_for_creating =
         else:
             self.file_name_for_creating = self.name_of_file
-        try:
-            with open(self.directory + self.file_name_for_creating + ".xml", "w") as f:
-                f.write(self.xml_str)
 
-            self._show_created_xml()
-        except TypeError:
+        if self.file_name_for_creating == False:
             print """
-            
-            No file name
-            
-            """
+false"""
+            # print False
+        else:
+            try:
+                with open(self.directory + self.file_name_for_creating + ".xml", "w") as f:
+                    f.write(self.xml_str)
+
+                self._show_created_xml()
+            except TypeError:
+                print """
+                
+                No file name
+                
+                """
 
     def num_sort(self, file_name):
         try:
@@ -179,8 +183,44 @@ class WriteXml(CreateXml):
                 return self._check_in_array(self.name_of_file, file)
 
     def _dry(self):
-        return askstring('The name that you choose already is', 'Please insert the new file name',
-                         initialvalue=self._create_name_of_suggest())
+        print """
+
+          !!!
+          {}
+           """.format("False")
+
+
+
+#         print """
+#         <body onload = "myFunction()">
+#              <script>
+# function myFunction() {
+#     var txt;
+#     var person = prompt("Please enter your name:", "");
+#     document.getElementById("demo").innerHTML = person;
+#     document.getElementById("reason").value = person;
+#     document.getElementById("form").submit();
+#     $.post('cgi-bin/get_data_from_html.py', person)
+#
+# }
+# </script>
+# <from id = "form " >
+# <input type = "hidden" id ="reason" formaction = "add_xml_config.py" formmethod="post"/>
+# <p id = "demo">
+# </p>
+# </form>
+# </body>
+#         """
+#
+#         # print self.form.getvalue("form")
+
+        # return askstring('The name that you choose already is', 'Please insert the new file name',
+        #                  initialvalue=self._create_name_of_suggest())
+
+
+
+
+        return "rxbspTESTsdnas"
 
     def _show_user_message_box(self):
         flag = True
@@ -188,7 +228,7 @@ class WriteXml(CreateXml):
         root.withdraw()
         # root.minsize(width=100, height=200)
 
-        self.file_name_for_creating = self._dry()
+        # self.file_name_for_creating = self._dry()
 
         try:
             while flag:
@@ -196,9 +236,10 @@ class WriteXml(CreateXml):
                     if re.match("\w+$", self.file_name_for_creating):
                         return self.file_name_for_creating
                     else:
-                        self.file_name_for_creating = self._dry()
+                        return False
                 else:
-                    self.file_name_for_creating = self._dry()
+                    return False
+                    # self.file_name_for_creating = self._dry()
         except TypeError:
             pass
 
