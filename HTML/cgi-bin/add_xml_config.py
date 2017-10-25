@@ -148,8 +148,10 @@ class WriteXml(CreateXml):
             self.file_name_for_creating = self._show_user_message_box()
 
         else:
-            self.file_name_for_creating = self.name_of_file
-
+            if re.match("\w+$", self.file_name_for_creating):
+                self.file_name_for_creating = self.name_of_file
+            else:
+                self.file_name_for_creating = False
         if self.file_name_for_creating == False:
             print """
 false"""
@@ -182,61 +184,14 @@ false"""
             if not self._check_in_array(self.name_of_file, file) + ".xml" in self.list_of_same_files:
                 return self._check_in_array(self.name_of_file, file)
 
-    def _dry(self):
-        print """
-
-          !!!
-          {}
-           """.format("False")
-
-
-
-#         print """
-#         <body onload = "myFunction()">
-#              <script>
-# function myFunction() {
-#     var txt;
-#     var person = prompt("Please enter your name:", "");
-#     document.getElementById("demo").innerHTML = person;
-#     document.getElementById("reason").value = person;
-#     document.getElementById("form").submit();
-#     $.post('cgi-bin/get_data_from_html.py', person)
-#
-# }
-# </script>
-# <from id = "form " >
-# <input type = "hidden" id ="reason" formaction = "add_xml_config.py" formmethod="post"/>
-# <p id = "demo">
-# </p>
-# </form>
-# </body>
-#         """
-#
-#         # print self.form.getvalue("form")
-
-        # return askstring('The name that you choose already is', 'Please insert the new file name',
-        #                  initialvalue=self._create_name_of_suggest())
-
-
-
-
-        return "rxbspTESTsdnas"
-
     def _show_user_message_box(self):
         flag = True
-        root = Tkinter.Tk()
-        root.withdraw()
-        # root.minsize(width=100, height=200)
-
-        # self.file_name_for_creating = self._dry()
 
         try:
             while flag:
                 if not self.file_name_for_creating + '.xml' in self.list_of_same_files:
-                    if re.match("\w+$", self.file_name_for_creating):
                         return self.file_name_for_creating
-                    else:
-                        return False
+
                 else:
                     return False
                     # self.file_name_for_creating = self._dry()

@@ -198,7 +198,7 @@ function onReceive(val){
     console.log("'" + val + "'");
     console.log("'" + "false\n" + "'");
 
-    if (val == 'false\n'){
+    if (val === 'false\n'){
         myFunction()
     }
     else {
@@ -218,8 +218,12 @@ function myFunction() {
     var txt;
     var nameOfFile = prompt("Please enter your name:", "");
      $("#nameFile").val(nameOfFile);
+     console.log(nameOfFile);
      //console.log(document.getElementById("nameFile"));
-    send_data();
+    if (nameOfFile !== null){
+        send_data();
+    }
+
 
 }
 
