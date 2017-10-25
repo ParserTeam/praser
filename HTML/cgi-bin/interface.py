@@ -22,7 +22,7 @@ def get_versions():
     print "</p>"
 
 
-def output_inf(output, error): #use it to print dynamic table with the result information after parsing
+def output_inf(output, error):  # use it to print dynamic table with the result information after parsing
     mainId = 0
     valuesId = 0
     mainDict = {}
