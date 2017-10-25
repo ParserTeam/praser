@@ -9,7 +9,7 @@ CONFIGURATION_KEYS = {
     "rxmfp.xml": "MO BTSSWVER /any/ FAULT CODES CLASS 2A /any/ \n{2,}",
     "rxmsp.xml": "MO STATE BLSTATE BLO BLA LMO BTS CONF /any/ \n{2,}",
     "rrscp.xml": "SCGR SC DEV DEV1 NUMDEV DCP STATE REASON /any/ \n{2,}",
-    "rrbvp.xml": "NSEI /any/ SIGBVCSTATE SGSNFEAT /any/ \n{2,}"
+    "rrbvp.xml": "NSEI[\s|\n][\s\S]*?SIGBVCSTATE\s+SGSNFEAT /any/ \n{2,}"
 }
 
 rxbsp = """

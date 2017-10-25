@@ -153,8 +153,12 @@ class Controller:
 
 
 if __name__ == "__main__":
+    text = ""
     error_manager = ErrorManager()
     input_val = get_input_inf()
-    controller = Controller(version=input_val[0])
-    text = controller.check_text(input_val[1])
+    if input_val[0]:
+        controller = Controller(version=input_val[0])
+        text = controller.check_text(input_val[1])
+    else:
+        error_manager.add_error_message("No input text")
     output_inf(text, error_manager.get_error_messages_as_string())
