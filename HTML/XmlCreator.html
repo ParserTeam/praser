@@ -19,11 +19,11 @@
     <p>&nbsp</p>
     <nav><a href="/">BACK TO PARSER</a></nav>
 </DIV>
-<p style="position:fixed; top:20%; right:10%;">
+<p style="position:fixed; top:13%; right:10%;">
     <img src="img/Exmple.jpg" style="right:10%;">
 </p>
-<p style="position:fixed; top:65%; right:12%;">
-    <textarea  style="right:10%;">How to write limiter:
+<p style="position:fixed; top:58%; right:1%;">
+    <textarea rows="50" cols="114" style="right:10%;" readonly>How to write limiter:
 You can write regex pattern to capture printout or use USER FRIENDLY limiter:
 To put one or more withe spaces between key words write - ' ' (space)
 In regex = '\s+'
@@ -268,10 +268,6 @@ document.getElementById("myDiv").appendChild(para1).appendChild(btndiv).appendCh
 }
 
 
-
-
-
-
     </script>
 
     <script type="text/javascript">
@@ -314,12 +310,29 @@ function onReceive(val){
 function send_data(){
     var a = $("#fromNameToMo").serialize();
     console.log(a);
-    $.post('cgi-bin/add_xml_config.py', a, onReceive)
+//    $.post('cgi-bin/add_xml_config.py', a, onReceive)
 
     $("#fromNameToMo").submit();
 
-
 }
+
+$(document).ready
+(
+    function()
+    {
+        $('#fromNameToMo').submit
+        (
+            function(event)
+            {
+
+                var a = $("#fromNameToMo").serialize();
+                console.log(a);
+                $.post('cgi-bin/add_xml_config.py', a, onReceive);
+                return false;
+            }
+        )
+    }
+)
 
 function myFunction() {
     var txt;
@@ -355,7 +368,8 @@ function myFunction() {
 
 
             <!--<input type="button" value="Create xml config" onclick="send_data()"/>-->
-            <input type="button" value="Create xml config" onclick="send_data()"/>
+            <input type="submit" value="Create xml config" />
+            <!--onclick="send_data()"-->
         </p>
 
     </form>
