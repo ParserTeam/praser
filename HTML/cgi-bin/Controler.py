@@ -43,7 +43,8 @@ class Controller:
         """
         self.print_reader = PrintReader(print_text, self.xml_files)
         if len(self.print_reader.subjects) == 0:
-            return "<b>No file found for text</b><p>Files available: " + ", ".join(self.xml_files.keys()) + "</p>"
+            return "<b>No file found for text</b><p><strong>Files available for this version:</strong> " +\
+                   ", ".join(self.xml_files.keys()) + "</p>"
         self._check_file_version(self.print_reader.subjects)
         list_check_values = self.print_reader.get_check_values()
 
