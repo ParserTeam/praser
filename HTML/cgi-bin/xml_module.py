@@ -1,6 +1,7 @@
 import xml.etree.cElementTree as ET
 from xml.etree.cElementTree import ParseError
 from os import listdir, path
+from collections import OrderedDict
 
 
 class KeysObject:
@@ -80,7 +81,7 @@ class ConfigModule:
     def get_keys_from_files(self):
         list_of_limiters = []
 
-        dict_of_keys = {}
+        dict_of_keys = OrderedDict()
 
         list_of_files = listdir(self.check_path())
 

@@ -27,7 +27,7 @@ class PrintReader:
             limiter = limiter.replace(" /or/ ", r"|")
             limiter = limiter.replace(" ", r"\s+")
             # if match("$")
-            print file_name, limiter
+            # print file_name, limiter
             texts = finditer(limiter, text)
             self._unite_texts(result, texts, file_name)
         return result
