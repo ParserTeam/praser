@@ -27,7 +27,7 @@ function onResponse(btn){
 }
 
 function sendData() {
-    console.log("MY TEXT" + textArea.textContent);
+    console.log("MY TEXT" + textArea.textContent)
 
     var data = {
         version: $('input[name="version"]:checked').val(),
