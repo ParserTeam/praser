@@ -46,7 +46,10 @@ function addFilesTextToInput(files) {
     input.val("");
     for (var i = 0, f; f = files[i]; i++) {
         var reader = new FileReader();
-        console.log(i);
+
+        if (!f.type.match('text*')) {
+            continue;
+        }
 
         reader.onload = (function(theFile) {
             return function(e) {
