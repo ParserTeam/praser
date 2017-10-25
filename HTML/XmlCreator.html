@@ -7,6 +7,7 @@
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
+<div>
 <script src="jquery-3.2.1.min.js">
 </script>
 
@@ -19,119 +20,120 @@
     <p>&nbsp</p>
     <nav><a href="/">BACK TO PARSER</a></nav>
 </DIV>
-<p style="position:fixed; top:13%; right:10%;">
-    <img src="img/Exmple.jpg" style="right:10%;">
-</p>
-<p style="position:fixed; top:58%; right:1%;">
-    <textarea rows="25" cols="114" style="right:10%;" readonly>How to write limiter:
-You can write regex pattern to capture printout or use USER FRIENDLY limiter:
-To put one or more withe spaces between key words write - ' ' (space)
-In regex = '\s+'
-To put one or more withe spaces and none or unlimited times characters (any letters, write spaces or end of lines) write - ' /any/ '
-In regex = '[\s|\n][\s\S]*?'
-To use two limiters in one print out write - ' /or/ ' between limiters.
-In regex = '|'
-If you don't write with how many endlines ends printout, the program will add two or more end of lines
-in regex = '\n{2,}'
+<div id="" style="position:fixed;margin-left:55%;width:45%;top:130px;">
+    <p style="position:relative; top:13%; right:1%;">
+    <img src="img/Exmple.jpg" style="right:1%; width:auto; height:400px ">
+    </p>
+        <p style="position:relative; top:58%; right:1%;">
+        <textarea rows="50" style="right:1%; width:100%;" readonly>How to write limiter:
+    You can write regex pattern to capture printout or use USER FRIENDLY limiter:
+    To put one or more withe spaces between key words write - ' ' (space)
+    In regex = '\s+'
+    To put one or more withe spaces and none or unlimited times characters (any letters, write spaces or end of lines) write - ' /any/ '
+    In regex = '[\s|\n][\s\S]*?'
+    To use two limiters in one print out write - ' /or/ ' between limiters.
+    In regex = '|'
+    If you don't write with how many endlines ends printout, the program will add two or more end of lines
+    in regex = '\n{2,}'
 
-You should write as many key words as possible, to make your limiter precise for your print out.
-For example we'll use rxmfp print out:
+    You should write as many key words as possible, to make your limiter precise for your print out.
+    For example we'll use rxmfp print out:
 
-rxmfp:mo=rxotg-187,subord,faulty;
+    rxmfp:mo=rxotg-187,subord,faulty;
 
-RADIO X-CEIVER ADMINISTRATION
-MANAGED OBJECT FAULT INFORMATION
+    RADIO X-CEIVER ADMINISTRATION
+    MANAGED OBJECT FAULT INFORMATION
 
-MO                   BTSSWVER
-RXORX-187-0          ERA-G07-R37-V01
+    MO                   BTSSWVER
+    RXORX-187-0          ERA-G07-R37-V01
 
-RU  RUREVISION                           RUSERIALNO
- 0
+    RU  RUREVISION                           RUSERIALNO
+     0
 
-    RUPOSITION                           RULOGICALID
-
-
-    RULOGICALIDEXT
+        RUPOSITION                           RULOGICALID
 
 
-STATE  BLSTATE  INTERCNT  CONCNT  CONERRCNT  LASTFLT   LFREASON
-OPER            00000
-
-FAULT CODES CLASS 2A
-  1   2   3   4
-
-END
-
-We can write simple limiter 'MO /any/ FAULT CODES CLASS 2A /any/ \n{2,}'
-it will work for this printout, but if we put two print outs with similar key words such as:
-
-rxbsp:mo=rxstf-200;
-
-RADIO X-CEIVER ADMINISTRATION BTS STATUS DATA
-
-MO               OPCOND  OPCONDMAP                      OMLSTAT  RSLSTAT
-RXSTF-200        NOP     04
-
-                 OPCONDTXT
-                 nope
-
-                 BTSSWVER         SECTOR
-
-                 IDENTITYTXT
-
-                 SECTORIDTXT
-
-                 BSCDATE          BSCTIME
-
-                 BTSDATE          BTSTIME
-
-                 NEGA  NEGO  BTSC  BSCC  CTSN
-
-                 CNFG  BUND  BTSN  BSCN
-                 0001
-
-END
+        RULOGICALIDEXT
 
 
-rxmfp:mo=rxotg-187,subord,faulty;
+    STATE  BLSTATE  INTERCNT  CONCNT  CONERRCNT  LASTFLT   LFREASON
+    OPER            00000
 
-RADIO X-CEIVER ADMINISTRATION
-MANAGED OBJECT FAULT INFORMATION
+    FAULT CODES CLASS 2A
+      1   2   3   4
 
-MO                   BTSSWVER
-RXORX-187-0          ERA-G07-R37-V01
+    END
 
-RU  RUREVISION                           RUSERIALNO
- 0
+    We can write simple limiter 'MO /any/ FAULT CODES CLASS 2A /any/ \n{2,}'
+    it will work for this printout, but if we put two print outs with similar key words such as:
 
-    RUPOSITION                           RULOGICALID
+    rxbsp:mo=rxstf-200;
+
+    RADIO X-CEIVER ADMINISTRATION BTS STATUS DATA
+
+    MO               OPCOND  OPCONDMAP                      OMLSTAT  RSLSTAT
+    RXSTF-200        NOP     04
+
+                     OPCONDTXT
+                     nope
+
+                     BTSSWVER         SECTOR
+
+                     IDENTITYTXT
+
+                     SECTORIDTXT
+
+                     BSCDATE          BSCTIME
+
+                     BTSDATE          BTSTIME
+
+                     NEGA  NEGO  BTSC  BSCC  CTSN
+
+                     CNFG  BUND  BTSN  BSCN
+                     0001
+
+    END
 
 
-    RULOGICALIDEXT
+    rxmfp:mo=rxotg-187,subord,faulty;
+
+    RADIO X-CEIVER ADMINISTRATION
+    MANAGED OBJECT FAULT INFORMATION
+
+    MO                   BTSSWVER
+    RXORX-187-0          ERA-G07-R37-V01
+
+    RU  RUREVISION                           RUSERIALNO
+     0
+
+        RUPOSITION                           RULOGICALID
 
 
-STATE  BLSTATE  INTERCNT  CONCNT  CONERRCNT  LASTFLT   LFREASON
-OPER            00000
+        RULOGICALIDEXT
 
-FAULT CODES CLASS 2A
-  1   2   3   4
 
-END
+    STATE  BLSTATE  INTERCNT  CONCNT  CONERRCNT  LASTFLT   LFREASON
+    OPER            00000
 
-the program will work incorrectly, because this limiter will capture two printout as one.
-To solve this problem just add one key word to limiter:
+    FAULT CODES CLASS 2A
+      1   2   3   4
 
-MO BTSSWVER /any/ FAULT CODES CLASS 2A /any/ \n{2,}
+    END
 
-PS. You shouldn’t write header in limiter, because when user put print out without header the program will not match.
-</textarea>
-</p>
+    the program will work incorrectly, because this limiter will capture two printout as one.
+    To solve this problem just add one key word to limiter:
 
+    MO BTSSWVER /any/ FAULT CODES CLASS 2A /any/ \n{2,}
+
+    PS. You shouldn’t write header in limiter, because when user put print out without header the program will not match.
+    </textarea>
+    </p>
+</div>
 <form id="fromNameToMo">
     <p>&nbsp</p>
     <p>Name of config file
         <br>
-        <input type="text" id="nameFile" name="nameFile" value="rxbspTEST" title="Only letter" spellcheck="false" style="width:50%"
+        <input type="text" id="nameFile" name="nameFile" value="" title="Only letter" spellcheck="false" style="width:50%"
                autofocus required placeholder="With out .xml. Only letters and numbers">
         <meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
 
@@ -141,7 +143,7 @@ PS. You shouldn’t write header in limiter, because when user put print out witho
     </p>
     <p>Header of the printout
         <br>
-        <input type="text" name="Header" value="RADIO X-CEIVER ADMINISTRATION BTS STATUS DATA" style="width:50%"
+        <input type="text" name="Header" value="" style="width:50%"
                placeholder="Header for this type printouts">
 
         <!--<input type="text" style="min-width:50%" onkeydown="this.style.width = ((this.value.length + 1) * 8) + 'px';"> -->
@@ -151,29 +153,29 @@ PS. You shouldn’t write header in limiter, because when user put print out witho
     <p>Pattern of regular expression for parsing
         <br>
         <input type="text" name="limiter"
-               value="MO\s+OPCOND\s+OPCONDMAP\s+OMLSTAT\s+RSLSTAT \n{2,}"
+               value=""
                style="min-width:50%; max-width:100%;" onkeydown="this.style.width = ((this.value.length) * 8) + 'px';"
                placeholder="Regular expression for parsing. Example: MO FAULT CODES CLASS 2A \n{2,}" required>
     </p>
 
     <p>Name of managed object
         <br>
-        <input type="text" name="name_key" value="MO" title="Letters and "
+        <input type="text" name="name_key" value="" title="Letters and "
                placeholder="Managed object. Example {MO NSEI}"
                style="width:50%" required>
     </p>
     <p>Releases for this printout
         <br>
-        <input type="text" name="Releases" value="A57" title=""
+        <input type="text" name="Releases" value="" title=""
                placeholder="Available releases :G13B, G14B, A53, A54, A55, A56, A57, A58"
                style="width:50%" required>
     </p>
     <p>Values for parsing
         <br>
-        <input type="text" name="keys" value="OPCONDMAP" style="width:50%"
+        <input type="text" name="keys" value="" style="width:50%"
                pattern="([\d\w]+ ?)+[\d\w]$" placeholder="Insert searching keys if format {key1 key2 key3}" required>
     </p>
-    </div>
+
 
     <script type="text/javascript">
 
@@ -199,10 +201,10 @@ for (i = 0; i <arr.length; i++){
 var node = document.createTextNode(arr[i]);
 var para = document.createElement("p");
 
-var node1 = document.createTextNode("System of calculation for in \xa0\xa0 \xa0 \xa0 \xa0");
-var node2 = document.createTextNode("System of calculation for out \xa0 \xa0\xa0 \xa0");
-var node3 = document.createTextNode("Direction of calculation \xa0 \xa0 \xa0 \xa0 \xa0 \xa0 \xa0 \xa0");
-var node4 = document.createTextNode("Key value indicating no error \xa0 \xa0 \xa0");
+var node1 = document.createTextNode("System of calculation of bitmap  \xa0\xa0 \xa0 \xa0 \xa0");
+var node2 = document.createTextNode("System of calculation of this value  \xa0 \xa0");
+var node3 = document.createTextNode("Direction of reading values  \xa0\xa0 \xa0 \xa0 \xa0 \xa0 \xa0 \xa0 \xa0");
+var node4 = document.createTextNode("Key value indicating no error \xa0 \xa0 \xa0 \xa0 \xa0 \xa0 \xa0");
 var para1 = document.createElement("p");
 var para2 = document.createElement("p");
 var para3 = document.createElement("p");
@@ -214,28 +216,40 @@ document.getElementById("myDiv").appendChild(btndiv);
 
 var in_type = document.createElement('input');
 in_type.type = 'text';
-in_type.value = "16"
+in_type.value = ""
 in_type.setAttribute("pattern","(2)|(16)|(10)|(str)");
+in_type.setAttribute("style","width:25%");
+in_type.setAttribute("title","Its can be: bin(insert 2), hex (insert 16), dec (insert 10) or str (insert str)");
+in_type.setAttribute("placeholder","bin(insert 2), hex (insert 16), dec (insert 10) or str (insert str)");
 in_type.setAttribute("maxlength","3");
 in_type.name = 'in_type';
 
 var out_type = document.createElement('input');
 out_type.type = 'text';
-out_type.value = "2"
+out_type.value = ""
 out_type.setAttribute("maxlength","3");
+out_type.setAttribute("style","width:25%");
 out_type.setAttribute("pattern","(2)|(16)|(10)|(str)");
+out_type.setAttribute("title","Its can be: bin(insert 2), hex (insert 16), dec (insert 10) or str (insert str)");
+out_type.setAttribute("placeholder","bin(insert 2), hex (insert 16), dec (insert 10) or str (insert str)");
 out_type.name = 'out_type';
 
 var direct = document.createElement('input');
 direct.type = 'text';
 direct.value = ""
+direct.setAttribute("style","width:25%");
 direct.setAttribute("pattern","(1)|(0)|(-1)");
+direct.setAttribute("title","Its can be: add values up to down(insert 1), add values down to up(insert -1) or don't add (insert 0)");
+direct.setAttribute("placeholder","add values up to down(insert 1), add down to up(insert -1) or don't add(0)");
 direct.setAttribute("maxlength","2");
 direct.name = 'direct';
 
 var norm_val = document.createElement('input');
 norm_val.type = 'text';
-norm_val.value = "0"
+norm_val.value = "";
+norm_val.setAttribute("style","width:25%");
+norm_val.setAttribute("title","default value for this key. Example: 0 for bin bitmap");
+norm_val.setAttribute("placeholder","default value for this key. Example: 0 for bin bitmap");
 norm_val.setAttribute("maxlength","4");
 norm_val.name = 'norm_val';
 
