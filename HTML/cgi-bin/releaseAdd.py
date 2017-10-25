@@ -38,7 +38,7 @@ print '''
     <link rel="stylesheet" type="text/css" href="/style.css">
     </head>
     <body>
-    <div id ="goback"><p>&nbsp</p><nav><a href="/">BACK TO PARSER</a></nav><p>&nbsp</p></div>
+    <div id ="goback"><p>&nbsp</p><nav><a href="/admin.html">BACK TO PARSER</a></nav><p>&nbsp</p></div>
     <div>
     <P>&#8195;'''+text+'''</P>
     <div>
