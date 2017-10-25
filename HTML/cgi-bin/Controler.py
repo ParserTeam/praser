@@ -156,7 +156,7 @@ if __name__ == "__main__":
     text = ""
     error_manager = ErrorManager()
     input_val = get_input_inf()
-    if input_val[0]:
+    if input_val[1]:
         controller = Controller(version=input_val[0])
         text = controller.check_text(input_val[1])
     else:
