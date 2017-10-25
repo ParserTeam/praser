@@ -23,7 +23,108 @@
     <img src="img/Exmple.jpg" style="right:10%;">
 </p>
 <p style="position:fixed; top:65%; right:12%;">
-    <img src="img/Example2.png" style="right:10%;">
+    <textarea  style="right:10%;">How to write limiter:
+You can write regex pattern to capture printout or use USER FRIENDLY limiter:
+To put one or more withe spaces between key words write - ' ' (space)
+In regex = '\s+'
+To put one or more withe spaces and none or unlimited times characters (any letters, write spaces or end of lines) write - ' /any/ '
+In regex = '[\s|\n][\s\S]*?'
+To use two limiters in one print out write - ' /or/ ' between limiters.
+In regex = '|'
+If you don't write with how many endlines ends printout, the program will add two or more end of lines
+in regex = '\n{2,}'
+
+You should write as many key words as possible, to make your limiter precise for your print out.
+For example we'll use rxmfp print out:
+
+rxmfp:mo=rxotg-187,subord,faulty;
+
+RADIO X-CEIVER ADMINISTRATION
+MANAGED OBJECT FAULT INFORMATION
+
+MO                   BTSSWVER
+RXORX-187-0          ERA-G07-R37-V01
+
+RU  RUREVISION                           RUSERIALNO
+ 0
+
+    RUPOSITION                           RULOGICALID
+
+
+    RULOGICALIDEXT
+
+
+STATE  BLSTATE  INTERCNT  CONCNT  CONERRCNT  LASTFLT   LFREASON
+OPER            00000
+
+FAULT CODES CLASS 2A
+  1   2   3   4
+
+END
+
+We can write simple limiter 'MO /any/ FAULT CODES CLASS 2A /any/ \n{2,}'
+it will work for this printout, but if we put two print outs with similar key words such as:
+
+rxbsp:mo=rxstf-200;
+
+RADIO X-CEIVER ADMINISTRATION BTS STATUS DATA
+
+MO               OPCOND  OPCONDMAP                      OMLSTAT  RSLSTAT
+RXSTF-200        NOP     04
+
+                 OPCONDTXT
+                 nope
+
+                 BTSSWVER         SECTOR
+
+                 IDENTITYTXT
+
+                 SECTORIDTXT
+
+                 BSCDATE          BSCTIME
+
+                 BTSDATE          BTSTIME
+
+                 NEGA  NEGO  BTSC  BSCC  CTSN
+
+                 CNFG  BUND  BTSN  BSCN
+                 0001
+
+END
+
+
+rxmfp:mo=rxotg-187,subord,faulty;
+
+RADIO X-CEIVER ADMINISTRATION
+MANAGED OBJECT FAULT INFORMATION
+
+MO                   BTSSWVER
+RXORX-187-0          ERA-G07-R37-V01
+
+RU  RUREVISION                           RUSERIALNO
+ 0
+
+    RUPOSITION                           RULOGICALID
+
+
+    RULOGICALIDEXT
+
+
+STATE  BLSTATE  INTERCNT  CONCNT  CONERRCNT  LASTFLT   LFREASON
+OPER            00000
+
+FAULT CODES CLASS 2A
+  1   2   3   4
+
+END
+
+the program will work incorrectly, because this limiter will capture two printout as one.
+To solve this problem just add one key word to limiter:
+
+MO BTSSWVER /any/ FAULT CODES CLASS 2A /any/ \n{2,}
+
+PS. You shouldn’t write header in limiter, because when user put print out without header the program will not match.
+</textarea>
 </p>
 
 <form id="fromNameToMo">
@@ -114,19 +215,22 @@ document.getElementById("myDiv").appendChild(btndiv);
 var in_type = document.createElement('input');
 in_type.type = 'text';
 in_type.value = "16"
-in_type.setAttribute("maxlength","4");
+in_type.setAttribute("pattern","(2)|(16)|(10)|(str)");
+in_type.setAttribute("maxlength","3");
 in_type.name = 'in_type';
 
 var out_type = document.createElement('input');
 out_type.type = 'text';
 out_type.value = "2"
-out_type.setAttribute("maxlength","4");
+out_type.setAttribute("maxlength","3");
+out_type.setAttribute("pattern","(2)|(16)|(10)|(str)");
 out_type.name = 'out_type';
 
 var direct = document.createElement('input');
 direct.type = 'text';
 direct.value = ""
-direct.setAttribute("maxlength","4");
+direct.setAttribute("pattern","(1)|(0)|(-1)");
+direct.setAttribute("maxlength","2");
 direct.name = 'direct';
 
 var norm_val = document.createElement('input');
@@ -210,20 +314,22 @@ function onReceive(val){
 function send_data(){
     var a = $("#fromNameToMo").serialize();
     console.log(a);
-$.post('cgi-bin/add_xml_config.py', a, onReceive)
+    $.post('cgi-bin/add_xml_config.py', a, onReceive)
+
+    $("#fromNameToMo").submit();
+
 
 }
 
 function myFunction() {
     var txt;
-    var nameOfFile = prompt("Please enter your name:", "");
+    var nameOfFile = prompt("Please enter a new name of file:", "");
      $("#nameFile").val(nameOfFile);
      console.log(nameOfFile);
      //console.log(document.getElementById("nameFile"));
     if (nameOfFile !== null){
         send_data();
     }
-
 
 }
 
@@ -246,6 +352,9 @@ function myFunction() {
 
 
              <!--<input type="submit" value="Create xml config" formaction="/cgi-bin/add_xml_config.py" formmethod="post">-->
+
+
+            <!--<input type="button" value="Create xml config" onclick="send_data()"/>-->
             <input type="button" value="Create xml config" onclick="send_data()"/>
         </p>
 

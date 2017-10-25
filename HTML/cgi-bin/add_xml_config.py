@@ -1,11 +1,7 @@
 import cgi
 from xml.dom import minidom
-import Tkinter
-from tkSimpleDialog import askstring
 from os import listdir
 import re
-
-from re import search
 
 
 class CreateXml:
@@ -148,7 +144,7 @@ class WriteXml(CreateXml):
             self.file_name_for_creating = self._show_user_message_box()
 
         else:
-            if re.match("\w+$", self.file_name_for_creating):
+            if re.match("\w+$", self.name_of_file):
                 self.file_name_for_creating = self.name_of_file
             else:
                 self.file_name_for_creating = False
