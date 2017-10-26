@@ -7,7 +7,7 @@
         <OMLF1 in_type="16" out_type="2" direction="-1" norm_val="1">
             <b1 bit="1">TRXC function change not supported by the BTS.</b1>
             <b2 bit="2">Automatic ciphering capability not supported by the BTS.</b2>
-            <b3 bit="3">IRC not supported by the BTS.</3>
+            <b3 bit="3">IRC not supported by the BTS.</b3>
             <b4 bit="4">Antenna Hopping not supported by the BTS.</b4>
             <b5 bit="5">Frame Synchronization using GPS not supported by the BTS.</b5>
             <b6 bit="6">4WRD not supported by the BTS.</b6>
