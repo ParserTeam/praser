@@ -21,6 +21,7 @@ function show_log() {
 }
 
 function onResponse(btn){
+    console.log(btn);
     $("#inf2").html(btn);
     pageLoaded = true;
     document.getElementById("loader").style.display = "none";
@@ -46,10 +47,6 @@ function addFilesTextToInput(files) {
     input.val("");
     for (var i = 0, f; f = files[i]; i++) {
         var reader = new FileReader();
-
-        if (!f.type.match('text*')) {
-            continue;
-        }
 
         reader.onload = (function(theFile) {
             return function(e) {

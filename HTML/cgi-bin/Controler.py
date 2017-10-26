@@ -2,6 +2,7 @@ from print_reader import PrintReader
 from xml_module import ConfigModule
 from interface import get_input_inf, output_inf, DialogWindow
 from ErrorManager import ErrorManager
+from collections import OrderedDict
 
 
 class Controller:
@@ -53,7 +54,7 @@ class Controller:
         return self._create_data_for_out(list_check_values)
 
     def _create_data_for_out(self, list_check_values):
-        result = dict()
+        result = OrderedDict()
 
         # return list_check_values
         for check_value in list_check_values:
@@ -95,7 +96,7 @@ class Controller:
 
             if bits.in_type.isdigit:
                 list_of_printouts = printout_bits.get(bits.name)
-                printout_bits[bits.name] = {}
+                printout_bits[bits.name] = OrderedDict()
 
                 for bits_name_value in list_of_printouts or []:
 
@@ -130,27 +131,13 @@ class Controller:
         return True
 
     def _check_file_version(self, list_objects):
-        window = DialogWindow("Select configuration file", "Please select XML file for this printout:")
         for obj in range(len(list_objects)):
             if len(list_objects[obj].file_names) > 1:
-                if isinstance(self.list_of_xml_to_use, list):
-                    list_objects[obj].file_name = self._get_file_from_file_to_use(list_objects[obj].file_names)
-                else:
-                    list_objects[obj].file_name = window.get_answer(list_objects[obj].text, list_objects[obj].file_names)
-            else:
-                list_objects[obj].file_name = list_objects[obj].file_names[0]
+                error_manager.add_error_message("Few xml files can use for parse printout    " +
+                                                " ".join(list_objects[obj].file_names) + ".  Used -  " +
+                                                list_objects[obj].file_names[0])
+            list_objects[obj].file_name = list_objects[obj].file_names[0]
         self.xml_reader.get_list_objects(list_objects)
-
-    def _get_file_from_file_to_use(self, ask_files):
-        for file_to_use in self.list_of_xml_to_use:
-            for ask_file in ask_files:
-                # to insure that filename have .xml extension
-                file_to_use = file_to_use.replace(".xml", "")
-                file_to_use += ".xml"
-                if ask_file == file_to_use:
-                    return ask_file
-        ask_files.sort()
-        return ask_files[0]
 
 
 if __name__ == "__main__":

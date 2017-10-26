@@ -1,5 +1,6 @@
 import cgi
 from Tkinter import Tk, Button, Label
+from collections import OrderedDict
 
 
 def get_input_inf(): # it take oll inut infornation from web to server (if it is upload file - read file using withdraw Class, else take take value from text area)
@@ -84,7 +85,7 @@ def output_inf(output, error):  # use it to print dynamic table with the result 
                                 g = str(h)
                     for z in b:
 
-                        if type(b.get(z)) != dict and type(b.get(z)) != list:
+                        if type(b.get(z)) != OrderedDict and type(b.get(z)) != list:
                             print '''
                                 <tr class="bg-primary">
                                   <th style ="width:192;">''' + z + '''</th>
@@ -93,7 +94,7 @@ def output_inf(output, error):  # use it to print dynamic table with the result 
                             '''
 
                     for z in b:
-                        if type(b.get(z)) == dict:
+                        if type(b.get(z)) == OrderedDict:
                             if len(b.get(z)) != 0:
                                 mainId += 1
                                 print '''
