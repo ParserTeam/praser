@@ -5,17 +5,17 @@
     <NAME_KEY>NSEI</NAME_KEY>
     <ACTIVE_KEYS>
         <SGSNFEAT in_type="16" out_type="2" norm_val="0">
-            <PFC bit="0">Packet Flow Context (PFC) procedures</PFC>
-            <CBL bit="1">Current Bucket Level (CBL) procedures</CBL>
-            <INR bit="2">Inter NSE Re-routing (INR)</INR>
-            <LCS bit="3">Location Services (LCS) procedures</LCS>
-            <RIM bit="4">RAN Information Management (RIM) procedures</RIM>
-            <PFC-FC bit="5">PFC Flow Control (FC) procedures</PFC-FC>
-            <ERS bit="6">Enhanced Radio Status (ERS) procedures</ERS>
-            <MBMS bit="7">Multimedia Broadcast Multicast Service (MBMS) procedures</MBMS>
-            <PSHO bit="8">PS Handover (PSHO) procedures</PSHO>
-            <GI bit="9">Gigabit Interface (GI) procedures</GI>
-            <MOCN bit="10">Multi Operator Core Network (MOCN) procedures</MOCN>
+            <b0 bit="0">Packet Flow Context (PFC) procedures</b0>
+            <b1 bit="1">Current Bucket Level (CBL) procedures</b1>
+            <b2 bit="2">Inter NSE Re-routing (INR)</b2>
+            <b3 bit="3">Location Services (LCS) procedures</b3>
+            <b4 bit="4">RAN Information Management (RIM) procedures</b4>
+            <b5 bit="5">PFC Flow Control (FC) procedures</b5>
+            <b6 bit="6">Enhanced Radio Status (ERS) procedures</b6>
+            <b7 bit="7">Multimedia Broadcast Multicast Service (MBMS) procedures</b7>
+            <b8 bit="8">PS Handover (PSHO) procedures</b8>
+            <b9 bit="9">Gigabit Interface (GI) procedures</b9>
+            <b10 bit="10">Multi Operator Core Network (MOCN) procedures</b10>
             </SGSNFEAT>
     </ACTIVE_KEYS>
     <PRINT_KEYS></PRINT_KEYS>
