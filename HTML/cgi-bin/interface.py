@@ -45,6 +45,9 @@ def output_inf(output, error):  # use it to print dynamic table with the result 
                 <link rel='stylesheet prefetch' href='http://rawgit.com/vitalets/x-editable/master/dist/bootstrap3-editable/css/bootstrap-editable.css'>
                 <div class="container">
                  <table class="table table-bordered">
+                 <tr>
+                                            <th colspan="4"  ><p style="width:100%;text-align:  center;"><a href="#" id="morelessmain" style="align:  center;"> Hide all</a></p></th>
+                </tr>
             '''
             for i in a:
                 g = ""
@@ -117,6 +120,31 @@ def output_inf(output, error):  # use it to print dynamic table with the result 
                                     '''
 
                                 valuesId = 0
+            print '''
+            <script language="javascript">
+                                    $(document).ready(function(){
+                $("#morelessmain").click(function(f) {
+                                    
+            '''
+            for mainCount in range(1, mainId + 1):
+                for valueCount in range(1, int(mainDict.get(mainCount)[mainDict.get(mainCount).find("-") + 1:]) + 1):
+                    print '''
+                                                    var allother''' + str(mainCount) + "_" + str(
+                        valueCount) + ''' = $("#''' + str(mainCount) + "-" + str(valueCount) + '''");
+                                                    $(this).text(allother''' + str(mainCount) + "_" + str(valueCount) + '''.is(":hidden") ? "Hide all" : "Show all");    
+                                                    allother''' + str(mainCount) + "_" + str(valueCount) + '''.slideToggle();
+
+                                                    '''  # hidden --> visible
+            print '''
+
+                                            e''' + str(mainCount) + "_" + str(mainCount) + '''.stopImmediatePropagation();
+                                            return false;
+                                        });
+                                    });
+                                    </script>
+                                    '''
+
+
             for mainCount in range(1, mainId+1):
                 print '''
                                     <script language="javascript">
