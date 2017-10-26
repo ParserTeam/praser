@@ -1,5 +1,6 @@
 import xml.etree.cElementTree as ET
 from xml.etree.cElementTree import ParseError
+from xml.parsers import expat
 from os import listdir, path
 from collections import OrderedDict
 
@@ -30,11 +31,19 @@ class BitsObject:
     value = None
     text_of_bit = None
 
+    def __init__(self):
+        self.list_in_bits = []
+
     def __str__(self):
         return (str(self.name) + " " + str(self.value) + " " + str(self.text_of_bit))
 
     def __repr__(self):
         return self.__str__()
+
+    def __eq__(self, other):
+        if not isinstance(other, type(self)):
+            return False
+        return self.name == other.name and self.value == other.value and self.text_of_bit == other.text_of_bit
 
 
 class ConfigObject:
@@ -91,22 +100,24 @@ class ConfigModule:
                 tree = None
                 try:
                     tree = ET.ElementTree(file=self.check_path() + i)
-                except ParseError:
-                    dict_of_keys[i] = "Wrong xml file: "
+                except ParseError as text:
+                    dict_of_keys[i] = "Wrong xml file: "+str(text)+" in file "
                 if tree:
                     try:
                         if str(tree.find('RELEASE').text).find(self.version) != -1:
                             list_of_limiters = tree.getroot().attrib.get("limiter")
                             dict_of_keys[i] = list_of_limiters
-                    except AttributeError:
-                        dict_of_keys[i] = "Wrong xml file: "
+                    except AttributeError as text_2:
+                        dict_of_keys[i] = "Wrong xml file: "+" No tag RELEASE"+" in file "
         return dict_of_keys
 
     # function that return keys with their types
     def get_list_objects(self, true_config=None):
+        testetet = 0
         list_of_objects = {}
         # run by list of files
         for i in true_config:
+            testetet += 1
             # create a empty object of file
             file_object = ConfigObject()
             # open xml config file
@@ -137,8 +148,21 @@ class ConfigModule:
                 key_object.norm_val = (item.attrib).get("norm_val")
 
                 for bits in item:
+
                     bit_object = BitsObject()
                     bit_object.name = bits.tag
+
+                    for disc in bits:
+
+                        in_object = BitsObject()
+                        in_object.name = disc.tag
+                        in_object.text_of_bit = disc.text
+                        in_object.value = disc.attrib.get("bit")
+                        if in_object not in bit_object.list_in_bits:
+                                bit_object.list_in_bits += [in_object]
+                        # list_sub_objects = in_object
+                    # if list_sub_objects:
+
                     bit_object.text_of_bit = bits.text
                     bit_object.value = bits.attrib.get("bit")
                     # magic

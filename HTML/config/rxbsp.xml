@@ -15,7 +15,6 @@
             <b8 bit="8">MO is degraded or not operational due to RX path imbalance.</b8>
             <b9 bit="9">MO is degraded or not operational due to TX maximum power deviation.</b9>
         </OPCONDMAP>
-
     </ACTIVE_KEYS>
     <PRINT_KEYS></PRINT_KEYS>
 </root>
