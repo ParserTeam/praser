@@ -89,34 +89,31 @@ class Controller:
     def _add_to_message(self, messages_for_value, bit, print_value):
         if bit.bit_is_active(print_value):
             if bit.name not in messages_for_value.keys():
-                messages_for_value[bit.name] = [bit.text_of_bit]
+                messages_for_value[bit.name] = bit.text_of_bit
             else:
-                messages_for_value[bit.name] += [bit.text_of_bit]
+                messages_for_value[bit.name] += bit.text_of_bit
 
-    def _get_description(self, print_value, list_bits):
-        print "{:b}".format(print_value)
-        messages_for_value = OrderedDict()
+    def _get_description(self, print_value, list_bits, result):
         for bit in list_bits:
-            self._add_to_message(messages_for_value, bit, print_value)
-        print messages_for_value
-        return messages_for_value
-        # print print_value, list_bits
+            self._add_to_message(result, bit, print_value)
 
     def _parse_bits(self, key_obj, key_val):
-        print key_obj, key_val
+        result = OrderedDict()
         for val in key_val:
             val = int(val, int(key_obj.in_type))
-            self._get_description(val, key_obj.dict_bits)
+            self._get_description(val, key_obj.dict_bits, result)
+        return result
+
 
     # function for check bits and return list of print cases
     def checker_bits(self, printout_bits=None, config_bits=None):
-        # print printout_bits, config_bits
-
         for key_object in config_bits.list_of_object_keys:
             if key_object.name in printout_bits:
-                self._parse_bits(key_object, printout_bits.get(key_object.name))
-
-        return {}
+                printout_bits[key_object.name] = self._parse_bits(key_object, printout_bits.get(key_object.name))
+        if self._is_all_values_is_empty(printout_bits, config_bits):
+            return {}
+        else:
+            return printout_bits
 
         #     if bits.in_type.isdigit:
         #         list_of_printouts = printout_bits.get(bits.name)

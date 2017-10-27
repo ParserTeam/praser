@@ -20,16 +20,14 @@
                 <b16_not_relevant value="65536" width="16-20">DIP or SDIP failure</b16_not_relevant>
                 <b18 value="327680" width="16-20">Failure at communication with RP</b18>
                 <b17-b18 value="458752" width="16-20">Switching Network Terminal (SNT) manually, auto, or control blocked</b17-b18>
-			<b20 index="20">Failure on User Side
-				<b20_not_relevant value="1048576">Extension Module (EM) is blocked</b20_not_relevant>
-				<b21 value="1048577">Failure at communication with RP</b21>
-				<b22 value="1048578">10Gb network fault</b22>
-			</b20>
-			<b23 index="23">Transport Protocol Fault
-				<b23_not_relevant value="0">10Gb network fault</b23_not_relevant>
-				<b24 value="1">VLAN type fault</b24>
-				<b25 value="2">Payload or transport protocol mismatch, or both</b25>
-			</b23>
+			<b20 index="20">Failure on User Side</b20>
+				<b20_not_relevant value="1048576" width="20-23">Extension Module (EM) is blocked</b20_not_relevant>
+				<b21 value="1048577" width="20-23">Failure at communication with RP</b21>
+				<b22 value="1048578" width="20-23">10Gb network fault</b22>
+			<b23 index="23">Transport Protocol Fault</b23>
+				<b23_not_relevant value="0" width="23-26">10Gb network fault</b23_not_relevant>
+				<b24 value="1" width="23-26">VLAN type fault</b24>
+				<b25 value="2" width="23-26">Payload or transport protocol mismatch, or both</b25>
 			<b26 index="26">TG not connected to SCGR</b26>
 			<b27 index="27">Not activated in RP unit</b27>
 			<b28 index="28">Bad quality on SC</b28>
