@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root limiter="MO BTSSWVER /any/ FAULT CODES CLASS 1A /any/ \n{2,}">
+    <HEADER>RADIO X-CEIVER ADMINISTRATION</HEADER>
+    <RELEASE>A57</RELEASE>
+    <NAME_KEY>MO</NAME_KEY>
+    <ACTIVE_KEYS>
+        <FAULT_CODES_CLASS_1A in_type="16" out_type="2">
+            <b0 index="0">Reset, Automatic Recovery. A DUG reset is triggered by the loss of BSC-RBS contact on the CF link for more than 1 hour.</b0>
+            <b1 index="1">Reset, Power On. The DUG has recovered after power off.</b1>
+            <b2 index="2">Reset, Switch. The DUG is reset with the DUG Maintenance button or the OMT.</b2>
+            <b3 index="3">Reset, Watchdog. The software is supposed to reset timers at regular intervals. If the software locks up and does not do this, the DUG is reset.</b3>
+            <b4 index="4">Reset, SW Fault. The DUG is reset because of a severe software fault.</b4>
+            <b5 index="5">Reset, RAM Fault. The DUG is reset because of an error in the RAM parity check.</b5>
+            <b6 index="6">Reset, Internal Function Change. The RBS is reset after software download in order to activate the new software.</b6>
+            <b8 index="8">Timing Unit VCO Fault. The VCO is failing, probably because of a power supply problem or a hardware fault.</b8>
+            <b9 index="9">Timing Bus Fault. The DUG has internal timing problems.</b9>
+            <b11 index="11">Reset, BSC ordered HW Reset. The DUG is reset with the BSC ordered HW Reset Request Command.</b11>
+            <b15 index="15">IDB Corrupted. The IDB/RBS database is corrupted or cannot be read by the software.</b15>
+            <b16 index="16">RU Database Corrupted. The DUG database is corrupted or cannot be read by the software.</b16>
+            <b17 index="17">HW and IDB Inconsistent. The IDB does not match the hardware.</b17>
+            <b18 index="18">Internal Configuration Failed. The DUG failed its internal configuration at startup, usually as a consequence of the related faults.</b18>
+            <b19 index="19">HW and SW Inconsistent. The software release does not support hardware board currently in use.</b19>
+            <b21 index="21">HW Fault. Communication between DUG and RUS/RRUS/AIR/mRRUS is faulty.</b21>
+            <b22 index="22">Air Time Counter Lost. The DUG has an internal signalling problem.</b22>
+            <b24 index="24">Temperature Close to Destructive Limit. An alarm is raised when the temperature nears the destructive limit for the equipment, which consequently shuts down to avoid damage.</b24>
+        </FAULT_CODES_CLASS_1A>
+    </ACTIVE_KEYS>
+    <PRINT_KEYS></PRINT_KEYS>
+</root>

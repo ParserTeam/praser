@@ -5,19 +5,19 @@
     <NAME_KEY>MO</NAME_KEY>
     <ACTIVE_KEYS>
         <FAULT_CODES_CLASS_2A in_type="10" out_type="10">
-            <b0 bit="0">Packet Flow Context (PFC) procedures</b0>
-            <b1 bit="1">Current Bucket Level (CBL) procedures</b1>
-            <b2 bit="2">Inter NSE Re-routing (INR)</b2>
-            <b3 bit="3">Location Services (LCS) procedures</b3>
-            <b4 bit="4">RAN Information Management (RIM) procedures</b4>
-            <b5 bit="5">PFC Flow Control (FC) procedures</b5>
-            <b6 bit="6">Enhanced Radio Status (ERS) procedures</b6>
-            <b7 bit="7">Multimedia Broadcast Multicast Service (MBMS) procedures</b7>
-            <b8 bit="8">PS Handover (PSHO) procedures</b8>
-            <b9 bit="9">Gigabit Interface (GI) procedures</b9>
-            <b10 bit="10">Multi Operator Core Network (MOCN) procedures</b10>
-            <b12 bit="12">Extended Coverage GSM Internet of Things (EC-GSM IoT) procedures</b12>
-            <b14 bit="14">Extended Discontinuous Reception (EDRX) procedures</b14>
+            <b0 value="0">Packet Flow Context (PFC) procedures</b0>
+            <b1 value="1">Current Bucket Level (CBL) procedures</b1>
+            <b2 value="2">Inter NSE Re-routing (INR)</b2>
+            <b3 value="3">Location Services (LCS) procedures</b3>
+            <b4 value="4">RAN Information Management (RIM) procedures</b4>
+            <b5 value="5">PFC Flow Control (FC) procedures</b5>
+            <b6 value="6">Enhanced Radio Status (ERS) procedures</b6>
+            <b7 value="7">Multimedia Broadcast Multicast Service (MBMS) procedures</b7>
+            <b8 value="8">PS Handover (PSHO) procedures</b8>
+            <b9 value="9">Gigabit Interface (GI) procedures</b9>
+            <b10 value="10">Multi Operator Core Network (MOCN) procedures</b10>
+            <b12 value="12">Extended Coverage GSM Internet of Things (EC-GSM IoT) procedures</b12>
+            <b14 value="14">Extended Discontinuous Reception (EDRX) procedures</b14>
         </FAULT_CODES_CLASS_2A>
     </ACTIVE_KEYS>
     <PRINT_KEYS></PRINT_KEYS>

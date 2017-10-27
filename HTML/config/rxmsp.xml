@@ -5,39 +5,39 @@
 	<NAME_KEY>MO</NAME_KEY>
 	<ACTIVE_KEYS>
 		<BLO in_type="16" out_type="2" norm_val="0">
-			<b0 bit ="0">Object blocked from own supervision permanently.</b0>
-			<b1 bit ="1">Object blocked from own supervision temporarily.</b1>
-			<b2 bit ="2">Object blocked due to fault suspected.</b2>
-			<b3 bit ="3">Object blocked from TG.</b3>
-			<b4 bit ="4">Object blocked from Transceiver Controller (TRXC).</b4>
-			<b6 bit ="6">Object blocked from Operations and Maintenance Link (OML).</b6>
-			<b8 bit ="8">Object blocked due to local maintenance activities.</b8>
-			<b9 bit ="9">Object blocked from Central Functions (CF) or Sector Central Functions (SCF).</b9>
-			<b10 bit ="10">Object blocked due to local mode.</b10>
-			<b11 bit ="11">Object blocked due to loop test failure.</b11>
-			<b12 bit ="12">CF blocked due to transmission mode incompatibility.</b12>
-			<b13 bit ="13">Object blocked due to power savings.</b13>
-			<b15 bit ="15">Object block from Antenna Integrated Radio (AIR).</b15>
+			<b0 index ="0">Object blocked from own supervision permanently.</b0>
+			<b1 index ="1">Object blocked from own supervision temporarily.</b1>
+			<b2 index ="2">Object blocked due to fault suspected.</b2>
+			<b3 index ="3">Object blocked from TG.</b3>
+			<b4 index ="4">Object blocked from Transceiver Controller (TRXC).</b4>
+			<b6 index ="6">Object blocked from Operations and Maintenance Link (OML).</b6>
+			<b8 index ="8">Object blocked due to local maintenance activities.</b8>
+			<b9 index ="9">Object blocked from Central Functions (CF) or Sector Central Functions (SCF).</b9>
+			<b10 index ="10">Object blocked due to local mode.</b10>
+			<b11 index ="11">Object blocked due to loop test failure.</b11>
+			<b12 index ="12">CF blocked due to transmission mode incompatibility.</b12>
+			<b13 index ="13">Object blocked due to power savings.</b13>
+			<b15 index ="15">Object block from Antenna Integrated Radio (AIR).</b15>
 		</BLO>
 			<BLA in_type="16" out_type="2" norm_val="0">
-			<b0 bit ="0">Object needs reset and unconditional load or reset and loading are in progress.</b0>
-			<b1 bit ="1">Object needs reset and load check or the reset and loading are in progress.</b1>
-			<b2 bit ="2">Object needs load check or loading in progress.</b2>
-			<b3 bit ="3">Object needs polling or polling in progress.</b3>
-			<b4 bit ="4">Object needs testing or testing in progress.</b4>
-			<b5 bit ="5">Object needs intermittent test or intermittent test in progress.</b5>
-			<b6 bit ="6">Object needs reset or reset in progress.</b6>
-			<b7 bit ="7">Object needs to be started.</b7>
-			<b8 bit ="8">Object needs to be manually unblocked due to request from the Base Transceiver Station (BTS).</b8>
-			<b9 bit ="9">Object needs loop test or loop test in progress.</b9>
+			<b0 index ="0">Object needs reset and unconditional load or reset and loading are in progress.</b0>
+			<b1 index ="1">Object needs reset and load check or the reset and loading are in progress.</b1>
+			<b2 index ="2">Object needs load check or loading in progress.</b2>
+			<b3 index ="3">Object needs polling or polling in progress.</b3>
+			<b4 index ="4">Object needs testing or testing in progress.</b4>
+			<b5 index ="5">Object needs intermittent test or intermittent test in progress.</b5>
+			<b6 index ="6">Object needs reset or reset in progress.</b6>
+			<b7 index ="7">Object needs to be started.</b7>
+			<b8 index ="8">Object needs to be manually unblocked due to request from the Base Transceiver Station (BTS).</b8>
+			<b9 index ="9">Object needs loop test or loop test in progress.</b9>
 		</BLA>
 		<LMO in_type="16" out_type="2" norm_val="0">
-			<b5 bit ="5">LRX blocked due to creation in progress.</b5>
-			<b6 bit ="6">LRX blocked due to not enabled.</b6>
-			<b8 bit ="8">LRX blocked from RX.</b8>
-			<b9 bit ="9">LRX blocked from LTF.</b9>
-			<b14 bit ="14">LRX blocked from LMCTR.</b14>
-			<b15 bit ="15">Blocked due to change.</b15>
+			<b5 index ="5">LRX blocked due to creation in progress.</b5>
+			<b6 index ="6">LRX blocked due to not enabled.</b6>
+			<b8 index ="8">LRX blocked from RX.</b8>
+			<b9 index ="9">LRX blocked from LTF.</b9>
+			<b14 index ="14">LRX blocked from LMCTR.</b14>
+			<b15 index ="15">Blocked due to change.</b15>
 		</LMO>
 	</ACTIVE_KEYS>
 	<PRINT_KEYS></PRINT_KEYS>

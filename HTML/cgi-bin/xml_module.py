@@ -50,7 +50,7 @@ class BitsObject:
         return int(self.value)
 
     def bit_is_active(self, value):
-        # print "{:032b}\n{:032b}\n\n".format(value, self.get_value())
+        print "{:032b}\n{:032b}\n\n".format(value, self.get_value())
         return value & self.get_width() == self.get_value()
 
     def __str__(self):
