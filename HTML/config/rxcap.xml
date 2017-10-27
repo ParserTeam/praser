@@ -96,7 +96,7 @@
             <b5 value="5">Full rate speech version 1, full rate
 
                         TCH/FS + FACCH/F + SACCH/TF according to 3GPP TS 45.002, section 6.4, combination i) using channel code for TCH/FS according to 3GPP TS 45.003 and speech transcoding according to GSM 06.01. </b5>
-            <b6 index="6">Full rate speech version 2, PCS enhanced full rate
+            <b6 value="6">Full rate speech version 2, PCS enhanced full rate
 
                         TCH/FS + FACCH/F + SACCH/TF according to 3GPP TS 45.002, section 6.4, combination i) using PCS enhanced speech transcoding and either, channel code for TCH/FS according to 3GPP TS 45.003, or a PCS enhanced speech transcoding specific channel code. </b6>
             <b7 value="7">2.4 kbps or less multislot data, transparent

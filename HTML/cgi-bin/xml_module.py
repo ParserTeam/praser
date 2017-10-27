@@ -25,36 +25,59 @@ class KeysObject:
 
 class BitsObject:
     name = ''
-    index = None
-    value = None
-    width = None
+    _value = None
+    _width = None
     text_of_bit = None
 
     def __init__(self):
         self.list_in_bits = []
 
-    def get_width(self):
-        if not self.width:
-            return self.get_value()
-        split_width = self.width.split("-")
-        if len(split_width) > 2:
-            return self.get_value()
-        try:
-            return sum([2 ** i for i in range(int(split_width[0]), int(split_width[1]))])
-        except ValueError:
-            return self.get_value()
+    def set_parameters(self, value=None, index=None, width=None):
+        if index:
+            self._value = 2 ** int(index)
+        elif value:
+            self._set_value_by_value(value, width)
+        else:
+            assert "Can't set value!"
+        self._set_width(width)
+
+    def _width_to_int_arr(self, width):
+        split_width = width.split("-")
+        return [int(val) for val in split_width]
+
+    def _set_value_by_value(self, value, width):
+        if not width:
+            self._value = int(value)
+        else:
+            main_bit = self._width_to_int_arr(width)[0]
+            self._value = (int(value) << (main_bit + 1)) + (2 ** main_bit)
 
     def get_value(self):
-        if self.index:
-            return 2 ** int(self.index)
-        return int(self.value)
+        if self._value is None:
+            raise ValueError("Value not set")
+        else:
+            return self._value
+
+    def _set_width(self, width):
+        if not width:
+            self._width = self.get_value()
+        else:
+            try:
+                self._width = sum([2 ** i for i in range(*self._width_to_int_arr(width))])
+            except ValueError:
+                self._width = self.get_value()
+
+    def get_width(self):
+        return self._width
 
     def bit_is_active(self, value):
-        print "{:032b}\n{:032b}\n\n".format(value, self.get_value())
+        # print "{:032b}\n{:032b}\n\n".format(value, self.get_value())
+        if self._width == 0:
+            return value == self.get_value()
         return value & self.get_width() == self.get_value()
 
     def __str__(self):
-        return str(self.name) + " " + str(self.index) + " " + str(self.text_of_bit)
+        return "name = {}, value = {}, width = {}, text_of_bit = {}".format(self.name, self._value, self._width, self.text_of_bit)
 
     def __repr__(self):
         return self.__str__()
@@ -62,7 +85,7 @@ class BitsObject:
     def __eq__(self, other):
         if not isinstance(other, type(self)):
             return False
-        return self.name == other.name and self.index == other.value and self.text_of_bit == other.text_of_bit
+        return self.name == other.name and self.get_value() == other.get_value() and self.get_width() == self.get_width()
 
 
 class ConfigObject:
@@ -176,18 +199,20 @@ class ConfigModule:
                         in_object = BitsObject()
                         in_object.name = disc.tag
                         in_object.text_of_bit = disc.text
-                        in_object.index = disc.attrib.get("index")
-                        in_object.value = disc.attrib.get("value")
-                        in_object.width = disc.attrib.get("width")
+                        in_object.set_parameters(index=bits.attrib.get("index"),
+                                                 value=bits.attrib.get("value"),
+                                                 width=bits.attrib.get("width")
+                                                 )
                         if in_object not in bit_object.list_in_bits:
                             bit_object.list_in_bits += [in_object]
                         # list_sub_objects = in_object
                     # if list_sub_objects:
 
                     bit_object.text_of_bit = bits.text
-                    bit_object.index = bits.attrib.get("index")
-                    bit_object.value = bits.attrib.get("value")
-                    bit_object.width = bits.attrib.get("width")
+                    bit_object.set_parameters(index=bits.attrib.get("index"),
+                                              value=bits.attrib.get("value"),
+                                              width=bits.attrib.get("width")
+                                              )
                     # magic
                     key_object.dict_bits += [bit_object]
                 file_object.list_of_object_keys.append(key_object)

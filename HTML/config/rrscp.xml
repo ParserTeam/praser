@@ -17,9 +17,9 @@
 			<b9 index="9">SC is faulty, used for maintenance purposes</b9>
 			<b10 index="10">Transceiver Group (TG) not connected to Super Channel Group (SCGR)</b10>
 			<b16 index="16">Failure on Transmission Device Side</b16>
-                <b16_not_relevant value="65536" width="16-20">DIP or SDIP failure</b16_not_relevant>
-                <b18 value="327680" width="16-20">Failure at communication with RP</b18>
-                <b17-b18 value="458752" width="16-20">Switching Network Terminal (SNT) manually, auto, or control blocked</b17-b18>
+                <v0 value="0" width="16-20">DIP or SDIP failure</v0>
+                <v2 value="2" width="16-20">Failure at communication with RP</v2>
+                <v3 value="3" width="16-20">Switching Network Terminal (SNT) manually, auto, or control blocked</v3>
 			<b20 index="20">Failure on User Side</b20>
 				<b20_not_relevant value="1048576" width="20-23">Extension Module (EM) is blocked</b20_not_relevant>
 				<b21 value="1048577" width="20-23">Failure at communication with RP</b21>

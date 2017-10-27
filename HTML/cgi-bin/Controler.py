@@ -73,10 +73,7 @@ class Controller:
 
     def _add_to_message(self, messages_for_value, bit, print_value):
         if bit.bit_is_active(print_value):
-            if bit.name not in messages_for_value.keys():
-                messages_for_value[bit.name] = bit.text_of_bit
-            else:
-                messages_for_value[bit.name] += bit.text_of_bit
+            messages_for_value[bit.name] = bit.text_of_bit
 
     def _get_description(self, print_value, list_bits, result):
         for bit in list_bits:
@@ -90,7 +87,6 @@ class Controller:
             self._get_description(val, key_obj.dict_bits, result)
 
         return result
-
 
     # function for check bits and return list of print cases
     def checker_bits(self, printout_bits=None, config_bits=None):
@@ -118,10 +114,10 @@ class Controller:
             list_objects[obj].file_name = list_objects[obj].file_names[0]
         self.xml_reader.get_list_objects(list_objects)
 
-#
-# def get_text():
-#     my_file = open("C:/Users/ezburde/Desktop/RRSCP.txt")
-#     return my_file.read()
+
+def get_text():
+    my_file = open("C:/Users/ezburde/Desktop/rxcap - Copy.txt")
+    return my_file.read()
 
 
 if __name__ == "__main__":
