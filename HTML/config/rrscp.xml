@@ -5,39 +5,35 @@
 	<NAME_KEY>SC</NAME_KEY>
 	<ACTIVE_KEYS>
 		<REASON in_type="16" out_type="2" norm_val="0" direction="1">
-			<b0 bit="0">Not all transmission devices seized</b0>
-			<b1 bit="1">Packet Gateway (PGW) devices not seized</b1>
-			<b2 bit="2">No semipermanent connection</b2>
-			<b3 bit="3">Transmission device faults</b3>
-			<b4 bit="4">PGW device faults</b4>
-			<b5 bit="5">Semipermanent connection fault</b5>
-			<b6 bit="6">Not activated in Regional Processor (RP) unit</b6>
-			<b7 bit="7">Bad quality on SC</b7>
-			<b8 bit="8">RP communication fault</b8>
-			<b9 bit="9">SC is faulty, used for maintenance purposes</b9>
-			<b10 bit="10">Transceiver Group (TG) not connected to Super Channel Group (SCGR)</b10>
-
-
-			<b16 bit="16">
-				Failure on Transmission Device Side
-				<b17-b19 bit="0">BALALLALLALLALA</b17-b19>
-				<b18 bit="2">Failure at communication with RP</b18>
-				<b17-b18 bit="3">Switching Network Terminal (SNT) manually, auto, or control blocked</b17-b18>
-			</b16>
-			<b20 bit="20">Fault</b20>
-				<b21 bit="21">Failure at communication with RP</b21>
-				<b22 bit="22">10Gb network fault</b22>
-
-			<b23 bit="23">Fault</b23>
-				<b24 bit="24">VLAN type fault</b24>
-				<b25 bit="25">Payload or transport protocol mismatch, or both</b25>
-
-
-
-			<b26 bit="26">TG not connected to SCGR</b26>
-			<b27 bit="27">Not activated in RP unit</b27>
-			<b28 bit="28">Bad quality on SC</b28>
-			<b29 bit="29">SC is faulty, used for maintenance purposes</b29>
+			<b0 index="0">Not all transmission devices seized</b0>
+			<b1 index="1">Packet Gateway (PGW) devices not seized</b1>
+			<b2 index="2">No semipermanent connection</b2>
+			<b3 index="3">Transmission device faults</b3>
+			<b4 index="4">PGW device faults</b4>
+			<b5 index="5">Semipermanent connection fault</b5>
+			<b6 index="6">Not activated in Regional Processor (RP) unit</b6>
+			<b7 index="7">Bad quality on SC</b7>
+			<b8 index="8">RP communication fault</b8>
+			<b9 index="9">SC is faulty, used for maintenance purposes</b9>
+			<b10 index="10">Transceiver Group (TG) not connected to Super Channel Group (SCGR)</b10>
+			<b16 index="16">Failure on Transmission Device Side</b16>
+                <b16_not_relevant value="65536" width="16-20">DIP or SDIP failure</b16_not_relevant>
+                <b18 value="327680" width="16-20">Failure at communication with RP</b18>
+                <b17-b18 value="458752" width="16-20">Switching Network Terminal (SNT) manually, auto, or control blocked</b17-b18>
+			<b20 index="20">Failure on User Side
+				<b20_not_relevant value="1048576">Extension Module (EM) is blocked</b20_not_relevant>
+				<b21 value="1048577">Failure at communication with RP</b21>
+				<b22 value="1048578">10Gb network fault</b22>
+			</b20>
+			<b23 index="23">Transport Protocol Fault
+				<b23_not_relevant value="0">10Gb network fault</b23_not_relevant>
+				<b24 value="1">VLAN type fault</b24>
+				<b25 value="2">Payload or transport protocol mismatch, or both</b25>
+			</b23>
+			<b26 index="26">TG not connected to SCGR</b26>
+			<b27 index="27">Not activated in RP unit</b27>
+			<b28 index="28">Bad quality on SC</b28>
+			<b29 index="29">SC is faulty, used for maintenance purposes</b29>
 		</REASON>
 	</ACTIVE_KEYS>
 	<PRINT_KEYS>SCGR</PRINT_KEYS>

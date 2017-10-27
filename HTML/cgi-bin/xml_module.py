@@ -17,10 +17,7 @@ class KeysObject:
         self.dict_bits = []
 
     def __str__(self):
-        return (
-            str(self.type) + " " + str(self.norm_val) + " " + str(self.start) + " " + str(self.end) + " " + " " + str(
-                self.name) + " " + str(
-                self.dict_bits))
+        return "name = {}, norm_val = {}, in_type = {}, out_type = {}".format(self.name, self.norm_val, self.in_type, self.out_type)
 
     def __repr__(self):
         return self.__str__()
@@ -28,14 +25,36 @@ class KeysObject:
 
 class BitsObject:
     name = ''
+    index = None
     value = None
+    width = None
     text_of_bit = None
 
     def __init__(self):
         self.list_in_bits = []
 
+    def get_width(self):
+        if not self.width:
+            return self.get_value()
+        split_width = self.width.split("-")
+        if len(split_width) > 2:
+            return self.get_value()
+        try:
+            return sum([2 ** i for i in range(int(split_width[0]), int(split_width[1]))])
+        except ValueError:
+            return self.get_value()
+
+    def get_value(self):
+        if self.index:
+            return 2 ** int(self.index)
+        return int(self.value)
+
+    def bit_is_active(self, value):
+        # print "{:032b}\n{:032b}\n\n".format(value, self.get_value())
+        return value & self.get_width() == self.get_value()
+
     def __str__(self):
-        return (str(self.name) + " " + str(self.value) + " " + str(self.text_of_bit))
+        return str(self.name) + " " + str(self.index) + " " + str(self.text_of_bit)
 
     def __repr__(self):
         return self.__str__()
@@ -43,7 +62,7 @@ class BitsObject:
     def __eq__(self, other):
         if not isinstance(other, type(self)):
             return False
-        return self.name == other.name and self.value == other.value and self.text_of_bit == other.text_of_bit
+        return self.name == other.name and self.index == other.value and self.text_of_bit == other.text_of_bit
 
 
 class ConfigObject:
@@ -157,14 +176,18 @@ class ConfigModule:
                         in_object = BitsObject()
                         in_object.name = disc.tag
                         in_object.text_of_bit = disc.text
-                        in_object.value = disc.attrib.get("bit")
+                        in_object.index = disc.attrib.get("index")
+                        in_object.value = disc.attrib.get("value")
+                        in_object.width = disc.attrib.get("width")
                         if in_object not in bit_object.list_in_bits:
-                                bit_object.list_in_bits += [in_object]
+                            bit_object.list_in_bits += [in_object]
                         # list_sub_objects = in_object
                     # if list_sub_objects:
 
                     bit_object.text_of_bit = bits.text
-                    bit_object.value = bits.attrib.get("bit")
+                    bit_object.index = bits.attrib.get("index")
+                    bit_object.value = bits.attrib.get("value")
+                    bit_object.width = bits.attrib.get("width")
                     # magic
                     key_object.dict_bits += [bit_object]
                 file_object.list_of_object_keys.append(key_object)

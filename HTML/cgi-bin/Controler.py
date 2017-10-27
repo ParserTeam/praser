@@ -3,6 +3,7 @@ from xml_module import ConfigModule
 from interface import get_input_inf, output_inf, DialogWindow
 from ErrorManager import ErrorManager
 from collections import OrderedDict
+from tkFileDialog import askopenfilename
 
 
 class Controller:
@@ -85,43 +86,66 @@ class Controller:
             error_manager.add_error_message()
             return None
 
+    def _add_to_message(self, messages_for_value, bit, print_value):
+        if bit.bit_is_active(print_value):
+            if bit.name not in messages_for_value.keys():
+                messages_for_value[bit.name] = [bit.text_of_bit]
+            else:
+                messages_for_value[bit.name] += [bit.text_of_bit]
+
+    def _get_description(self, print_value, list_bits):
+        print "{:b}".format(print_value)
+        messages_for_value = OrderedDict()
+        for bit in list_bits:
+            self._add_to_message(messages_for_value, bit, print_value)
+        print messages_for_value
+        return messages_for_value
+        # print print_value, list_bits
+
+    def _parse_bits(self, key_obj, key_val):
+        print key_obj, key_val
+        for val in key_val:
+            val = int(val, int(key_obj.in_type))
+            self._get_description(val, key_obj.dict_bits)
+
     # function for check bits and return list of print cases
     def checker_bits(self, printout_bits=None, config_bits=None):
-        print_out_for_view = {}
+        # print printout_bits, config_bits
 
-        keys = config_bits
+        for key_object in config_bits.list_of_object_keys:
+            if key_object.name in printout_bits:
+                self._parse_bits(key_object, printout_bits.get(key_object.name))
 
-        for i_obj in keys.list_of_object_keys:
-            bits = i_obj
+        return {}
 
-            if bits.in_type.isdigit:
-                list_of_printouts = printout_bits.get(bits.name)
-                printout_bits[bits.name] = OrderedDict()
-
-                for bits_name_value in list_of_printouts or []:
-
-                    if not bits_name_value:
-                        value = 0
-                    else:
-                        value = self._valid_printout_bits(bits_name_value, bits.in_type, bits.out_type)
-
-                    if bits.out_type == "2":
-                        for i in range(0, len(value)):
-
-                            if value[i] != str(bits.norm_val):
-                                # try:
-                                for value_bit in bits.dict_bits:
-                                    if value_bit.value == str(i):
-                                        printout_bits[bits.name][value_bit.name] = value_bit.text_of_bit
-                    if bits.out_type == "10":
-                        for value_bit in bits.dict_bits:
-                            if value_bit.value == str(value):
-                                printout_bits[bits.name][value_bit.name] = value_bit.text_of_bit
-
-        if self._is_all_values_is_empty(printout_bits, config_bits):
-            return {}
-        else:
-            return printout_bits
+        #     if bits.in_type.isdigit:
+        #         list_of_printouts = printout_bits.get(bits.name)
+        #         printout_bits[bits.name] = OrderedDict()
+        #
+        #         for bits_name_value in list_of_printouts or []:
+        #
+        #             if not bits_name_value:
+        #                 value = 0
+        #             else:
+        #                 value = self._valid_printout_bits(bits_name_value, bits.in_type, bits.out_type)
+        #
+        #             if bits.out_type == "2":
+        #                 for i in range(0, len(value)):
+        #
+        #                     if value[i] != str(bits.norm_val):
+        #                         # try:
+        #                         for value_bit in bits.dict_bits:
+        #                             if value_bit.value == str(i):
+        #                                 printout_bits[bits.name][value_bit.name] = value_bit.text_of_bit
+        #             if bits.out_type == "10":
+        #                 for value_bit in bits.dict_bits:
+        #                     if value_bit.value == str(value):
+        #                         printout_bits[bits.name][value_bit.name] = value_bit.text_of_bit
+        #
+        # if self._is_all_values_is_empty(printout_bits, config_bits):
+        #     return {}
+        # else:
+        #     return printout_bits
 
     def _is_all_values_is_empty(self, printout_bits, config_bits):
         for key, val in printout_bits.items():
@@ -140,13 +164,18 @@ class Controller:
         self.xml_reader.get_list_objects(list_objects)
 
 
+def get_text():
+    my_file = open("C:/Users/ezburde/Desktop/RRSCP.txt")
+    return my_file.read()
+
+
 if __name__ == "__main__":
     text = ""
     error_manager = ErrorManager()
     input_val = get_input_inf()
-    if input_val[1]:
+    if input_val[1] or True:
         controller = Controller(version=input_val[0])
-        text = controller.check_text(input_val[1])
+        text = controller.check_text(input_val[1] or get_text())
     else:
         error_manager.add_error_message("No input text")
     output_inf(text, error_manager.get_error_messages_as_string())
