@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root limiter="">
+    <HEADER>RADIO X-CEIVER ADMINISTRATION</HEADER>
+    <RELEASE>A57</RELEASE>
+    <NAME_KEY>MO</NAME_KEY>
+    <ACTIVE_KEYS>
+        <FAULT_CODES_CLASS_1A in_type="16" out_type="2">
+            <b0 index="0">Temperature Below Operational Limit. Description:
+            An alarm is raised if the OVCXO temperature falls below the operational temperature.
+The oscillator frequency depends on temperature. Too low an OVCXO temperature causes timing function disturbances.</b0>
+            <b1 index="1">Temperature Above Operational Limit. Description:
+            An alarm is raised if the OVCXO temperature rises above the operational temperature.
+The oscillator frequency depends on temperature. Too high an OVCXO temperature causes timing function disturbances.</b1>
+        </FAULT_CODES_CLASS_1A>
+        <FAULT_CODES_CLASS_1B in_type="16" out_type="2">
+            <b2 index="2">GPS Synch Fault. Description:
+            See related fault.</b2>
+        </FAULT_CODES_CLASS_1B>
+        <FAULT_CODES_CLASS_2A in_type="16" out_type="2">
+            <b0 index="0">Frame Start Offset Fault. Description:
+            	Frame synchronization cannot be maintained for the RBS. If no related faults are present, the frame synchronization will probably recover after a few hours. If this DU is not part of a Synchronized Radio network this fault can be ignored.</b0>
+        </FAULT_CODES_CLASS_2A>
+        <EXTERNAL_FAULT_CODES_CLASS_1 in_type="16" out_type="2">
+            <b0 index="0">EXT SYNCH (No Usable External Reference).</b0>
+            <b1 index="1">PCM SYNCH (No Usable PCM Reference).</b1>
+            <b6 index="6">EXT CFG (Multiple Timing Masters).</b6>
+            <b7 index="7">EXT MEAS (ESB Measurement Failure).</b7>
+        </EXTERNAL_FAULT_CODES_CLASS_1>
+        <EXTERNAL_FAULT_CODES_CLASS_2 in_type="16" out_type="2">
+            <b0 index="0">EXT SYNCH (No Usable External Reference).</b0>
+            <b1 index="1">PCM SYNCH (No Usable PCM Reference).</b1>
+            <b7 index="7">EXT MEAS (ESB Measurement Failure).</b7>
+            <b50 index="50">Node Group Synch Source Lost</b50>
+        </EXTERNAL_FAULT_CODES_CLASS_2>
+    </ACTIVE_KEYS>
+    <PRINT_KEYS></PRINT_KEYS>
+</root>
