@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <root limiter="SCGR SC DEV DEV1 NUMDEV DCP STATE REASON /any/ \n{2,}">
 	<HEADER>RADIO TRANSMISSION SUPER CHANNEL DATA</HEADER>
-	<RELEASE>A57 A58</RELEASE>
+	<RELEASE>A56 A57 A58</RELEASE>
 	<NAME_KEY>SC</NAME_KEY>
 	<ACTIVE_KEYS>
 		<REASON in_type="16" out_type="2" norm_val="0" direction="1">
