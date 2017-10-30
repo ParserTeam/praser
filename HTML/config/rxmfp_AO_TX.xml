@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<root limiter="MO BTSSWVER[\s|\n]+RXOTX /any/ FAULT CODES CLASS /any/ \n{2,}">
+<root limiter="MO BTSSWVER[\s|\n]+RXOTX.* /any/ FAULT CODES CLASS /any/ \n{2,}">
     <HEADER>RADIO X-CEIVER ADMINISTRATION</HEADER>
     <RELEASE>A57</RELEASE>
     <NAME_KEY>MO</NAME_KEY>

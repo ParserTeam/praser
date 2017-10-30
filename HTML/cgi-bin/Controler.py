@@ -117,7 +117,7 @@ class Controller:
 
 
 def get_text():
-    my_file = open("C:/Users/ezburde/Desktop/test.log")
+    my_file = open("C:/Users/ezburde/Desktop/rxmfp.txt")
     return my_file.read()
 
 

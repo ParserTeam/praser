@@ -24,11 +24,11 @@ class PrintReader:
         result = list()
 
         for file_name, limiter in configuration_keys.items():
-            print file_name, time()
+            # print file_name, time()
             limiter = limiter.replace(" /any/ ", r"[\s|\n][\s\S]*?")
             limiter = limiter.replace(" /or/ ", r"|")
             limiter = limiter.replace(" ", r"\s+")
-            # print file_name, limiter
+            print file_name, limiter
             texts = finditer(limiter, text)
             self._unite_texts(result, texts, file_name)
         return result
