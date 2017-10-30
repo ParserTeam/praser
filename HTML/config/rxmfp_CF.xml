@@ -107,6 +107,24 @@
             <b94 value="94">Feeder Connectivity Fault. Malfunction detected in antenna system or AIR/mRRUS.</b94>
             <b95 value="95">High Utilization. The DX CPU utilization has been high, that is, greater than 90 %, for 60 seconds. During Function Change it is normal to get high CPU utilization during loading of SW to Radio Units.</b95>
         </FAULT_CODES_CLASS_2A>
+        <EXTERNAL_FAULT_CODES_CLASS_1 in_type="10" out_type="10">
+            <v2 value = "2">LMT (BTS Locally Disconnected). The DUG is in full maintenance mode and cannot be controlled by the BSC.</v2>
+            <v4 value = "4">L/R SWI (BTS in Local Mode). The DUG is in full maintenance mode and cannot be controlled by the BSC.</v4>
+            <v5 value = "5">L/R TI (Local to Remote While Link Lost). 	The DUG went into no maintenance mode while the CF link was down.</v5>
+            <v9 value = "9">Smoke Alarm. The smoke detector raises this alarm when it detects smoke in the cabinet, which can be caused by a fire.</v9>
+            <v11 value = "11">Node Group Synch Configuration Fault. The Node Group is not corrrectly configured. The likely cause of this alarm is that the BTS was configured with a faulty node priority; or the node priority of BTS conflicts with the running nodes in the node group when BTS joins; or BTS node detects that another node with the same node priority is coming into the node group.</v11>
+        </EXTERNAL_FAULT_CODES_CLASS_1>
+        <EXTERNAL_FAULT_CODES_CLASS_2 in_type="10" out_type="10">
+            <v3 value = "3">Smoke Alarm Faulty. This alarm is raised when the smoke detector hardware is faulty.</v3>
+            <v4 value = "4">TP (Technician Present). This alarm is raised when a technician on the RBS site has activated the Technician Present indication. ’Not active’ means that a technician is not present on RBS site, or the presence is not supervised.</v4>
+            <v5 value = "5">Alarm Suppr. This alarm is raised when I2A and EC2 alarms are suppressed by the RBS; i.e. the alarm supression is ‘Active’. ’Not active’ means that alarms suppression is not used.</v5>
+            <v6 value = "6">O and M Link Disturbed. The O and M Link is disturbed and the DUG cannot be controlled by the BSC. This is most likely a fault in the BSC or in the Abis transmission path.</v6>
+            <v9 value = "9">RBS DOOR (RBS Cabinet Door Open). This fault indicates that the cabinet door is open. When the door is closed, the alarm will cease within a minute.</v9>
+            <v10 value = "10">MAINS FAIL (External Power Source Failure). This alarm is raised when all PSUs detect a fault in the incoming power supply.</v10>
+            <v11 value = "11">ALNA/TMA Fault .The current supplied to the ALNA/TMA is outside the defined limits. The ALNA/TMA current consumption can be monitored, using the OMT. If all ALNAs/TMAs to an RX are faulty, fault AO RX I1B:1 is raised and the RX disabled (AO RX I2A RX Path Lost on Receiver Side faults are ceased), unless TMA Type = GSM/TDMA bypass is defined. TMA bypass configurations require that the installed ALNAs/TMAs support the by-pass function.</v11>
+            <v12 value = "12">ALNA/TMA Degraded. The current supplied to the ALNA/TMA is outside the defined limits. The ALNA/TMA current consumption can be monitored, using the OMT.</v12>
+            <v13 value = "13">Auxiliary Equipment Fault. An ARAE fault is activated, indicating that a fault has occurred on auxiliary equipment related to a TX and/or RX antenna.</v13>
+        </EXTERNAL_FAULT_CODES_CLASS_2>
     </ACTIVE_KEYS>
     <PRINT_KEYS></PRINT_KEYS>
 </root>
