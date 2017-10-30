@@ -21,13 +21,13 @@
                 <v2 value="2" width="16-20">Failure at communication with RP</v2>
                 <v3 value="3" width="16-20">Switching Network Terminal (SNT) manually, auto, or control blocked</v3>
 			<b20 index="20">Failure on User Side</b20>
-				<b20_not_relevant value="1048576" width="20-23">Extension Module (EM) is blocked</b20_not_relevant>
-				<b21 value="1048577" width="20-23">Failure at communication with RP</b21>
-				<b22 value="1048578" width="20-23">10Gb network fault</b22>
+				<v0 value="0" width="20-23">Extension Module (EM) is blocked</v0>
+				<v1 value="1" width="20-23">Failure at communication with RP</v1>
+				<v2 value="2" width="20-23">10Gb network fault</v2>
 			<b23 index="23">Transport Protocol Fault</b23>
-				<b23_not_relevant value="0" width="23-26">10Gb network fault</b23_not_relevant>
-				<b24 value="1" width="23-26">VLAN type fault</b24>
-				<b25 value="2" width="23-26">Payload or transport protocol mismatch, or both</b25>
+				<v0 value="0" width="23-26">10Gb network fault</v0>
+				<v1 value="1" width="23-26">VLAN type fault</v1>
+				<v2 value="2" width="23-26">Payload or transport protocol mismatch, or both</v2>
 			<b26 bit="26">TG not connected to SCGR</b26>
 			<b27 bit="27">Not activated in RP unit</b27>
 			<b28 bit="28">Bad quality on SC</b28>
