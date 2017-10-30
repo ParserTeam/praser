@@ -4,43 +4,43 @@
     <RELEASE>A57</RELEASE>
     <NAME_KEY>MO</NAME_KEY>
     <ACTIVE_KEYS>
-        <FAULT_CODES_CLASS_1B in_type="16" out_type="2">
-            <b0 index="0">RX Internal Amplifier Fault.</b0>
-            <b1 index="1">ALNA/TMA Fault.</b1>
-            <b3 index="3">RX EEPROM Checksum Fault.</b3>
-            <b5 index="5">RX Synthesizer A/B Unlocked.</b5>
-            <b6 index="6">RX Synthesizer C Unlocked.</b6>
-            <b8 index="8">RX Internal Voltage Fault.</b8>
-            <b9 index="9">RX Cable Disconnected.</b9>
-            <b10 index="10">RX Initiation Fault.</b10>
-            <b12 index="12">TMA-CM Output Voltage Fault.</b12>
-            <b17 index="17">TMA Supervision Fault.</b17>
-            <b19 index="19">RX Filter Loadfile Checksum Fault.</b19>
-            <b20 index="20">RX Cable Supervision Lost.</b20>
-            <b21 index="21">Traffic Lost Uplink.</b21>
-            <b22 index="22">Antenna System DC Power Supply Overloaded.</b22>
-            <b23 index="23">Radio Unit Antenna System Output Voltage Fault.</b23>
-            <b47 index="47">RX Auxiliary Equipment Fault.</b47>
+        <FAULT_CODES_CLASS_1B in_type="10" out_type="10">
+            <b0 value="0">RX Internal Amplifier Fault.</b0>
+            <b1 value="1">ALNA/TMA Fault.</b1>
+            <b3 value="3">RX EEPROM Checksum Fault.</b3>
+            <b5 value="5">RX Synthesizer A/B Unlocked.</b5>
+            <b6 value="6">RX Synthesizer C Unlocked.</b6>
+            <b8 value="8">RX Internal Voltage Fault.</b8>
+            <b9 value="9">RX Cable Disconnected.</b9>
+            <b10 value="10">RX Initiation Fault.</b10>
+            <b12 value="12">TMA-CM Output Voltage Fault.</b12>
+            <b17 value="17">TMA Supervision Fault.</b17>
+            <b19 value="19">RX Filter Loadfile Checksum Fault.</b19>
+            <b20 value="20">RX Cable Supervision Lost.</b20>
+            <b21 value="21">Traffic Lost Uplink.</b21>
+            <b22 value="22">Antenna System DC Power Supply Overloaded.</b22>
+            <b23 value="23">Radio Unit Antenna System Output Voltage Fault.</b23>
+            <b47 value="47">RX Auxiliary Equipment Fault.</b47>
         </FAULT_CODES_CLASS_1B>
-        <FAULT_CODES_CLASS_2A in_type="16" out_type="2">
-            <b1 index="1">RX Path Lost on A Receiver Side. Description:
+        <FAULT_CODES_CLASS_2A in_type="10" out_type="10">
+            <b1 value="1">RX Path Lost on A Receiver Side. Description:
             	The RX path on the A receiver side of the TRX is lost. This alarm is raised if any related faults are raised on a TRX configured for RX diversity.
 If raised on a RU with 4 RF ports and 2 way receiver diversity is enabled, this alarm can be reported on both RF A and RF C.</b1>
-            <b2 index="2">RX Path Lost on B Receiver Side. Description:
+            <b2 value="2">RX Path Lost on B Receiver Side. Description:
             The RX path on the B receiver side of the TRX is lost. This alarm is raised if any related faults are raised on a TRX configured for RX diversity.
 If raised on a RU with 4 RF ports and 2 way receiver diversity is enabled, this alarm can be reported on both RF B and RF D.</b2>
-            <b3 index="3">RX Path Lost on C Receiver Side. Description:
+            <b3 value="3">RX Path Lost on C Receiver Side. Description:
             RX path lost on C receiver side of the TRX is lost. This alarm is raised if any related faults are raised on a TRX configured for 4-way RX diversity.
 Note:
 This fault is applicable only when 4-way receiver diversity is activated.</b3>
-            <b4 index="4">RX Path Lost on D Receiver Side. Description:
+            <b4 value="4">RX Path Lost on D Receiver Side. Description:
             	RX path lost on D receiver side of the TRX is lost. This alarm is raised if any related faults are raised on a TRX configured for 4-way RX diversity.
 Note:
 This fault is applicable only when 4-way receiver diversity is activated.</b4>
-            <b5 index="5">RX Path A Imbalance.</b5>
-            <b6 index="6">RX Path B Imbalance.</b6>
-            <b7 index="7">RX Path C Imbalance.</b7>
-            <b8 index="8">RX Path D Imbalance.</b8>
+            <b5 value="5">RX Path A Imbalance.</b5>
+            <b6 value="6">RX Path B Imbalance.</b6>
+            <b7 value="7">RX Path C Imbalance.</b7>
+            <b8 value="8">RX Path D Imbalance.</b8>
         </FAULT_CODES_CLASS_2A>
     </ACTIVE_KEYS>
     <PRINT_KEYS></PRINT_KEYS>

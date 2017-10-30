@@ -4,40 +4,40 @@
     <RELEASE>A57</RELEASE>
     <NAME_KEY>MO</NAME_KEY>
     <ACTIVE_KEYS>
-        <FAULT_CODES_CLASS_1A in_type="16" out_type="2">
-            <b2 index="2">UC/HC Switch Inconsistent with IDB. Description:
+        <FAULT_CODES_CLASS_1A in_type="10" out_type="10">
+            <b2 value="2">UC/HC Switch Inconsistent with IDB. Description:
             	The UC/HC switch cable is incorrectly connected or connected to a port not consistent with the IDB. The cable can also be mismatched or damaged or one of its connectors can be damaged.
             </b2>
-            <b3 index="3">TX RF Power Back Off Failed.</b3>
+            <b3 value="3">TX RF Power Back Off Failed.</b3>
         </FAULT_CODES_CLASS_1A>
-        <FAULT_CODES_CLASS_1B in_type="16" out_type="2">
-            <b4 index="4">TX Antenna VSWR Limits Exceeded</b4>
-            <b6 index="6">TX EEPROM Checksum Fault.</b6>
-            <b8 index="8">TX Synthesizer A/B Unlocked.</b8>
-            <b9 index="9">TX Synthesizer C Unlocked.</b9>
-            <b11 index="11">TX Internal Voltage Fault.</b11>
-            <b12 index="12">TX High Temperature.</b12>
-            <b13 index="13">TX Output Power Limits Exceeded.</b13>
-            <b14 index="14">TX Saturation.</b14>
-            <b17 index="17">TX Initiation Fault.</b17>
-            <b27 index="27">TX Max Power Restricted.</b27>
-            <b31 index="31">Power Amplifier Fault.</b31>
-            <b32 index="32">TX Low Temperature.</b32>
-            <b35 index="35">RX Path Imbalance.</b35>
-            <b36 index="36">Radio Unit HW Fault.</b36>
-            <b37 index="37">Feeder Connectivity Fault.</b37>
-            <b47 index="47">TX Auxiliary Equipment Fault.</b47>
+        <FAULT_CODES_CLASS_1B in_type="10" out_type="10">
+            <b4 value="4">TX Antenna VSWR Limits Exceeded</b4>
+            <b6 value="6">TX EEPROM Checksum Fault.</b6>
+            <b8 value="8">TX Synthesizer A/B Unlocked.</b8>
+            <b9 value="9">TX Synthesizer C Unlocked.</b9>
+            <b11 value="11">TX Internal Voltage Fault.</b11>
+            <b12 value="12">TX High Temperature.</b12>
+            <b13 value="13">TX Output Power Limits Exceeded.</b13>
+            <b14 value="14">TX Saturation.</b14>
+            <b17 value="17">TX Initiation Fault.</b17>
+            <b27 value="27">TX Max Power Restricted.</b27>
+            <b31 value="31">Power Amplifier Fault.</b31>
+            <b32 value="32">TX Low Temperature.</b32>
+            <b35 value="35">RX Path Imbalance.</b35>
+            <b36 value="36">Radio Unit HW Fault.</b36>
+            <b37 value="37">Feeder Connectivity Fault.</b37>
+            <b47 value="47">TX Auxiliary Equipment Fault.</b47>
         </FAULT_CODES_CLASS_1B>
-        <FAULT_CODES_CLASS_2A in_type="16" out_type="2">
-            <b0 index="0">TX Diversity Fault. Description:
+        <FAULT_CODES_CLASS_2A in_type="10" out_type="10">
+            <b0 value="0">TX Diversity Fault. Description:
             The TX diversity function (TCC or software power boost) is lost. TX diversity uses two TRXs and one of these is either faulty, not available, or in full maintenance mode.</b0>
-            <b1 index="1">Fast Antenna Hopping Failure. Description:
+            <b1 value="1">Fast Antenna Hopping Failure. Description:
              	The transmitter is not included in the antenna hopping set because of either the configuration received from the BSC or site constraints.
 To enable fast antenna hopping, at least one antenna system must include two enabled TXs.
 
 If baseband hopping is activated, fast antenna hopping is suspended for all active TXs.</b1>
-            <b2 index="2">TX RF Power Back Off Exceeded.</b2>
-            <b4 index="4">Linearization Disturbance Performance Degraded. Description:
+            <b2 value="2">TX RF Power Back Off Exceeded.</b2>
+            <b4 value="4">Linearization Disturbance Performance Degraded. Description:
             There is a DPD / Linearization fault in the RUS/RRUS.
 Please note that without any manual action (see actions below) it will take at least one hour for the alarm to cease.</b4>
         </FAULT_CODES_CLASS_2A>
