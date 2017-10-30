@@ -1,9 +1,10 @@
 from print_reader import PrintReader
 from xml_module import ConfigModule
-from interface import get_input_inf, output_inf, DialogWindow
+from interface import get_input_inf, output_inf
 from ErrorManager import ErrorManager
 from collections import OrderedDict
-from tkFileDialog import askopenfilename
+from database import db_helper
+import os
 
 
 class Controller:
@@ -131,4 +132,5 @@ if __name__ == "__main__":
         text = controller.check_text(input_val[1] or get_text())
     else:
         error_manager.add_error_message("No input text")
+    db_helper.write_user(os.environ["REMOTE_ADDR"])
     output_inf(text, error_manager.get_error_messages_as_string())
