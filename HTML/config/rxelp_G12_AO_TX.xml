@@ -4,13 +4,13 @@
     <RELEASE>A57 A58</RELEASE>
     <NAME_KEY>MO</NAME_KEY>
     <ACTIVE_KEYS>
-        <AMAP1 name = "1AMAP" in_type="10" out_type="2">
+        <AMAP1 name = "1AMAP" in_type="16" out_type="2">
             <b2 index="2">UC/HC Switch Inconsistent with IDB. Description:
             	The UC/HC switch cable is incorrectly connected or connected to a port not consistent with the IDB. The cable can also be mismatched or damaged or one of its connectors can be damaged.
             </b2>
             <b3 index="3">TX RF Power Back Off Failed.</b3>
         </AMAP1>
-        <BMAP1 name = "1BMAP" in_type="10" out_type="2">
+        <BMAP1 name = "1BMAP" in_type="16" out_type="2">
             <b4 index="4">TX Antenna VSWR Limits Exceeded</b4>
             <b6 index="6">TX EEPROM Checksum Fault.</b6>
             <b8 index="8">TX Synthesizer A/B Unlocked.</b8>
@@ -28,7 +28,7 @@
             <b37 index="37">Feeder Connectivity Fault.</b37>
             <b47 index="47">TX Auxiliary Equipment Fault.</b47>
         </BMAP1>
-        <AMAP2 name = "2AMAP" in_type="10" out_type="2">
+        <AMAP2 name = "2AMAP" in_type="16" out_type="2">
             <b0 index="0">TX Diversity Fault. Description:
             The TX diversity function (TCC or software power boost) is lost. TX diversity uses two TRXs and one of these is either faulty, not available, or in full maintenance mode.</b0>
             <b1 index="1">Fast Antenna Hopping Failure. Description:

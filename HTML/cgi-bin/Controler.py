@@ -13,6 +13,7 @@ class Controller:
     list_of_xml_to_use = None
 
     def __init__(self, version=None):
+        error_manager = ErrorManager()
         if version is None:
             version = "A57"
         self.xml_reader = ConfigModule(version)
@@ -90,7 +91,7 @@ class Controller:
 
     # function for check bits and return list of print cases
     def checker_bits(self, printout_bits=None, config_bits=None):
-        print printout_bits
+        # print printout_bits
         for key_object in config_bits.list_of_object_keys:
             if key_object.name in printout_bits:
                 printout_bits[key_object.name] = self._parse_bits(key_object, printout_bits.get(key_object.name))
@@ -117,7 +118,7 @@ class Controller:
 
 
 def get_text():
-    my_file = open("C:/Users/ezburde/Desktop/rxmfp.txt")
+    my_file = open("C:/Users/ezburde/Desktop/rxcap.txt")
     return my_file.read()
 
 
