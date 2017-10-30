@@ -1,29 +1,112 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<root limiter="MO BTSSWVER /any/ FAULT CODES CLASS 1A /any/ \n{2,}">
+<root limiter="MO BTSSWVER /any/ RXOCF.* /any/ FAULT CODES CLASS /any/ \n{2,}">
     <HEADER>RADIO X-CEIVER ADMINISTRATION</HEADER>
     <RELEASE>A57</RELEASE>
     <NAME_KEY>MO</NAME_KEY>
     <ACTIVE_KEYS>
-        <FAULT_CODES_CLASS_1A in_type="16" out_type="2">
-            <b0 index="0">Reset, Automatic Recovery. A DUG reset is triggered by the loss of BSC-RBS contact on the CF link for more than 1 hour.</b0>
-            <b1 index="1">Reset, Power On. The DUG has recovered after power off.</b1>
-            <b2 index="2">Reset, Switch. The DUG is reset with the DUG Maintenance button or the OMT.</b2>
-            <b3 index="3">Reset, Watchdog. The software is supposed to reset timers at regular intervals. If the software locks up and does not do this, the DUG is reset.</b3>
-            <b4 index="4">Reset, SW Fault. The DUG is reset because of a severe software fault.</b4>
-            <b5 index="5">Reset, RAM Fault. The DUG is reset because of an error in the RAM parity check.</b5>
-            <b6 index="6">Reset, Internal Function Change. The RBS is reset after software download in order to activate the new software.</b6>
-            <b8 index="8">Timing Unit VCO Fault. The VCO is failing, probably because of a power supply problem or a hardware fault.</b8>
-            <b9 index="9">Timing Bus Fault. The DUG has internal timing problems.</b9>
-            <b11 index="11">Reset, BSC ordered HW Reset. The DUG is reset with the BSC ordered HW Reset Request Command.</b11>
-            <b15 index="15">IDB Corrupted. The IDB/RBS database is corrupted or cannot be read by the software.</b15>
-            <b16 index="16">RU Database Corrupted. The DUG database is corrupted or cannot be read by the software.</b16>
-            <b17 index="17">HW and IDB Inconsistent. The IDB does not match the hardware.</b17>
-            <b18 index="18">Internal Configuration Failed. The DUG failed its internal configuration at startup, usually as a consequence of the related faults.</b18>
-            <b19 index="19">HW and SW Inconsistent. The software release does not support hardware board currently in use.</b19>
-            <b21 index="21">HW Fault. Communication between DUG and RUS/RRUS/AIR/mRRUS is faulty.</b21>
-            <b22 index="22">Air Time Counter Lost. The DUG has an internal signalling problem.</b22>
-            <b24 index="24">Temperature Close to Destructive Limit. An alarm is raised when the temperature nears the destructive limit for the equipment, which consequently shuts down to avoid damage.</b24>
+        <FAULT_CODES_CLASS_1A in_type="10" out_type="10">
+            <b0 value="0">Reset, Automatic Recovery. A DUG reset is triggered by the loss of BSC-RBS contact on the CF
+                link for more than 1 hour.
+            </b0>
+            <b1 value="1">Reset, Power On. The DUG has recovered after power off.</b1>
+            <b2 value="2">Reset, Switch. The DUG is reset with the DUG Maintenance button or the OMT.</b2>
+            <b3 value="3">Reset, Watchdog. The software is supposed to reset timers at regular intervals. If the
+                software locks up and does not do this, the DUG is reset.
+            </b3>
+            <b4 value="4">Reset, SW Fault. The DUG is reset because of a severe software fault.</b4>
+            <b5 value="5">Reset, RAM Fault. The DUG is reset because of an error in the RAM parity check.</b5>
+            <b6 value="6">Reset, Internal Function Change. The RBS is reset after software download in order to activate
+                the new software.
+            </b6>
+            <b8 value="8">Timing Unit VCO Fault. The VCO is failing, probably because of a power supply problem or a
+                hardware fault.
+            </b8>
+            <b9 value="9">Timing Bus Fault. The DUG has internal timing problems.</b9>
+            <b11 value="11">Reset, BSC ordered HW Reset. The DUG is reset with the BSC ordered HW Reset Request
+                Command.
+            </b11>
+            <b15 value="15">IDB Corrupted. The IDB/RBS database is corrupted or cannot be read by the software.</b15>
+            <b16 value="16">RU Database Corrupted. The DUG database is corrupted or cannot be read by the software.
+            </b16>
+            <b17 value="17">HW and IDB Inconsistent. The IDB does not match the hardware.</b17>
+            <b18 value="18">Internal Configuration Failed. The DUG failed its internal configuration at startup, usually
+                as a consequence of the related faults.
+            </b18>
+            <b19 value="19">HW and SW Inconsistent. The software release does not support hardware board currently in
+                use.
+            </b19>
+            <b21 value="21">HW Fault. Communication between DUG and RUS/RRUS/AIR/mRRUS is faulty.</b21>
+            <b22 value="22">Air Time Counter Lost. The DUG has an internal signalling problem.</b22>
+            <b24 value="24">Temperature Close to Destructive Limit. An alarm is raised when the temperature nears the
+                destructive limit for the equipment, which consequently shuts down to avoid damage.
+            </b24>
         </FAULT_CODES_CLASS_1A>
+        <FAULT_CODES_CLASS_2A in_type="10" out_type="10">
+            <b8 value="8">VSWR Limits Exceeded. For RUS/RRUS/AIR-based configurations: The VSWR at the RUS/RRUS/AIR output has exceeded the limits defined in the IDB. If the class 1 limit is exceeded, related fault AO TX I1B:4 is also raised and the TX is disabled.</b8>
+            <b12 value="12">RX Maxgain/Mingain Violated. The total RX gain (from antenna to RUG/RUS/RRUS or within AIR) is outside the recommended range. Probably one or more values for TMA gain or RX cable/feeder loss are wrongly defined in the IDB.</b12>
+            <b13 value="13">Timing Unit VCO Ageing. The VCO is ageing. Its control value has drifted outside its authorized range.</b13>
+            <b16 value="16">Indoor Temp Out of Normal Conditional Range. The temperature in the cabinet is outside the specified normal conditional range. The alarm ceases when the temperature is back within the normal conditional range.</b16>
+            <b20 value="20">Thermal Runaway Risk. 	An alarm is raised when a risk for thermal runaway is detected. The battery is reconnected after 24 hours if it is caused by detection of a thermal runaway risk.</b20>
+            <b22 value="22">Battery Backup Capacity Reduced. The power supply from the batteries is reduced. This can be caused by battery voltage too low or battery temp sensor missing/faulty. In this case the BFU will disconnect the affected batteries or avoid connecting the battery.</b22>
+            <b23 value="23">Climate Capacity Reduced. One or more fan groups are detected as faulty or the fan filters are clogged.</b23>
+            <b24 value="24">HW Fault. The DUG has an internal hardware fault. Performance might be reduced.</b24>
+            <b25 value="25">Loadfile Missing in DXU or ECU. A software file in the DUG flash card is missing or corrupted. The likely cause is either failed software download or connection of a unit lacking software.</b25>
+            <b26 value="26">Climate Sensor Fault. A temperature sensor is faulty.</b26>
+            <b30 value="30">Bus Fault. Disturbances present on the Y link interface.</b30>
+            <b31 value="31">High Frequency of Software Fault. Frequent software errors during execution of the RBS software.</b31>
+            <b33 value="33">RX Diversity Lost. There is an imbalance in signal strength between the receiver paths for one or more TRXs. Depending on which RX path has the lowest signal strength, one or more of the related faults are also raised.</b33>
+            <b34 value="34">Output Voltage Fault. The ALNA/TMA voltage is outside the allowed range. This can be caused by a hardware failure or a short circuit of the feeder.</b34>
+            <b36 value="36">RU Database Corrupted. The RU database in a unit is corrupted or cannot be read by the software.</b36>
+            <b37 value="37">Circuit Breaker Tripped or Fuse Blown. A circuit breaker in the BFU has tripped.</b37>
+            <b38 value="38">Default Values Used. The DUG is using default parameters for its internal configuration, usually as a consequence of the related faults. Performance can be reduced.</b38>
+            <b41 value="41">Lost Communication to TRU. The DUG has no contact with one or more TRXs marked as expected in the IDB.</b41>
+            <b43 value="43">Internal Configuration Failed. One or more TRXs have failed their internal configuration at startup.</b43>
+            <b45 value="45">High Temperature. The battery temperature is above normal conditional range. The fault ceases when the temperature is back within the normal conditional range.</b45>
+            <b46 value="46">DB Parameter Fault. The IDB or one of the RU databases contains one or more erroneous parameters. The software uses a default value instead and performance might be reduced.</b46>
+            <b47 value="47">Antenna Hopping Failure. For RUG-based configurations: Antenna hopping is not possible, either because of the configuration received from the BSC or site constraints.</b47>
+            <b48 value="48">GPS Synch Fault.</b48>
+            <b49 value="49">Battery Backup Time Shorter Than Expected. 	An on demand or periodic battery test has indicated that the estimated remaining battery backup time is shorter than expected. The battery capacity may not be sufficient and the battery backup time is likely to be shorter than expected at the next AC power failure.</b49>
+            <b50 value="50">RBS Running on Battery. The RBS is running on batteries. Unless external power is restored the RBS eventually turns itself off.</b50>
+            <b51 value="51">TMA Supervision/Communications Lost. The DUG has lost communication with the TMA-CM.</b51>
+            <b53 value="53">HW and IDB Inconsistent. The IDB does not match the RBS hardware.</b53>
+            <b54 value="54">Timing Bus Fault. The timing bus driver in the DUG is faulty or one or more TRXs have reported timing reception problems.</b54>
+            <b57 value="57">RX Path Imbalance. 	This fault is raised if the difference in signal strength between two antennas in the same antenna system exceeds the limits defined by the Define RX Path Imbalance Parameters in the OMT. If the class 1 limit is exceeded, related fault AO TX I1B:35 is also raised and the TX disabled. The supervision of this fault is based on measurements over a long period; hence the fault does not cease as soon as the fault is corrected. The RX imbalance monitor must therefore be used to verify the correction of the fault.</b57>
+            <b58 value="58">Disconnected. An alarm is raised if there is no contact with a unit expected to be in the RBS. The RBS is unable to control or communicate with the unit. Certain units might still operate in autonomous mode with degraded performance but this is dependent on the type of unit. The severity of the degradation also depends on the type of the unit.</b58>
+            <b59 value="59">Operating Temperature Too High, Main Load Disconnected. An alarm is raised when the main load is disconnected because the PDU temperature is too high.</b59>
+            <b60 value="60">Operating Temperature Too High, Battery Disconnected. An alarm is raised when the battery is disconnected because the BFU temperature is too high or a risk for thermal runaway is detected. The battery is reconnected when the BFU temperature falls; or reconnected after 24 hours if it’s caused by detection of a thermal runaway risk.</b60>
+            <b61 value="61">Operating Temperature Too High, Capacity Reduced. An alarm is raised when the PSU operating temperature is too high and PSU performance deteriorates.</b61>
+            <b62 value="62">Operating Temperature Too Low, Capacity Reduced. An alarm is raised when the PSU operating temperature is too low, causing reduced PSU performance. Low temperatures can cause PSU output power to fall below the minimum level required to power the RBS.</b62>
+            <b63 value="63">Operating Temperature Too High, No Service. An alarm is raised when the PSU operating temperature is too high (near the destructive range), causing it to stop supplying power to the RBS. Power to the RBS is reduced and there is a risk of the RBS ceasing to function.</b63>
+            <b64 value="64">Operating Temperature Too Low, Communication Lost. An alarm is raised before the PSU operating temperature is too low, causing the loss of DU communication. This can reduce both the performance of RBS power system control functions and the power to the RBS.</b64>
+            <b65 value="65">An alarm is raised when the main load is disconnected because of low battery voltage. This is normal when the RBS runs for too long on battery backup after an AC power failure.</b65>
+            <b66 value="66">Battery Voltage Too Low, Prio Load Disconnected. An alarm is raised when the battery is disconnected because of low battery voltage. This is normal when the RBS runs for too long on battery backup after an AC power failure. All power distribution ceases.</b66>
+            <b67 value="67">System Undervoltage. An alarm is raised when the system voltage falls below a set level.</b67>
+            <b68 value="68">System Overvoltage. An alarm is raised when the system voltage rises above a set limit. If the system voltage continues to rise, services can fail and RBS equipment can be damaged. When the alarm raise criteria is fulfilled, control system should order disconnect of battery in charging direction and set the charging voltage to a “Fail Safe Charging Voltage” (52V). When the alarm is ceased, control system should connect the battery using soft start.</b68>
+            <b69 value="69">Cabinet Product Data Mismatch. 	The ability to keep a consistent product data view is lost and there is a mismatch between configured data and unit-provided data.</b69>
+            <b70 value="70">Battery Missing. An alarm is raised if the battery voltage indicates that an expected battery is not present.</b70>
+            <b71 value="71">Low Battery Capacity. An alarm is raised if the voltage is too low during intermittent charging. The battery voltage reached the set limit while the battery was disconnected during intermittent charging. Battery capacity is lower than expected. The backup time at the next AC power failure is likely to be shorter than expected.</b71>
+            <b72 value="72">Software Load of RUS Failed. The DUG is unable to download software to one or more RUSs/RRUSs/AIRs/mRRUSs marked as expected in the IDB.</b72>
+            <b73 value="73">Degraded or Lost Communication to Radio Unit. The DUG, or a RUS/RRUS/AIR/mRRUS in a cascade chain, has no contact or degraded communication with one or more RUSs/RRUSs/AIRs/mRRUSs marked as expected in the IDB.</b73>
+            <b74 value="74">DU to DU Communication Lost. The DUG in IDL2 TG-Cluster, has no communication over one or more ports defined for IDL2 communication in the IDB.</b74>
+            <b75 value="75">SW Version Mismatch in CPRI based TG-Cluster. In an IDL2 TG cluster, different versions of the software are used in the Master DU and Slave DU.</b75>
+            <b79 value="79">Configuration Fault of CPRI System. There is a configuration fault of CPRI System.</b79>
+            <b80 value="80">Antenna System DC Power Supply Overloaded. The DC power supply of the antenna system is overloaded. This can be caused by a hardware failure or a short circuit. Most likely: jumper, feeder or TMA. Less likely: RUS output or other RBS internal RF cables connecting to jumper.</b80>
+            <b81 value="81">Primary Node Disconnected. The DUG has no contact with the primary DU.</b81>
+            <b82 value="82">Radio Unit Incompatible. A Radio Unit is not compatible with GSM. This can for example be caused by connecting to a RUS/RRUS/AIR/mRRUS with a non-GSM compatible frequency band, or connecting to a Radio Unit for another radio access standard.</b82>
+            <b83 value="83">Radio Unit Connection Fault. The DUG cannot connect to one or more RUSs/RRUSs/AIRs/mRRUSs configured for mixed mode between GSM and another Radio Access Network (RAN). Even though the RUS/RRUS/AIR/mRRUS is visible for the DUG, it is not possible to establish a connection on the application layer.</b83>
+            <b84 value="84">Unauthorized External Process Hunt. 	An unauthorized access (hunt) using incoming OSE signals has been performed by an external process.</b84>
+            <b85 value="85">Unused MCPA, Capacity Reduced. 	The IDB does not match the RBS hardware. The RBS is configured for a single TX RUS but a dual TX RUS is connected. This is a warning that only half of the available TX functionality is being used in relation to the capacity of the connected RUS.</b85>
+            <b86 value="86">Low Battery Capacity, Battery Test. An on demand or periodic battery test has indicated that the battery capacity is lower than expected.</b86>
+            <b87 value="87">Radio Unit HW Fault. There are internal hardware faults in one or more RUS/RRUS/AIR/mRRUS, the RUS power supply or in some device, that is, a feeder or TMA consuming too much power. The severities of the faults are indicated by the related faults.</b87>
+            <b88 value="88">CPRI Delay Too Long. The BTS has calculated the length of CPRI cables for the active path or for the redundant path that will be used if the normal active path cannot be used. The calculated delay over CPRI cables towards an RE has resulted in too long delay time, corresponding to a cable length exceeding 40 km.</b88>
+            <b89 value="89">DU Degraded - TRX functionality lost. There is an internal fault in one or more TRXs/RXs/TXs. The traffic on one or more extension TRXs is not started.</b89>
+            <b90 value="90">Ring Redundancy Lost. The ring redundancy in a ring topology CPRI chain has been lost. Traffic capacity is maintained but traffic capacity will be lost if another communication break occurs.</b90>
+            <b91 value="91">Fan Power Reduced. SCU Power connector is faulty / missing. The cooling capability of RBS is reduced</b91>
+            <b92 value="92">Secondary node Disconnected. The DUG has no contact with the secondary node.</b92>
+            <b93 value="93">Alarm Port Inconsistent Configuration. A configuration fault has been detected for one or more external alarm ports on an RRUS. The fault indicates the inconsistent configuration of alarm activation criteria for one or more alarm ports used by more than one RBS node.</b93>
+            <b94 value="94">Feeder Connectivity Fault. Malfunction detected in antenna system or AIR/mRRUS.</b94>
+            <b95 value="95">High Utilization. The DX CPU utilization has been high, that is, greater than 90 %, for 60 seconds. During Function Change it is normal to get high CPU utilization during loading of SW to Radio Units.</b95>
+        </FAULT_CODES_CLASS_2A>
     </ACTIVE_KEYS>
     <PRINT_KEYS></PRINT_KEYS>
 </root>
