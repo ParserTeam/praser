@@ -4,8 +4,8 @@
     <RELEASE>A57</RELEASE>
     <NAME_KEY>MO</NAME_KEY>
     <ACTIVE_KEYS>
-        <EXTERNAL_FAULT_CODES_CLASS_1 in_type="16" out_type="2">
-            <b3 index="3">TRA/PCU (Remote Transcoder/PCU Com. Lost). Description:
+        <EXTERNAL_FAULT_CODES_CLASS_1 in_type="10" out_type="10">
+            <b3 value="3">TRA/PCU (Remote Transcoder/PCU Com. Lost). Description:
             	The speech/data frames coming from the BSC to the TS are missing or corrupted.</b3>
         </EXTERNAL_FAULT_CODES_CLASS_1>
     </ACTIVE_KEYS>
