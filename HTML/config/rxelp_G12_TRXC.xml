@@ -4,7 +4,7 @@
     <RELEASE>A57</RELEASE>
     <NAME_KEY>MO</NAME_KEY>
     <ACTIVE_KEYS>
-        <1AMAP in_type="10" out_type="2">
+        <AMAP1 name = "1AMAP" in_type="10" out_type="2">
             <b0 value="0">Reset, Automatic Recovery. Description:
             	The TRX is reset for fault recovery reasons, for example, errors in the software, hardware, or logic configuration. This alarm is set only if another fault on the TRX has been reported before the reset.
 Note:
@@ -108,8 +108,8 @@ Incorrect cable connected.</b32>
             The DUG, or a RUS/RRUS/AIR/mRRUS in a cascade chain, has no contact or degraded communication with one or more RUSs/RRUSs/AIRs/mRRUSs marked as expected in the IDB.</b36>
             <b37 value="37">Radio Unit Communication Failure. Description:
             The DUG has communication problems with one or more RUSs/RRUSs/AIRs/mRRUSs that are marked as expected in the IDB.</b37>
-        </1AMAP>
-        <1BMAP in_type="10" out_type="2">
+        </AMAP1>
+        <BMAP1 name = "1BMAP" in_type="10" out_type="2">
             <b3 value="3">DC Voltage Out of Range. Description:
             The DC supply voltage to the TRX is outside operational range.</b3>
             <b8 value="8">Y Link Communication Fault.</b8>
@@ -123,8 +123,8 @@ This alarm will never be visible via ABIS since no OML connection is established
             One of the following has occurred in a combined cell:
 The main site and the antenna site do not support the same frequencies
 The extension site supports a narrower frequency bandwidth than the main site.</b13>
-        </1BMAP>
-        <2AMAP in_type="10" out_type="2">
+        </BMAP1>
+        <AMAP2 name = "2AMAP" in_type="10" out_type="2">
             <b0 value="0">RX Cable Disconnected. Description:
             An RX cable is disconnected or faulty.</b0>
             <b1 value="1">RX EEPROM Checksum Fault. Description:
@@ -195,8 +195,8 @@ If several units from different subracks have issued the fault, then the most li
             Internal TRX fault causes problem on the uplink traffic.</b46>
             <b47 value="47">Internal Configuration Failed. Description:
             The TRX failed its internal configuration and the fault causes problem on one of the RX ways.</b47>
-        </2AMAP>
-        <EXT1BMAP in_type="10" out_type="10">
+        </AMAP2>
+        <EXT1BMAP name = "EXT1BMAP" in_type="10" out_type="10">
             <b4 value="4">L/R SWI (TRU in Local Mode). Description:
             The RUG/RUS/RRUS/AIR is in full maintenance mode and cannot be controlled by the BSC.
 This can happen, for example, after installing a new IDB.</b4>
@@ -205,7 +205,7 @@ This can happen, for example, after installing a new IDB.</b4>
 Note:
 For information only.</b5>
         </EXT1BMAP>
-        <EXT2BMAP in_type="10" out_type="2">
+        <EXT2BMAP name = "EXT2BMAP" in_type="10" out_type="2">
             <b16 value="16">TS0 TRA Lost (TS Mode Is IDLE). Description:
             The speech/data frames from the BSC to the TS are missing or corrupted.
 This is probably a fault in the Abis transmission path or in the BSC, for example, no TRA allocated, no connection in Group Switch, and so on.</b16>
@@ -278,8 +278,8 @@ This is probably a fault in the Abis transmission path or in the BSC, for exampl
             <b46 value="46">TS7 PCU Lost (TS Mode Is PS). Description:
             The speech/data frames from the BSC to the TS are missing or corrupted.
 This is probably a fault in the Abis transmission path or in the BSC, for example, no TRA allocated, no connection in Group Switch, and so on.</b46>
-        </EXTERNAL_FAULT_CODES_CLASS_2>
-        <REPLMAP in_type="10" out_type="2">
+        </EXT2BMAP>
+        <REPLMAP name = "REPLMAP" in_type="10" out_type="2">
             <v0 value = "0">TRU, dTRU, DRU, RUG, RRU or DUG 20 </v0>
             <v2 value = "2">Micro RBS </v2>
             <v3 value = "3">CXU TRU RXA Cable</v3>

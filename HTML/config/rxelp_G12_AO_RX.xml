@@ -4,7 +4,7 @@
     <RELEASE>A57 A58</RELEASE>
     <NAME_KEY>MO</NAME_KEY>
     <ACTIVE_KEYS>
-        <1BMAP in_type="10" out_type="2">
+        <BMAP1 name = "1BMAP" in_type="10" out_type="2">
             <b0 index="0">RX Internal Amplifier Fault.</b0>
             <b1 index="1">ALNA/TMA Fault.</b1>
             <b3 index="3">RX EEPROM Checksum Fault.</b3>
@@ -21,8 +21,8 @@
             <b22 index="22">Antenna System DC Power Supply Overloaded.</b22>
             <b23 index="23">Radio Unit Antenna System Output Voltage Fault.</b23>
             <b47 index="47">RX Auxiliary Equipment Fault.</b47>
-        </1BMAP>
-        <2AMAP in_type="10" out_type="2">
+        </BMAP1>
+        <AMAP2 name = "2AMAP" in_type="10" out_type="2">
             <b1 index="1">RX Path Lost on A Receiver Side. Description:
             	The RX path on the A receiver side of the TRX is lost. This alarm is raised if any related faults are raised on a TRX configured for RX diversity.
 If raised on a RU with 4 RF ports and 2 way receiver diversity is enabled, this alarm can be reported on both RF A and RF C.</b1>
@@ -41,7 +41,7 @@ This fault is applicable only when 4-way receiver diversity is activated.</b4>
             <b6 index="6">RX Path B Imbalance.</b6>
             <b7 index="7">RX Path C Imbalance.</b7>
             <b8 index="8">RX Path D Imbalance.</b8>
-        </2AMAP>
+        </AMAP2>
     </ACTIVE_KEYS>
     <PRINT_KEYS></PRINT_KEYS>
 </root>

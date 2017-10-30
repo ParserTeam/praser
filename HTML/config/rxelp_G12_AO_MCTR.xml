@@ -4,7 +4,7 @@
     <RELEASE>A57 A58</RELEASE>
     <NAME_KEY>MO</NAME_KEY>
     <ACTIVE_KEYS>
-        <AMAP in_type="10" out_type="2">
+        <AMAP1 name = "1AMAP" in_type="10" out_type="2">
             <b0 index="0"> Radio Unit Fault. Description:
             	The radio unit has indicated an unspecified fault situation.</b0>
             <b1 index="1">HW Fault. Desription:
@@ -17,8 +17,8 @@ The OMT function Check IDB can be used to identify hardware/IDB inconsistencies.
             <b4 index="4">Radio Unit in Full Maintenance Mode. Description:
             The RUS/RRUS is in full maintenance mode and cannot be controlled by the BSC.
 This can happen, for example, after installing a new IDB.</b4>
-        </AMAP>
-        <BMAP type="10" out_type="2">
+        </AMAP1>
+        <BMAP1 name = "1BMAP" type="10" out_type="2">
             <b0 index="0">Radio Unit Connection Fault.</b0>
             <b1 index="1">Temperature Exceptional.</b1>
             <b2 index="2">Lost Communication to Radio Unit.</b2>
@@ -28,8 +28,8 @@ This can happen, for example, after installing a new IDB.</b4>
             The Radio unit is reset with the BSC ordered HW Reset Request Command.
 Note:
 For information only.</b5>
-        </1BMAP>
-        <2AMAP in_type="10" out_type="2">
+        </BMAP1>
+        <AMAP2 name = "2AMAP"  in_type="10" out_type="2">
             <b0 index="0">HW Fault.</b0>
             <b1 index="1">RX Cable Disconnected. Description:
             An RX cable is disconnected or faulty.</b1>
@@ -91,8 +91,8 @@ The operator should schedule service within a couple of weeks</b29>
             <b32 index="32">Linearization Disturbance Performance Degraded. Description:
             There is a DPD / Linearization fault in the RUS/RRUS.
 Please note that without any manual action (see actions below) it will take at least one hour for the alarm to cease.</b32>
-        </2AMAP>
-        <EXT1BMAP in_type="10" out_type="2">
+        </AMAP2>
+        <EXT1BMAP name  = "EXT1BMAP" in_type="10" out_type="2">
             <b10 index="10">CC CONF (Inconsistent Combined Cell Configuration).</b10>
         </EXT1BMAP>
     </ACTIVE_KEYS>

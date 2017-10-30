@@ -4,7 +4,7 @@
     <RELEASE>A57 A58</RELEASE>
     <NAME_KEY>MO</NAME_KEY>
     <ACTIVE_KEYS>
-            <1AMAP in_type="10" out_type="2">
+            <AMAP1 name = "1AMAP" in_type="10" out_type="2">
             <b0 value="0">Reset, Automatic Recovery. A DUG reset is triggered by the loss of BSC-RBS contact on the CF
                 link for more than 1 hour.
             </b0>
@@ -40,8 +40,8 @@
             <b24 value="24">Temperature Close to Destructive Limit. An alarm is raised when the temperature nears the
                 destructive limit for the equipment, which consequently shuts down to avoid damage.
             </b24>
-        </1AMAP>
-        <2AMAP in_type="10" out_type="2">
+        </AMAP1>
+        <AMAP2 name = "2AMAP" in_type="10" out_type="2">
             <b8 value="8">VSWR Limits Exceeded. For RUS/RRUS/AIR-based configurations: The VSWR at the RUS/RRUS/AIR output has exceeded the limits defined in the IDB. If the class 1 limit is exceeded, related fault AO TX I1B:4 is also raised and the TX is disabled.</b8>
             <b12 value="12">RX Maxgain/Mingain Violated. The total RX gain (from antenna to RUG/RUS/RRUS or within AIR) is outside the recommended range. Probably one or more values for TMA gain or RX cable/feeder loss are wrongly defined in the IDB.</b12>
             <b13 value="13">Timing Unit VCO Ageing. The VCO is ageing. Its control value has drifted outside its authorized range.</b13>
@@ -106,15 +106,15 @@
             <b93 value="93">Alarm Port Inconsistent Configuration. A configuration fault has been detected for one or more external alarm ports on an RRUS. The fault indicates the inconsistent configuration of alarm activation criteria for one or more alarm ports used by more than one RBS node.</b93>
             <b94 value="94">Feeder Connectivity Fault. Malfunction detected in antenna system or AIR/mRRUS.</b94>
             <b95 value="95">High Utilization. The DX CPU utilization has been high, that is, greater than 90 %, for 60 seconds. During Function Change it is normal to get high CPU utilization during loading of SW to Radio Units.</b95>
-        </2AMAP>
-        <EXT1BMAP in_type="10" out_type="2">
+        </AMAP2>
+        <EXT1BMAP name  = "EXT1BMAP" in_type="10" out_type="2">
             <v2 value = "2">LMT (BTS Locally Disconnected). The DUG is in full maintenance mode and cannot be controlled by the BSC.</v2>
             <v4 value = "4">L/R SWI (BTS in Local Mode). The DUG is in full maintenance mode and cannot be controlled by the BSC.</v4>
             <v5 value = "5">L/R TI (Local to Remote While Link Lost). 	The DUG went into no maintenance mode while the CF link was down.</v5>
             <v9 value = "9">Smoke Alarm. The smoke detector raises this alarm when it detects smoke in the cabinet, which can be caused by a fire.</v9>
             <v11 value = "11">Node Group Synch Configuration Fault. The Node Group is not corrrectly configured. The likely cause of this alarm is that the BTS was configured with a faulty node priority; or the node priority of BTS conflicts with the running nodes in the node group when BTS joins; or BTS node detects that another node with the same node priority is coming into the node group.</v11>
         </EXT1BMAP>
-        <EXT2BMAP in_type="10" out_type="2">
+        <EXT2BMAP name = "EXT2BMAP" in_type="10" out_type="2">
             <v3 value = "3">Smoke Alarm Faulty. This alarm is raised when the smoke detector hardware is faulty.</v3>
             <v4 value = "4">TP (Technician Present). This alarm is raised when a technician on the RBS site has activated the Technician Present indication. ’Not active’ means that a technician is not present on RBS site, or the presence is not supervised.</v4>
             <v5 value = "5">Alarm Suppr. This alarm is raised when I2A and EC2 alarms are suppressed by the RBS; i.e. the alarm supression is ‘Active’. ’Not active’ means that alarms suppression is not used.</v5>
@@ -125,7 +125,7 @@
             <v12 value = "12">ALNA/TMA Degraded. The current supplied to the ALNA/TMA is outside the defined limits. The ALNA/TMA current consumption can be monitored, using the OMT.</v12>
             <v13 value = "13">Auxiliary Equipment Fault. An ARAE fault is activated, indicating that a fault has occurred on auxiliary equipment related to a TX and/or RX antenna.</v13>
         </EXT2BMAP>
-        <REPLMAP in_type="10" out_type="2">
+        <REPLMAP name = "REPLMAP" in_type="10" out_type="2">
             <v0 value = "0">DXU, DUG 10, DUG 20, MU or IXU </v0>
             <v1 value = "1">ECU</v1>
             <v2 value = "2">Micro RBS </v2>
