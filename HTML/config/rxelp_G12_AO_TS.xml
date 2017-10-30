@@ -4,7 +4,7 @@
     <RELEASE>A57 A58</RELEASE>
     <NAME_KEY>MO</NAME_KEY>
     <ACTIVE_KEYS>
-        <EXT1BMAP in_type="10" out_type="2">
+        <EXT1BMAP in_type="16" out_type="2">
             <b3 index="3">TRA/PCU (Remote Transcoder/PCU Com. Lost). Description:
             	The speech/data frames coming from the BSC to the TS are missing or corrupted.</b3>
         </EXT1BMAP>
