@@ -4,11 +4,74 @@
     <!DOCTYPE html>
     <link rel="shortcut icon" href="https://dl2.macupdate.com/images/icons256/53366.png?d=1470681400" type="image/png">
     <TITLE>USER-FRIENDLY PARSER</TITLE>
+    <style>
+
+            #top2{
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: rgb(0, 0, 0);
+    background: rgba(0, 0, 0, 0.7);
+    width: 50px;
+    height: 50px;
+    display: block;
+    text-decoration: none;
+    -webkit-border-radius: 35px;
+    -moz-border-radius: 35px;
+    border-radius: 35px;
+    display: none;
+    -webkit-transition: all 0.3s linear;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+#top2 i{
+    color: #fff;
+    margin: 0;
+    position: relative;
+    left: 16px;
+    top: 13px;
+    font-size: 19px;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+#top2:hover{
+    background: rgba(0, 0, 0, 0.9);
+}
+#top2:hover i{
+    color: #fff;
+    top: 5px;
+}
+
+
+    </style>
     <link rel="stylesheet" type="text/css" href="style.css">
     <!--<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>-->
     <script src="jquery-3.2.1.min.js"></script>
 </HEAD>
 <BODY STYLE="color: #000080; font-family: Helvetica Neue ,Helvetica,Arial,sans-serif; font-size: 14px;">
+<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+<a href="javascript:" id="top2"><i class="icon-chevron-up"></i></a>
+<script>
+
+    $(window).scroll(function() {
+    if ($(this).scrollTop() >= 50) {    // If page is scrolled more than 50px
+        $('#top2').fadeIn("fast");       // Fade in the arrow
+    } else {
+        $('#top2').fadeOut("fast");      // Else fade out the arrow
+    }
+});
+$('#top2').click(function() {            // When arrow is clicked
+    $('body,html').animate({
+        scrollTop : 0                   // Scroll to top of body
+    }, 500);
+});
+
+</script>
 
 <p><a name="top"></a></p>
 <p STYLE="font-size:36px; text-align: center; margin:2% "><STRONG>USER-FRIENDLY PARSER</STRONG></p>
