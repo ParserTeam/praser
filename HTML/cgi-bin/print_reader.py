@@ -1,5 +1,6 @@
 from re import match, finditer, sub
 from bscswupg_mmlparser import MMLparser
+from time import time
 
 SRE_MATCH_TYPE = type(match("", ""))
 
@@ -23,6 +24,7 @@ class PrintReader:
         result = list()
 
         for file_name, limiter in configuration_keys.items():
+            print file_name, time()
             limiter = limiter.replace(" /any/ ", r"[\s|\n][\s\S]*?")
             limiter = limiter.replace(" /or/ ", r"|")
             limiter = limiter.replace(" ", r"\s+")

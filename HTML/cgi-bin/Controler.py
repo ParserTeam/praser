@@ -90,6 +90,7 @@ class Controller:
 
     # function for check bits and return list of print cases
     def checker_bits(self, printout_bits=None, config_bits=None):
+        print printout_bits
         for key_object in config_bits.list_of_object_keys:
             if key_object.name in printout_bits:
                 printout_bits[key_object.name] = self._parse_bits(key_object, printout_bits.get(key_object.name))
@@ -116,7 +117,7 @@ class Controller:
 
 
 def get_text():
-    my_file = open("C:/Users/ezburde/Desktop/rxcap - Copy.txt")
+    my_file = open("C:/Users/ezburde/Desktop/test.log")
     return my_file.read()
 
 
