@@ -117,18 +117,18 @@ class Controller:
         self.xml_reader.get_list_objects(list_objects)
 
 
-def get_text():
-    my_file = open("C:/Users/ezburde/Desktop/rxcap.txt")
-    return my_file.read()
+# def get_text():
+#     my_file = open("C:/Users/ezburde/Desktop/rxcap.txt")
+#     return my_file.read()
 
 
 if __name__ == "__main__":
     text = ""
     error_manager = ErrorManager()
     input_val = get_input_inf()
-    if input_val[1] or True:
+    if input_val[1]:
         controller = Controller(version=input_val[0])
-        text = controller.check_text(input_val[1] or get_text())
+        text = controller.check_text(input_val[1] )
     else:
         error_manager.add_error_message("No input text")
     output_inf(text, error_manager.get_error_messages_as_string())

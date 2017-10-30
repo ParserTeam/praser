@@ -17,17 +17,17 @@
 			<b9 bit="9">SC is faulty, used for maintenance purposes</b9>
 			<b10 bit="10">Transceiver Group (TG) not connected to Super Channel Group (SCGR)</b10>
 			<b16 index="16">Failure on Transmission Device Side</b16>
-                <v0 value="0" width="16-20">DIP or SDIP failure</v0>
-                <v2 value="2" width="16-20">Failure at communication with RP</v2>
-                <v3 value="3" width="16-20">Switching Network Terminal (SNT) manually, auto, or control blocked</v3>
+                <v0_b17-b19 value="0" width="16-20">DIP or SDIP failure</v0_b17-b19>
+                <v2_b17-b19 value="2" width="16-20">Failure at communication with RP</v2_b17-b19>
+                <v3_b17-b19 value="3" width="16-20">Switching Network Terminal (SNT) manually, auto, or control blocked</v3_b17-b19>
 			<b20 index="20">Failure on User Side</b20>
-				<v0 value="0" width="20-23">Extension Module (EM) is blocked</v0>
-				<v1 value="1" width="20-23">Failure at communication with RP</v1>
-				<v2 value="2" width="20-23">10Gb network fault</v2>
+				<v0_b21-22 value="0" width="20-23">Extension Module (EM) is blocked</v0_b21-22>
+				<v1_b21-22 value="1" width="20-23">Failure at communication with RP</v1_b21-22>
+				<v2_b21-22 value="2" width="20-23">10Gb network fault</v2_b21-22>
 			<b23 index="23">Transport Protocol Fault</b23>
-				<v0 value="0" width="23-26">10Gb network fault</v0>
-				<v1 value="1" width="23-26">VLAN type fault</v1>
-				<v2 value="2" width="23-26">Payload or transport protocol mismatch, or both</v2>
+				<v0_b24-25 value="0" width="23-26">10Gb network fault</v0_b24-25>
+				<v1_b24-25 value="1" width="23-26">VLAN type fault</v1_b24-25>
+				<v2_b24-25 value="2" width="23-26">Payload or transport protocol mismatch, or both</v2_b24-25>
 			<b26 bit="26">TG not connected to SCGR</b26>
 			<b27 bit="27">Not activated in RP unit</b27>
 			<b28 bit="28">Bad quality on SC</b28>
