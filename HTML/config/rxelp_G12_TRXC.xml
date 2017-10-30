@@ -4,307 +4,445 @@
     <RELEASE>A57</RELEASE>
     <NAME_KEY>MO</NAME_KEY>
     <ACTIVE_KEYS>
-        <AMAP1 name = "1AMAP" in_type="16" out_type="2">
-            <b0 value="0">Reset, Automatic Recovery. Description:
-            	The TRX is reset for fault recovery reasons, for example, errors in the software, hardware, or logic configuration. This alarm is set only if another fault on the TRX has been reported before the reset.
-Note:
-For information only.</b0>
-            <b1 value="1">Reset, Power On. Description:
-            The TRX has recovered after power off.
-Note:
-For information only.</b1>
-            <b2 value="2">Reset, Switch. Description:
-            	The TRX is reset with the Maintenance button or using the OMT.
-Note:
-For information only.</b2>
-            <b3 value="3">Reset, Watchdog. Description:
-            	The software is supposed to reset timers at regular intervals. If the software locks up and does not do this, the TRX is reset.
-Note:
-For information only, not a hardware fault.</b3>
-            <b4 value="4">Reset, SW Fault. Description:
-            The TRX is reset because of a severe software fault.</b4>
-            <b5 value="5">Reset, RAM Fault. Description:
-            	The TRX is reset because of an error in the RAM parity check.</b5>
-            <b6 value="6">Reset, Internal Function Change. Description:
-            The TRX is reset after software download in order to activate the new software.
-Note:
-For information only.</b6>
-            <b7 value="7">Reset, BSC ordered HW Reset. Description:
-            The TRX is reset with the BSC ordered HW Reset Request Command.
-Note:
-For information only.</b7>
-            <b8 value="8">Timing Reception Fault. Description:
-            For RUS/RRUS/AIR/mRRUS-based configurations:
-The DUG has internal timing problems.
+        <AMAP1 name="1AMAP" in_type="16" out_type="2">
+            <b0 index="0">Reset, Automatic Recovery. Description:
+                The TRX is reset for fault recovery reasons, for example, errors in the software, hardware, or logic
+                configuration. This alarm is set only if another fault on the TRX has been reported before the reset.
+                Note:
+                For information only.
+            </b0>
+            <b1 index="1">Reset, Power On. Description:
+                The TRX has recovered after power off.
+                Note:
+                For information only.
+            </b1>
+            <b2 index="2">Reset, Switch. Description:
+                The TRX is reset with the Maintenance button or using the OMT.
+                Note:
+                For information only.
+            </b2>
+            <b3 index="3">Reset, Watchdog. Description:
+                The software is supposed to reset timers at regular intervals. If the software locks up and does not do
+                this, the TRX is reset.
+                Note:
+                For information only, not a hardware fault.
+            </b3>
+            <b4 index="4">Reset, SW Fault. Description:
+                The TRX is reset because of a severe software fault.
+            </b4>
+            <b5 index="5">Reset, RAM Fault. Description:
+                The TRX is reset because of an error in the RAM parity check.
+            </b5>
+            <b6 index="6">Reset, Internal Function Change. Description:
+                The TRX is reset after software download in order to activate the new software.
+                Note:
+                For information only.
+            </b6>
+            <b7 index="7">Reset, BSC ordered HW Reset. Description:
+                The TRX is reset with the BSC ordered HW Reset Request Command.
+                Note:
+                For information only.
+            </b7>
+            <b8 index="8">Timing Reception Fault. Description:
+                For RUS/RRUS/AIR/mRRUS-based configurations:
+                The DUG has internal timing problems.
 
-For RUG-based configurations:
+                For RUG-based configurations:
 
-The RUG has internal timing problems. It could be a fault in the RUG or Y link.</b8>
-            <b9 value="9">Signal Processing Fault. Description:
-            The TRX has problems with its signal processing.</b9>
-            <b10 value="10">RX Communication Fault. Description:
-            The TRX has communication problems on its RX bus.</b10>
-            <b11 value="11">DSP CPU Communication Fault. Description:
-            The TRX has communication problems with a DSP.</b11>
-            <b12 value="12">Terrestrial Traffic Channel Fault. Description:
-            	Internal signalling fault.</b12>
-            <b13 value="13">RF Loop Test Fault. Description:
-            The RF loop test is used to detect faults on the TX or RX.</b13>
-            <b14 value="14">RU Database Corrupted. Description:
-            For RUS/RRUS/AIR/mRRUS-based configurations:
-The RU database in the DUG flash is corrupted or cannot be read by the software.
+                The RUG has internal timing problems. It could be a fault in the RUG or Y link.
+            </b8>
+            <b9 index="9">Signal Processing Fault. Description:
+                The TRX has problems with its signal processing.
+            </b9>
+            <b10 index="10">RX Communication Fault. Description:
+                The TRX has communication problems on its RX bus.
+            </b10>
+            <b11 index="11">DSP CPU Communication Fault. Description:
+                The TRX has communication problems with a DSP.
+            </b11>
+            <b12 index="12">Terrestrial Traffic Channel Fault. Description:
+                Internal signalling fault.
+            </b12>
+            <b13 index="13">RF Loop Test Fault. Description:
+                The RF loop test is used to detect faults on the TX or RX.
+            </b13>
+            <b14 index="14">RU Database Corrupted. Description:
+                For RUS/RRUS/AIR/mRRUS-based configurations:
+                The RU database in the DUG flash is corrupted or cannot be read by the software.
 
-For RUG-based configurations:
+                For RUG-based configurations:
 
-The RU database in RUG flash is corrupted or cannot be read by the software.</b14>
-            <b19 value="19">Reset, DXU Link Lost. Description:
+                The RU database in RUG flash is corrupted or cannot be read by the software.
+            </b14>
+            <b19 index="19">Reset, DXU Link Lost. Description:
 
-Note:
-For information only.
+                Note:
+                For information only.
 
-For RUS/RRUS/AIR/mRRUS-based configurations:
+                For RUS/RRUS/AIR/mRRUS-based configurations:
 
-After several DUG resets (see related faults) an internal fault provokes the DUG to reset and raise this alarm.
+                After several DUG resets (see related faults) an internal fault provokes the DUG to reset and raise this
+                alarm.
 
-For RUG-based configurations:
+                For RUG-based configurations:
 
-After several DUG resets (see related faults) the RUG loses contact with the DUG, which provokes it to reset and raise this alarm.</b19>
-            <b20 value="20">HW and IDB Inconsistent. Description:
-            	The IDB does not match the RUS/RRUS/AIR/mRRUS/RUG hardware, for example, wrong frequency band.
-Note:
-The OMT function Check IDB can be used to identify hardware/IDB inconsistencies.</b20>
-            <b21 value="21">Internal Configuration Failed. DEscription:
-            The TRX failed its internal configuration at startup.</b21>
-            <b22 value="22">Voltage Supply Fault. Description:
-            	A problem has occurred with the internal power distribution for this TRX.</b22>
-            <b23 value="23">Air Time Counter Lost. Description:
-            The TRX has signalling alignment problems.</b23>
-            <b24 value="24">High Temperature.</b24>
-            <b25 value="25">TX/RX Communication Fault. Description:
-            	Problems detected on the internal communication interface between the TX and RX.</b25>
-            <b26 value="26">Radio Control System Load. Description:
-            The radio control system has problems caused by system load.</b26>
-            <b27 value="27">Traffic Lost Downlink. Description:
-            	Internal TRX fault causes problems on the downlink traffic to the mobile.</b27>
-            <b28 value="28">Traffic Lost Uplink. Description:
-            	Internal TRX fault causes problems on the uplink traffic to the RBS.</b28>
-            <b29 value="29">Y Link Communication HW Fault. Description:
-            The TRX has internal problems with the Y link.</b29>
-            <b30 value="30">DSP RAM Soft Error. Description:
-            Spontaneous critical errors have occurred in the DSP RAM. A TRX reset usually clears this fault.</b30>
-            <b31 value="31">Memory Fault. Description:
-            A memory test of the radio control system has failed.</b31>
-            <b32 value="32">UC/HC Switch Card/Cable Missing or Corrupted. Description:
-            	The fault involves the UC/HC switch cable on the RUG, and the likely cause is one of the following:
-Corrupted UC/HC switch cable.
-No UC/HC switch cable connected.
-Incorrect cable connected.</b32>
-            <b33 value="33">Low Temperature.</b33>
-            <b34 value="34">Radio Unit HW Fault. Description:
-            The radio unit has indicated it is faulty and it might have to be replaced.</b34>
-            <b35 value="35">Radio Unit Fault. Description:
-            A radio unit has indicated an unspecified fault situation.</b35>
-            <b36 value="36">Lost Communication to Radio Unit. Description:
-            The DUG, or a RUS/RRUS/AIR/mRRUS in a cascade chain, has no contact or degraded communication with one or more RUSs/RRUSs/AIRs/mRRUSs marked as expected in the IDB.</b36>
-            <b37 value="37">Radio Unit Communication Failure. Description:
-            The DUG has communication problems with one or more RUSs/RRUSs/AIRs/mRRUSs that are marked as expected in the IDB.</b37>
+                After several DUG resets (see related faults) the RUG loses contact with the DUG, which provokes it to
+                reset and raise this alarm.
+            </b19>
+            <b20 index="20">HW and IDB Inconsistent. Description:
+                The IDB does not match the RUS/RRUS/AIR/mRRUS/RUG hardware, for example, wrong frequency band.
+                Note:
+                The OMT function Check IDB can be used to identify hardware/IDB inconsistencies.
+            </b20>
+            <b21 index="21">Internal Configuration Failed. DEscription:
+                The TRX failed its internal configuration at startup.
+            </b21>
+            <b22 index="22">Voltage Supply Fault. Description:
+                A problem has occurred with the internal power distribution for this TRX.
+            </b22>
+            <b23 index="23">Air Time Counter Lost. Description:
+                The TRX has signalling alignment problems.
+            </b23>
+            <b24 index="24">High Temperature.</b24>
+            <b25 index="25">TX/RX Communication Fault. Description:
+                Problems detected on the internal communication interface between the TX and RX.
+            </b25>
+            <b26 index="26">Radio Control System Load. Description:
+                The radio control system has problems caused by system load.
+            </b26>
+            <b27 index="27">Traffic Lost Downlink. Description:
+                Internal TRX fault causes problems on the downlink traffic to the mobile.
+            </b27>
+            <b28 index="28">Traffic Lost Uplink. Description:
+                Internal TRX fault causes problems on the uplink traffic to the RBS.
+            </b28>
+            <b29 index="29">Y Link Communication HW Fault. Description:
+                The TRX has internal problems with the Y link.
+            </b29>
+            <b30 index="30">DSP RAM Soft Error. Description:
+                Spontaneous critical errors have occurred in the DSP RAM. A TRX reset usually clears this fault.
+            </b30>
+            <b31 index="31">Memory Fault. Description:
+                A memory test of the radio control system has failed.
+            </b31>
+            <b32 index="32">UC/HC Switch Card/Cable Missing or Corrupted. Description:
+                The fault involves the UC/HC switch cable on the RUG, and the likely cause is one of the following:
+                Corrupted UC/HC switch cable.
+                No UC/HC switch cable connected.
+                Incorrect cable connected.
+            </b32>
+            <b33 index="33">Low Temperature.</b33>
+            <b34 index="34">Radio Unit HW Fault. Description:
+                The radio unit has indicated it is faulty and it might have to be replaced.
+            </b34>
+            <b35 index="35">Radio Unit Fault. Description:
+                A radio unit has indicated an unspecified fault situation.
+            </b35>
+            <b36 index="36">Lost Communication to Radio Unit. Description:
+                The DUG, or a RUS/RRUS/AIR/mRRUS in a cascade chain, has no contact or degraded communication with one
+                or more RUSs/RRUSs/AIRs/mRRUSs marked as expected in the IDB.
+            </b36>
+            <b37 index="37">Radio Unit Communication Failure. Description:
+                The DUG has communication problems with one or more RUSs/RRUSs/AIRs/mRRUSs that are marked as expected
+                in the IDB.
+            </b37>
         </AMAP1>
-        <BMAP1 name = "1BMAP" in_type="16" out_type="2">
-            <b3 value="3">DC Voltage Out of Range. Description:
-            The DC supply voltage to the TRX is outside operational range.</b3>
-            <b8 value="8">Y Link Communication Fault.</b8>
-            <b9 value="9">Y Link Communication Lost.</b9>
-            <b10 value="10">Timing Reception Fault.</b10>
-            <b12 value="12">TRX Not Activated for Combined Cell. Description:
-            	The DUG has failed to enable this TRX which is related to an extension MCTR for the Combined Cell. The traffic is not started for this TRX, this does not affect the main MCTR nor other extension MCTRs.
-Note:
-This alarm will never be visible via ABIS since no OML connection is established towards a TRX related to an extension MCTR.</b12>
-            <b13 value="13">Frequency Bandwidth Mismatch. Description:
-            One of the following has occurred in a combined cell:
-The main site and the antenna site do not support the same frequencies
-The extension site supports a narrower frequency bandwidth than the main site.</b13>
+        <BMAP1 name="1BMAP" in_type="16" out_type="2">
+            <b3 index="3">DC Voltage Out of Range. Description:
+                The DC supply voltage to the TRX is outside operational range.
+            </b3>
+            <b8 index="8">Y Link Communication Fault.</b8>
+            <b9 index="9">Y Link Communication Lost.</b9>
+            <b10 index="10">Timing Reception Fault.</b10>
+            <b12 index="12">TRX Not Activated for Combined Cell. Description:
+                The DUG has failed to enable this TRX which is related to an extension MCTR for the Combined Cell. The
+                traffic is not started for this TRX, this does not affect the main MCTR nor other extension MCTRs.
+                Note:
+                This alarm will never be visible via ABIS since no OML connection is established towards a TRX related
+                to an extension MCTR.
+            </b12>
+            <b13 index="13">Frequency Bandwidth Mismatch. Description:
+                One of the following has occurred in a combined cell:
+                The main site and the antenna site do not support the same frequencies
+                The extension site supports a narrower frequency bandwidth than the main site.
+            </b13>
         </BMAP1>
-        <AMAP2 name = "2AMAP" in_type="16" out_type="2">
-            <b0 value="0">RX Cable Disconnected. Description:
-            An RX cable is disconnected or faulty.</b0>
-            <b1 value="1">RX EEPROM Checksum Fault. Description:
-            	The data stored in the RX database, used by the software for internal configuration, is corrupted.</b1>
-            <b3 value="3">RX Synthesizer Unlocked. Description:
-            	At least one of the radio synthesizers in the RX has failed to lock to the required frequency.</b3>
-            <b4 value="4">RX Internal Voltage Fault. Description:
-            The RX internal voltage is not within the expected voltage range.</b4>
-            <b7 value="7">TX EEPROM Checksum Fault. Description:
-            The data stored in the TX database, used by software for internal configuration, is corrupted.</b7>
-            <b9 value="9">TX Synthesizer Unlocked. Description:
-            At least one of the radio synthesizers in the TX has failed to lock to the required frequency.</b9>
-            <b10 value="10">TX Internal Voltage Fault. Description:
-            	The TX has problems with its internal voltage regulation.</b10>
-            <b11 value="11">TX High Temperature. Description:
-            	If raised together with SO TRXC I2A:25, TX Max Power Restricted:
-This alarm indicates a too high temperature in the RUS/RRUS/AIR/mRRUS/RUG. The RUS/RRUS/AIR/mRRUS/RUG output power can be automatically decreased to prevent hardware damage.
+        <AMAP2 name="2AMAP" in_type="16" out_type="2">
+            <b0 index="0">RX Cable Disconnected. Description:
+                An RX cable is disconnected or faulty.
+            </b0>
+            <b1 index="1">RX EEPROM Checksum Fault. Description:
+                The data stored in the RX database, used by the software for internal configuration, is corrupted.
+            </b1>
+            <b3 index="3">RX Synthesizer Unlocked. Description:
+                At least one of the radio synthesizers in the RX has failed to lock to the required frequency.
+            </b3>
+            <b4 index="4">RX Internal Voltage Fault. Description:
+                The RX internal voltage is not within the expected voltage range.
+            </b4>
+            <b7 index="7">TX EEPROM Checksum Fault. Description:
+                The data stored in the TX database, used by software for internal configuration, is corrupted.
+            </b7>
+            <b9 index="9">TX Synthesizer Unlocked. Description:
+                At least one of the radio synthesizers in the TX has failed to lock to the required frequency.
+            </b9>
+            <b10 index="10">TX Internal Voltage Fault. Description:
+                The TX has problems with its internal voltage regulation.
+            </b10>
+            <b11 index="11">TX High Temperature. Description:
+                If raised together with SO TRXC I2A:25, TX Max Power Restricted:
+                This alarm indicates a too high temperature in the RUS/RRUS/AIR/mRRUS/RUG. The RUS/RRUS/AIR/mRRUS/RUG
+                output power can be automatically decreased to prevent hardware damage.
 
-If not raised together with SO TRXC I2A:25, TX Max Power Restricted:
+                If not raised together with SO TRXC I2A:25, TX Max Power Restricted:
 
-This alarm indicates only that an increase in the temperature in the RUS/RRUS/AIR/mRRUS has occurred but the increase is still within the working range. The setting of this alarm can vary depending on RUS/RRUS/AIR/mRRUS type.</b11>
-            <b12 value="12">TX Output Power Limits Exceeded. Description:
-            The difference between actual and expected TX power at RUG output exceeds a defined class 2 limit. TX function is degraded, but not lost. TX function is lost when the difference exceeds a defined class1 limit and fault AO TX I1B:13 is raised.</b12>
-            <b13 value="13">TX Saturation. Description:
-            	The TX power amplifier is saturated.</b13>
-            <b14 value="14">Voltage Supply Fault. Description:
-            A problem has occurred with the power supply to the power amplifier for this TRX.</b14>
-            <b17 value="17">Loadfile Missing for TRX node. Description:
-            	A DUG 20/RUG software file is missing or corrupted. The likely cause is either failed software download or connection of a DUG 20/RUG with incomplete software.</b17>
-            <b18 value="18">DSP Fault. Description:
-            One of the TRX DSPs is faulty.</b18>
-            <b19 value="19">High Frequency of Software Fault. Description:
-            Frequent software errors during execution of application software in the RUS/RRUS/AIR/mRRUS/RUG.</b19>
-            <b20 value="20">RX Initiation Fault. Description:
-            The RX failed its initiation at startup.</b20>
-            <b21 value="21">TX Initiation Fault. Description:
-            The TX failed its initiation at startup.</b21>
-            <b23 value="23">Default Values Used. Description:
-            The TRX software is using default values for its internal configuration.</b23>
-            <b24 value="24">Radio Unit Antenna System Output Voltage Fault. Description:
-            The ALNA/TMA voltage is outside the specified range. This can be caused by a hardware failure in the RUS/RRUS/AIR power supply or some device, that is, a feeder or TMA consuming too much power.</b24>
-            <b25 value="25">TX Max Power Restricted.</b25>
-            <b26 value="26">DB Parameter Fault. Description:
-            One or more parameters in the TRX databases are considered erroneous and default values are used instead.</b26>
-            <b29 value="29">Power Amplifier Fault. Description:
-            	The data stored in the TX power amplifier database, used by software for internal configuration, is corrupted.</b29>
-            <b33 value="33">Inter TRX Communication Fault. Description:
-            The communication between TRXs has problems or is degraded.</b33>
-            <b36 value="36">RX Filter Loadfile Checksum Fault. Description:
-            Faulty checksum of RX Filter Loadfile.</b36>
-            <b38 value="38">High Utilization. Description:
-            The TRX CPU utilization has been high, that is, greater than 90 %, for 60 seconds.</b38>
-            <b39 value="39">RF Loop Test Fault, Degraded RX. Description:
-            The RF Loop test is used to detect problems with the TX and RX by sending dummy bursts between them. One RX path is detected as faulty.</b39>
-            <b40 value="40">Memory Fault. Description:
-            A memory test of the radio control system has failed.</b40>
-            <b42 value="42">UC/HC Switch Card/Cable and IDB Inconsistent. Description:
-            The switch position of the UC/HC switch cable on the RUG is inconsistent with the IDB, that is, the position is not as indicated by the IDB.</b42>
-            <b44 value="44">TX Low Temperature. Description:
-            The temperature of the RUS/RRUS/AIR/mRRUS is below normal conditional range. The fault ceases when the temperature is back within the normal conditional range.
-The likely causes of this fault are as follows:
+                This alarm indicates only that an increase in the temperature in the RUS/RRUS/AIR/mRRUS has occurred but
+                the increase is still within the working range. The setting of this alarm can vary depending on
+                RUS/RRUS/AIR/mRRUS type.
+            </b11>
+            <b12 index="12">TX Output Power Limits Exceeded. Description:
+                The difference between actual and expected TX power at RUG output exceeds a defined class 2 limit. TX
+                function is degraded, but not lost. TX function is lost when the difference exceeds a defined class1
+                limit and fault AO TX I1B:13 is raised.
+            </b12>
+            <b13 index="13">TX Saturation. Description:
+                The TX power amplifier is saturated.
+            </b13>
+            <b14 index="14">Voltage Supply Fault. Description:
+                A problem has occurred with the power supply to the power amplifier for this TRX.
+            </b14>
+            <b17 index="17">Loadfile Missing for TRX node. Description:
+                A DUG 20/RUG software file is missing or corrupted. The likely cause is either failed software download
+                or connection of a DUG 20/RUG with incomplete software.
+            </b17>
+            <b18 index="18">DSP Fault. Description:
+                One of the TRX DSPs is faulty.
+            </b18>
+            <b19 index="19">High Frequency of Software Fault. Description:
+                Frequent software errors during execution of application software in the RUS/RRUS/AIR/mRRUS/RUG.
+            </b19>
+            <b20 index="20">RX Initiation Fault. Description:
+                The RX failed its initiation at startup.
+            </b20>
+            <b21 index="21">TX Initiation Fault. Description:
+                The TX failed its initiation at startup.
+            </b21>
+            <b23 index="23">Default indexs Used. Description:
+                The TRX software is using default indexs for its internal configuration.
+            </b23>
+            <b24 index="24">Radio Unit Antenna System Output Voltage Fault. Description:
+                The ALNA/TMA voltage is outside the specified range. This can be caused by a hardware failure in the
+                RUS/RRUS/AIR power supply or some device, that is, a feeder or TMA consuming too much power.
+            </b24>
+            <b25 index="25">TX Max Power Restricted.</b25>
+            <b26 index="26">DB Parameter Fault. Description:
+                One or more parameters in the TRX databases are considered erroneous and default indexs are used
+                instead.
+            </b26>
+            <b29 index="29">Power Amplifier Fault. Description:
+                The data stored in the TX power amplifier database, used by software for internal configuration, is
+                corrupted.
+            </b29>
+            <b33 index="33">Inter TRX Communication Fault. Description:
+                The communication between TRXs has problems or is degraded.
+            </b33>
+            <b36 index="36">RX Filter Loadfile Checksum Fault. Description:
+                Faulty checksum of RX Filter Loadfile.
+            </b36>
+            <b38 index="38">High Utilization. Description:
+                The TRX CPU utilization has been high, that is, greater than 90 %, for 60 seconds.
+            </b38>
+            <b39 index="39">RF Loop Test Fault, Degraded RX. Description:
+                The RF Loop test is used to detect problems with the TX and RX by sending dummy bursts between them. One
+                RX path is detected as faulty.
+            </b39>
+            <b40 index="40">Memory Fault. Description:
+                A memory test of the radio control system has failed.
+            </b40>
+            <b42 index="42">UC/HC Switch Card/Cable and IDB Inconsistent. Description:
+                The switch position of the UC/HC switch cable on the RUG is inconsistent with the IDB, that is, the
+                position is not as indicated by the IDB.
+            </b42>
+            <b44 index="44">TX Low Temperature. Description:
+                The temperature of the RUS/RRUS/AIR/mRRUS is below normal conditional range. The fault ceases when the
+                temperature is back within the normal conditional range.
+                The likely causes of this fault are as follows:
 
-If the alarm is raised on only one RUS, then it is likely that the unit has developed a fault, in which case, it is likely that another fault also has been issued for that unit.
-If several units from different subracks have issued the fault, then the most likely cause is a fault at the site, in the RBS air-conditioning or in the cooling system.</b44>
-            <b45 value="45">Radio Unit HW Fault. Description:
-            The RUS/RRUS/AIR/mRRUS has an internal hardware fault. The severity of the fault is indicated by the related faults.</b45>
-            <b46 value="46">Traffic Performance Uplink. Description:
-            Internal TRX fault causes problem on the uplink traffic.</b46>
-            <b47 value="47">Internal Configuration Failed. Description:
-            The TRX failed its internal configuration and the fault causes problem on one of the RX ways.</b47>
+                If the alarm is raised on only one RUS, then it is likely that the unit has developed a fault, in which
+                case, it is likely that another fault also has been issued for that unit.
+                If several units from different subracks have issued the fault, then the most likely cause is a fault at
+                the site, in the RBS air-conditioning or in the cooling system.
+            </b44>
+            <b45 index="45">Radio Unit HW Fault. Description:
+                The RUS/RRUS/AIR/mRRUS has an internal hardware fault. The severity of the fault is indicated by the
+                related faults.
+            </b45>
+            <b46 index="46">Traffic Performance Uplink. Description:
+                Internal TRX fault causes problem on the uplink traffic.
+            </b46>
+            <b47 index="47">Internal Configuration Failed. Description:
+                The TRX failed its internal configuration and the fault causes problem on one of the RX ways.
+            </b47>
         </AMAP2>
-        <EXT1BMAP name = "EXT1BMAP" in_type="16" out_type="10">
-            <b4 value="4">L/R SWI (TRU in Local Mode). Description:
-            The RUG/RUS/RRUS/AIR is in full maintenance mode and cannot be controlled by the BSC.
-This can happen, for example, after installing a new IDB.</b4>
-            <b5 value="5">L/R TI (Local to Remote While Link Lost). Description:
-            The RUG/RUS/RRUS/AIR went into no maintenance mode while the link was down.
-Note:
-For information only.</b5>
+        <EXT1BMAP name="EXT1BMAP" in_type="16" out_type="10">
+            <b4 index="4">L/R SWI (TRU in Local Mode). Description:
+                The RUG/RUS/RRUS/AIR is in full maintenance mode and cannot be controlled by the BSC.
+                This can happen, for example, after installing a new IDB.
+            </b4>
+            <b5 index="5">L/R TI (Local to Remote While Link Lost). Description:
+                The RUG/RUS/RRUS/AIR went into no maintenance mode while the link was down.
+                Note:
+                For information only.
+            </b5>
         </EXT1BMAP>
-        <EXT2BMAP name = "EXT2BMAP" in_type="16" out_type="2">
-            <b16 value="16">TS0 TRA Lost (TS Mode Is IDLE). Description:
-            The speech/data frames from the BSC to the TS are missing or corrupted.
-This is probably a fault in the Abis transmission path or in the BSC, for example, no TRA allocated, no connection in Group Switch, and so on.</b16>
-            <b17 value="17">TS0 TRA Lost (TS Mode Is CS). Description:
-            The speech/data frames from the BSC to the TS are missing or corrupted.
-This is probably a fault in the Abis transmission path or in the BSC, for example, no TRA allocated, no connection in Group Switch, and so on.</b17>
-            <b18 value="18">TS0 PCU Lost (TS Mode Is PS). Description:
-            The speech/data frames from the BSC to the TS are missing or corrupted.
-This is probably a fault in the Abis transmission path or in the BSC, for example, no TRA allocated, no connection in Group Switch, and so on.</b18>
-            <b20 value="20">TS1 TRA Lost (TS Mode Is IDLE). Description:
-            The speech/data frames from the BSC to the TS are missing or corrupted.
-This is probably a fault in the Abis transmission path or in the BSC, for example, no TRA allocated, no connection in Group Switch, and so on.</b20>
-            <b21 value="21">TS1 TRA Lost (TS Mode Is CS). Description:
-            The speech/data frames from the BSC to the TS are missing or corrupted.
-This is probably a fault in the Abis transmission path or in the BSC, for example, no TRA allocated, no connection in Group Switch, and so on.</b21>
-            <b22 value="22">TS1 PCU Lost (TS Mode Is PS). Description:
-            	The speech/data frames from the BSC to the TS are missing or corrupted.
-This is probably a fault in the Abis transmission path or in the BSC, for example, no TRA allocated, no connection in Group Switch, and so on.</b22>
-            <b24 value="24">TS2 TRA Lost (TS Mode Is IDLE). Description:
-            The speech/data frames from the BSC to the TS are missing or corrupted.
-This is probably a fault in the Abis transmission path or in the BSC, for example, no TRA allocated, no connection in Group Switch, and so on.</b24>
-            <b25 value="25">TS2 TRA Lost (TS Mode Is CS). Description:
-            The speech/data frames from the BSC to the TS are missing or corrupted.
-This is probably a fault in the Abis transmission path or in the BSC, for example, no TRA allocated, no connection in Group Switch, and so on.</b25>
-            <b26 value="26">TS2 PCU Lost (TS Mode Is PS). Description:
-            The speech/data frames from the BSC to the TS are missing or corrupted.
-This is probably a fault in the Abis transmission path or in the BSC, for example, no TRA allocated, no connection in Group Switch, and so on.</b26>
-            <b28 value="28">TS3 TRA Lost (TS Mode Is IDLE). Description:
-            The speech/data frames from the BSC to the TS are missing or corrupted.
-This is probably a fault in the Abis transmission path or in the BSC, for example, no TRA allocated, no connection in Group Switch, and so on.</b28>
-            <b29 value="29">TS3 TRA Lost (TS Mode Is CS). Description:
-            The speech/data frames from the BSC to the TS are missing or corrupted.
-This is probably a fault in the Abis transmission path or in the BSC, for example, no TRA allocated, no connection in Group Switch, and so on.</b29>
-            <b30 value="30">TS3 PCU Lost (TS Mode Is PS). Description:
-            	The speech/data frames from the BSC to the TS are missing or corrupted.
-This is probably a fault in the Abis transmission path or in the BSC, for example, no TRA allocated, no connection in Group Switch, and so on.</b30>
-            <b32 value="32">TS4 TRA Lost (TS Mode Is IDLE). Description:
-            The speech/data frames from the BSC to the TS are missing or corrupted
-This is probably a fault in the Abis transmission path or in the BSC (for example, no TRA allocated, no connection in Group Switch, and so on).</b32>
-            <b33 value="33">TS4 TRA Lost (TS Mode Is CS). Description:
-            The speech/data frames from the BSC to the TS are missing or corrupted.
-This is probably a fault in the Abis transmission path or in the BSC, for example, no TRA allocated, no connection in Group Switch, and so on.</b33>
-            <b34 value="34">TS4 PCU Lost (TS Mode Is PS). Description:
-            The speech/data frames from the BSC to the TS are missing or corrupted.
-This is probably a fault in the Abis transmission path or in the BSC, for example, no TRA allocated, no connection in Group Switch, and so on.</b34>
-            <b36 value="36">TS5 TRA Lost (TS Mode Is IDLE). Description:
-            The speech/data frames from the BSC to the TS are missing or corrupted.
-This is probably a fault in the Abis transmission path or in the BSC, for example, no TRA allocated, no connection in Group Switch, and so on.</b36>
-            <b37 value="37">TS5 TRA Lost (TS Mode Is CS). Description:
-            The speech/data frames from the BSC to the TS are missing or corrupted.
-This is probably a fault in the Abis transmission path or in the BSC, for example, no TRA allocated, no connection in Group Switch, and so on.</b37>
-            <b38 value="38">TS5 PCU Lost (TS Mode Is PS). Description:
-            The speech/data frames from the BSC to the TS are missing or corrupted.
-This is probably a fault in the Abis transmission path or in the BSC, for example, no TRA allocated, no connection in Group Switch, and so on.</b38>
-            <b40 value="40">TS6 TRA Lost (TS Mode Is IDLE). Description:
-            The speech/data frames from the BSC to the TS are missing or corrupted.
-This is probably a fault in the Abis transmission path or in the BSC, for example, no TRA allocated, no connection in Group Switch, and so on.</b40>
-            <b41 value="41">TS6 TRA Lost (TS Mode Is CS). Description:
-            The speech/data frames from the BSC to the TS are missing or corrupted.
-This is probably a fault in the Abis transmission path or in the BSC, for example, no TRA allocated, no connection in Group Switch, and so on.</b41>
-            <b42 value="42">TS6 PCU Lost (TS Mode Is PS). Description:
-            The speech/data frames from the BSC to the TS are missing or corrupted.
-This is probably a fault in the Abis transmission path or in the BSC, for example, no TRA allocated, no connection in Group Switch, and so on.</b42>
-            <b44 value="44">TS7 TRA Lost (TS Mode Is IDLE). Description:
-            The speech/data frames from the BSC to the TS are missing or corrupted.
-This is probably a fault in the Abis transmission path or in the BSC, for example, no TRA allocated, no connection in Group Switch, and so on.</b44>
-            <b45 value="45">TS7 TRA Lost (TS Mode Is CS). Description:
-            The speech/data frames from the BSC to the TS are missing or corrupted.
-This is probably a fault in the Abis transmission path or in the BSC, for example, no TRA allocated, no connection in Group Switch, and so on.</b45>
-            <b46 value="46">TS7 PCU Lost (TS Mode Is PS). Description:
-            The speech/data frames from the BSC to the TS are missing or corrupted.
-This is probably a fault in the Abis transmission path or in the BSC, for example, no TRA allocated, no connection in Group Switch, and so on.</b46>
+        <EXT2BMAP name="EXT2BMAP" in_type="16" out_type="2">
+            <b16 index="16">TS0 TRA Lost (TS Mode Is IDLE). Description:
+                The speech/data frames from the BSC to the TS are missing or corrupted.
+                This is probably a fault in the Abis transmission path or in the BSC, for example, no TRA allocated, no
+                connection in Group Switch, and so on.
+            </b16>
+            <b17 index="17">TS0 TRA Lost (TS Mode Is CS). Description:
+                The speech/data frames from the BSC to the TS are missing or corrupted.
+                This is probably a fault in the Abis transmission path or in the BSC, for example, no TRA allocated, no
+                connection in Group Switch, and so on.
+            </b17>
+            <b18 index="18">TS0 PCU Lost (TS Mode Is PS). Description:
+                The speech/data frames from the BSC to the TS are missing or corrupted.
+                This is probably a fault in the Abis transmission path or in the BSC, for example, no TRA allocated, no
+                connection in Group Switch, and so on.
+            </b18>
+            <b20 index="20">TS1 TRA Lost (TS Mode Is IDLE). Description:
+                The speech/data frames from the BSC to the TS are missing or corrupted.
+                This is probably a fault in the Abis transmission path or in the BSC, for example, no TRA allocated, no
+                connection in Group Switch, and so on.
+            </b20>
+            <b21 index="21">TS1 TRA Lost (TS Mode Is CS). Description:
+                The speech/data frames from the BSC to the TS are missing or corrupted.
+                This is probably a fault in the Abis transmission path or in the BSC, for example, no TRA allocated, no
+                connection in Group Switch, and so on.
+            </b21>
+            <b22 index="22">TS1 PCU Lost (TS Mode Is PS). Description:
+                The speech/data frames from the BSC to the TS are missing or corrupted.
+                This is probably a fault in the Abis transmission path or in the BSC, for example, no TRA allocated, no
+                connection in Group Switch, and so on.
+            </b22>
+            <b24 index="24">TS2 TRA Lost (TS Mode Is IDLE). Description:
+                The speech/data frames from the BSC to the TS are missing or corrupted.
+                This is probably a fault in the Abis transmission path or in the BSC, for example, no TRA allocated, no
+                connection in Group Switch, and so on.
+            </b24>
+            <b25 index="25">TS2 TRA Lost (TS Mode Is CS). Description:
+                The speech/data frames from the BSC to the TS are missing or corrupted.
+                This is probably a fault in the Abis transmission path or in the BSC, for example, no TRA allocated, no
+                connection in Group Switch, and so on.
+            </b25>
+            <b26 index="26">TS2 PCU Lost (TS Mode Is PS). Description:
+                The speech/data frames from the BSC to the TS are missing or corrupted.
+                This is probably a fault in the Abis transmission path or in the BSC, for example, no TRA allocated, no
+                connection in Group Switch, and so on.
+            </b26>
+            <b28 index="28">TS3 TRA Lost (TS Mode Is IDLE). Description:
+                The speech/data frames from the BSC to the TS are missing or corrupted.
+                This is probably a fault in the Abis transmission path or in the BSC, for example, no TRA allocated, no
+                connection in Group Switch, and so on.
+            </b28>
+            <b29 index="29">TS3 TRA Lost (TS Mode Is CS). Description:
+                The speech/data frames from the BSC to the TS are missing or corrupted.
+                This is probably a fault in the Abis transmission path or in the BSC, for example, no TRA allocated, no
+                connection in Group Switch, and so on.
+            </b29>
+            <b30 index="30">TS3 PCU Lost (TS Mode Is PS). Description:
+                The speech/data frames from the BSC to the TS are missing or corrupted.
+                This is probably a fault in the Abis transmission path or in the BSC, for example, no TRA allocated, no
+                connection in Group Switch, and so on.
+            </b30>
+            <b32 index="32">TS4 TRA Lost (TS Mode Is IDLE). Description:
+                The speech/data frames from the BSC to the TS are missing or corrupted
+                This is probably a fault in the Abis transmission path or in the BSC (for example, no TRA allocated, no
+                connection in Group Switch, and so on).
+            </b32>
+            <b33 index="33">TS4 TRA Lost (TS Mode Is CS). Description:
+                The speech/data frames from the BSC to the TS are missing or corrupted.
+                This is probably a fault in the Abis transmission path or in the BSC, for example, no TRA allocated, no
+                connection in Group Switch, and so on.
+            </b33>
+            <b34 index="34">TS4 PCU Lost (TS Mode Is PS). Description:
+                The speech/data frames from the BSC to the TS are missing or corrupted.
+                This is probably a fault in the Abis transmission path or in the BSC, for example, no TRA allocated, no
+                connection in Group Switch, and so on.
+            </b34>
+            <b36 index="36">TS5 TRA Lost (TS Mode Is IDLE). Description:
+                The speech/data frames from the BSC to the TS are missing or corrupted.
+                This is probably a fault in the Abis transmission path or in the BSC, for example, no TRA allocated, no
+                connection in Group Switch, and so on.
+            </b36>
+            <b37 index="37">TS5 TRA Lost (TS Mode Is CS). Description:
+                The speech/data frames from the BSC to the TS are missing or corrupted.
+                This is probably a fault in the Abis transmission path or in the BSC, for example, no TRA allocated, no
+                connection in Group Switch, and so on.
+            </b37>
+            <b38 index="38">TS5 PCU Lost (TS Mode Is PS). Description:
+                The speech/data frames from the BSC to the TS are missing or corrupted.
+                This is probably a fault in the Abis transmission path or in the BSC, for example, no TRA allocated, no
+                connection in Group Switch, and so on.
+            </b38>
+            <b40 index="40">TS6 TRA Lost (TS Mode Is IDLE). Description:
+                The speech/data frames from the BSC to the TS are missing or corrupted.
+                This is probably a fault in the Abis transmission path or in the BSC, for example, no TRA allocated, no
+                connection in Group Switch, and so on.
+            </b40>
+            <b41 index="41">TS6 TRA Lost (TS Mode Is CS). Description:
+                The speech/data frames from the BSC to the TS are missing or corrupted.
+                This is probably a fault in the Abis transmission path or in the BSC, for example, no TRA allocated, no
+                connection in Group Switch, and so on.
+            </b41>
+            <b42 index="42">TS6 PCU Lost (TS Mode Is PS). Description:
+                The speech/data frames from the BSC to the TS are missing or corrupted.
+                This is probably a fault in the Abis transmission path or in the BSC, for example, no TRA allocated, no
+                connection in Group Switch, and so on.
+            </b42>
+            <b44 index="44">TS7 TRA Lost (TS Mode Is IDLE). Description:
+                The speech/data frames from the BSC to the TS are missing or corrupted.
+                This is probably a fault in the Abis transmission path or in the BSC, for example, no TRA allocated, no
+                connection in Group Switch, and so on.
+            </b44>
+            <b45 index="45">TS7 TRA Lost (TS Mode Is CS). Description:
+                The speech/data frames from the BSC to the TS are missing or corrupted.
+                This is probably a fault in the Abis transmission path or in the BSC, for example, no TRA allocated, no
+                connection in Group Switch, and so on.
+            </b45>
+            <b46 index="46">TS7 PCU Lost (TS Mode Is PS). Description:
+                The speech/data frames from the BSC to the TS are missing or corrupted.
+                This is probably a fault in the Abis transmission path or in the BSC, for example, no TRA allocated, no
+                connection in Group Switch, and so on.
+            </b46>
         </EXT2BMAP>
-        <REPLMAP name = "REPLMAP" in_type="16" out_type="2">
-            <v0 value = "0">TRU, dTRU, DRU, RUG, RRU or DUG 20 </v0>
-            <v2 value = "2">Micro RBS </v2>
-            <v3 value = "3">CXU TRU RXA Cable</v3>
-            <v4 value = "4">CXU TRU RXB Cable </v4>
-            <v10 value = "10">CDU to TRU PFWD Cable </v10>
-            <v11 value = "11">CDU to TRU PREFL Cable </v11>
-            <v12 value = "12">CDU to TRU RXA Cable </v12>
-            <v13 value = "13">CDU to TRU RXB Cable </v13>
-            <v14 value = "14">CDU to Splitter Cable or Splitter to TRU RXA Cable </v14>
-            <v15 value = "15">CDU to Splitter Cable or Splitter to TRU RXB Cable</v15>
-            <v16 value = "16">CDU to TRU TX Cable </v16>
-            <v17 value = "17">CDU to Splitter Cable or Splitter to CXU RXA Cable </v17>
-            <v18 value = "18">CDU to Splitter Cable or Splitter to CXU RXB Cable </v18>
-            <v19 value = "19">Splitter to DRU Cable or DRU to Splitter RXA Cable</v19>
-            <v20 value = "20">Splitter to DRU Cable or DRU to Splitter RXB Cable </v20>
-            <v21 value = "21">DRU to DRU RXA Cable</v21>
-            <v22 value = "22">DRU to DRU RXB Cable</v22>
-            <v23 value = "23">HCU TRU TX Cable or HCU or CDU HCU TX Cable</v23>
-            <v24 value = "24">BSU </v24>
-            <v25 value = "25">RUS, RRUS, AIR or mRRUS </v25>
-            <v26 value = "26">RUG to RUG RXA Cable </v26>
-            <v27 value = "27">RUG to RUG RXB Cable </v27>
-            <v28 value = "28">RUS to RUS RXA Cable </v28>
-            <v29 value = "29">RUS to RUS RXB Cable </v29>
-          	</REPLMAP>
+        <REPLMAP name="REPLMAP" in_type="16" out_type="2">
+            <v0 index="0">TRU, dTRU, DRU, RUG, RRU or DUG 20</v0>
+            <v2 index="2">Micro RBS</v2>
+            <v3 index="3">CXU TRU RXA Cable</v3>
+            <v4 index="4">CXU TRU RXB Cable</v4>
+            <v10 index="10">CDU to TRU PFWD Cable</v10>
+            <v11 index="11">CDU to TRU PREFL Cable</v11>
+            <v12 index="12">CDU to TRU RXA Cable</v12>
+            <v13 index="13">CDU to TRU RXB Cable</v13>
+            <v14 index="14">CDU to Splitter Cable or Splitter to TRU RXA Cable</v14>
+            <v15 index="15">CDU to Splitter Cable or Splitter to TRU RXB Cable</v15>
+            <v16 index="16">CDU to TRU TX Cable</v16>
+            <v17 index="17">CDU to Splitter Cable or Splitter to CXU RXA Cable</v17>
+            <v18 index="18">CDU to Splitter Cable or Splitter to CXU RXB Cable</v18>
+            <v19 index="19">Splitter to DRU Cable or DRU to Splitter RXA Cable</v19>
+            <v20 index="20">Splitter to DRU Cable or DRU to Splitter RXB Cable</v20>
+            <v21 index="21">DRU to DRU RXA Cable</v21>
+            <v22 index="22">DRU to DRU RXB Cable</v22>
+            <v23 index="23">HCU TRU TX Cable or HCU or CDU HCU TX Cable</v23>
+            <v24 index="24">BSU</v24>
+            <v25 index="25">RUS, RRUS, AIR or mRRUS</v25>
+            <v26 index="26">RUG to RUG RXA Cable</v26>
+            <v27 index="27">RUG to RUG RXB Cable</v27>
+            <v28 index="28">RUS to RUS RXA Cable</v28>
+            <v29 index="29">RUS to RUS RXB Cable</v29>
+        </REPLMAP>
     </ACTIVE_KEYS>
     <PRINT_KEYS></PRINT_KEYS>
 </root>

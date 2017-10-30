@@ -15,18 +15,18 @@
 			<b8 bit="8">RP communication fault</b8>
 			<b9 bit="9">Super Channel Group (SCGR) blocked by RTPLD</b9>
 			<b16 index="16">Failure on Transmission Device Side</b16>
-                <v0 value="0" width="16-20">DIP or SDIP failure</v0>
-                <v2 value="2" width="16-20">Failure at communication with RP</v2>
-                <v3 value="3" width="16-20">Switching Network Terminal (SNT) manually, auto, or control blocked</v3>
+                <v0_b17-b19 value="0" width="16-20">DIP or SDIP failure</v0_b17-b19>
+                <v2_b17-b19 value="2" width="16-20">Failure at communication with RP</v2_b17-b19>
+                <v3_b17-b19 value="3" width="16-20">Switching Network Terminal (SNT) manually, auto, or control blocked</v3_b17-b19>
 			<b20 index="20">Failure on User Side</b20>
-				<v0 value="0" width="20-23">Extension Module (EM) is blocked</v0>
-				<v1 value="1" width="20-23">Failure at communication with RP</v1>
-				<v2 value="2" width="20-23">10Gb network fault</v2>
+				<v0_b21-b22 value="0" width="20-23">Extension Module (EM) is blocked</v0_b21-b22>
+				<v1_b21-b22 value="1" width="20-23">Failure at communication with RP</v1_b21-b22>
+				<v2_b21-b22 value="2" width="20-23">10Gb network fault</v2_b21-b22>
 			<b23 index="23">Transport Protocol Fault</b23>
-				<v0 value="0" width="23-26">10Gb network fault</v0>
-				<v1 value="1" width="23-26">VLAN type fault</v1>
-				<v2 value="2" width="23-26">Payload protocol mismatch</v2>
-				<v3 value="3" width="23-26">Transport protocol mismatch</v3>
+				<v0_b24-b26 value="0" width="23-26">10Gb network fault</v0_b24-b26>
+				<v1_b24-b26 value="1" width="23-26">VLAN type fault</v1_b24-b26>
+				<v2_b24-b26 value="2" width="23-26">Payload protocol mismatch</v2_b24-b26>
+				<v3_b24-b26 value="3" width="23-26">Transport protocol mismatch</v3_b24-b26>
 			<b27 bit="27">Not activated in RP unit</b27>
 			<b28 bit="28">Bad quality on SC</b28>
 			<b30 bit="30">SCGR blocked</b30>
