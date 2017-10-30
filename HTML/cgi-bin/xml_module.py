@@ -180,8 +180,7 @@ class ConfigModule:
             # run by xml file
             for item in tree.iterfind('.ACTIVE_KEYS/'):
                 key_object = KeysObject()
-                key_object.name = item.tag
-
+                key_object.name = item.tag if item.attrib.get("name") == None else item.attrib.get("name")
                 # key_object.name = key_object.name.replace("_","\s+")
 
                 key_object.in_type = (item.attrib).get("in_type")

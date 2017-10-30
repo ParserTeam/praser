@@ -4,7 +4,7 @@
     <RELEASE>A57 A58</RELEASE>
     <NAME_KEY>MO</NAME_KEY>
     <ACTIVE_KEYS>
-        <1AMAP in_type="10" out_type="2">
+        <AMAP in_type="10" out_type="2">
             <b0 index="0"> Radio Unit Fault. Description:
             	The radio unit has indicated an unspecified fault situation.</b0>
             <b1 index="1">HW Fault. Desription:
@@ -17,8 +17,8 @@ The OMT function Check IDB can be used to identify hardware/IDB inconsistencies.
             <b4 index="4">Radio Unit in Full Maintenance Mode. Description:
             The RUS/RRUS is in full maintenance mode and cannot be controlled by the BSC.
 This can happen, for example, after installing a new IDB.</b4>
-        </1AMAP>
-        <1BMAP type="10" out_type="2">
+        </AMAP>
+        <BMAP type="10" out_type="2">
             <b0 index="0">Radio Unit Connection Fault.</b0>
             <b1 index="1">Temperature Exceptional.</b1>
             <b2 index="2">Lost Communication to Radio Unit.</b2>
