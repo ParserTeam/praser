@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root limiter="MO BTSSWVER DATE TIME BTS /any/ RXOCON.* /any/ EXT1BMAP EXT2BMAP EXT2BMAPEXT /any/ \n{2,}">
+    <HEADER>RADIO X-CEIVER ADMINISTRATION ERROR LOG DATA</HEADER>
+    <RELEASE>A57 A58</RELEASE>
+    <NAME_KEY>MO</NAME_KEY>
+    <ACTIVE_KEYS>
+        <EXT1BMAP in_type="10" out_type="2">
+            <b8 value="8">LAPD Q CG (LAPD Queue Congestion). Description:
+            	The TRX signalling load towards the BSC is too high compared with the signalling bandwidth.
+A possible reason is that the signalling load is high and the signalling bandwidth is reduced by using LAPD concentration or LAPD multiplexing.</b8>
+        </EXT1BMAP>
+        <EXT2BMAP in_type="10" out_type="2">
+            <b8 value="8">LAPD Q CG (LAPD Queue Congestion). Description:
+            The TRX signalling load towards the BSC is high compared with the signalling bandwidth.
+A possible reason is that the signalling load is high and the signalling bandwidth is reduced by using LAPD concentration or LAPD multiplexing.
+
+Note:
+Only a warning, but if the signal load increases, AO CON EC1:8 LAPD Q CG (LAPD queue congestion) might be raised and traffic lost.</b8>
+        </EXT2BMAP>
+    </ACTIVE_KEYS>
+    <PRINT_KEYS></PRINT_KEYS>
+</root>
